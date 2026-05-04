@@ -712,21 +712,35 @@ async function startRecording() {
   el.audioArea.classList.add('hidden');
   el.scoreArea.classList.add('hidden');
 
+  // iOS Safari では stop イベントが dataavailable より先に来るバグがある。
+  // 両イベントのどちらが先でも正しく動くよう finalize フラグで制御する。
+  let stopFired    = false;
+  let finalized    = false;
+
+  function finalizeAudio() {
+    if (finalized || !chunks.length) return;
+    finalized = true;
+    // iOS Safari は video/mp4 で録音するが <audio> 要素では再生できないので audio/mp4 にリマップ
+    let blobMime = (mr.mimeType && mr.mimeType !== '') ? mr.mimeType : (mimeType || 'audio/mp4');
+    if (blobMime === 'video/mp4' || blobMime === 'video/webm') {
+      blobMime = blobMime.includes('webm') ? 'audio/webm' : 'audio/mp4';
+    }
+    _showRecordedAudio(new Blob(chunks, { type: blobMime }));
+  }
+
   mr.addEventListener('dataavailable', e => {
-    if (e.data && e.data.size > 0) chunks.push(e.data);
+    if (e.data && e.data.size > 0) {
+      chunks.push(e.data);
+      if (stopFired) finalizeAudio(); // iOS バグ: stop の後に dataavailable が来た場合
+    }
   });
 
   mr.addEventListener('stop', () => {
     stream.getTracks().forEach(t => t.stop());
-    if (!chunks.length) return;
-    // 実際に使われた MIME タイプを取得（空の場合は要求値 → MP4 フォールバックの順）
-    let blobMime = (mr.mimeType && mr.mimeType !== '') ? mr.mimeType : (mimeType || 'audio/mp4');
-    // iOS Safari は video/mp4 で録音するが <audio> 要素では再生できないため audio/mp4 にリマップ
-    if (blobMime === 'video/mp4' || blobMime === 'video/webm') {
-      blobMime = blobMime.includes('webm') ? 'audio/webm' : 'audio/mp4';
-    }
-    const blob = new Blob(chunks, { type: blobMime });
-    _showRecordedAudio(blob);
+    stopFired = true;
+    finalizeAudio(); // 通常ルート: dataavailable の後に stop が来た場合
+    // iOS バグ対策: dataavailable がまだ来ていない場合のタイムアウト
+    setTimeout(() => finalizeAudio(), 800);
   });
 
   mr.addEventListener('error', e => {
@@ -792,7 +806,8 @@ function stopRecording() {
   const mr = state.mediaRecorder;
   state.mediaRecorder = null;
   if (mr && mr.state !== 'inactive') {
-    try { mr.stop(); } catch {}  // stop() が dataavailable → stop イベントを順番に発火させる
+    try { mr.requestData(); } catch {} // iOS: stop() 前にデータをフラッシュ（非対応ブラウザは無視）
+    try { mr.stop(); } catch {}
   }
 
   const score = calcScore(state.currentText, state.lastTranscript);
