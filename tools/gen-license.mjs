@@ -14,7 +14,9 @@
  * product（バンドル — 複数キーを一括発行）:
  *   bundle:travel_set  - 本体 + 旅行vol.1 + 旅行vol.2
  *   bundle:toeic_set   - 本体 + TOEICパック
- *   bundle:all         - 本体 + 旅行vol.1 + vol.2 + TOEIC
+ *   bundle:jiji_set    - 本体 + 時事vol.1 + 時事vol.2
+ *   bundle:hotel_set   - 本体 + ホテル英語パック
+ *   bundle:all         - 本体 + 旅行vol.1 + vol.2 + TOEIC + 時事vol.1 + vol.2 + ホテル
  *
  * 例:
  *   node tools/gen-license.mjs base 1 "Booth注文#1234"
@@ -63,7 +65,8 @@ const BUNDLES = {
   'bundle:travel_set': ['base', 'pack:travel_vol1', 'pack:travel_vol2'],
   'bundle:toeic_set':  ['base', 'pack:toeic'],
   'bundle:jiji_set':   ['base', 'pack:jiji_vol1', 'pack:jiji_vol2'],
-  'bundle:all':        ['base', 'pack:travel_vol1', 'pack:travel_vol2', 'pack:toeic', 'pack:jiji_vol1', 'pack:jiji_vol2']
+  'bundle:hotel_set':  ['base', 'pack:hotel'],
+  'bundle:all':        ['base', 'pack:travel_vol1', 'pack:travel_vol2', 'pack:toeic', 'pack:jiji_vol1', 'pack:jiji_vol2', 'pack:hotel']
 };
 
 const PRODUCT_LABELS = {
@@ -72,7 +75,8 @@ const PRODUCT_LABELS = {
   'pack:travel_vol2': '【パック】海外旅行 vol.2',
   'pack:toeic':       '【パック】TOEICパック',
   'pack:jiji_vol1':   '【パック】時事英語 vol.1',
-  'pack:jiji_vol2':   '【パック】時事英語 vol.2'
+  'pack:jiji_vol2':   '【パック】時事英語 vol.2',
+  'pack:hotel':       '【パック】ホテル英語'
 };
 
 const [product = 'base', countStr = '1', note = '', maxStr = '3'] = process.argv.slice(2);
