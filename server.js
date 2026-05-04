@@ -135,7 +135,7 @@ app.get('/admin/api/licenses', requireAdmin, (req, res) => {
       hashShort:       kh.slice(0, 8),
       key:             v.key || null,
       product:         v.product,
-      maxActivations:  v.maxActivations || 3,
+      maxActivations:  v.maxActivations || 5,
       activationsUsed: Object.keys(v.activations || {}).length,
       createdAt:       v.createdAt,
       note:            v.note || '',
@@ -159,13 +159,13 @@ app.get('/admin/api/licenses', requireAdmin, (req, res) => {
 
 // POST /admin/api/generate — ライセンス生成
 app.post('/admin/api/generate', requireAdmin, (req, res) => {
-  const { product, count = 1, note = '', maxActivations = 3 } = req.body || {};
+  const { product, count = 1, note = '', maxActivations = 5 } = req.body || {};
   if (!product) return res.status(400).json({ error: 'product は必須です' });
 
   const db   = loadDB();
   const keys = [];
   const cnt  = Math.min(Math.max(1, parseInt(count) || 1), 100);
-  const maxA = Math.min(Math.max(1, parseInt(maxActivations) || 3), 10);
+  const maxA = Math.min(Math.max(1, parseInt(maxActivations) || 5), 10);
 
   for (let i = 0; i < cnt; i++) {
     const key = genKey();
@@ -194,14 +194,14 @@ app.post('/admin/api/generate-bundle', requireAdmin, (req, res) => {
     'bundle:hotel_set':   ['base', 'pack:hotel'],
     'bundle:all':         ['base', 'pack:travel_vol1', 'pack:travel_vol2', 'pack:toeic', 'pack:jiji_vol1', 'pack:jiji_vol2', 'pack:hotel']
   };
-  const { bundle, note = '', maxActivations = 3 } = req.body || {};
+  const { bundle, note = '', maxActivations = 5 } = req.body || {};
   const products = BUNDLES[bundle];
   if (!products) {
     return res.status(400).json({ error: `不明なバンドル: ${bundle}`, available: Object.keys(BUNDLES) });
   }
 
   const db   = loadDB();
-  const maxA = Math.min(Math.max(1, parseInt(maxActivations) || 3), 10);
+  const maxA = Math.min(Math.max(1, parseInt(maxActivations) || 5), 10);
   const result = {};
 
   for (const product of products) {
@@ -355,7 +355,7 @@ app.post('/api/activate', (req, res) => {
     acts[deviceId].lastSeenAt = now;
   } else {
     const used = Object.keys(acts).length;
-    const max  = lic.maxActivations || 3;
+    const max  = lic.maxActivations || 5;
     if (used >= max) {
       return res.status(403).json({
         error: `このキーの使用上限（${max}台）に達しています。転売等でお困りの場合はサポートへご連絡ください。`,
@@ -370,7 +370,7 @@ app.post('/api/activate', (req, res) => {
   saveDB(db);
 
   const used  = Object.keys(acts).length;
-  const max   = lic.maxActivations || 3;
+  const max   = lic.maxActivations || 5;
   const token = signToken({ kh, did: deviceId, prod: 'base' });
 
   res.json({ token, product: 'base', activationsUsed: used, activationsLeft: max - used });
@@ -396,7 +396,7 @@ app.post('/api/verify', (req, res) => {
   saveDB(db);
 
   const used = Object.keys(lic.activations).length;
-  const max  = lic.maxActivations || 3;
+  const max  = lic.maxActivations || 5;
   res.json({ valid: true, product: payload.prod, activationsUsed: used, activationsLeft: max - used });
 });
 
@@ -427,7 +427,7 @@ app.post('/api/pack/activate', (req, res) => {
     acts[deviceId].lastSeenAt = now;
   } else {
     const used = Object.keys(acts).length;
-    const max  = lic.maxActivations || 3;
+    const max  = lic.maxActivations || 5;
     if (used >= max) {
       return res.status(403).json({
         error: `このパックキーの使用上限（${max}台）に達しています`,

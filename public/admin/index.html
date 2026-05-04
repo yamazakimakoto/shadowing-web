@@ -263,7 +263,7 @@
           </div>
           <div class="form-row">
             <label class="form-label">最大デバイス数（1〜10）</label>
-            <input type="number" id="gen-max-dev" class="form-input" value="3" min="1" max="10">
+            <input type="number" id="gen-max-dev" class="form-input" value="5" min="1" max="10">
           </div>
         </div>
         <div class="form-row">
@@ -545,7 +545,7 @@ async function loadDashboard() {
 async function generateKeys() {
   const product  = document.getElementById('gen-product').value;
   const count    = parseInt(document.getElementById('gen-count').value) || 1;
-  const maxDev   = parseInt(document.getElementById('gen-max-dev').value) || 3;
+  const maxDev   = parseInt(document.getElementById('gen-max-dev').value) || 5;
   const note     = document.getElementById('gen-note').value.trim();
   const msgEl    = document.getElementById('gen-msg');
   const resultEl = document.getElementById('gen-result');
@@ -626,7 +626,7 @@ function copyDelivery(keys, note) {
     `  3.「📦 セット」タブ →「🔑 パックキーでアンロック」から`,
     `     パックキーを順番に入力`,
     ``,
-    `■ 最大3台まで認証できます（機種変更時はご連絡ください）`,
+    `■ 最大5台まで認証できます（機種変更時はご連絡ください）`,
     `■ お問い合わせ: info-yamazaki@j05.itscom.net`,
     note ? `■ 注文番号: ${note}` : ''
   ];

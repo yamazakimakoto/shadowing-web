@@ -79,9 +79,9 @@ const PRODUCT_LABELS = {
   'pack:hotel':       '【パック】ホテル英語'
 };
 
-const [product = 'base', countStr = '1', note = '', maxStr = '3'] = process.argv.slice(2);
+const [product = 'base', countStr = '1', note = '', maxStr = '5'] = process.argv.slice(2);
 const count          = Math.max(1, parseInt(countStr) || 1);
-const maxActivations = Math.max(1, parseInt(maxStr)   || 3);
+const maxActivations = Math.max(1, parseInt(maxStr)   || 5);
 
 const db = loadDB();
 
