@@ -146,7 +146,7 @@ const state = {
   currentCat:        getActiveCategories()[0].id,
   dialogueMode:      false,
   dialogueSilentRole:'B',
-  dialogueFullPlay:  false,
+  dialogueFullPlay:  true,
   dialogueSegs:      [],
   dialogueStopped:   false,
   dialogueTimer:     null,
@@ -638,14 +638,21 @@ function _pickMimeType() {
   return ''; // ブラウザのデフォルトに任せる
 }
 
-// 前回の blob URL を解放してオーディオ要素をリセット
-function _resetAudioElement() {
-  const prev = el.recordedAudio.src;
-  if (prev && prev.startsWith('blob:')) {
-    try { URL.revokeObjectURL(prev); } catch {}
+// 録音完了後: 古い audio 要素を破棄し、新しい要素に blob をセットして返す
+// iOS では src を書き換えると要素が壊れるため、毎回 createElement で置き換える
+function _replaceAudioElement(blobUrl) {
+  const old = el.recordedAudio;
+  // 古い blob URL を解放
+  if (old.src?.startsWith('blob:')) {
+    try { URL.revokeObjectURL(old.src); } catch {}
   }
-  // load() は iOS の audio 要素を壊すことがあるため呼ばない
-  el.recordedAudio.src = '';
+  // 全属性なしの新鮮な要素を生成して差し替え
+  const fresh = document.createElement('audio');
+  fresh.id       = 'recorded-audio';
+  fresh.controls = true;
+  fresh.src      = blobUrl;
+  old.replaceWith(fresh);
+  el.recordedAudio = fresh; // el の参照も更新
 }
 
 // UI を録音前の状態に戻す
@@ -704,7 +711,7 @@ async function startRecording() {
   el.recStatus.classList.remove('hidden');
   el.audioArea.classList.add('hidden');
   el.scoreArea.classList.add('hidden');
-  _resetAudioElement(); // 前回の録音データをクリア
+  // audio 要素はリセットしない（stop イベント内で丸ごと置き換える）
 
   // ── MediaRecorder 生成（MIME タイプを明示指定）──
   const mimeType = _pickMimeType();
@@ -729,8 +736,10 @@ async function startRecording() {
     if (chunks.length === 0) return; // データなし（録音が極端に短い場合）
     // 使用された実際の MIME タイプを優先（iOS は audio/mp4、Android は audio/webm）
     const blobType = mr.mimeType || mimeType || 'audio/mp4';
-    const blob = new Blob(chunks, { type: blobType });
-    el.recordedAudio.src = URL.createObjectURL(blob);
+    const blob    = new Blob(chunks, { type: blobType });
+    const blobUrl = URL.createObjectURL(blob);
+    // ★ audio 要素ごと置き換え（iOS で src 再利用すると再生バーが出ない問題を回避）
+    _replaceAudioElement(blobUrl);
     el.audioArea.classList.remove('hidden');
   });
 
