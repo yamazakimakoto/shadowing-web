@@ -398,6 +398,8 @@ const TOKEN_KEY = 'shadowing_admin_token';
 let adminToken  = sessionStorage.getItem(TOKEN_KEY) || null;
 let allLicenses = [];
 let currentView = 'order'; // 'order' | 'single'
+let _resultStore  = {};    // ボタンに渡すデータをIDで管理（HTML属性へのJSON埋め込み回避）
+let _storeCounter = 0;
 
 // ─── 商品マスタ ───────────────────────────────────────────────────────────────
 const PRODUCT_LABELS = {
@@ -440,6 +442,18 @@ function copyText(text, btn) {
   } else {
     fallback();
   }
+}
+
+// ─── ストア経由コピー / 配信テキスト ─────────────────────────────────────────
+function copyStoredKeys(id, btn) {
+  const s = _resultStore[id];
+  if (!s || !s.keys.length) { alert('キーデータが見つかりません'); return; }
+  copyText(s.keys.join('\n'), btn);
+}
+function openStoredDelivery(id) {
+  const s = _resultStore[id];
+  if (!s || !s.keysMap) { alert('配信データが見つかりません'); return; }
+  openBundleDelivery(s.keysMap, s.note);
 }
 
 // ─── LOGIN ────────────────────────────────────────────────────────────────────
@@ -572,14 +586,19 @@ async function generateKeys() {
     const data = await api('POST', '/admin/api/generate', { product, count, note, maxActivations: maxDev });
     resultEl.className = '';
     const keysHtml = data.keys.map(k => buildKeyRowHtml(product, k)).join('');
-    const allKeysStr = JSON.stringify(data.keys);
+    const rid = 'r' + (++_storeCounter);
+    _resultStore[rid] = {
+      keys:    data.keys,
+      keysMap: count === 1 ? { [product]: data.keys[0] } : null,
+      note
+    };
     resultEl.innerHTML = `
       <div class="keys-box">
-        <div class="keys-box-title">✓ ${data.count}件発行しました${note ? ' — ' + note : ''}</div>
+        <div class="keys-box-title">✓ ${data.count}件発行しました${note ? ' — ' + escHtml(note) : ''}</div>
         ${keysHtml}
         <div class="keys-actions">
-          <button class="btn-copy-outline" onclick="copyText(${allKeysStr}.join('\\n'), this)">📋 全キーをコピー</button>
-          ${count === 1 ? `<button class="btn-copy-outline" onclick="openSingleDelivery('${product}','${data.keys[0]}','${note.replace(/'/g,"\\'")}')">📧 配信テキストを作成</button>` : ''}
+          <button class="btn-copy-outline" onclick="copyStoredKeys('${rid}', this)">📋 全キーをコピー</button>
+          ${count === 1 ? `<button class="btn-copy-outline" onclick="openStoredDelivery('${rid}')">📧 配信テキストを作成</button>` : ''}
         </div>
       </div>`;
     document.getElementById('gen-note').value = '';
@@ -601,17 +620,16 @@ async function generateBundle() {
     const keys = data.keys; // { product: key, ... }
     const allKeys = Object.values(keys);
     const keysHtml = Object.entries(keys).map(([p, k]) => buildKeyRowHtml(p, k)).join('');
-    const allKeysStr = JSON.stringify(allKeys);
-    const keysJson   = JSON.stringify(keys);
-    const safeNote   = note.replace(/'/g,"\\'");
+    const rid = 'r' + (++_storeCounter);
+    _resultStore[rid] = { keys: allKeys, keysMap: keys, note };
     resultEl.className = '';
     resultEl.innerHTML = `
       <div class="keys-box">
-        <div class="keys-box-title">✓ バンドル発行完了${note ? ' — ' + note : ''}</div>
+        <div class="keys-box-title">✓ バンドル発行完了${note ? ' — ' + escHtml(note) : ''}</div>
         ${keysHtml}
         <div class="keys-actions">
-          <button class="btn-copy-outline" onclick="copyText(${allKeysStr}.join('\\n'), this)">📋 全キーをコピー</button>
-          <button class="btn-copy-outline" onclick="openBundleDelivery(${keysJson},'${safeNote}')">📧 配信テキストを作成</button>
+          <button class="btn-copy-outline" onclick="copyStoredKeys('${rid}', this)">📋 全キーをコピー</button>
+          <button class="btn-copy-outline" onclick="openStoredDelivery('${rid}')">📧 配信テキストを作成</button>
         </div>
       </div>`;
     document.getElementById('bundle-note').value = '';
@@ -697,11 +715,11 @@ function renderOrderView() {
         </div>`;
     }).join('');
 
-    // 全キーリスト（コピー用）
+    // 全キーリスト（コピー用）- storeに保存してIDで参照（HTML属性へのJSON埋め込み回避）
     const allKeys = lics.filter(l => l.key).map(l => l.key);
-    const keysJson = JSON.stringify(lics.reduce((acc, l) => { if (l.key) acc[l.product] = l.key; return acc; }, {}));
-    const safeNote = g.note.replace(/'/g,"\\'");
-    const allKeysStr = JSON.stringify(allKeys);
+    const keysMap = lics.reduce((acc, l) => { if (l.key) acc[l.product] = l.key; return acc; }, {});
+    const rid = 'r' + (++_storeCounter);
+    _resultStore[rid] = { keys: allKeys, keysMap, note: g.note };
 
     return `
       <div class="order-group">
@@ -713,8 +731,8 @@ function renderOrderView() {
         </div>
         <div class="order-group-body">${keyRows}</div>
         <div class="order-group-actions">
-          <button class="btn-copy-outline" onclick="copyText(${allKeysStr}.join('\\n'), this)">📋 全キーをコピー</button>
-          <button class="btn-copy-outline" onclick="openBundleDelivery(${keysJson},'${safeNote}')">📧 配信テキストを作成</button>
+          <button class="btn-copy-outline" onclick="copyStoredKeys('${rid}', this)">📋 全キーをコピー</button>
+          <button class="btn-copy-outline" onclick="openStoredDelivery('${rid}')">📧 配信テキストを作成</button>
         </div>
       </div>`;
   }).join('');
