@@ -1,0 +1,180 @@
+{
+  "id": "travel_vol1",
+  "name": "海外旅行パック vol.1",
+  "description": "空港・ホテルで必ず使える実践英会話 25題",
+  "icon": "✈️",
+  "categories": [
+    { "id": "airport", "label": "空港", "icon": "✈️" },
+    { "id": "hotel",   "label": "ホテル", "icon": "🏨" }
+  ],
+  "texts": [
+    {
+      "id": 1001, "category": "airport",
+      "title": "Check-In at the Airport", "titleJa": "空港チェックイン",
+      "text": "A: Good morning. Could I see your passport and booking confirmation, please?\nB: Of course. Here you go. I'm on the nine-fifteen flight to London.\nA: Thank you. How many bags would you like to check in today?\nB: Just this one suitcase. I'll keep the backpack as my carry-on.\nA: Perfect. Would you prefer a window seat or an aisle seat?\nB: An aisle seat, please. I like having easy access during long flights."
+    },
+    {
+      "id": 1002, "category": "airport",
+      "title": "Overweight Baggage", "titleJa": "手荷物の重量超過",
+      "text": "A: I'm sorry, but your bag is two kilograms over the limit. It weighs twenty-two kilograms.\nB: Oh no. Is there a fee for that, or do I need to remove some items?\nA: You can either pay an excess baggage fee of thirty dollars, or transfer some items to your carry-on.\nB: I'll pay the fee. I really don't want to repack everything here.\nA: That's fine. I'll add the charge to your boarding pass. Here's your receipt.\nB: Thank you. Sorry for the inconvenience."
+    },
+    {
+      "id": 1003, "category": "airport",
+      "title": "Going Through Security", "titleJa": "セキュリティ検査",
+      "text": "A: Please place all metal items and electronic devices in the tray.\nB: Do I need to take my laptop out of my bag?\nA: Yes, please remove all laptops and tablets. Also take off your shoes and belt.\nB: Got it. And should I take out my liquids?\nA: Yes, all liquids in containers over one hundred milliliters need to be in your checked bag.\nB: Understood. Here's my bag of toiletries in a clear plastic bag."
+    },
+    {
+      "id": 1004, "category": "airport",
+      "title": "Flight Delay Announcement", "titleJa": "フライト遅延のアナウンス",
+      "text": "Good afternoon, ladies and gentlemen. This is an announcement for passengers on flight BA417 to Paris. We regret to inform you that your flight has been delayed by approximately two hours due to a technical issue with the aircraft. We sincerely apologize for any inconvenience this may cause. The updated boarding time is now scheduled for four-thirty this afternoon. Refreshment vouchers are available at the customer service desk near Gate 12. We thank you for your patience and understanding."
+    },
+    {
+      "id": 1005, "category": "airport",
+      "title": "Finding the Boarding Gate", "titleJa": "搭乗ゲートを探す",
+      "text": "A: Excuse me, could you tell me where Gate 34 is?\nB: Sure! Head straight down this corridor, turn right at the security checkpoint, and it's at the far end of Terminal B.\nA: Is there a shuttle or do I need to walk?\nB: It's about a ten-minute walk. You might want to hurry — boarding usually starts forty-five minutes before departure.\nA: Thanks. Is there a café on the way?\nB: There's one right before the terminal junction. You can't miss it."
+    },
+    {
+      "id": 1006, "category": "airport",
+      "title": "Wrong Seat on the Plane", "titleJa": "機内の座席間違い",
+      "text": "A: Excuse me, I believe you might be sitting in my seat. I have 24A.\nB: Oh, I'm sorry! Let me check my boarding pass. You're right — I'm in 24B. I'll move right away.\nA: No problem at all. These seats can be confusing.\nB: Thank you for being so understanding. Is this your first time flying this airline?\nA: No, I travel fairly often for work. How about you?\nB: This is my first long-haul flight actually. A bit nervous, to be honest."
+    },
+    {
+      "id": 1007, "category": "airport",
+      "title": "In-Flight Meal Service", "titleJa": "機内食のサービス",
+      "text": "A: Good evening. Would you prefer chicken with rice or pasta with vegetables?\nB: I'll have the chicken, please. And could I also get some extra water?\nA: Absolutely. And would you like red wine or white wine with your meal?\nB: Red wine would be lovely, thank you. Also, do you have any vegetarian options for dessert?\nA: The dessert is a fruit tart, which is vegetarian. I'll bring that right out.\nB: Perfect. This is much better than I expected for an economy seat!"
+    },
+    {
+      "id": 1008, "category": "airport",
+      "title": "Arrival Immigration", "titleJa": "入国審査",
+      "text": "A: Good afternoon. May I see your passport and arrival card, please?\nB: Here you are. I'm here for tourism. I'll be staying for ten days.\nA: Where will you be staying during your visit?\nB: At the Grand Hilton in downtown Manhattan. I have the confirmation number if you need it.\nA: That won't be necessary. Have you visited the United States before?\nB: Yes, twice. Welcome back. Enjoy your stay."
+    },
+    {
+      "id": 1009, "category": "airport",
+      "title": "Customs Declaration", "titleJa": "税関申告",
+      "text": "A: Do you have anything to declare today?\nB: I have some gifts for my family — chocolates and a bottle of wine.\nA: Is the wine over one liter?\nB: It's seven hundred and fifty milliliters — a standard bottle.\nA: That's within the duty-free limit. And the total value of your gifts?\nB: About sixty dollars. Here's my declaration form."
+    },
+    {
+      "id": 1010, "category": "airport",
+      "title": "Lost Luggage", "titleJa": "荷物の紛失",
+      "text": "A: Excuse me, my luggage hasn't come out on the conveyor belt. What should I do?\nB: I'm sorry to hear that. Could you please fill out this missing baggage form?\nA: Of course. Is it possible my bag is still on the plane?\nB: It's possible. Sometimes bags are offloaded separately. We'll track it immediately.\nA: My bag has a blue tag and a red ribbon. It's a hard-shell black suitcase.\nB: Thank you. We'll contact you at your hotel within four hours."
+    },
+    {
+      "id": 1011, "category": "airport",
+      "title": "Currency Exchange", "titleJa": "外貨両替",
+      "text": "A: Hi, I'd like to exchange fifty thousand yen into US dollars, please.\nB: Sure. What's today's rate? Let me check — it's one hundred and forty-two yen per dollar.\nA: So about three hundred and fifty dollars?\nB: Exactly three hundred and fifty-two. There's also a flat service fee of three dollars.\nA: That's fine. And could I have some in smaller bills, please?\nB: Of course. Here's your three hundred and forty-nine dollars. Please count it before you leave."
+    },
+    {
+      "id": 1012, "category": "airport",
+      "title": "Getting to the City", "titleJa": "市内へのアクセス",
+      "text": "A: Excuse me, I just arrived and I'm looking for ground transportation to downtown.\nB: You have several options. There's the express train — forty minutes and fifteen dollars.\nA: What about a taxi?\nB: A taxi takes about fifty minutes depending on traffic, and the fare is around fifty to sixty dollars.\nA: I'll take the train. Where do I buy the tickets?\nB: The ticket machines are on Level B1 — just follow the blue signs. They accept cards and cash."
+    },
+    {
+      "id": 1013, "category": "hotel",
+      "title": "Hotel Check-In", "titleJa": "ホテルチェックイン",
+      "text": "A: Good evening. I have a reservation under the name Yamamoto.\nB: Good evening, Mr. Yamamoto. You booked a deluxe king room for three nights, checking out on Thursday, correct?\nA: That's right. Could I get a non-smoking room on a higher floor?\nB: Of course. I've assigned you to room 1508 on the fifteenth floor with a lovely city view.\nA: Perfect. Is breakfast included?\nB: Yes, breakfast is served from six-thirty to ten-thirty in The Garden Restaurant on the second floor."
+    },
+    {
+      "id": 1014, "category": "hotel",
+      "title": "Room Not Ready", "titleJa": "部屋がまだ準備中",
+      "text": "A: Hello, I checked in this morning but my room isn't ready yet. It's already three o'clock.\nB: I sincerely apologize, Mr. Tanaka. We're experiencing high occupancy today.\nA: Is there any estimate for when the room will be ready?\nB: It should be ready within thirty minutes. May we offer you a complimentary drink at our lounge?\nA: That would be helpful. Please let me know as soon as the room is available.\nB: We'll call you on your mobile right away. Again, we're very sorry for the wait."
+    },
+    {
+      "id": 1015, "category": "hotel",
+      "title": "Reporting a Room Problem", "titleJa": "部屋のトラブルを報告する",
+      "text": "A: Hi, I'd like to report a problem with my room. The air conditioning isn't working properly.\nB: I'm sorry to hear that. Which room are you in?\nA: Room 728. It's making a strange noise and blowing warm air instead of cold.\nB: I'll send our maintenance team right away. Will you be in your room for the next hour?\nA: Yes, I'll be here. Also, the shower pressure is quite low. Could that be looked at as well?\nB: Certainly. If the problems can't be resolved, we'll move you to another room at no extra charge."
+    },
+    {
+      "id": 1016, "category": "hotel",
+      "title": "Room Service Order", "titleJa": "ルームサービスの注文",
+      "text": "A: Good evening. I'd like to order room service, please.\nB: Of course. What would you like?\nA: A club sandwich, a bowl of tomato soup, and a pot of English tea please.\nB: Any allergies we should know about?\nA: No allergies, but could you hold the pickles on the sandwich?\nB: Of course. That'll be about twenty-five minutes. The total is thirty-two dollars, charged to your room."
+    },
+    {
+      "id": 1017, "category": "hotel",
+      "title": "Concierge – Sightseeing Tips", "titleJa": "コンシェルジュに観光を相談",
+      "text": "A: Excuse me, could you recommend some must-see attractions nearby?\nB: Absolutely! If you enjoy art, the National Gallery is a ten-minute walk — free admission and spectacular.\nA: That sounds great. Any good restaurant suggestions for dinner?\nB: For a local experience, I'd recommend The Blue Anchor on King Street — known for fresh seafood.\nA: How far is it?\nB: About a fifteen-minute taxi ride. Shall I make a reservation? What time were you thinking?"
+    },
+    {
+      "id": 1018, "category": "hotel",
+      "title": "Hotel Breakfast", "titleJa": "ホテルの朝食",
+      "text": "A: Good morning. Are you dining alone?\nB: Yes, just myself. Could I have a table by the window?\nA: Certainly, right this way. Our breakfast is a buffet. Coffee or tea to start?\nB: Coffee please — black with no sugar. And could I order eggs from the menu?\nA: Of course. We have eggs any style — scrambled, poached, or made-to-order omelettes.\nB: I'll have a spinach omelette, please. Thank you."
+    },
+    {
+      "id": 1019, "category": "hotel",
+      "title": "Requesting Extra Amenities", "titleJa": "アメニティの追加を依頼する",
+      "text": "A: Hello, could I request a few extra items for my room, please?\nB: Of course. What do you need?\nA: Two extra bath towels and one hand towel, please.\nB: No problem. Anything else?\nA: Yes, could you also send up some extra pillows and a spare blanket?\nB: We'll send those right up. Is there anything else to make your stay more comfortable?"
+    },
+    {
+      "id": 1020, "category": "hotel",
+      "title": "Wi-Fi Troubleshooting", "titleJa": "Wi-Fiの接続トラブル",
+      "text": "A: Good morning. I'm having trouble connecting to the hotel Wi-Fi. The password isn't working.\nB: I'm sorry about that. Which network are you trying to connect to?\nA: It says HotelGuest, but the password from my welcome card says incorrect.\nB: That network recently had a password update. The new password is Welcome2024 — capital W, number 2024.\nA: Let me try that now. It's connected! Thank you so much.\nB: Great. If you have any other issues, IT support is on extension 250."
+    },
+    {
+      "id": 1021, "category": "hotel",
+      "title": "Wake-Up Call Request", "titleJa": "モーニングコールの依頼",
+      "text": "A: Hello, I'd like to request a wake-up call for tomorrow morning, please.\nB: Certainly. What time would you like?\nA: Six-thirty AM. I have an early flight to catch.\nB: Of course. Would you also like us to arrange a taxi to the airport?\nA: Yes, please. I need to be there by eight, so seven o'clock for the taxi.\nB: Done. Is there anything else I can help with tonight?"
+    },
+    {
+      "id": 1022, "category": "hotel",
+      "title": "Late Check-Out Request", "titleJa": "レイトチェックアウトの依頼",
+      "text": "A: Hi, would it be possible to request a late check-out tomorrow?\nB: Our standard check-out is noon. How late were you hoping to stay?\nA: My flight is at four. Could I check out around two PM?\nB: Let me check availability. Yes, I can offer you a two PM check-out. There's an additional charge of forty dollars.\nA: That's fine. It's worth it rather than waiting in the lobby.\nB: Done. I've updated your check-out time. Enjoy your remaining time with us."
+    },
+    {
+      "id": 1023, "category": "hotel",
+      "title": "Hotel Check-Out", "titleJa": "ホテルチェックアウト",
+      "text": "A: Good morning. I'd like to check out of room 412, please.\nB: Good morning. You stayed three nights. Did you have anything from the minibar?\nA: Yes, two bottles of water and a Coke.\nB: That comes to twelve dollars. Your total including room and tax is four hundred and sixty-two dollars. Card on file?\nA: Yes, the Visa I gave at check-in.\nB: Perfect. Here's your receipt. Thank you for staying with us. We hope to see you again."
+    },
+    {
+      "id": 1024, "category": "hotel",
+      "title": "Luggage Storage After Check-Out", "titleJa": "チェックアウト後の荷物預かり",
+      "text": "A: Hi, I'm checking out but my flight isn't until seven this evening. Can I store my luggage here?\nB: Absolutely — complimentary for our guests. How many bags?\nA: Two suitcases and a backpack.\nB: We'll give you a claim tag for each. Please keep those safe.\nA: Is there somewhere to freshen up before I head to the airport?\nB: Yes, our guest lounge on the second floor is available until your departure."
+    },
+    {
+      "id": 1025, "category": "hotel",
+      "title": "Booking a Hotel by Phone", "titleJa": "電話でホテルを予約する",
+      "text": "Hello, I'd like to make a reservation for two nights — the fourteenth and fifteenth of next month. I'm looking for a double room, preferably non-smoking on a high floor. I'll also need early check-in as my flight arrives at seven in the morning. Could you confirm availability and let me know the room rate? My name is Yamamoto — Y-A-M-A-M-O-T-O. My phone number is zero-nine-zero, one-two-three-four, five-six-seven-eight. Thank you very much."
+    }
+  ],
+  "explanations": {
+    "1001": [
+      { "phrase": "booking confirmation", "reading": "", "meaning": "予約確認書", "note": "「reservation」と同じ意味。ホテルや航空会社でよく使う。" },
+      { "phrase": "check in", "reading": "", "meaning": "チェックインする・搭乗手続きをする", "note": "" },
+      { "phrase": "carry-on", "reading": "キャリーオン", "meaning": "機内持ち込み荷物", "note": "carry-on bag / carry-on luggageとも言う。" }
+    ],
+    "1002": [
+      { "phrase": "excess baggage fee", "reading": "", "meaning": "超過手荷物料金", "note": "重量オーバー時に発生する追加料金。" },
+      { "phrase": "transfer some items", "reading": "", "meaning": "荷物を移す", "note": "" }
+    ],
+    "1003": [
+      { "phrase": "tray", "reading": "トレイ", "meaning": "（セキュリティの）トレー", "note": "荷物を入れて X 線に通すプラスチックのトレー。" },
+      { "phrase": "liquids", "reading": "", "meaning": "液体類", "note": "100ml以上の液体は機内持ち込み不可。" }
+    ],
+    "1004": [
+      { "phrase": "regret to inform you", "reading": "", "meaning": "残念ながらお知らせしなければなりません", "note": "丁寧なビジネス・アナウンス表現。" },
+      { "phrase": "due to", "reading": "", "meaning": "〜が原因で", "note": "理由を述べる定型表現。" }
+    ],
+    "1005": [
+      { "phrase": "boarding gate", "reading": "ボーディングゲート", "meaning": "搭乗ゲート", "note": "" },
+      { "phrase": "You might want to hurry", "reading": "", "meaning": "急いだ方がいいかもしれません", "note": "やんわりと急ぎを促す丁寧な表現。" }
+    ],
+    "1008": [
+      { "phrase": "for tourism", "reading": "", "meaning": "観光目的で", "note": "入国審査でよく使う表現。for business / for sightseeing なども同様。" },
+      { "phrase": "That won't be necessary", "reading": "", "meaning": "それには及びません", "note": "" }
+    ],
+    "1010": [
+      { "phrase": "conveyor belt", "reading": "コンベヤーベルト", "meaning": "手荷物受取のベルトコンベア", "note": "baggage carousel とも言う。" },
+      { "phrase": "offloaded", "reading": "", "meaning": "降ろされた（荷物が別便に）", "note": "" }
+    ],
+    "1013": [
+      { "phrase": "non-smoking room", "reading": "", "meaning": "禁煙室", "note": "" },
+      { "phrase": "Is breakfast included?", "reading": "", "meaning": "朝食は含まれていますか？", "note": "ホテル定番の確認フレーズ。" }
+    ],
+    "1016": [
+      { "phrase": "room service", "reading": "ルームサービス", "meaning": "客室への配膳サービス", "note": "" },
+      { "phrase": "charged to your room", "reading": "", "meaning": "部屋付けにする", "note": "チェックアウト時にまとめて精算する。" }
+    ],
+    "1022": [
+      { "phrase": "late check-out", "reading": "レイトチェックアウト", "meaning": "チェックアウト時間の延長", "note": "追加料金がかかる場合が多い。" },
+      { "phrase": "I can offer you", "reading": "", "meaning": "〜を提供できます", "note": "ホテルスタッフが使う丁寧な提案表現。" }
+    ]
+  }
+}

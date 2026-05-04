@@ -3,17 +3,34 @@ import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync, copyFileSync } from 'fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const DATA_DIR  = process.env.DATA_DIR || join(__dirname, 'data');
-const PACKS_DIR = join(DATA_DIR, 'packs');
-const DB_FILE   = join(DATA_DIR, 'licenses.json');
-const SEC_FILE  = join(DATA_DIR, '.jwt_secret');
+const DATA_DIR           = process.env.DATA_DIR || join(__dirname, 'data');
+const PACKS_DIR          = join(DATA_DIR, 'packs');
+const BUNDLED_PACKS_DIR  = join(__dirname, 'packs');
+const DB_FILE            = join(DATA_DIR, 'licenses.json');
+const SEC_FILE           = join(DATA_DIR, '.jwt_secret');
 
 if (!existsSync(DATA_DIR))  mkdirSync(DATA_DIR,  { recursive: true });
 if (!existsSync(PACKS_DIR)) mkdirSync(PACKS_DIR, { recursive: true });
+
+// ── バンドルされたパックを /data/packs/ に自動コピー ──
+if (existsSync(BUNDLED_PACKS_DIR)) {
+  try {
+    const files = readdirSync(BUNDLED_PACKS_DIR).filter(f => f.endsWith('.json'));
+    for (const f of files) {
+      const dest = join(PACKS_DIR, f);
+      if (!existsSync(dest)) {
+        copyFileSync(join(BUNDLED_PACKS_DIR, f), dest);
+        console.log(`✓ パックをシード: ${f}`);
+      }
+    }
+  } catch (e) {
+    console.warn('パックのシードに失敗:', e.message);
+  }
+}
 
 // JWT シークレット（初回起動時に自動生成・保存）
 let JWT_SECRET;
@@ -24,6 +41,9 @@ if (existsSync(SEC_FILE)) {
   writeFileSync(SEC_FILE, JWT_SECRET, { mode: 0o600 });
   console.log('✓ JWTシークレットを生成しました');
 }
+
+// ── 管理者パスワード ──
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || null;
 
 // ── DB helpers（JSON ファイルベース）──
 function loadDB() {
@@ -43,6 +63,19 @@ function verifyJwt(token) {
   try { return jwt.verify(token, JWT_SECRET); } catch { return null; }
 }
 
+// ── キー生成（紛らわしい文字を除外: 0/O, 1/I/L）──
+function genKey() {
+  const chars = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+  let k = 'SHAD';
+  for (let g = 0; g < 3; g++) {
+    k += '-';
+    for (let c = 0; c < 4; c++) {
+      k += chars[crypto.randomInt(chars.length)];
+    }
+  }
+  return k;
+}
+
 // ── レート制限（IP 単位、1時間あたり 20回）──
 const ipAttempts = new Map();
 function checkRate(ip) {
@@ -54,10 +87,203 @@ function checkRate(ip) {
   return r.n <= max;
 }
 
+// ── 管理者認証ミドルウェア ──
+function requireAdmin(req, res, next) {
+  if (!ADMIN_PASSWORD) {
+    return res.status(503).json({ error: 'ADMIN_PASSWORD が設定されていません。Render.com の Environment Variables を設定してください。' });
+  }
+  const authHeader = req.headers.authorization;
+  const token = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
+  const payload = token ? verifyJwt(token) : null;
+  if (!payload?.isAdmin) {
+    return res.status(401).json({ error: '管理者認証が必要です' });
+  }
+  next();
+}
+
 // ── Express ──
 const app = express();
 app.use(express.json());
 app.use(express.static(join(__dirname, 'public')));
+
+// ───────────────────────────────────────────────
+//  管理者 API
+// ───────────────────────────────────────────────
+
+// POST /admin/api/login
+app.post('/admin/api/login', (req, res) => {
+  if (!ADMIN_PASSWORD) {
+    return res.status(503).json({ error: 'ADMIN_PASSWORD が未設定です' });
+  }
+  const { password } = req.body || {};
+  if (password !== ADMIN_PASSWORD) {
+    return res.status(401).json({ error: 'パスワードが違います' });
+  }
+  const token = jwt.sign({ isAdmin: true }, JWT_SECRET, { expiresIn: '8h' });
+  res.json({ token });
+});
+
+// GET /admin/api/licenses — ライセンス一覧
+app.get('/admin/api/licenses', requireAdmin, (req, res) => {
+  const db = loadDB();
+  const { product } = req.query;
+  const entries = Object.entries(db.licenses)
+    .filter(([, v]) => !product || v.product === product)
+    .sort((a, b) => new Date(b[1].createdAt) - new Date(a[1].createdAt))
+    .map(([kh, v]) => ({
+      hash:            kh,
+      hashShort:       kh.slice(0, 8),
+      product:         v.product,
+      maxActivations:  v.maxActivations || 3,
+      activationsUsed: Object.keys(v.activations || {}).length,
+      createdAt:       v.createdAt,
+      note:            v.note || '',
+      devices:         Object.entries(v.activations || {}).map(([did, act]) => ({
+        deviceIdShort: did.slice(0, 16) + '…',
+        activatedAt:   act.activatedAt,
+        lastSeenAt:    act.lastSeenAt
+      }))
+    }));
+
+  // 統計
+  const stats = {};
+  for (const e of entries) {
+    if (!stats[e.product]) stats[e.product] = { total: 0, activated: 0 };
+    stats[e.product].total++;
+    if (e.activationsUsed > 0) stats[e.product].activated++;
+  }
+
+  res.json({ licenses: entries, stats, total: entries.length });
+});
+
+// POST /admin/api/generate — ライセンス生成
+app.post('/admin/api/generate', requireAdmin, (req, res) => {
+  const { product, count = 1, note = '', maxActivations = 3 } = req.body || {};
+  if (!product) return res.status(400).json({ error: 'product は必須です' });
+
+  const db   = loadDB();
+  const keys = [];
+  const cnt  = Math.min(Math.max(1, parseInt(count) || 1), 100);
+  const maxA = Math.min(Math.max(1, parseInt(maxActivations) || 3), 10);
+
+  for (let i = 0; i < cnt; i++) {
+    const key = genKey();
+    const kh  = hashKey(key);
+    db.licenses[kh] = {
+      product,
+      maxActivations: maxA,
+      createdAt:      new Date().toISOString(),
+      note:           note || '',
+      activations:    {}
+    };
+    keys.push(key);
+  }
+
+  saveDB(db);
+  res.json({ keys, count: keys.length, product, note, maxActivations: maxA });
+});
+
+// POST /admin/api/generate-bundle — バンドル一括生成
+app.post('/admin/api/generate-bundle', requireAdmin, (req, res) => {
+  const BUNDLES = {
+    'bundle:travel_set':  ['base', 'pack:travel_vol1', 'pack:travel_vol2'],
+    'bundle:toeic_set':   ['base', 'pack:toeic'],
+    'bundle:all':         ['base', 'pack:travel_vol1', 'pack:travel_vol2', 'pack:toeic']
+  };
+  const { bundle, note = '', maxActivations = 3 } = req.body || {};
+  const products = BUNDLES[bundle];
+  if (!products) {
+    return res.status(400).json({ error: `不明なバンドル: ${bundle}`, available: Object.keys(BUNDLES) });
+  }
+
+  const db   = loadDB();
+  const maxA = Math.min(Math.max(1, parseInt(maxActivations) || 3), 10);
+  const result = {};
+
+  for (const product of products) {
+    const key = genKey();
+    const kh  = hashKey(key);
+    db.licenses[kh] = {
+      product,
+      maxActivations: maxA,
+      createdAt:      new Date().toISOString(),
+      note:           note || '',
+      activations:    {}
+    };
+    result[product] = key;
+  }
+
+  saveDB(db);
+  res.json({ bundle, keys: result, note });
+});
+
+// POST /admin/api/revoke — 全デバイス認証取り消し
+app.post('/admin/api/revoke', requireAdmin, (req, res) => {
+  const { hash } = req.body || {};
+  if (!hash) return res.status(400).json({ error: 'hash は必須です' });
+  const db  = loadDB();
+  const lic = db.licenses[hash];
+  if (!lic) return res.status(404).json({ error: 'ライセンスが見つかりません' });
+  const count = Object.keys(lic.activations || {}).length;
+  lic.activations = {};
+  db.licenses[hash] = lic;
+  saveDB(db);
+  res.json({ ok: true, revokedCount: count });
+});
+
+// POST /admin/api/revoke-device — 特定デバイス取り消し
+app.post('/admin/api/revoke-device', requireAdmin, (req, res) => {
+  const { hash, deviceIdShort } = req.body || {};
+  if (!hash || !deviceIdShort) return res.status(400).json({ error: 'hash と deviceIdShort は必須です' });
+  const db  = loadDB();
+  const lic = db.licenses[hash];
+  if (!lic) return res.status(404).json({ error: 'ライセンスが見つかりません' });
+  // 前方一致で検索
+  const fullId = Object.keys(lic.activations || {}).find(d => d.startsWith(deviceIdShort.replace('…', '')));
+  if (!fullId) return res.status(404).json({ error: 'デバイスが見つかりません' });
+  delete lic.activations[fullId];
+  db.licenses[hash] = lic;
+  saveDB(db);
+  res.json({ ok: true });
+});
+
+// DELETE /admin/api/license — ライセンス削除
+app.delete('/admin/api/license', requireAdmin, (req, res) => {
+  const { hash } = req.body || {};
+  if (!hash) return res.status(400).json({ error: 'hash は必須です' });
+  const db = loadDB();
+  if (!db.licenses[hash]) return res.status(404).json({ error: 'ライセンスが見つかりません' });
+  delete db.licenses[hash];
+  saveDB(db);
+  res.json({ ok: true });
+});
+
+// GET /admin/api/packs — 利用可能パック一覧
+app.get('/admin/api/packs', requireAdmin, (req, res) => {
+  try {
+    const files = existsSync(PACKS_DIR)
+      ? readdirSync(PACKS_DIR).filter(f => f.endsWith('.json'))
+      : [];
+    const packs = files.map(f => {
+      try {
+        const data = JSON.parse(readFileSync(join(PACKS_DIR, f), 'utf8'));
+        return { id: data.id, name: data.name, icon: data.icon, count: data.texts?.length || 0 };
+      } catch { return { id: f.replace('.json', ''), name: f, icon: '📦', count: 0 }; }
+    });
+    res.json({ packs });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ── /admin にアクセス時、admin/index.html を返す ──
+app.get('/admin', (req, res) => {
+  res.sendFile(join(__dirname, 'public', 'admin', 'index.html'));
+});
+
+// ───────────────────────────────────────────────
+//  既存のユーザー向け API
+// ───────────────────────────────────────────────
 
 // POST /api/activate  — ベースライセンス認証
 app.post('/api/activate', (req, res) => {
@@ -80,7 +306,6 @@ app.post('/api/activate', (req, res) => {
   const acts = lic.activations || {};
 
   if (acts[deviceId]) {
-    // 同デバイス再認証 — カウント不変
     acts[deviceId].lastSeenAt = now;
   } else {
     const used = Object.keys(acts).length;
@@ -199,10 +424,12 @@ const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
   console.log(`\n🎤 英会話シャドウイング Web App`);
   console.log(`   http://localhost:${PORT}`);
+  console.log(`   管理画面: http://localhost:${PORT}/admin`);
   console.log(`\n   ライセンス生成コマンド:`);
   console.log(`     node tools/gen-license.mjs base 1`);
-  console.log(`     node tools/gen-license.mjs pack:hotel 1 "Booth注文番号"`);
+  console.log(`     node tools/gen-license.mjs pack:travel_vol1 1`);
+  console.log(`     node tools/gen-license.mjs bundle:travel_set 1`);
   console.log(`\n   管理ツール:`);
-  console.log(`     node tools/admin.mjs list       # ライセンス一覧`);
-  console.log(`     node tools/admin.mjs revoke <key>  # 認証取り消し\n`);
+  console.log(`     node tools/admin.mjs list`);
+  console.log(`     node tools/admin.mjs revoke <key>\n`);
 });

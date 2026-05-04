@@ -1,22 +1,28 @@
 #!/usr/bin/env node
 /**
- * ライセンスキー生成ツール
+ * ライセンスキー生成ツール（CLIバージョン）
  *
  * 使い方:
  *   node tools/gen-license.mjs <product> [count] [note] [maxActivations]
  *
- * product:
- *   base           - ベースアプリ ライセンス
- *   pack:hotel     - ホテル英語パック
- *   pack:toeic     - TOEIC スピーキングパック
- *   pack:travel    - 旅行英語パック
- *   pack:jiji_vol1 - 時事英語 vol.1
- *   pack:jiji_vol2 - 時事英語 vol.2
+ * product（単品）:
+ *   base              - ベースアプリ ライセンス
+ *   pack:travel_vol1  - 海外旅行パック vol.1（空港・ホテル）
+ *   pack:travel_vol2  - 海外旅行パック vol.2（レストラン・観光）
+ *   pack:toeic        - TOEICパック（ビジネス英語）
+ *
+ * product（バンドル — 複数キーを一括発行）:
+ *   bundle:travel_set  - 本体 + 旅行vol.1 + 旅行vol.2
+ *   bundle:toeic_set   - 本体 + TOEICパック
+ *   bundle:all         - 本体 + 旅行vol.1 + vol.2 + TOEIC
  *
  * 例:
- *   node tools/gen-license.mjs base 10
- *   node tools/gen-license.mjs pack:hotel 5 "Booth注文#1234"
+ *   node tools/gen-license.mjs base 1 "Booth注文#1234"
+ *   node tools/gen-license.mjs pack:travel_vol1 3
+ *   node tools/gen-license.mjs bundle:travel_set 1 "Booth注文#5678"
  *   node tools/gen-license.mjs base 1 "" 1   # 1台のみ許可
+ *
+ * ⚠️ 本番サーバーのデータに反映するにはRender.comのShellから実行してください
  */
 
 import crypto from 'crypto';
@@ -52,17 +58,63 @@ function genKey() {
   return k;
 }
 
+// ── バンドル定義 ──
+const BUNDLES = {
+  'bundle:travel_set': ['base', 'pack:travel_vol1', 'pack:travel_vol2'],
+  'bundle:toeic_set':  ['base', 'pack:toeic'],
+  'bundle:all':        ['base', 'pack:travel_vol1', 'pack:travel_vol2', 'pack:toeic']
+};
+
+const PRODUCT_LABELS = {
+  'base':             '【本体】ベースライセンス',
+  'pack:travel_vol1': '【パック】海外旅行 vol.1',
+  'pack:travel_vol2': '【パック】海外旅行 vol.2',
+  'pack:toeic':       '【パック】TOEICパック'
+};
+
 const [product = 'base', countStr = '1', note = '', maxStr = '3'] = process.argv.slice(2);
 const count          = Math.max(1, parseInt(countStr) || 1);
 const maxActivations = Math.max(1, parseInt(maxStr)   || 3);
 
 const db = loadDB();
 
+// ── バンドル発行 ──
+if (BUNDLES[product]) {
+  const products = BUNDLES[product];
+  console.log(`\n🎁 バンドル発行: ${product} × ${count}セット`);
+  if (note) console.log(`   備考: ${note}`);
+  console.log('─'.repeat(60));
+
+  for (let i = 0; i < count; i++) {
+    if (count > 1) console.log(`\n── セット ${i + 1} ──`);
+    const setKeys = [];
+    for (const p of products) {
+      const key = genKey();
+      const kh  = hashKey(key);
+      db.licenses[kh] = {
+        product:        p,
+        maxActivations,
+        createdAt:      new Date().toISOString(),
+        note:           note || '',
+        activations:    {}
+      };
+      const label = PRODUCT_LABELS[p] || p;
+      console.log(`  ${label.padEnd(25)} ${key}`);
+      setKeys.push({ product: p, key });
+    }
+  }
+  console.log('─'.repeat(60));
+  console.log(`\n✓ ${count}セット分を ${DB_FILE} に保存しました`);
+  console.log('⚠️  本番反映にはRender.comのShellで実行してください\n');
+  saveDB(db);
+  process.exit(0);
+}
+
+// ── 単品発行 ──
 console.log(`\n生成: ${product} × ${count}件  最大${maxActivations}台/キー`);
 if (note) console.log(`備考: ${note}`);
 console.log('─'.repeat(40));
 
-const generated = [];
 for (let i = 0; i < count; i++) {
   const key = genKey();
   const kh  = hashKey(key);
@@ -73,10 +125,10 @@ for (let i = 0; i < count; i++) {
     note:        note || '',
     activations: {}
   };
-  generated.push(key);
   console.log(key);
 }
 
 saveDB(db);
 console.log('─'.repeat(40));
-console.log(`✓ ${count}件を ${DB_FILE} に保存しました\n`);
+console.log(`✓ ${count}件を ${DB_FILE} に保存しました`);
+console.log('⚠️  本番反映にはRender.comのShellで実行してください\n');

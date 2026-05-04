@@ -1,0 +1,170 @@
+{
+  "id": "toeic",
+  "name": "TOEICパック",
+  "description": "ビジネス英語・TOEIC頻出シーン 25題",
+  "icon": "📊",
+  "categories": [
+    { "id": "phone",    "label": "電話対応", "icon": "📞" },
+    { "id": "meeting",  "label": "会議",     "icon": "📊" },
+    { "id": "business", "label": "ビジネス", "icon": "💼" },
+    { "id": "office",   "label": "オフィス", "icon": "🏢" }
+  ],
+  "texts": [
+    {
+      "id": 3001, "category": "phone",
+      "title": "Answering a Business Call", "titleJa": "ビジネス電話に出る",
+      "text": "A: Good afternoon, Apex Solutions, this is Karen speaking. How can I help you?\nB: Hello Karen, this is David Park from Sterling Finance. Could I speak to your sales director, Mr. Collins?\nA: Of course. May I ask what this is regarding?\nB: I'd like to discuss a potential partnership. We're very interested in your product line.\nA: Mr. Collins is in a meeting, but I expect him to be free in about twenty minutes. Shall I have him call you back?\nB: That would be perfect. My direct number is zero-two-zero, seven-seven-eight-four, three-three-nine-zero."
+    },
+    {
+      "id": 3002, "category": "phone",
+      "title": "Making a Business Call", "titleJa": "ビジネス電話をかける",
+      "text": "A: Good morning, I'm calling from Horizon Tech. I'd like to speak with whoever handles marketing partnerships.\nB: That would be Ms. Sandra Walsh. I'll transfer you. Could I have your name?\nA: Certainly — it's Michael Tanaka, Senior Manager at Horizon Tech.\nB: Thank you. Please hold. If the line is busy, press one to leave a voicemail.\nA: Noted. Actually, would it be better to email first?\nB: Ms. Walsh generally prefers an initial email. Shall I give you her direct address?"
+    },
+    {
+      "id": 3003, "category": "phone",
+      "title": "Leaving a Voicemail", "titleJa": "留守番電話を残す",
+      "text": "Hi Sarah, it's James calling from the London office — it's about two-thirty on Tuesday afternoon. I'm reaching out regarding the proposal we submitted last week. I wanted to check whether you've had a chance to review the revised pricing. We're keen to move forward before the end of the month if possible. Could you call me back at your earliest convenience? My number is zero-seven-seven, four-five-six, eight-nine-zero-one. I'll be in the office until six today and available tomorrow morning from nine. Thank you, and I look forward to hearing from you."
+    },
+    {
+      "id": 3004, "category": "phone",
+      "title": "Transferring a Call", "titleJa": "電話を転送する",
+      "text": "A: Good morning, Bennett and Associates.\nB: Hello, I'm calling to speak to Mr. Harrison about the contract renewal we discussed last week.\nA: I'll transfer you now. Could I have your name please?\nB: It's Lisa Chen from Yamamoto Trading.\nA: One moment, Ms. Chen. I'm putting you through. I'm afraid Mr. Harrison is on another line. Would you like to hold, or shall I take a message?\nB: I'll hold, thank you."
+    },
+    {
+      "id": 3005, "category": "phone",
+      "title": "Conference Call", "titleJa": "電話会議",
+      "text": "A: Good morning, everyone. Can you all hear me clearly?\nB: Yes, this is Rachel in Singapore. I can hear you fine.\nA: Great. And we have James and Yuko joining from Tokyo, correct?\nC: Yes, James and Yuko here. The connection is a bit choppy — could you speak up slightly?\nA: Of course. Let me begin with a summary of last quarter's results. Please hold questions until the end of each section.\nB: Before you start — Priya from Mumbai is also dialing in. Are you on, Priya?"
+    },
+    {
+      "id": 3006, "category": "phone",
+      "title": "Handling a Customer Complaint", "titleJa": "クレーム電話への対応",
+      "text": "A: Good afternoon, customer services. My name's Ben. How can I help you today?\nB: Hello Ben. I placed an order three weeks ago and it still hasn't arrived. The tracking hasn't updated in ten days.\nA: I'm very sorry to hear that. Could I have your order number?\nB: It's QR-seven-seven-four-two-nine.\nA: I can see your order. It's been delayed at our fulfillment center due to high demand. I sincerely apologize.\nB: I wasn't notified at all. This was a birthday gift and the birthday is tomorrow."
+    },
+    {
+      "id": 3007, "category": "meeting",
+      "title": "Scheduling a Meeting", "titleJa": "会議のスケジュールを調整する",
+      "text": "A: Are you available for a meeting this week to go over the quarterly report?\nB: I'm tied up on Wednesday but Thursday afternoon works. What time?\nA: How about two-thirty? It should take about an hour.\nB: Two-thirty works. Should I book Conference Room B?\nA: Yes, please. And could you send an invite to the whole team? Make sure Sarah and Robert are included.\nB: Sure. Should I attach the report so people can review it beforehand?"
+    },
+    {
+      "id": 3008, "category": "meeting",
+      "title": "Opening a Meeting", "titleJa": "会議の開始",
+      "text": "Good morning, everyone. Thank you for being here on time. Before we begin, I'd like to welcome our two new team members, Emma and David, who joined us this week from the Singapore office. Today's agenda has four items — first, a review of last quarter's sales figures; second, a presentation from the marketing team; third, budget planning for the upcoming quarter; and finally, any other business. I expect this to run for about ninety minutes, so let's try to stay on schedule. I'll ask you to hold questions until the end of each section unless it's urgent. Right then, let's get started."
+    },
+    {
+      "id": 3009, "category": "meeting",
+      "title": "Presenting Data in a Meeting", "titleJa": "データをプレゼンする",
+      "text": "A: As you can see on slide four, our customer acquisition costs have decreased by seventeen percent compared to last quarter.\nB: That's a significant improvement. What drove that reduction?\nA: Primarily the new automated marketing campaigns — they've improved targeting efficiency and reduced manual workload.\nC: Can you break that down by region? I'm curious whether the improvement was consistent across all markets.\nA: Good question. Asia-Pacific showed the strongest improvement at twenty-three percent, while European markets were more modest at twelve.\nB: What are our projections for next quarter?"
+    },
+    {
+      "id": 3010, "category": "meeting",
+      "title": "Meeting Minutes", "titleJa": "議事録を取る（モノローグ）",
+      "text": "Present at today's meeting: Sarah Johnson, director; Mark Lee, marketing manager; and Lisa Yamamoto, financial analyst. The meeting began at ten AM. First agenda item — Q3 performance review. Sarah confirmed overall revenue was up eight percent year-over-year. Mark noted the digital campaign exceeded targets by fifteen percent. Lisa raised concerns about rising operational costs and proposed a cost review. It was agreed that Lisa would prepare a detailed analysis by the fifteenth. Second item — Q4 strategy. It was decided to increase digital advertising by twenty percent. Action items: Mark to draft the Q4 campaign brief by Friday; Lisa to complete the cost analysis by the fifteenth. Meeting ended at eleven-twenty."
+    },
+    {
+      "id": 3011, "category": "meeting",
+      "title": "Closing a Meeting", "titleJa": "会議を締めくくる",
+      "text": "A: I think we've covered everything. Before we close, let me quickly summarize the action items.\nB: Could we also clarify the deadline for the client proposal? I want to make sure we're aligned.\nA: Good point. The final proposal needs to be submitted by end of business on the fourteenth. Rachel, you're leading that, correct?\nC: Yes, I'll have a draft to the team by Wednesday.\nA: Great. To summarize: Rachel delivers the draft on Wednesday, Mark finalizes the budget by Friday, and we reconvene on the twentieth. Thank you all. Well done today.\nB: Thanks, everyone."
+    },
+    {
+      "id": 3012, "category": "meeting",
+      "title": "Video Conference", "titleJa": "ビデオ会議",
+      "text": "A: Hi everyone, welcome to the call. Please mute yourselves when not speaking — there seems to be some background noise.\nB: Sorry, that's from my end. There's construction outside.\nA: No problem. Also, please use the chat function for questions and I'll address them as we go. Can everyone see the presentation?\nC: I can't see it on my screen — could you share it again?\nA: Of course. Resharing now. Let me know when you see slide one.\nB: Got it. Works perfectly now."
+    },
+    {
+      "id": 3013, "category": "business",
+      "title": "Introducing Yourself", "titleJa": "ビジネスの場での自己紹介",
+      "text": "A: Hi, I don't think we've met. I'm Alex Watanabe from Sumitomo Partners.\nB: Nice to meet you, Alex. I'm Catherine Morgan — a consultant with Global Strategy Group.\nA: Interesting. What kind of work do you focus on?\nB: Mainly organizational restructuring for mid-size tech companies. What about Sumitomo?\nA: We work primarily in renewable energy investments across Asia. It's a very exciting space right now.\nB: It really is. Here's my card — I'd love to connect and hear more about your portfolio."
+    },
+    {
+      "id": 3014, "category": "business",
+      "title": "Following Up by Email", "titleJa": "メールでフォローアップ（モノローグ）",
+      "text": "Hi Emma, I'm writing to follow up on our conversation from last Thursday's meeting. As we discussed, the product launch timeline has been moved forward by two weeks, which means marketing materials will need to be finalized by end of this month. I've attached the updated project schedule for your reference. Could you please confirm by Wednesday whether your team can meet the new deadline? If there are any resource constraints, please let me know as soon as possible so we can find solutions. I'd also like to schedule a call early next week to align on key messaging. Please let me know your availability. Thank you for your flexibility. Best regards, Tom."
+    },
+    {
+      "id": 3015, "category": "business",
+      "title": "Negotiating a Price", "titleJa": "価格交渉",
+      "text": "A: I've reviewed your proposal — the quality looks excellent, but the pricing is slightly above our budget.\nB: I understand. What range did you have in mind?\nA: We were hoping to come in around eighty thousand for the full package.\nB: Our standard package is ninety-five thousand. However, we might be able to meet somewhere in the middle by adjusting the scope.\nA: What kind of adjustments?\nB: If we reduce on-site visits from five to three and shift some deliverables to digital, we could bring it down to eighty-eight thousand."
+    },
+    {
+      "id": 3016, "category": "business",
+      "title": "Presenting a Proposal", "titleJa": "提案書をプレゼンする",
+      "text": "A: Thank you for the opportunity to present today. We're proposing a twelve-month digital transformation program to modernize your operations.\nB: What makes your approach different from the others we've received?\nA: Two things. First, we've delivered similar transformations for three companies in your sector in the past two years. Second, we build client capability throughout, so you're not dependent on external support after we leave.\nB: What's the expected ROI?\nA: Based on benchmarks from similar projects, you can expect to recover the investment within eighteen months, with ongoing savings of fifteen to twenty percent annually.\nC: Can you walk us through the implementation timeline?"
+    },
+    {
+      "id": 3017, "category": "business",
+      "title": "Project Follow-Up", "titleJa": "プロジェクトの進捗確認",
+      "text": "A: Hi Mark, just touching base on the client presentation. How are we tracking?\nB: Making good progress — the slides are about seventy percent complete. I'll have a draft ready by end of day tomorrow.\nA: Great. One thing — the client asked us to include a competitive analysis section. Did you see that email?\nB: I did. I've already flagged it to Rachel. She's working on it and says she'll have it done tomorrow morning.\nA: Perfect. Could you send me the draft as soon as it's ready? I want to review it thoroughly before submission.\nB: Of course. I'll copy you on everything."
+    },
+    {
+      "id": 3018, "category": "business",
+      "title": "Requesting Time Off", "titleJa": "有給休暇の申請",
+      "text": "A: Hi, do you have a moment? I wanted to request some annual leave.\nB: Sure, go ahead. What dates?\nA: The twenty-second to the twenty-ninth of next month. It's a family trip planned a while ago.\nB: Let me check the team schedule. Yes, there are no major deadlines that week. Can you ensure everything is handed over before you leave?\nA: Absolutely. I'll prepare a full handover document and brief the team on ongoing projects.\nB: Great. I'll approve it in the system today. Have a wonderful trip."
+    },
+    {
+      "id": 3019, "category": "business",
+      "title": "Job Interview", "titleJa": "就職面接",
+      "text": "A: Good morning. Thank you for coming in. Could you start by telling me about yourself and your background?\nB: Of course. I have eight years of experience in financial analysis, most recently as a senior analyst at JP Consulting, where I led a team of six and oversaw quarterly reporting for thirty corporate clients.\nA: What drew you to apply for this role?\nB: I've been following your company's growth in Asia-Pacific closely, and I'm excited by the opportunity to work in a more dynamic international environment.\nA: Can you give me an example of a time you successfully handled a high-pressure situation?\nB: Certainly. Last year, our team had to deliver a major financial review in three days instead of two weeks due to an unexpected merger announcement."
+    },
+    {
+      "id": 3020, "category": "office",
+      "title": "Asking a Colleague for Help", "titleJa": "同僚に相談する",
+      "text": "A: Hey, do you have a few minutes? I'm stuck on something.\nB: Sure, what's up?\nA: I'm trying to reconcile figures in the Q3 report, but the numbers from Southeast Asia don't match the summary sheet. I've checked twice.\nB: Let me take a look. Oh — the currency conversion formula in column G is using last year's exchange rate. It's a common mistake.\nA: You're right. I can't believe I missed that. How do I fix it?\nB: Just update the cell reference to point to the current rate table. Takes thirty seconds. Want me to show you?"
+    },
+    {
+      "id": 3021, "category": "office",
+      "title": "Onboarding a New Employee", "titleJa": "新入社員の研修",
+      "text": "A: Welcome aboard, Jessica! I'll be your buddy for the first two weeks. How are you feeling?\nB: A bit overwhelmed but excited! There's so much to take in.\nA: That's completely normal. Let me give you a tour first, then we'll set up your accounts. We'll take it step by step.\nB: Could you also explain the team structure? I'm still figuring out who reports to whom.\nA: The team has three levels — directors, team leads, and analysts. You'll mainly work with the other analysts and report directly to Marcus.\nB: Got it. And are there any unwritten rules I should know about?"
+    },
+    {
+      "id": 3022, "category": "office",
+      "title": "Reporting to Your Manager", "titleJa": "上司への報告",
+      "text": "A: I wanted to give you a quick update on the Henderson account before your meeting.\nB: Good timing. Where do things stand?\nA: We've resolved the delivery issue from last week. They received the corrected shipment this morning and confirmed they're satisfied.\nB: Great. Any ongoing concerns?\nA: One thing — they've asked about expanding the contract to include our new product line. I think it's worth pursuing. I can prepare a brief proposal.\nB: Yes, do that. Two pages maximum. Can you have something ready by Thursday?"
+    },
+    {
+      "id": 3023, "category": "office",
+      "title": "Office Announcement", "titleJa": "社内アナウンス（モノローグ）",
+      "text": "Good afternoon, everyone. A quick announcement from the office management team. From next Monday, we're introducing a flexible start time of between seven-thirty and nine-thirty AM to help with commute options. Core hours remain nine to five. Please discuss your preferred schedule with your team lead by Friday. Additionally, the third-floor meeting rooms will be closed for renovation from the fifteenth through the twenty-second. During this time, please use the fourth-floor rooms — bookings can be made through the usual calendar system. Finally, a reminder that the company wellness day is on the twenty-eighth — more details will be circulated later this week. Thank you."
+    },
+    {
+      "id": 3024, "category": "office",
+      "title": "Business Trip Planning", "titleJa": "出張の手配",
+      "text": "A: I need to travel to the Frankfurt office next month for the client summit. Could you help coordinate arrangements?\nB: Of course. Do you have specific dates?\nA: The summit runs from the fourteenth to the sixteenth. I'd need to fly in on the thirteenth and return on the seventeenth.\nB: I'll look at flights. Any preferences?\nA: A direct flight if possible, and business class for overnight legs — company policy allows it for flights over six hours.\nB: Got it. I'll also arrange hotel near the venue. Any other requirements — transfers, meeting space?"
+    },
+    {
+      "id": 3025, "category": "office",
+      "title": "Equipment Malfunction", "titleJa": "機器のトラブル",
+      "text": "A: Hi, the printer on the third floor is jamming every time someone prints more than a few pages.\nB: Thanks for letting us know. Is it the color printer or the black-and-white one?\nA: The main color printer — the large one near the windows.\nB: Could you clear the paper tray and reseat the paper? Sometimes that fixes it.\nA: I tried that. It prints one or two pages fine, then jams on the third.\nB: Sounds like a roller issue. I'll escalate to the service team. In the meantime, use the printer in the mailroom on the second floor."
+    }
+  ],
+  "explanations": {
+    "3001": [
+      { "phrase": "this is Karen speaking", "reading": "", "meaning": "こちらはカレンです", "note": "電話を受けたときの定型表現。" },
+      { "phrase": "May I ask what this is regarding?", "reading": "", "meaning": "ご用件をお聞かせいただけますか？", "note": "TOEIC頻出の丁寧な確認表現。" },
+      { "phrase": "have him call you back", "reading": "", "meaning": "折り返し電話させます", "note": "" }
+    ],
+    "3003": [
+      { "phrase": "reaching out", "reading": "リーチングアウト", "meaning": "連絡を取る", "note": "ビジネス英語で「連絡する」の丁寧な表現。" },
+      { "phrase": "at your earliest convenience", "reading": "", "meaning": "ご都合のよいときにすぐに", "note": "メール・電話の定型表現。" }
+    ],
+    "3007": [
+      { "phrase": "tied up", "reading": "タイドアップ", "meaning": "手が離せない・忙しい", "note": "「busy」よりフォーマルなビジネス表現。" },
+      { "phrase": "go over", "reading": "", "meaning": "見直す・確認する", "note": "会議や書類のレビューに使う。" }
+    ],
+    "3009": [
+      { "phrase": "customer acquisition costs", "reading": "", "meaning": "顧客獲得コスト", "note": "TOEIC Part 3/4でよく出るビジネス指標。" },
+      { "phrase": "break that down by region", "reading": "", "meaning": "地域別に分解する", "note": "データ分析の定番表現。" }
+    ],
+    "3015": [
+      { "phrase": "above our budget", "reading": "", "meaning": "予算を超えている", "note": "" },
+      { "phrase": "adjusting the scope", "reading": "", "meaning": "業務範囲を調整する", "note": "プロジェクト管理の基本用語。" }
+    ],
+    "3018": [
+      { "phrase": "annual leave", "reading": "アニュアルリーブ", "meaning": "年次有給休暇", "note": "paid time off（PTO）とも言う。" },
+      { "phrase": "handover document", "reading": "ハンドオーバー", "meaning": "引き継ぎ資料", "note": "" }
+    ],
+    "3022": [
+      { "phrase": "touching base", "reading": "タッチングベース", "meaning": "連絡を取る・確認する", "note": "ビジネス英語の頻出表現。" },
+      { "phrase": "ongoing concerns", "reading": "", "meaning": "継続中の懸念事項", "note": "" }
+    ]
+  }
+}

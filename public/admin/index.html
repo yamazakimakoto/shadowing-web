@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理画面 — 英会話シャドウイング</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f172a; --bg2: #1e293b; --bg3: #334155;
+      --accent: #6366f1; --accent2: #4f46e5;
+      --green: #22c55e; --red: #ef4444; --yellow: #f59e0b; --blue: #3b82f6;
+      --text: #f1f5f9; --text2: #94a3b8; --border: #334155;
+    }
+    body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; min-height: 100vh; }
+
+    /* ─── LOGIN ─── */
+    #login-screen {
+      display: flex; align-items: center; justify-content: center; min-height: 100vh;
+    }
+    .login-box {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 16px;
+      padding: 40px; width: 100%; max-width: 360px; text-align: center;
+    }
+    .login-logo { font-size: 2.5rem; margin-bottom: 12px; }
+    .login-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+    .login-sub { color: var(--text2); font-size: 0.85rem; margin-bottom: 28px; }
+    .login-input {
+      width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--bg); color: var(--text); font-size: 1rem; margin-bottom: 12px;
+    }
+    .login-btn {
+      width: 100%; padding: 12px; border-radius: 8px; border: none;
+      background: var(--accent); color: #fff; font-size: 1rem; font-weight: 600;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .login-btn:hover { background: var(--accent2); }
+    .login-error { color: var(--red); font-size: 0.85rem; margin-top: 10px; min-height: 20px; }
+
+    /* ─── APP ─── */
+    #app { display: none; min-height: 100vh; }
+    header {
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header-logo { font-size: 1.3rem; }
+    .header-title { font-size: 1rem; font-weight: 700; flex: 1; }
+    .header-logout { background: none; border: 1px solid var(--border); color: var(--text2);
+      padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+    .header-logout:hover { background: var(--bg3); color: var(--text); }
+
+    nav {
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      display: flex; gap: 0; overflow-x: auto;
+    }
+    .nav-btn {
+      padding: 12px 20px; border: none; background: none; color: var(--text2);
+      font-size: 0.9rem; cursor: pointer; border-bottom: 2px solid transparent;
+      white-space: nowrap; transition: all 0.15s;
+    }
+    .nav-btn.active { color: var(--text); border-bottom-color: var(--accent); }
+    .nav-btn:hover { color: var(--text); background: var(--bg3); }
+
+    main { padding: 20px; max-width: 960px; margin: 0 auto; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ─── CARDS ─── */
+    .card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px; margin-bottom: 16px;
+    }
+    .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+    .stat-card {
+      background: var(--bg3); border-radius: 10px; padding: 16px; text-align: center;
+    }
+    .stat-icon { font-size: 1.5rem; margin-bottom: 6px; }
+    .stat-product { font-size: 0.7rem; color: var(--text2); margin-bottom: 4px; }
+    .stat-num { font-size: 1.8rem; font-weight: 800; line-height: 1; }
+    .stat-sub { font-size: 0.75rem; color: var(--text2); margin-top: 4px; }
+
+    /* ─── FORMS ─── */
+    .form-row { margin-bottom: 14px; }
+    .form-label { font-size: 0.8rem; color: var(--text2); margin-bottom: 6px; display: block; font-weight: 600; }
+    .form-input, .form-select {
+      width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--bg); color: var(--text); font-size: 0.9rem;
+    }
+    .form-row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn { padding: 10px 20px; border-radius: 8px; border: none; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-danger  { background: var(--red);    color: #fff; }
+    .btn-warning { background: var(--yellow); color: #000; }
+    .btn-sm { padding: 5px 12px; font-size: 0.78rem; border-radius: 6px; }
+
+    /* ─── GENERATED KEYS ─── */
+    .keys-box {
+      background: var(--bg); border: 1px solid var(--green);
+      border-radius: 10px; padding: 16px; margin-top: 16px;
+    }
+    .keys-box-title { color: var(--green); font-size: 0.85rem; font-weight: 700; margin-bottom: 12px; }
+    .key-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .key-product-tag {
+      font-size: 0.7rem; padding: 2px 8px; border-radius: 4px;
+      background: var(--bg3); color: var(--text2); white-space: nowrap; min-width: 120px; text-align: center;
+    }
+    .key-value {
+      font-family: 'Courier New', monospace; font-size: 0.95rem; font-weight: 700;
+      color: var(--green); letter-spacing: 1px; flex: 1;
+    }
+    .btn-copy { padding: 4px 10px; font-size: 0.75rem; border-radius: 5px; border: 1px solid var(--green); background: none; color: var(--green); cursor: pointer; }
+    .btn-copy:hover { background: rgba(34,197,94,0.1); }
+    .btn-copy-all { margin-top: 10px; padding: 8px 16px; font-size: 0.82rem; border-radius: 6px; border: 1px solid var(--accent); background: none; color: var(--accent); cursor: pointer; }
+    .btn-copy-all:hover { background: rgba(99,102,241,0.1); }
+
+    /* ─── LICENSE LIST ─── */
+    .filter-row { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+    .filter-select { padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 0.85rem; }
+    .filter-input { padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 0.85rem; flex: 1; min-width: 160px; }
+    .btn-refresh { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border); background: none; color: var(--text2); font-size: 0.85rem; cursor: pointer; }
+    .btn-refresh:hover { background: var(--bg3); }
+
+    .lic-item {
+      background: var(--bg3); border-radius: 10px; padding: 14px 16px; margin-bottom: 10px;
+      border-left: 3px solid var(--bg3);
+    }
+    .lic-item.has-devices { border-left-color: var(--green); }
+    .lic-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .lic-product { font-size: 0.78rem; padding: 3px 10px; border-radius: 5px; background: var(--bg2); font-weight: 600; }
+    .lic-note { font-size: 0.82rem; color: var(--text2); flex: 1; }
+    .lic-date { font-size: 0.75rem; color: var(--text2); }
+    .lic-bar { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+    .bar-track { flex: 1; height: 6px; background: var(--bg2); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--green); border-radius: 3px; transition: width 0.3s; }
+    .bar-fill.full { background: var(--red); }
+    .bar-label { font-size: 0.78rem; color: var(--text2); white-space: nowrap; }
+    .lic-actions { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+    .lic-devices { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .device-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+    .device-id { font-size: 0.75rem; font-family: monospace; color: var(--text2); flex: 1; }
+    .device-date { font-size: 0.72rem; color: var(--text2); }
+
+    /* ─── PACKS TAB ─── */
+    .pack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .pack-card {
+      background: var(--bg3); border-radius: 10px; padding: 16px; text-align: center;
+    }
+    .pack-icon { font-size: 2rem; margin-bottom: 8px; }
+    .pack-name { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+    .pack-count { font-size: 0.78rem; color: var(--text2); }
+
+    /* ─── MISC ─── */
+    .section-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+    .empty-state { text-align: center; padding: 40px; color: var(--text2); }
+    .loading { text-align: center; padding: 30px; color: var(--text2); }
+    .msg-box { padding: 12px 16px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 12px; }
+    .msg-success { background: rgba(34,197,94,0.15); border: 1px solid var(--green); color: var(--green); }
+    .msg-error   { background: rgba(239,68,68,0.15);  border: 1px solid var(--red);   color: var(--red); }
+    .hidden { display: none !important; }
+
+    @media (max-width: 600px) {
+      main { padding: 12px; }
+      .form-row-grid { grid-template-columns: 1fr; }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== LOGIN ===== -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">🎤</div>
+    <h1 class="login-title">管理画面</h1>
+    <p class="login-sub">英会話シャドウイング</p>
+    <input type="password" id="pw-input" class="login-input" placeholder="管理者パスワード" autocomplete="current-password">
+    <button class="login-btn" onclick="doLogin()">ログイン</button>
+    <p id="login-error" class="login-error"></p>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div id="app">
+  <header>
+    <span class="header-logo">🎤</span>
+    <span class="header-title">管理画面 — 英会話シャドウイング</span>
+    <button class="header-logout" onclick="doLogout()">ログアウト</button>
+  </header>
+  <nav>
+    <button class="nav-btn active" data-tab="dashboard">📊 ダッシュボード</button>
+    <button class="nav-btn" data-tab="generate">🔑 キー発行</button>
+    <button class="nav-btn" data-tab="licenses">📋 ライセンス一覧</button>
+    <button class="nav-btn" data-tab="packs">📦 パック管理</button>
+  </nav>
+  <main>
+
+    <!-- ===== DASHBOARD ===== -->
+    <div id="tab-dashboard" class="tab-content active">
+      <div id="stats-loading" class="loading">読み込み中…</div>
+      <div id="stats-content" class="hidden">
+        <div class="card">
+          <div class="card-title">📊 商品別ライセンス状況</div>
+          <div id="stat-grid" class="stat-grid"></div>
+        </div>
+        <div class="card">
+          <div class="card-title">🕒 最近発行したキー（上位10件）</div>
+          <div id="recent-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== GENERATE ===== -->
+    <div id="tab-generate" class="tab-content">
+
+      <!-- 単品発行 -->
+      <div class="card">
+        <div class="card-title">🔑 ライセンスキー発行（単品）</div>
+        <div class="form-row">
+          <label class="form-label">商品</label>
+          <select id="gen-product" class="form-select">
+            <option value="base">【本体】ベースライセンス</option>
+            <option value="pack:travel_vol1">【パック】海外旅行 vol.1（空港・ホテル）</option>
+            <option value="pack:travel_vol2">【パック】海外旅行 vol.2（グルメ・観光）</option>
+            <option value="pack:toeic">【パック】TOEICパック（ビジネス英語）</option>
+          </select>
+        </div>
+        <div class="form-row-grid">
+          <div class="form-row">
+            <label class="form-label">発行数（最大100）</label>
+            <input type="number" id="gen-count" class="form-input" value="1" min="1" max="100">
+          </div>
+          <div class="form-row">
+            <label class="form-label">最大デバイス数（1〜10）</label>
+            <input type="number" id="gen-max-dev" class="form-input" value="3" min="1" max="10">
+          </div>
+        </div>
+        <div class="form-row">
+          <label class="form-label">注文メモ（Booth注文番号など）</label>
+          <input type="text" id="gen-note" class="form-input" placeholder="例: Booth注文 #12345">
+        </div>
+        <button class="btn btn-primary" onclick="generateKeys()">キーを発行する</button>
+        <div id="gen-msg" class="hidden"></div>
+        <div id="gen-result" class="hidden"></div>
+      </div>
+
+      <!-- バンドル発行 -->
+      <div class="card">
+        <div class="card-title">🎁 バンドルセット発行（複数キーまとめて）</div>
+        <div class="form-row">
+          <label class="form-label">販売セット</label>
+          <select id="bundle-type" class="form-select">
+            <option value="bundle:travel_set">🌏 海外旅行セット（本体 + 旅行vol.1 + 旅行vol.2）</option>
+            <option value="bundle:toeic_set">📊 TOEICセット（本体 + TOEICパック）</option>
+            <option value="bundle:all">🏆 全部入りセット（本体 + 旅行vol.1 + vol.2 + TOEIC）</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="form-label">注文メモ</label>
+          <input type="text" id="bundle-note" class="form-input" placeholder="例: Booth注文 #12345">
+        </div>
+        <button class="btn btn-primary" onclick="generateBundle()">バンドルを発行する</button>
+        <div id="bundle-msg" class="hidden"></div>
+        <div id="bundle-result" class="hidden"></div>
+      </div>
+    </div>
+
+    <!-- ===== LICENSES ===== -->
+    <div id="tab-licenses" class="tab-content">
+      <div class="card">
+        <div class="filter-row">
+          <select id="filter-product" class="filter-select" onchange="loadLicenses()">
+            <option value="">全商品</option>
+            <option value="base">本体（base）</option>
+            <option value="pack:travel_vol1">旅行vol.1</option>
+            <option value="pack:travel_vol2">旅行vol.2</option>
+            <option value="pack:toeic">TOEIC</option>
+          </select>
+          <input type="text" id="filter-search" class="filter-input" placeholder="注文メモで絞り込み…" oninput="renderLicenses()">
+          <button class="btn-refresh" onclick="loadLicenses()">🔄 更新</button>
+        </div>
+        <div id="lic-loading" class="loading">読み込み中…</div>
+        <div id="lic-list" class="hidden"></div>
+      </div>
+    </div>
+
+    <!-- ===== PACKS ===== -->
+    <div id="tab-packs" class="tab-content">
+      <div class="card">
+        <div class="card-title">📦 サーバー上のパック一覧</div>
+        <p style="font-size:0.82rem;color:var(--text2);margin-bottom:16px;">
+          パックを追加するには <code>packs/</code> フォルダに JSON ファイルを追加して git push してください。<br>
+          サーバー再起動時に自動でコピーされます。
+        </p>
+        <div id="packs-loading" class="loading">読み込み中…</div>
+        <div id="pack-grid" class="pack-grid hidden"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">➕ 新パック追加の手順</div>
+        <div style="font-size:0.85rem;line-height:1.8;color:var(--text2);">
+          <p>1. <strong style="color:var(--text)">/packs/[パックID].json</strong> を作成する</p>
+          <p>2. <strong style="color:var(--text)">git add -A &amp;&amp; git commit -m "〇〇パック追加" &amp;&amp; git push</strong></p>
+          <p>3. Render.com が自動デプロイ → サーバー再起動時にパックが /data/packs/ にコピーされる</p>
+          <p>4. 管理画面でパックキーを発行して販売開始</p>
+          <br>
+          <p>パック JSON フォーマット:</p>
+          <pre style="background:var(--bg);padding:12px;border-radius:8px;font-size:0.78rem;margin-top:8px;overflow-x:auto;"><code>{ "id": "pack_id", "name": "パック名", "icon": "📦",
+  "description": "説明文",
+  "categories": [{"id":"cat1","label":"カテゴリ","icon":"💬"}],
+  "texts": [{"id":9001,"category":"cat1","title":"Title",
+    "titleJa":"タイトル","text":"A: ...\nB: ..."}],
+  "explanations": {} }</code></pre>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+'use strict';
+
+const TOKEN_KEY = 'shadowing_admin_token';
+let adminToken  = sessionStorage.getItem(TOKEN_KEY) || null;
+let allLicenses = [];
+
+// ─── LOGIN ───
+async function doLogin() {
+  const pw  = document.getElementById('pw-input').value;
+  const err = document.getElementById('login-error');
+  err.textContent = '';
+  try {
+    const res  = await fetch('/admin/api/login', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pw })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'ログイン失敗');
+    adminToken = data.token;
+    sessionStorage.setItem(TOKEN_KEY, adminToken);
+    showApp();
+  } catch (e) {
+    err.textContent = e.message;
+  }
+}
+document.getElementById('pw-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+
+function doLogout() {
+  sessionStorage.removeItem(TOKEN_KEY);
+  adminToken = null;
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+}
+
+function showApp() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  loadDashboard();
+  loadPacks();
+}
+
+// ─── API helper ───
+async function api(method, path, body) {
+  const res = await fetch(path, {
+    method,
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` },
+    body: body ? JSON.stringify(body) : undefined
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+  return data;
+}
+
+// ─── TABS ───
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.getElementById(`tab-${tab}`).classList.add('active');
+    if (tab === 'licenses') loadLicenses();
+    if (tab === 'dashboard') loadDashboard();
+    if (tab === 'packs') loadPacks();
+  });
+});
+
+// ─── DASHBOARD ───
+const PRODUCT_LABELS = {
+  'base':             { label: '本体', icon: '🎤' },
+  'pack:travel_vol1': { label: '旅行 vol.1', icon: '✈️' },
+  'pack:travel_vol2': { label: '旅行 vol.2', icon: '🗺️' },
+  'pack:toeic':       { label: 'TOEIC',    icon: '📊' }
+};
+function productLabel(p) { return PRODUCT_LABELS[p] || { label: p, icon: '📦' }; }
+function formatDate(iso) {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`;
+}
+
+async function loadDashboard() {
+  const loading = document.getElementById('stats-loading');
+  const content = document.getElementById('stats-content');
+  loading.classList.remove('hidden');
+  content.classList.add('hidden');
+  try {
+    const data = await api('GET', '/admin/api/licenses');
+    allLicenses = data.licenses;
+    // stats
+    const grid = document.getElementById('stat-grid');
+    grid.innerHTML = '';
+    const statOrder = ['base','pack:travel_vol1','pack:travel_vol2','pack:toeic'];
+    for (const p of statOrder) {
+      const s = data.stats[p] || { total: 0, activated: 0 };
+      const m = productLabel(p);
+      grid.innerHTML += `
+        <div class="stat-card">
+          <div class="stat-icon">${m.icon}</div>
+          <div class="stat-product">${m.label}</div>
+          <div class="stat-num">${s.total}</div>
+          <div class="stat-sub">発行済 / ${s.activated} 使用中</div>
+        </div>`;
+    }
+    // total
+    grid.innerHTML += `
+      <div class="stat-card">
+        <div class="stat-icon">🗝️</div>
+        <div class="stat-product">合計</div>
+        <div class="stat-num">${data.total}</div>
+        <div class="stat-sub">全キー</div>
+      </div>`;
+    // recent
+    const recent = data.licenses.slice(0, 10);
+    const rl = document.getElementById('recent-list');
+    rl.innerHTML = recent.length ? recent.map(l => `
+      <div class="lic-item ${l.activationsUsed>0?'has-devices':''}">
+        <div class="lic-top">
+          <span class="lic-product">${productLabel(l.product).icon} ${productLabel(l.product).label}</span>
+          <span class="lic-note">${l.note || '—'}</span>
+          <span class="lic-date">${formatDate(l.createdAt)}</span>
+        </div>
+        <div class="lic-bar">
+          <div class="bar-track"><div class="bar-fill ${l.activationsUsed>=l.maxActivations?'full':''}" style="width:${(l.activationsUsed/l.maxActivations)*100}%"></div></div>
+          <span class="bar-label">${l.activationsUsed}/${l.maxActivations}台</span>
+        </div>
+      </div>`).join('')
+    : '<p class="empty-state">まだキーがありません</p>';
+    loading.classList.add('hidden');
+    content.classList.remove('hidden');
+  } catch (e) {
+    loading.textContent = 'エラー: ' + e.message;
+  }
+}
+
+// ─── GENERATE ───
+async function generateKeys() {
+  const product  = document.getElementById('gen-product').value;
+  const count    = parseInt(document.getElementById('gen-count').value) || 1;
+  const maxDev   = parseInt(document.getElementById('gen-max-dev').value) || 3;
+  const note     = document.getElementById('gen-note').value.trim();
+  const msgEl    = document.getElementById('gen-msg');
+  const resultEl = document.getElementById('gen-result');
+  msgEl.className = 'hidden';
+  resultEl.className = 'hidden';
+  try {
+    const data = await api('POST', '/admin/api/generate', { product, count, note, maxActivations: maxDev });
+    resultEl.className = '';
+    resultEl.innerHTML = `
+      <div class="keys-box">
+        <div class="keys-box-title">✓ ${data.count}件発行しました — ${note || '（メモなし）'}</div>
+        ${data.keys.map(k => `
+          <div class="key-row">
+            <span class="key-product-tag">${productLabel(product).icon} ${productLabel(product).label}</span>
+            <span class="key-value" id="k_${k}">${k}</span>
+            <button class="btn-copy" onclick="copyKey('${k}')">コピー</button>
+          </div>`).join('')}
+        <button class="btn-copy-all" onclick="copyAll(${JSON.stringify(data.keys)})">📋 全キーをコピー</button>
+      </div>`;
+    document.getElementById('gen-note').value = '';
+  } catch (e) {
+    msgEl.className = 'msg-box msg-error';
+    msgEl.textContent = 'エラー: ' + e.message;
+  }
+}
+
+async function generateBundle() {
+  const bundle   = document.getElementById('bundle-type').value;
+  const note     = document.getElementById('bundle-note').value.trim();
+  const msgEl    = document.getElementById('bundle-msg');
+  const resultEl = document.getElementById('bundle-result');
+  msgEl.className = 'hidden';
+  resultEl.className = 'hidden';
+  try {
+    const data = await api('POST', '/admin/api/generate-bundle', { bundle, note });
+    const keys = data.keys;
+    const allKeys = Object.values(keys);
+    resultEl.className = '';
+    resultEl.innerHTML = `
+      <div class="keys-box">
+        <div class="keys-box-title">✓ バンドル発行完了 — ${note || '（メモなし）'}</div>
+        ${Object.entries(keys).map(([prod, k]) => `
+          <div class="key-row">
+            <span class="key-product-tag">${productLabel(prod).icon} ${productLabel(prod).label}</span>
+            <span class="key-value">${k}</span>
+            <button class="btn-copy" onclick="copyKey('${k}')">コピー</button>
+          </div>`).join('')}
+        <button class="btn-copy-all" onclick="copyAll(${JSON.stringify(allKeys)})">📋 全キーをコピー</button>
+        <button class="btn-copy-all" style="margin-left:8px" onclick="copyDelivery(${JSON.stringify(keys)}, '${note}')">📧 配信テキストをコピー</button>
+      </div>`;
+    document.getElementById('bundle-note').value = '';
+  } catch (e) {
+    msgEl.className = 'msg-box msg-error';
+    msgEl.textContent = 'エラー: ' + e.message;
+  }
+}
+
+function copyKey(key) {
+  navigator.clipboard.writeText(key).then(() => alert('コピーしました: ' + key));
+}
+function copyAll(keys) {
+  navigator.clipboard.writeText(keys.join('\n')).then(() => alert('全キーをコピーしました'));
+}
+function copyDelivery(keys, note) {
+  const lines = [
+    `【英会話シャドウイング】ライセンスキーのご案内`,
+    ``,
+    `この度はご購入ありがとうございます。`,
+    `以下のライセンスキーをアプリに入力してください。`,
+    ``,
+    ...Object.entries(keys).map(([p, k]) => `■ ${productLabel(p).label}: ${k}`),
+    ``,
+    `■ 使い方: https://shadowing-web.onrender.com`,
+    `■ サポート: お気軽にご連絡ください`,
+    note ? `\n注文番号: ${note}` : ''
+  ];
+  navigator.clipboard.writeText(lines.join('\n')).then(() => alert('配信テキストをコピーしました'));
+}
+
+// ─── LICENSES ───
+async function loadLicenses() {
+  const product = document.getElementById('filter-product').value;
+  const loading = document.getElementById('lic-loading');
+  const listEl  = document.getElementById('lic-list');
+  loading.classList.remove('hidden');
+  listEl.classList.add('hidden');
+  try {
+    const url  = '/admin/api/licenses' + (product ? `?product=${encodeURIComponent(product)}` : '');
+    const data = await api('GET', url);
+    allLicenses = data.licenses;
+    loading.classList.add('hidden');
+    listEl.classList.remove('hidden');
+    renderLicenses();
+  } catch (e) {
+    loading.textContent = 'エラー: ' + e.message;
+  }
+}
+
+function renderLicenses() {
+  const search = document.getElementById('filter-search').value.trim().toLowerCase();
+  const listEl = document.getElementById('lic-list');
+  const filtered = allLicenses.filter(l =>
+    !search || l.note?.toLowerCase().includes(search) || l.hashShort?.includes(search)
+  );
+  if (!filtered.length) {
+    listEl.innerHTML = '<p class="empty-state">該当するライセンスがありません</p>';
+    return;
+  }
+  listEl.innerHTML = filtered.map(l => {
+    const pct    = (l.activationsUsed / l.maxActivations) * 100;
+    const full   = l.activationsUsed >= l.maxActivations;
+    const pl     = productLabel(l.product);
+    const devHtml = l.devices.length ? l.devices.map(d => `
+      <div class="device-row">
+        <span class="device-id">📱 ${d.deviceIdShort}</span>
+        <span class="device-date">認証: ${formatDate(d.activatedAt)} / 最終: ${formatDate(d.lastSeenAt)}</span>
+        <button class="btn btn-danger btn-sm" onclick="revokeDevice('${l.hash}','${d.deviceIdShort}')">解除</button>
+      </div>`).join('') : '<p style="font-size:0.78rem;color:var(--text2)">未使用</p>';
+    return `
+      <div class="lic-item ${l.activationsUsed>0?'has-devices':''}">
+        <div class="lic-top">
+          <span class="lic-product">${pl.icon} ${pl.label}</span>
+          <span class="lic-note">${l.note || '（メモなし）'}</span>
+          <span class="lic-date">${formatDate(l.createdAt)}</span>
+        </div>
+        <div class="lic-bar">
+          <div class="bar-track"><div class="bar-fill ${full?'full':''}" style="width:${pct}%"></div></div>
+          <span class="bar-label">${l.activationsUsed}/${l.maxActivations}台使用中</span>
+        </div>
+        <div class="lic-devices">${devHtml}</div>
+        <div class="lic-actions">
+          <button class="btn btn-warning btn-sm" onclick="revokeAll('${l.hash}')">全デバイス解除</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteLic('${l.hash}')">キー削除</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+async function revokeAll(hash) {
+  if (!confirm('このキーの全デバイス認証を取り消しますか？')) return;
+  try {
+    await api('POST', '/admin/api/revoke', { hash });
+    alert('取り消しました');
+    loadLicenses();
+  } catch (e) { alert('エラー: ' + e.message); }
+}
+
+async function revokeDevice(hash, deviceIdShort) {
+  if (!confirm(`デバイス「${deviceIdShort}」の認証を取り消しますか？`)) return;
+  try {
+    await api('POST', '/admin/api/revoke-device', { hash, deviceIdShort });
+    alert('取り消しました');
+    loadLicenses();
+  } catch (e) { alert('エラー: ' + e.message); }
+}
+
+async function deleteLic(hash) {
+  if (!confirm('このライセンスキーを完全に削除しますか？元に戻せません。')) return;
+  try {
+    await api('DELETE', '/admin/api/license', { hash });
+    alert('削除しました');
+    loadLicenses();
+  } catch (e) { alert('エラー: ' + e.message); }
+}
+
+// ─── PACKS ───
+async function loadPacks() {
+  const loading = document.getElementById('packs-loading');
+  const grid    = document.getElementById('pack-grid');
+  loading.classList.remove('hidden');
+  grid.classList.add('hidden');
+  try {
+    const data = await api('GET', '/admin/api/packs');
+    loading.classList.add('hidden');
+    grid.classList.remove('hidden');
+    grid.innerHTML = data.packs.map(p => `
+      <div class="pack-card">
+        <div class="pack-icon">${p.icon}</div>
+        <div class="pack-name">${p.name}</div>
+        <div class="pack-count">${p.count}題</div>
+      </div>`).join('') || '<p class="empty-state">パックがありません</p>';
+  } catch (e) {
+    loading.textContent = 'エラー: ' + e.message;
+  }
+}
+
+// ─── 初期化 ───
+if (adminToken) {
+  // トークンが既に存在する場合は即ログイン
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  loadDashboard();
+  loadPacks();
+}
+</script>
+</body>
+</html>

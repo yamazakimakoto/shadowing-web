@@ -1,0 +1,170 @@
+{
+  "id": "travel_vol2",
+  "name": "海外旅行パック vol.2",
+  "description": "レストラン・ショッピング・観光で使える実践英会話 25題",
+  "icon": "🗺️",
+  "categories": [
+    { "id": "restaurant", "label": "レストラン", "icon": "🍽️" },
+    { "id": "shopping",   "label": "ショッピング", "icon": "🛍️" },
+    { "id": "sightseeing","label": "観光・移動",   "icon": "🗺️" }
+  ],
+  "texts": [
+    {
+      "id": 2001, "category": "restaurant",
+      "title": "Making a Restaurant Reservation", "titleJa": "レストランの予約",
+      "text": "A: Good evening, The Garden. How can I help you?\nB: Hello, I'd like to make a reservation for dinner tomorrow evening, please.\nA: Of course. How many guests will be joining you?\nB: There will be four of us. Could we have a table at seven PM?\nA: Let me check. Yes, we have a table available. Could I have your name?\nB: It's under Yoshida. And could you note that one guest has a gluten allergy?"
+    },
+    {
+      "id": 2002, "category": "restaurant",
+      "title": "Being Seated", "titleJa": "席に案内される",
+      "text": "A: Good evening. Do you have a reservation?\nB: Yes, it's under the name Sato for two people at eight o'clock.\nA: Welcome, Mr. Sato. Right this way. May I take your coats?\nB: Thank you. Could we sit by the window instead? We'd love the view.\nA: Certainly, let me check. Yes, the corner window table is open. Please follow me.\nB: This is lovely. Thank you so much."
+    },
+    {
+      "id": 2003, "category": "restaurant",
+      "title": "Ordering from the Menu", "titleJa": "メニューから注文する",
+      "text": "A: Good evening. Are you ready to order?\nB: I think so. Could you tell me about the salmon dish? Is it grilled?\nA: It's pan-seared with a lemon butter sauce, seasonal vegetables, and roasted potatoes.\nB: That sounds wonderful. I'll have that. And my partner will have the mushroom risotto.\nA: Excellent choices. And to drink?\nB: A bottle of sparkling water and a glass of the house white wine, please."
+    },
+    {
+      "id": 2004, "category": "restaurant",
+      "title": "Dietary Requirements", "titleJa": "食事制限を伝える",
+      "text": "A: Excuse me, I'm lactose intolerant. Could you help me choose something?\nB: Of course. Our grilled chicken with herbs is completely dairy-free.\nA: What about the soups? The tomato bisque sounds delicious.\nB: Unfortunately, the bisque contains cream. However, our minestrone is dairy-free.\nA: Perfect. I'll have the minestrone and the grilled chicken please.\nB: Great. I'll make sure the kitchen notes your dietary requirement."
+    },
+    {
+      "id": 2005, "category": "restaurant",
+      "title": "Wrong Order", "titleJa": "注文の間違いを伝える",
+      "text": "A: Excuse me, I think there's been a mistake. I ordered the grilled salmon but this looks like sea bass.\nB: I'm so sorry. Let me check with the kitchen right away.\nA: Also, I asked for the dressing on the side but it came already mixed in.\nB: I sincerely apologize. I'll bring you a fresh salad and sort out the main course immediately.\nA: Thank you. I appreciate it.\nB: Of course. Your meal will be on us today as an apology."
+    },
+    {
+      "id": 2006, "category": "restaurant",
+      "title": "Asking for the Bill", "titleJa": "会計を頼む",
+      "text": "A: Excuse me, when you get a chance, could we have the bill?\nB: Of course. Are you paying together or separately?\nA: Together, please. Could we also see the dessert menu?\nB: Certainly! Today's specials are a warm chocolate lava cake and a classic crème brûlée.\nA: We'll share one crème brûlée, thank you.\nB: I'll bring that right out and have your bill ready as soon as you're finished."
+    },
+    {
+      "id": 2007, "category": "restaurant",
+      "title": "Paying at a Restaurant", "titleJa": "支払いとチップ",
+      "text": "A: Here's the bill. Cash or card?\nB: By card please. Is service included in the total?\nA: Service charge is not included — it's at your discretion.\nB: I'd like to add a fifteen percent tip. Could I also have a receipt, please?\nA: Of course. Here you go. Thank you so much for dining with us tonight.\nB: We really enjoyed it. The food was wonderful."
+    },
+    {
+      "id": 2008, "category": "restaurant",
+      "title": "Ordering Takeaway", "titleJa": "テイクアウトで注文する",
+      "text": "A: Hi, I'd like to order something to take away, please.\nB: Of course. What would you like?\nA: Two portions of fish and chips. Could one be without vinegar?\nB: Sure. Any sauces?\nA: Tartar sauce on the side for both, please. And two cans of lemonade.\nB: That'll be ready in about eight minutes. The total is fourteen fifty."
+    },
+    {
+      "id": 2009, "category": "shopping",
+      "title": "Asking for Help in a Store", "titleJa": "店員に助けを求める",
+      "text": "A: Excuse me, I'm looking for a gift for my mother. Could you help me?\nB: I'd be happy to help! What kind of gift did you have in mind?\nA: Something elegant — maybe a scarf or handbag. She's in her sixties.\nB: We have a beautiful collection of silk scarves on the second floor.\nA: That sounds perfect. Could you show me some options?\nB: Follow me, please. We also have some lovely jewelry if scarves don't suit your taste."
+    },
+    {
+      "id": 2010, "category": "shopping",
+      "title": "Asking About Size and Color", "titleJa": "サイズと色を確認する",
+      "text": "A: Excuse me, do you have this jacket in a size medium? I can only see large on the rack.\nB: Let me check our stockroom. What color were you interested in?\nA: The navy blue one, please.\nB: While I check — regular fit or slim fit?\nA: The regular fit. I find slim fit a bit uncomfortable.\nB: I'll look for both just in case. It'll only take a moment."
+    },
+    {
+      "id": 2011, "category": "shopping",
+      "title": "Trying on Clothes", "titleJa": "試着する",
+      "text": "A: Excuse me, I'd like to try this on. Where are the fitting rooms?\nB: They're in the back on the left. How many items are you bringing in?\nA: Just the two — this dress and the jacket.\nB: Perfect. I'll unlock a room for you. Take your time.\nA: Thank you. Could you also hold that green blouse in size small for me?\nB: Of course! I'll hang it by the register for you."
+    },
+    {
+      "id": 2012, "category": "shopping",
+      "title": "Making a Purchase", "titleJa": "商品を購入する",
+      "text": "A: I'd like to buy this pair of shoes, please.\nB: Great choice! Cash or card?\nA: By card. Is there any discount for paying cash?\nB: Not today, but we have a promotion — spend over eighty dollars and receive a ten dollar voucher.\nA: These are ninety-five, so that applies. How do I get the voucher?\nB: It prints with your receipt. Valid for three months from today."
+    },
+    {
+      "id": 2013, "category": "shopping",
+      "title": "Returning an Item", "titleJa": "商品を返品する",
+      "text": "A: Hi, I bought this sweater two days ago and I'd like to return it. Do you accept returns?\nB: Yes, within fourteen days with a receipt. Do you have yours?\nA: Yes, here it is. It's in original packaging and has never been worn.\nB: Is there a particular reason for the return?\nA: It's a gift and the recipient already has the same one. Could I get store credit?\nB: Of course. I'll process it as a gift card for the full amount."
+    },
+    {
+      "id": 2014, "category": "shopping",
+      "title": "At the Pharmacy", "titleJa": "薬局で薬を選ぶ",
+      "text": "A: Hi, I have a mild cold and a sore throat. Could you recommend something?\nB: Of course. Any medication allergies?\nA: Not that I know of. I just need something for congestion and throat pain.\nB: I'd suggest this daytime cold and flu tablet — it relieves both and won't make you drowsy.\nA: Is there a nighttime version too?\nB: Yes, this one has a mild sleep aid. Take one of each per day."
+    },
+    {
+      "id": 2015, "category": "shopping",
+      "title": "Souvenir Shopping", "titleJa": "お土産を探す",
+      "text": "A: Excuse me, I'm looking for something traditional to bring home. What do you recommend?\nB: We have lovely locally handmade ceramics and printed tea towels — very popular.\nA: Something small and easy to pack? I have four people to buy for.\nB: These handpainted magnets are unique to the region and very affordable. Packs of four are available.\nA: Perfect! Do you ship internationally? I'd like to send something heavier to a friend.\nB: Yes, fill out the form at the counter and we'll take care of the rest."
+    },
+    {
+      "id": 2016, "category": "shopping",
+      "title": "Bargaining at a Market", "titleJa": "市場での値交渉",
+      "text": "A: How much is this handmade bag?\nB: That's fifty dollars. It's entirely handmade with genuine leather.\nA: That's a bit over my budget. Could you do it for forty?\nB: Forty is too low — I could do forty-five.\nA: Done. Could you also throw in one of those small coin purses?\nB: Ha! You drive a hard bargain. Alright, forty-five for both."
+    },
+    {
+      "id": 2017, "category": "sightseeing",
+      "title": "Asking for Directions", "titleJa": "道を聞く",
+      "text": "A: Excuse me, I'm trying to find the natural history museum. Am I going the right way?\nB: Almost! You need to turn around. Go back to the crossroads you just passed and turn right.\nA: Okay — turn right at the crossroads. Then what?\nB: Walk straight for about five minutes. You'll pass a large fountain on your left, and the museum is just past it on your right.\nA: Is it easy to spot?\nB: Very. It's a massive stone building — you can't miss it. It opens at nine, by the way."
+    },
+    {
+      "id": 2018, "category": "sightseeing",
+      "title": "Taking a Taxi", "titleJa": "タクシーに乗る",
+      "text": "A: Could you take me to the central train station, please?\nB: Of course. Luggage for the trunk?\nA: Just this one bag, I'll keep it with me. How long will it take?\nB: About twenty minutes. Traffic is light right now.\nA: Great. I'm catching a train at three-fifteen.\nB: You'll make it comfortably. I know a back route that takes about fifteen minutes if you'd prefer."
+    },
+    {
+      "id": 2019, "category": "sightseeing",
+      "title": "Using Public Transport", "titleJa": "公共交通機関を使う",
+      "text": "A: Excuse me, which bus goes to the art museum?\nB: Take the number fourteen from stop B — just across the street.\nA: How often do they run?\nB: Every twelve minutes during the day. The journey takes about twenty minutes.\nA: Do I need exact change or can I use a card?\nB: You can tap a contactless card or use the transit app. Single tickets are two-fifty."
+    },
+    {
+      "id": 2020, "category": "sightseeing",
+      "title": "Buying Attraction Tickets", "titleJa": "観光地のチケットを買う",
+      "text": "A: Good morning. I'd like two adult tickets for the exhibition please.\nB: Are you interested in the standard exhibition, or the special Monet exhibition as well?\nA: What's the price difference?\nB: Standard is fifteen dollars each. The combined ticket including Monet is twenty-two.\nA: We'll do the combined tickets. Do we need a specific entry time?\nB: Yes, the next available slot for Monet is eleven-fifteen. Does that work?"
+    },
+    {
+      "id": 2021, "category": "sightseeing",
+      "title": "At a Museum", "titleJa": "美術館・博物館で",
+      "text": "A: Excuse me, is photography allowed in here?\nB: Photography without a flash is permitted in most of the gallery. However, the temporary exhibition in Room C is strictly no photography.\nA: Understood. Could you tell me where the Renaissance paintings are?\nB: Second floor, Rooms 12 through 15. Take the main staircase and turn left at the top.\nA: Thank you. Is there an audio guide available?\nB: Yes, at the information desk near the entrance for three dollars."
+    },
+    {
+      "id": 2022, "category": "sightseeing",
+      "title": "Asking a Local for Tips", "titleJa": "地元の人にスポットを聞く",
+      "text": "A: Hi, excuse me — I'm visiting for the day. Any recommendations in this area?\nB: Definitely the harbor walk. It takes about an hour and the views are stunning.\nA: That sounds perfect. What about somewhere to eat nearby?\nB: If you like fish, The Catch right on the harbor is popular with locals — nothing fancy but delicious.\nA: Is it usually crowded at lunch?\nB: On weekends, yes. Go before noon and you should get a table."
+    },
+    {
+      "id": 2023, "category": "sightseeing",
+      "title": "Asking Someone to Take a Photo", "titleJa": "写真を撮ってもらう",
+      "text": "A: Excuse me, would you mind taking a photo of us in front of the castle?\nB: Not at all! Happy to help. Your phone or camera?\nA: My phone please. Just press the big button on the side.\nB: Got it. Okay, smile! That's a lovely shot. Want me to take another just in case?\nA: Yes please, one more. Thank you so much!\nB: Of course. It's a beautiful day — perfect lighting."
+    },
+    {
+      "id": 2024, "category": "sightseeing",
+      "title": "Getting Lost", "titleJa": "道に迷ったとき",
+      "text": "A: Excuse me, I think I'm completely lost. I was trying to get to the old town square but I ended up here.\nB: Don't worry — this happens to everyone. You've actually walked in the opposite direction.\nA: Oh no. How far is it?\nB: About twenty minutes on foot. Or take tram number seven from the end of this street — it goes directly to the square.\nA: I'll take the tram. Thank you so much. You've been a lifesaver.\nB: Enjoy your visit! The old town is absolutely beautiful."
+    },
+    {
+      "id": 2025, "category": "sightseeing",
+      "title": "Medical Emergency", "titleJa": "体調不良・緊急事態",
+      "text": "A: Excuse me, I need help. My friend is feeling very unwell — she's dizzy and having trouble breathing.\nB: I'll call for help right away. Is she sitting down? Is she conscious?\nA: Yes, she's sitting but very pale. She might be having an allergic reaction.\nB: Does she have an EpiPen or any allergy medication?\nA: Yes, here in her bag — should she use it?\nB: Yes, if it's severe, use it immediately. I've already called emergency services — they'll be here in two minutes."
+    }
+  ],
+  "explanations": {
+    "2001": [
+      { "phrase": "make a reservation", "reading": "", "meaning": "予約を入れる", "note": "book a table とも言う。" },
+      { "phrase": "gluten allergy", "reading": "グルテンアレルギー", "meaning": "グルテンアレルギー", "note": "食事制限はよく確認される重要表現。" }
+    ],
+    "2003": [
+      { "phrase": "pan-seared", "reading": "パンシアード", "meaning": "フライパンで焼いた", "note": "グリルとは異なるメニュー表現。" },
+      { "phrase": "house white wine", "reading": "", "meaning": "ハウスワイン（白）", "note": "レストランの定番ドリンク表現。" }
+    ],
+    "2005": [
+      { "phrase": "Your meal will be on us", "reading": "", "meaning": "お食事代はサービスさせていただきます", "note": "「on us」= 私たちが払う = 無料にする。" }
+    ],
+    "2007": [
+      { "phrase": "at your discretion", "reading": "", "meaning": "お客様のご判断で", "note": "チップは義務ではないというニュアンス。" },
+      { "phrase": "service charge", "reading": "サービスチャージ", "meaning": "サービス料", "note": "" }
+    ],
+    "2012": [
+      { "phrase": "voucher", "reading": "バウチャー", "meaning": "割引券・クーポン", "note": "" }
+    ],
+    "2013": [
+      { "phrase": "original packaging", "reading": "", "meaning": "元の包装・パッケージ", "note": "返品の条件としてよく使われる表現。" },
+      { "phrase": "store credit", "reading": "ストアクレジット", "meaning": "店内で使える金券", "note": "返金の代わりに次回使えるクレジット。" }
+    ],
+    "2017": [
+      { "phrase": "You need to turn around", "reading": "", "meaning": "来た道を戻る必要があります", "note": "道案内の基本表現。" },
+      { "phrase": "You can't miss it", "reading": "", "meaning": "すぐわかります", "note": "目印が分かりやすいときに使う。" }
+    ],
+    "2025": [
+      { "phrase": "EpiPen", "reading": "エピペン", "meaning": "アナフィラキシー用自己注射薬", "note": "severe allergic reaction（重篤なアレルギー反応）に使用。" },
+      { "phrase": "emergency services", "reading": "", "meaning": "救急・緊急サービス", "note": "欧米での119番に相当。" }
+    ]
+  }
+}
