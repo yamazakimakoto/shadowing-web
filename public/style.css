@@ -528,7 +528,37 @@ input[type="range"] { flex: 1; accent-color: var(--primary); cursor: pointer; he
 .btn-explain { padding: 6px 14px; background: #ede9fe; color: #5b21b6; border: 1.5px solid #8b5cf6; border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
 .btn-explain:hover:not(:disabled) { background: #8b5cf6; color: white; }
 .btn-explain:disabled { opacity: 0.55; cursor: default; }
-.explain-source { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.93rem; line-height: 1.8; margin-bottom: 18px; }
+.explain-source { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.93rem; line-height: 1.8; margin-bottom: 0; }
+
+/* ── 日本語訳ブロック ── */
+.explain-trans-block {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: 10px 0 18px;
+}
+.explain-trans-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #15803d;
+  background: #dcfce7;
+  border-radius: 20px;
+  padding: 1px 10px;
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+.explain-trans-text {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--text);
+}
+.trans-speaker {
+  font-weight: 700;
+  color: #166534;
+  margin-right: 2px;
+}
 .explain-loading { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 32px; color: var(--text-muted); font-size: 0.9rem; }
 .spinner { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 0.75s linear infinite; }
 .spinner-small { width: 20px; height: 20px; border: 2px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 0.75s linear infinite; margin: 8px; }

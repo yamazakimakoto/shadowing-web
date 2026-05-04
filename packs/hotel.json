@@ -4,275 +4,803 @@
   "description": "フロント・ダイニング・コンシェルジュ・施設 25題",
   "icon": "🏨",
   "categories": [
-    { "id": "front",      "label": "フロント",        "icon": "🏨" },
-    { "id": "dining",     "label": "ダイニング",      "icon": "🍽️" },
-    { "id": "service",    "label": "コンシェルジュ",  "icon": "🛎️" },
-    { "id": "facilities", "label": "施設・設備",      "icon": "🏊" }
+    {
+      "id": "front",
+      "label": "フロント",
+      "icon": "🏨"
+    },
+    {
+      "id": "dining",
+      "label": "ダイニング",
+      "icon": "🍽️"
+    },
+    {
+      "id": "service",
+      "label": "コンシェルジュ",
+      "icon": "🛎️"
+    },
+    {
+      "id": "facilities",
+      "label": "施設・設備",
+      "icon": "🏊"
+    }
   ],
   "texts": [
     {
-      "id": 6001, "category": "front",
-      "title": "Group Reservation Inquiry", "titleJa": "グループ予約の問い合わせ",
+      "id": 6001,
+      "category": "front",
+      "title": "Group Reservation Inquiry",
+      "titleJa": "グループ予約の問い合わせ",
       "text": "A: Good afternoon. We're planning a corporate retreat for about thirty people next month. Do you accommodate groups of that size?\nB: Absolutely. We have a dedicated events team for corporate bookings. Could I have your preferred dates?\nA: We're looking at the second weekend of next month — Friday arrival to Sunday checkout.\nB: Let me check our availability. Yes, we can accommodate your group. We have thirty superior rooms available, along with our conference suite for daytime sessions.\nA: Excellent. What's included in the corporate rate?\nB: The corporate rate includes daily breakfast, access to our business center, and complimentary use of one meeting room for up to four hours per day."
     },
     {
-      "id": 6002, "category": "front",
-      "title": "Negotiating a Corporate Rate", "titleJa": "法人レートの交渉",
+      "id": 6002,
+      "category": "front",
+      "title": "Negotiating a Corporate Rate",
+      "titleJa": "法人レートの交渉",
       "text": "A: We have employees visiting this city regularly — perhaps ten to fifteen room nights per month. Do you offer a corporate account?\nB: We certainly do. For that volume, you'd qualify for our preferred corporate rate, which is approximately twenty percent below our standard rate.\nA: That sounds attractive. Is there a minimum commitment required?\nB: We ask for a minimum of eight room nights per month to maintain the preferred rate. There's no penalty if you fall short occasionally.\nA: And what about the cancellation policy for corporate bookings?\nB: Cancellations up to forty-eight hours before arrival are free of charge. We can also offer flexible terms for high-frequency accounts. Shall I put together a formal proposal?"
     },
     {
-      "id": 6003, "category": "front",
-      "title": "Room Upgrade Request", "titleJa": "部屋のアップグレードを依頼する",
+      "id": 6003,
+      "category": "front",
+      "title": "Room Upgrade Request",
+      "titleJa": "部屋のアップグレードを依頼する",
       "text": "A: Hello, I'm checking in. I have a standard room booked, but I was wondering if an upgrade might be available.\nB: Let me check what we have available this evening. Could I have your name?\nA: It's Nakamura. I'm also a member of your loyalty program — gold tier.\nB: Thank you, Mr. Nakamura. Given your gold status, I'm pleased to offer you a complimentary upgrade to a deluxe king room on the fourteenth floor. It has a panoramic city view.\nA: That's wonderful. Thank you very much.\nB: Our pleasure. Gold members also receive a late checkout until two PM at no additional charge. Would you like me to note that on your reservation?"
     },
     {
-      "id": 6004, "category": "front",
-      "title": "Long-Stay Guest Check-In", "titleJa": "長期滞在のチェックイン",
+      "id": 6004,
+      "category": "front",
+      "title": "Long-Stay Guest Check-In",
+      "titleJa": "長期滞在のチェックイン",
       "text": "A: Good evening. I'm checking in for an extended stay — about three weeks. The reservation should be under Johnson.\nB: Welcome, Ms. Johnson. Yes, I have your reservation for twenty-one nights. We've prepared a room on the eighth floor with a kitchenette and extra storage space, as requested.\nA: Perfect. Is there a weekly housekeeping schedule for long stays, or is it daily?\nB: We offer daily housekeeping as standard, but many long-stay guests prefer every other day to maintain their routine. Which would you prefer?\nA: Every other day would be fine. Also, is there a grocery delivery service nearby?\nB: Yes, there are two supermarkets within walking distance. We also have a preferred delivery service and can place orders on your behalf if that would be helpful."
     },
     {
-      "id": 6005, "category": "front",
-      "title": "Wrong Room Type at Check-In", "titleJa": "予約と違う部屋のクレーム",
+      "id": 6005,
+      "category": "front",
+      "title": "Wrong Room Type at Check-In",
+      "titleJa": "予約と違う部屋のクレーム",
       "text": "A: Excuse me, I specifically booked a twin room because I'm traveling with a colleague, but we've been given a double.\nB: I sincerely apologize for the confusion. Let me pull up your reservation and see what I can do.\nA: I have the confirmation email right here — it clearly shows a twin room.\nB: You're absolutely right, and I apologize. Unfortunately, we've had an unexpected system error affecting several bookings today. I do not currently have a twin room available on your floor, but I can offer you one on the sixth floor, or alternatively, a junior suite with two separate sleeping areas at the same rate.\nA: The junior suite sounds like a reasonable solution. Will the rate stay the same?\nB: Yes, of course. The suite will be at your original twin room rate. Again, I'm very sorry for the inconvenience."
     },
     {
-      "id": 6006, "category": "front",
-      "title": "Reporting a Lost Item", "titleJa": "忘れ物・紛失の申告",
+      "id": 6006,
+      "category": "front",
+      "title": "Reporting a Lost Item",
+      "titleJa": "忘れ物・紛失の申告",
       "text": "A: Hello, I checked out this morning but I think I may have left my laptop charger in the room.\nB: I'm sorry to hear that. Could I have your name and room number?\nA: It's Williams, room 915. I checked out around ten o'clock.\nB: Let me contact housekeeping right away. Can you describe the charger?\nA: It's a grey MacBook charger with a magnetic connector. It should have been on the desk near the window.\nB: I'll have someone check the room immediately. If we locate it, would you like us to hold it for pickup, or would you prefer we ship it to you?"
     },
     {
-      "id": 6007, "category": "front",
-      "title": "Early Departure", "titleJa": "予定より早くチェックアウトする",
+      "id": 6007,
+      "category": "front",
+      "title": "Early Departure",
+      "titleJa": "予定より早くチェックアウトする",
       "text": "A: Good morning. I need to check out today instead of tomorrow — there's been a change in my schedule.\nB: Of course. Is everything alright with your stay?\nA: Everything's been excellent, thank you. It's just a business change — my meeting was moved forward.\nB: I understand completely. I'll process your early checkout now. Your final bill includes three nights instead of four. Were there any charges from the minibar or restaurant yesterday evening?\nA: Yes, I had dinner in the restaurant last night — the bill should be on the room.\nB: It's already on your account. Your total is three hundred and eighty dollars. Shall I charge it to the card on file?"
     },
     {
-      "id": 6008, "category": "dining",
-      "title": "Breakfast Options and Allergies", "titleJa": "朝食メニューとアレルギー対応",
+      "id": 6008,
+      "category": "dining",
+      "title": "Breakfast Options and Allergies",
+      "titleJa": "朝食メニューとアレルギー対応",
       "text": "A: Good morning. Before I sit down, I wanted to mention I have a nut allergy. Is the buffet safe?\nB: Thank you for letting us know. Several of our buffet items do contain nuts or may have been prepared in shared equipment. To be safe, I'd recommend our à la carte breakfast menu instead — all dishes can be prepared in a nut-free environment.\nA: That's very reassuring. What would you recommend from the à la carte?\nB: Our smoked salmon with scrambled eggs is very popular and completely nut-free. The fresh fruit bowl and yogurt are also safe options.\nA: I'll have the smoked salmon, please. And a pot of green tea.\nB: Of course. I'll alert the kitchen to your allergy. It'll be about ten minutes."
     },
     {
-      "id": 6009, "category": "dining",
-      "title": "Reserving the Hotel Restaurant", "titleJa": "ホテルレストランの予約",
+      "id": 6009,
+      "category": "dining",
+      "title": "Reserving the Hotel Restaurant",
+      "titleJa": "ホテルレストランの予約",
       "text": "A: I'd like to make a reservation at your signature restaurant for this evening.\nB: Certainly. How many guests will be dining?\nA: Four people. It's a small business dinner — somewhere quiet would be ideal.\nB: We have a semi-private booth available at seven-thirty that would be perfect for a business setting.\nA: That sounds ideal. Could we also pre-order a bottle of Burgundy? I know the wine list here is impressive.\nB: Of course. I'll connect you with our sommelier who can suggest a suitable Burgundy within your preferred price range. Shall I transfer you now?\nA: Yes, please. And please book it under the name Takahashi."
     },
     {
-      "id": 6010, "category": "dining",
-      "title": "Room Service — Dietary Special Request", "titleJa": "ルームサービス・特別食の依頼",
+      "id": 6010,
+      "category": "dining",
+      "title": "Room Service — Dietary Special Request",
+      "titleJa": "ルームサービス・特別食の依頼",
       "text": "A: I'd like to order room service. I'm vegan — could you tell me what options are available?\nB: Of course. Our vegan menu includes a roasted vegetable Buddha bowl, pasta primavera with olive oil, and a lentil soup. We also have a fresh fruit plate and a selection of plant-based desserts.\nA: The Buddha bowl sounds lovely. Could you add some extra avocado?\nB: Absolutely. Any dressing preference?\nA: Tahini dressing on the side, please. And a large pot of herbal tea.\nB: Perfect. Your order will be ready in approximately twenty-five minutes. Is there anything else I can bring up?"
     },
     {
-      "id": 6011, "category": "dining",
-      "title": "At the Hotel Bar", "titleJa": "ホテルのバーで",
+      "id": 6011,
+      "category": "dining",
+      "title": "At the Hotel Bar",
+      "titleJa": "ホテルのバーで",
       "text": "A: Good evening. Could I see the cocktail menu?\nB: Of course. Our signature cocktails are on the front page. Tonight we also have a featured cocktail called The Cityscape — a blend of Japanese whisky, yuzu liqueur, and ginger bitters.\nA: That sounds intriguing. I'll try that. And do you have any light snacks available?\nB: Yes, we serve a bar snack menu until midnight. The truffle popcorn and the charcuterie board are particularly popular.\nA: I'll take the charcuterie board. Could I also charge everything to my room?\nB: Absolutely — could I have your room number and name, please?"
     },
     {
-      "id": 6012, "category": "dining",
-      "title": "Private Dining for Business", "titleJa": "ビジネス用プライベートダイニング",
+      "id": 6012,
+      "category": "dining",
+      "title": "Private Dining for Business",
+      "titleJa": "ビジネス用プライベートダイニング",
       "text": "A: I need to arrange a private dinner for eight people — it's for an important client meeting. What options do you have?\nB: We have a private dining room that seats up to twelve, with a dedicated server and full audio-visual equipment if needed.\nA: Audio-visual isn't necessary, but a quiet, private space is essential. We'll need about three hours.\nB: The private room is available tomorrow evening from seven. We offer either a pre-selected set menu or a customized menu — for a business dinner, many clients prefer the latter.\nA: Let's go with a customized menu. Could we arrange a tasting beforehand?\nB: Certainly. I can schedule a brief tasting with our head chef tomorrow afternoon. Shall I make that arrangement?"
     },
     {
-      "id": 6013, "category": "service",
-      "title": "Concierge — Theatre Tickets", "titleJa": "コンシェルジュ：劇場チケットの手配",
+      "id": 6013,
+      "category": "service",
+      "title": "Concierge — Theatre Tickets",
+      "titleJa": "コンシェルジュ：劇場チケットの手配",
       "text": "A: I'd love to see a show tonight. Is there anything good on that you'd recommend?\nB: This week there's a critically acclaimed production of Hamlet at the Royal Theatre, and a jazz performance at The Blue Room that's been very popular with our guests.\nA: I've been wanting to see live jazz. Are there still tickets available?\nB: Let me check. Yes, there are tickets remaining for the ten o'clock show. It's about a thirty-minute walk or a ten-minute taxi.\nA: Could you book two tickets and arrange a taxi for, say, nine-fifteen?\nB: Absolutely. I'll have the tickets ready at the front desk and the taxi booked for nine-fifteen. Shall I also make a dinner reservation beforehand?"
     },
     {
-      "id": 6014, "category": "service",
-      "title": "Concierge — Car Rental", "titleJa": "コンシェルジュ：レンタカーの手配",
+      "id": 6014,
+      "category": "service",
+      "title": "Concierge — Car Rental",
+      "titleJa": "コンシェルジュ：レンタカーの手配",
       "text": "A: I need to rent a car for the day tomorrow. Could the concierge help with that?\nB: Of course. We work with two reliable rental companies. Do you have any preference for the type of vehicle?\nA: Something comfortable for a day trip — I'll be driving about two hundred kilometers in total.\nB: I'd suggest a mid-size sedan or a small SUV for that distance. May I ask if you'll need a GPS?\nA: Yes, please. And I'd like to pick it up by eight in the morning if possible.\nB: Let me arrange that now. We can have the car delivered directly to the hotel entrance at eight. I'll need your driving license details to complete the booking."
     },
     {
-      "id": 6015, "category": "service",
-      "title": "Concierge — Medical Assistance", "titleJa": "コンシェルジュ：医療サポート",
+      "id": 6015,
+      "category": "service",
+      "title": "Concierge — Medical Assistance",
+      "titleJa": "コンシェルジュ：医療サポート",
       "text": "A: Excuse me, I'm not feeling well — I think I need to see a doctor. Could you help?\nB: Of course. Are you in need of immediate emergency care, or is this something that could wait for an appointment?\nA: Not an emergency, but I have a fever and sore throat that's been getting worse all day.\nB: I understand. We have an in-house physician who visits the hotel each afternoon. Today's appointment slot is at four o'clock — shall I book you in?\nA: Yes, please. And is there a pharmacy nearby in case I need medication?\nB: Yes, there's a pharmacy two minutes from the main entrance. If you're not well enough to go out, our concierge team can collect any prescription for you."
     },
     {
-      "id": 6016, "category": "service",
-      "title": "Laundry and Dry Cleaning", "titleJa": "ランドリー・クリーニングサービス",
+      "id": 6016,
+      "category": "service",
+      "title": "Laundry and Dry Cleaning",
+      "titleJa": "ランドリー・クリーニングサービス",
       "text": "A: I have a suit that needs dry cleaning urgently — I have a meeting tomorrow morning.\nB: Of course. If you leave it with us before nine this evening, we can have it ready by seven tomorrow morning.\nA: That's perfect. I also have a few shirts that need pressing.\nB: We'll take care of those as well. Please place everything in the laundry bag in your wardrobe with the form filled in — or I can send someone up to collect it directly.\nA: Could someone come up, please? I'm in room 712.\nB: I'll send our laundry team up in about fifteen minutes. And just to confirm — the dry cleaning will be noted as express service, which does carry a small premium charge."
     },
     {
-      "id": 6017, "category": "service",
-      "title": "Airport Transfer Arrangement", "titleJa": "空港送迎の手配",
+      "id": 6017,
+      "category": "service",
+      "title": "Airport Transfer Arrangement",
+      "titleJa": "空港送迎の手配",
       "text": "A: I need to arrange a transfer to the airport tomorrow. My flight is at eleven-fifteen.\nB: Of course. Which airport and which terminal?\nA: Heathrow, Terminal 3. I'd need to be there by nine to allow enough time.\nB: For Terminal 3, I'd recommend departing the hotel at seven-thirty to be safe during morning rush hour. We have a hotel car service and also work with a licensed taxi company.\nA: What's the difference in price?\nB: The hotel car is forty-five pounds and includes the driver meeting you in the lobby with a name card. The taxi is slightly less at around thirty-five pounds but you'd meet it at the main entrance. Both are very reliable.\nA: I'll take the hotel car — the name card service is helpful when I have luggage."
     },
     {
-      "id": 6018, "category": "service",
-      "title": "Honeymoon Special Arrangement", "titleJa": "ハネムーン特別手配",
+      "id": 6018,
+      "category": "service",
+      "title": "Honeymoon Special Arrangement",
+      "titleJa": "ハネムーン特別手配",
       "text": "A: My partner and I are celebrating our honeymoon. Is there anything special you can arrange to make the stay memorable?\nB: Congratulations! We'd be delighted to help. We offer a honeymoon package that includes a bottle of champagne on arrival, rose petal turndown service, and a complimentary couples breakfast in bed on your first morning.\nA: That sounds absolutely lovely. Could you also arrange flowers in the room?\nB: Of course. We can have a bouquet of your choice ready when you arrive. Do you have a flower preference?\nA: White roses, if possible.\nB: Perfect. I'll also make a note for the restaurant team — if you dine with us, we'll ensure you have a candlelit table. Is there anything else to make your stay extra special?"
     },
     {
-      "id": 6019, "category": "facilities",
-      "title": "Spa Booking", "titleJa": "スパ予約",
+      "id": 6019,
+      "category": "facilities",
+      "title": "Spa Booking",
+      "titleJa": "スパ予約",
       "text": "A: I'd like to book a spa treatment for this afternoon. What's available?\nB: This afternoon we have availability for our Swedish massage, a deep tissue treatment, and our signature aromatherapy facial.\nA: I'd love a Swedish massage. How long are the sessions?\nB: We offer sixty and ninety-minute options. The ninety-minute session includes a fifteen-minute hydrotherapy pre-treatment.\nA: The ninety-minute sounds perfect. What time can I come in?\nB: We have two o'clock or four-thirty available. The spa also has a relaxation lounge and heated pool that you're welcome to use from thirty minutes before your treatment."
     },
     {
-      "id": 6020, "category": "facilities",
-      "title": "Gym and Fitness Facilities", "titleJa": "フィットネスジムについて",
+      "id": 6020,
+      "category": "facilities",
+      "title": "Gym and Fitness Facilities",
+      "titleJa": "フィットネスジムについて",
       "text": "A: I'd like to use the gym. What are the opening hours?\nB: Our fitness center is open twenty-four hours for hotel guests. You can access it with your room key.\nA: Is there a personal trainer available?\nB: Yes, we have two personal trainers on duty from six in the morning until eight in the evening. Sessions can be booked in thirty or sixty-minute slots at the front desk or through the in-room tablet.\nA: What equipment is available? I'm training for a marathon, so I particularly need treadmills.\nB: We have six treadmills, along with a full range of resistance equipment and free weights. The pool is also excellent for low-impact cross-training if you'd like to mix things up."
     },
     {
-      "id": 6021, "category": "facilities",
-      "title": "Swimming Pool Inquiry", "titleJa": "プールの利用について",
+      "id": 6021,
+      "category": "facilities",
+      "title": "Swimming Pool Inquiry",
+      "titleJa": "プールの利用について",
       "text": "A: I'd like to use the pool. Is it heated at this time of year?\nB: Yes, our indoor pool is heated year-round to twenty-eight degrees. We also have an outdoor terrace pool open from May through September.\nA: Is the indoor pool available for lap swimming?\nB: Absolutely. We designate lanes for lap swimmers during the morning session from six to nine. Outside of those hours it's a shared leisure pool.\nA: Are swimming caps required?\nB: Swimming caps are required for the lap lanes and strongly recommended in the leisure pool. We sell them at the poolside reception if you don't have one, or I can bring a complimentary cap up to your room."
     },
     {
-      "id": 6022, "category": "facilities",
-      "title": "Business Center and Meeting Room", "titleJa": "ビジネスセンター・会議室",
+      "id": 6022,
+      "category": "facilities",
+      "title": "Business Center and Meeting Room",
+      "titleJa": "ビジネスセンター・会議室",
       "text": "A: I need to print some documents and use a meeting room for about two hours this afternoon.\nB: Of course. Our business center has a self-service printer, scanner, and high-speed internet. For the meeting room, we have a small boardroom available from two to four o'clock.\nA: Is there a charge for the meeting room?\nB: Hotel guests can use the boardroom for up to two hours complimentarily. Additional time is charged at twenty-five dollars per hour. The room includes a screen, HDMI connection, and a conference phone.\nA: Perfect. I'll need the HDMI for a presentation. Could you also arrange coffee and water for three people?\nB: Absolutely. I'll have that set up and ready for two o'clock. Shall I book the room in your name?"
     },
     {
-      "id": 6023, "category": "facilities",
-      "title": "Pet Policy Inquiry", "titleJa": "ペット同伴についての確認",
+      "id": 6023,
+      "category": "facilities",
+      "title": "Pet Policy Inquiry",
+      "titleJa": "ペット同伴についての確認",
       "text": "A: I'm planning to stay with you next month, and I was wondering about your pet policy. I have a small dog.\nB: We're a pet-friendly hotel. We welcome dogs up to ten kilograms at no additional charge.\nA: That's wonderful news. Are there any restrictions I should be aware of?\nB: Dogs are welcome in guest rooms and in our outdoor terrace areas. They're not permitted in the restaurant or spa. We also ask that dogs aren't left unattended in rooms for extended periods.\nA: That's completely reasonable. Do you provide any special amenities for pets?\nB: We provide a dog bed, water bowl, and a welcome treat on arrival. We can also recommend a local dog-walking service if you need it during the day."
     },
     {
-      "id": 6024, "category": "facilities",
-      "title": "Accessible Room Request", "titleJa": "バリアフリールームのリクエスト",
+      "id": 6024,
+      "category": "facilities",
+      "title": "Accessible Room Request",
+      "titleJa": "バリアフリールームのリクエスト",
       "text": "A: I'm making a reservation for my father who uses a wheelchair. Do you have accessible rooms available?\nB: Absolutely. We have fully accessible rooms on the ground and second floors with roll-in showers, lowered fixtures, and wide doorways throughout.\nA: Is there step-free access from the entrance to the rooms?\nB: Yes, there is step-free access throughout the hotel including the restaurant, spa, and all guest floors via elevator. Our accessible parking spaces are directly adjacent to the main entrance.\nA: That's very reassuring. Is there staff trained to assist with mobility needs if required?\nB: Yes, our entire guest services team has accessibility training. We can also arrange a ground-floor room closest to the elevator for added convenience. Shall I note all of this for the reservation?"
     },
     {
-      "id": 6025, "category": "front",
-      "title": "Disputed Hotel Bill", "titleJa": "ホテルの請求書に異議を申し立てる",
+      "id": 6025,
+      "category": "front",
+      "title": "Disputed Hotel Bill",
+      "titleJa": "ホテルの請求書に異議を申し立てる",
       "text": "A: I'd like to query a charge on my bill. There's a minibar charge of forty-two dollars, but I didn't use the minibar at all.\nB: I'm sorry to hear that. Could I have your room number so I can pull up the details?\nA: Room 1104. The charge is listed as day three of my stay.\nB: Let me investigate this. I'll contact housekeeping to verify the minibar inventory. Could you wait just a moment?\nA: Of course. I also want to mention there's a spa charge on day two that I didn't authorize — I called to inquire about spa services but never booked.\nB: I see both items noted. I'll review the spa booking records as well. If either charge was applied in error, we'll remove them immediately and provide a corrected invoice before you depart."
     }
   ],
   "explanations": {
     "6001": [
-      { "phrase": "corporate retreat", "reading": "コーポレートリトリート", "meaning": "企業の研修・合宿旅行", "note": "" },
-      { "phrase": "conference suite", "reading": "コンファレンススイート", "meaning": "会議用スイートルーム", "note": "" }
+      {
+        "phrase": "corporate retreat",
+        "reading": "コーポレートリトリート",
+        "meaning": "企業の研修・合宿旅行",
+        "note": ""
+      },
+      {
+        "phrase": "conference suite",
+        "reading": "コンファレンススイート",
+        "meaning": "会議用スイートルーム",
+        "note": ""
+      }
     ],
     "6002": [
-      { "phrase": "preferred corporate rate", "reading": "", "meaning": "優遇法人レート", "note": "ホテルと企業の契約割引レート。" },
-      { "phrase": "high-frequency accounts", "reading": "", "meaning": "利用頻度の高い法人顧客", "note": "" }
+      {
+        "phrase": "preferred corporate rate",
+        "reading": "",
+        "meaning": "優遇法人レート",
+        "note": "ホテルと企業の契約割引レート。"
+      },
+      {
+        "phrase": "high-frequency accounts",
+        "reading": "",
+        "meaning": "利用頻度の高い法人顧客",
+        "note": ""
+      }
     ],
     "6003": [
-      { "phrase": "loyalty program", "reading": "ロイヤルティプログラム", "meaning": "顧客優待プログラム", "note": "ホテルや航空会社のポイント・マイルプログラム。" },
-      { "phrase": "complimentary upgrade", "reading": "", "meaning": "無料アップグレード", "note": "「complimentary」= 無料サービスの意。" }
+      {
+        "phrase": "loyalty program",
+        "reading": "ロイヤルティプログラム",
+        "meaning": "顧客優待プログラム",
+        "note": "ホテルや航空会社のポイント・マイルプログラム。"
+      },
+      {
+        "phrase": "complimentary upgrade",
+        "reading": "",
+        "meaning": "無料アップグレード",
+        "note": "「complimentary」= 無料サービスの意。"
+      }
     ],
     "6004": [
-      { "phrase": "extended stay", "reading": "", "meaning": "長期滞在", "note": "「long stay」とも言う。通常1週間以上の滞在を指す。" },
-      { "phrase": "kitchenette", "reading": "キチネット", "meaning": "簡易キッチン", "note": "コンロ・電子レンジ・小型冷蔵庫などを備えた小さな台所。" },
-      { "phrase": "housekeeping schedule", "reading": "", "meaning": "客室清掃のスケジュール", "note": "長期滞在時は毎日か隔日かを選べることが多い。" },
-      { "phrase": "every other day", "reading": "", "meaning": "1日おき・隔日で", "note": "「alternate days」とも言う。" },
-      { "phrase": "place orders on your behalf", "reading": "", "meaning": "代わりに注文する", "note": "「on your behalf」= あなたの代わりに、という意味の定型表現。" }
+      {
+        "phrase": "extended stay",
+        "reading": "",
+        "meaning": "長期滞在",
+        "note": "「long stay」とも言う。通常1週間以上の滞在を指す。"
+      },
+      {
+        "phrase": "kitchenette",
+        "reading": "キチネット",
+        "meaning": "簡易キッチン",
+        "note": "コンロ・電子レンジ・小型冷蔵庫などを備えた小さな台所。"
+      },
+      {
+        "phrase": "housekeeping schedule",
+        "reading": "",
+        "meaning": "客室清掃のスケジュール",
+        "note": "長期滞在時は毎日か隔日かを選べることが多い。"
+      },
+      {
+        "phrase": "every other day",
+        "reading": "",
+        "meaning": "1日おき・隔日で",
+        "note": "「alternate days」とも言う。"
+      },
+      {
+        "phrase": "place orders on your behalf",
+        "reading": "",
+        "meaning": "代わりに注文する",
+        "note": "「on your behalf」= あなたの代わりに、という意味の定型表現。"
+      }
     ],
     "6005": [
-      { "phrase": "system error affecting bookings", "reading": "", "meaning": "予約に影響したシステムエラー", "note": "丁寧なクレーム対応の表現。" }
+      {
+        "phrase": "system error affecting bookings",
+        "reading": "",
+        "meaning": "予約に影響したシステムエラー",
+        "note": "丁寧なクレーム対応の表現。"
+      }
     ],
     "6006": [
-      { "phrase": "checked out", "reading": "", "meaning": "チェックアウトした", "note": "「check in」の対義語。ホテルを退出する手続きを指す。" },
-      { "phrase": "contact housekeeping", "reading": "", "meaning": "客室清掃係に連絡する", "note": "「housekeeping」はホテルの清掃・リネン担当部門。" },
-      { "phrase": "magnetic connector", "reading": "マグネティックコネクター", "meaning": "磁気コネクター", "note": "MacBookの旧MagSafe充電端子のような磁石式接続部品。" },
-      { "phrase": "hold it for pickup", "reading": "", "meaning": "受け取りのために保管する", "note": "「ship it to you」（郵送する）と対比される選択肢。" }
+      {
+        "phrase": "checked out",
+        "reading": "",
+        "meaning": "チェックアウトした",
+        "note": "「check in」の対義語。ホテルを退出する手続きを指す。"
+      },
+      {
+        "phrase": "contact housekeeping",
+        "reading": "",
+        "meaning": "客室清掃係に連絡する",
+        "note": "「housekeeping」はホテルの清掃・リネン担当部門。"
+      },
+      {
+        "phrase": "magnetic connector",
+        "reading": "マグネティックコネクター",
+        "meaning": "磁気コネクター",
+        "note": "MacBookの旧MagSafe充電端子のような磁石式接続部品。"
+      },
+      {
+        "phrase": "hold it for pickup",
+        "reading": "",
+        "meaning": "受け取りのために保管する",
+        "note": "「ship it to you」（郵送する）と対比される選択肢。"
+      }
     ],
     "6007": [
-      { "phrase": "early checkout", "reading": "アーリーチェックアウト", "meaning": "早期チェックアウト", "note": "予定より前にチェックアウトすること。" },
-      { "phrase": "my meeting was moved forward", "reading": "", "meaning": "会議が前倒しになった", "note": "「move forward」= 予定を繰り上げる。「pushed back」は逆に先送り。" },
-      { "phrase": "minibar", "reading": "ミニバー", "meaning": "客室内の小型冷蔵庫・飲料棚", "note": "利用分は自動的に部屋代に加算される。" },
-      { "phrase": "charge it to the card on file", "reading": "", "meaning": "登録済みカードに請求する", "note": "チェックイン時に登録したクレジットカードへ請求する定型表現。" }
+      {
+        "phrase": "early checkout",
+        "reading": "アーリーチェックアウト",
+        "meaning": "早期チェックアウト",
+        "note": "予定より前にチェックアウトすること。"
+      },
+      {
+        "phrase": "my meeting was moved forward",
+        "reading": "",
+        "meaning": "会議が前倒しになった",
+        "note": "「move forward」= 予定を繰り上げる。「pushed back」は逆に先送り。"
+      },
+      {
+        "phrase": "minibar",
+        "reading": "ミニバー",
+        "meaning": "客室内の小型冷蔵庫・飲料棚",
+        "note": "利用分は自動的に部屋代に加算される。"
+      },
+      {
+        "phrase": "charge it to the card on file",
+        "reading": "",
+        "meaning": "登録済みカードに請求する",
+        "note": "チェックイン時に登録したクレジットカードへ請求する定型表現。"
+      }
     ],
     "6008": [
-      { "phrase": "à la carte", "reading": "アラカルト", "meaning": "単品注文メニュー", "note": "バイキング（ビュッフェ）の対義語。" },
-      { "phrase": "nut-free environment", "reading": "", "meaning": "ナッツ不使用の環境", "note": "アレルギー対応でよく使う表現。" }
+      {
+        "phrase": "à la carte",
+        "reading": "アラカルト",
+        "meaning": "単品注文メニュー",
+        "note": "バイキング（ビュッフェ）の対義語。"
+      },
+      {
+        "phrase": "nut-free environment",
+        "reading": "",
+        "meaning": "ナッツ不使用の環境",
+        "note": "アレルギー対応でよく使う表現。"
+      }
     ],
     "6009": [
-      { "phrase": "signature restaurant", "reading": "シグネチャーレストラン", "meaning": "ホテルの看板レストラン", "note": "そのホテルを代表する高級レストランを指す。" },
-      { "phrase": "semi-private booth", "reading": "", "meaning": "半個室のボックス席", "note": "完全個室ではないが、周囲から区切られた落ち着いた座席。" },
-      { "phrase": "sommelier", "reading": "ソムリエ", "meaning": "ワイン専門給仕人", "note": "ワインの選定・サービスを担当するプロフェッショナル。" },
-      { "phrase": "preferred price range", "reading": "", "meaning": "ご希望の予算帯", "note": "「within your budget」と同義。価格帯を尋ねる丁寧な表現。" }
+      {
+        "phrase": "signature restaurant",
+        "reading": "シグネチャーレストラン",
+        "meaning": "ホテルの看板レストラン",
+        "note": "そのホテルを代表する高級レストランを指す。"
+      },
+      {
+        "phrase": "semi-private booth",
+        "reading": "",
+        "meaning": "半個室のボックス席",
+        "note": "完全個室ではないが、周囲から区切られた落ち着いた座席。"
+      },
+      {
+        "phrase": "sommelier",
+        "reading": "ソムリエ",
+        "meaning": "ワイン専門給仕人",
+        "note": "ワインの選定・サービスを担当するプロフェッショナル。"
+      },
+      {
+        "phrase": "preferred price range",
+        "reading": "",
+        "meaning": "ご希望の予算帯",
+        "note": "「within your budget」と同義。価格帯を尋ねる丁寧な表現。"
+      }
     ],
     "6010": [
-      { "phrase": "vegan", "reading": "ヴィーガン", "meaning": "完全菜食主義者（の）", "note": "肉・魚・卵・乳製品などすべての動物性食品を避ける食スタイル。" },
-      { "phrase": "Buddha bowl", "reading": "ブッダボウル", "meaning": "ブッダボウル（健康的な丼料理）", "note": "穀物・野菜・豆類などを盛り合わせたヘルシーな一品。" },
-      { "phrase": "plant-based", "reading": "プラントベースド", "meaning": "植物性由来の", "note": "動物性原料を使わない食品・食事スタイルを指す近年の表現。" },
-      { "phrase": "Tahini dressing", "reading": "タヒニドレッシング", "meaning": "ゴマペーストのドレッシング", "note": "中東料理由来のごまペースト（タヒニ）を使ったソース。" },
-      { "phrase": "on the side", "reading": "", "meaning": "別添えで", "note": "ドレッシングやソースを料理にかけずに別皿で出してほしいときの表現。" }
+      {
+        "phrase": "vegan",
+        "reading": "ヴィーガン",
+        "meaning": "完全菜食主義者（の）",
+        "note": "肉・魚・卵・乳製品などすべての動物性食品を避ける食スタイル。"
+      },
+      {
+        "phrase": "Buddha bowl",
+        "reading": "ブッダボウル",
+        "meaning": "ブッダボウル（健康的な丼料理）",
+        "note": "穀物・野菜・豆類などを盛り合わせたヘルシーな一品。"
+      },
+      {
+        "phrase": "plant-based",
+        "reading": "プラントベースド",
+        "meaning": "植物性由来の",
+        "note": "動物性原料を使わない食品・食事スタイルを指す近年の表現。"
+      },
+      {
+        "phrase": "Tahini dressing",
+        "reading": "タヒニドレッシング",
+        "meaning": "ゴマペーストのドレッシング",
+        "note": "中東料理由来のごまペースト（タヒニ）を使ったソース。"
+      },
+      {
+        "phrase": "on the side",
+        "reading": "",
+        "meaning": "別添えで",
+        "note": "ドレッシングやソースを料理にかけずに別皿で出してほしいときの表現。"
+      }
     ],
     "6011": [
-      { "phrase": "signature cocktail", "reading": "シグネチャーカクテル", "meaning": "そのバー独自の看板カクテル", "note": "" },
-      { "phrase": "yuzu liqueur", "reading": "ユズリキュール", "meaning": "柚子リキュール", "note": "日本の柑橘・柚子を使った洋酒。海外でも人気が高まっている。" },
-      { "phrase": "bitters", "reading": "ビターズ", "meaning": "苦味系カクテルスパイス", "note": "カクテルに少量加える植物系の苦味エキス。アンゴスチュラが有名。" },
-      { "phrase": "charcuterie board", "reading": "シャルキュトリーボード", "meaning": "ハム・サラミ等の盛り合わせ", "note": "フランス語由来。ハム・サラミ・チーズ・クラッカーなどを盛った前菜プレート。" },
-      { "phrase": "charge everything to my room", "reading": "", "meaning": "すべて部屋付けにする", "note": "ホテル滞在中の飲食代をチェックアウト時にまとめて精算する方法。" }
+      {
+        "phrase": "signature cocktail",
+        "reading": "シグネチャーカクテル",
+        "meaning": "そのバー独自の看板カクテル",
+        "note": ""
+      },
+      {
+        "phrase": "yuzu liqueur",
+        "reading": "ユズリキュール",
+        "meaning": "柚子リキュール",
+        "note": "日本の柑橘・柚子を使った洋酒。海外でも人気が高まっている。"
+      },
+      {
+        "phrase": "bitters",
+        "reading": "ビターズ",
+        "meaning": "苦味系カクテルスパイス",
+        "note": "カクテルに少量加える植物系の苦味エキス。アンゴスチュラが有名。"
+      },
+      {
+        "phrase": "charcuterie board",
+        "reading": "シャルキュトリーボード",
+        "meaning": "ハム・サラミ等の盛り合わせ",
+        "note": "フランス語由来。ハム・サラミ・チーズ・クラッカーなどを盛った前菜プレート。"
+      },
+      {
+        "phrase": "charge everything to my room",
+        "reading": "",
+        "meaning": "すべて部屋付けにする",
+        "note": "ホテル滞在中の飲食代をチェックアウト時にまとめて精算する方法。"
+      }
     ],
     "6012": [
-      { "phrase": "private dining room", "reading": "プライベートダイニングルーム", "meaning": "個室ダイニング", "note": "ビジネス接待や特別な会食に使われる完全個室の食事室。" },
-      { "phrase": "dedicated server", "reading": "", "meaning": "専属のウェイター", "note": "その部屋だけを担当する専任スタッフ。" },
-      { "phrase": "audio-visual equipment", "reading": "オーディオビジュアルイクイップメント", "meaning": "音響映像設備", "note": "プロジェクター・スクリーン・マイク等を指す。略して「AV equipment」とも。" },
-      { "phrase": "set menu", "reading": "", "meaning": "コース料理（固定メニュー）", "note": "「customized menu」（カスタムメニュー）の対義語。" },
-      { "phrase": "tasting beforehand", "reading": "", "meaning": "事前の試食・テイスティング", "note": "大切な接待向けに、料理を事前に確認するためのアレンジ。" }
+      {
+        "phrase": "private dining room",
+        "reading": "プライベートダイニングルーム",
+        "meaning": "個室ダイニング",
+        "note": "ビジネス接待や特別な会食に使われる完全個室の食事室。"
+      },
+      {
+        "phrase": "dedicated server",
+        "reading": "",
+        "meaning": "専属のウェイター",
+        "note": "その部屋だけを担当する専任スタッフ。"
+      },
+      {
+        "phrase": "audio-visual equipment",
+        "reading": "オーディオビジュアルイクイップメント",
+        "meaning": "音響映像設備",
+        "note": "プロジェクター・スクリーン・マイク等を指す。略して「AV equipment」とも。"
+      },
+      {
+        "phrase": "set menu",
+        "reading": "",
+        "meaning": "コース料理（固定メニュー）",
+        "note": "「customized menu」（カスタムメニュー）の対義語。"
+      },
+      {
+        "phrase": "tasting beforehand",
+        "reading": "",
+        "meaning": "事前の試食・テイスティング",
+        "note": "大切な接待向けに、料理を事前に確認するためのアレンジ。"
+      }
     ],
     "6013": [
-      { "phrase": "critically acclaimed", "reading": "", "meaning": "批評家に高く評価された", "note": "映画・演劇のレビューでよく使う。" }
+      {
+        "phrase": "critically acclaimed",
+        "reading": "",
+        "meaning": "批評家に高く評価された",
+        "note": "映画・演劇のレビューでよく使う。"
+      }
     ],
     "6014": [
-      { "phrase": "rental company", "reading": "レンタルカンパニー", "meaning": "レンタカー会社", "note": "" },
-      { "phrase": "mid-size sedan", "reading": "ミッドサイズセダン", "meaning": "中型セダン車", "note": "コンパクトカーより広く、SUVより燃費が良い。長距離ドライブに適する。" },
-      { "phrase": "GPS", "reading": "ジーピーエス", "meaning": "カーナビ・全地球測位システム", "note": "レンタカーではオプションとして追加する場合が多い。" },
-      { "phrase": "delivered directly to the hotel entrance", "reading": "", "meaning": "ホテルの玄関まで直接届ける", "note": "車を営業所に取りに行く代わりにホテルへ配車するサービス。" },
-      { "phrase": "driving license details", "reading": "", "meaning": "運転免許証の情報", "note": "免許証番号・有効期限など。レンタカー手配に必要。" }
+      {
+        "phrase": "rental company",
+        "reading": "レンタルカンパニー",
+        "meaning": "レンタカー会社",
+        "note": ""
+      },
+      {
+        "phrase": "mid-size sedan",
+        "reading": "ミッドサイズセダン",
+        "meaning": "中型セダン車",
+        "note": "コンパクトカーより広く、SUVより燃費が良い。長距離ドライブに適する。"
+      },
+      {
+        "phrase": "GPS",
+        "reading": "ジーピーエス",
+        "meaning": "カーナビ・全地球測位システム",
+        "note": "レンタカーではオプションとして追加する場合が多い。"
+      },
+      {
+        "phrase": "delivered directly to the hotel entrance",
+        "reading": "",
+        "meaning": "ホテルの玄関まで直接届ける",
+        "note": "車を営業所に取りに行く代わりにホテルへ配車するサービス。"
+      },
+      {
+        "phrase": "driving license details",
+        "reading": "",
+        "meaning": "運転免許証の情報",
+        "note": "免許証番号・有効期限など。レンタカー手配に必要。"
+      }
     ],
     "6015": [
-      { "phrase": "in-house physician", "reading": "", "meaning": "ホテル常駐の医師", "note": "大型ホテルでは医師が定期的に来訪するサービスを提供している。" },
-      { "phrase": "appointment slot", "reading": "アポイントメントスロット", "meaning": "診察の予約枠", "note": "「slot」は時間枠を指す。" },
-      { "phrase": "pharmacy", "reading": "ファーマシー", "meaning": "薬局", "note": "英国英語では「chemist」とも言う。" },
-      { "phrase": "prescription", "reading": "プレスクリプション", "meaning": "処方箋", "note": "医師が発行する薬の指示書。" },
-      { "phrase": "collect any prescription for you", "reading": "", "meaning": "処方箋を代わりに受け取る", "note": "コンシェルジュが薬局まで代行するホテルサービスの例。" }
+      {
+        "phrase": "in-house physician",
+        "reading": "",
+        "meaning": "ホテル常駐の医師",
+        "note": "大型ホテルでは医師が定期的に来訪するサービスを提供している。"
+      },
+      {
+        "phrase": "appointment slot",
+        "reading": "アポイントメントスロット",
+        "meaning": "診察の予約枠",
+        "note": "「slot」は時間枠を指す。"
+      },
+      {
+        "phrase": "pharmacy",
+        "reading": "ファーマシー",
+        "meaning": "薬局",
+        "note": "英国英語では「chemist」とも言う。"
+      },
+      {
+        "phrase": "prescription",
+        "reading": "プレスクリプション",
+        "meaning": "処方箋",
+        "note": "医師が発行する薬の指示書。"
+      },
+      {
+        "phrase": "collect any prescription for you",
+        "reading": "",
+        "meaning": "処方箋を代わりに受け取る",
+        "note": "コンシェルジュが薬局まで代行するホテルサービスの例。"
+      }
     ],
     "6016": [
-      { "phrase": "express service", "reading": "エクスプレスサービス", "meaning": "特急サービス", "note": "追加料金が必要な場合が多い。" }
+      {
+        "phrase": "express service",
+        "reading": "エクスプレスサービス",
+        "meaning": "特急サービス",
+        "note": "追加料金が必要な場合が多い。"
+      }
     ],
     "6017": [
-      { "phrase": "airport transfer", "reading": "エアポートトランスファー", "meaning": "空港送迎", "note": "ホテルと空港間の送迎サービス全般を指す。" },
-      { "phrase": "morning rush hour", "reading": "モーニングラッシュアワー", "meaning": "朝の通勤ラッシュ時間帯", "note": "移動時間の見積もりに必ずバッファを取る必要がある。" },
-      { "phrase": "hotel car service", "reading": "", "meaning": "ホテル専用車サービス", "note": "ホテル直営の送迎車。タクシーより高いが安心感がある。" },
-      { "phrase": "name card", "reading": "ネームカード", "meaning": "お迎えの名前プレート", "note": "ドライバーが到着ホールでゲストの名前を掲げるボード。" },
-      { "phrase": "licensed taxi company", "reading": "", "meaning": "認可を受けたタクシー会社", "note": "「licensed」= 正規の営業許可を持つ。白タクと区別する際に重要。" }
+      {
+        "phrase": "airport transfer",
+        "reading": "エアポートトランスファー",
+        "meaning": "空港送迎",
+        "note": "ホテルと空港間の送迎サービス全般を指す。"
+      },
+      {
+        "phrase": "morning rush hour",
+        "reading": "モーニングラッシュアワー",
+        "meaning": "朝の通勤ラッシュ時間帯",
+        "note": "移動時間の見積もりに必ずバッファを取る必要がある。"
+      },
+      {
+        "phrase": "hotel car service",
+        "reading": "",
+        "meaning": "ホテル専用車サービス",
+        "note": "ホテル直営の送迎車。タクシーより高いが安心感がある。"
+      },
+      {
+        "phrase": "name card",
+        "reading": "ネームカード",
+        "meaning": "お迎えの名前プレート",
+        "note": "ドライバーが到着ホールでゲストの名前を掲げるボード。"
+      },
+      {
+        "phrase": "licensed taxi company",
+        "reading": "",
+        "meaning": "認可を受けたタクシー会社",
+        "note": "「licensed」= 正規の営業許可を持つ。白タクと区別する際に重要。"
+      }
     ],
     "6018": [
-      { "phrase": "turndown service", "reading": "ターンダウンサービス", "meaning": "夜の就寝準備サービス", "note": "ベッドカバーを折り返してチョコレートを置くサービス。" }
+      {
+        "phrase": "turndown service",
+        "reading": "ターンダウンサービス",
+        "meaning": "夜の就寝準備サービス",
+        "note": "ベッドカバーを折り返してチョコレートを置くサービス。"
+      }
     ],
     "6019": [
-      { "phrase": "spa treatment", "reading": "スパトリートメント", "meaning": "スパの施術", "note": "マッサージ・フェイシャル・ボディラップなど各種施術を指す。" },
-      { "phrase": "Swedish massage", "reading": "スウェーディッシュマッサージ", "meaning": "スウェーデン式マッサージ", "note": "圧を用いた全身の筋肉をほぐす西洋式マッサージの基本手法。" },
-      { "phrase": "deep tissue treatment", "reading": "ディープティッシュトリートメント", "meaning": "深層筋マッサージ", "note": "筋肉の深い層にアプローチする強圧マッサージ。" },
-      { "phrase": "hydrotherapy pre-treatment", "reading": "ハイドロセラピープレトリートメント", "meaning": "水療法の前処置", "note": "温水・水圧などを利用した水治療。施術前に体をほぐす目的で行う。" },
-      { "phrase": "relaxation lounge", "reading": "リラクゼーションラウンジ", "meaning": "リラクゼーション用の休憩スペース", "note": "施術の前後にくつろぐための専用スペース。" }
+      {
+        "phrase": "spa treatment",
+        "reading": "スパトリートメント",
+        "meaning": "スパの施術",
+        "note": "マッサージ・フェイシャル・ボディラップなど各種施術を指す。"
+      },
+      {
+        "phrase": "Swedish massage",
+        "reading": "スウェーディッシュマッサージ",
+        "meaning": "スウェーデン式マッサージ",
+        "note": "圧を用いた全身の筋肉をほぐす西洋式マッサージの基本手法。"
+      },
+      {
+        "phrase": "deep tissue treatment",
+        "reading": "ディープティッシュトリートメント",
+        "meaning": "深層筋マッサージ",
+        "note": "筋肉の深い層にアプローチする強圧マッサージ。"
+      },
+      {
+        "phrase": "hydrotherapy pre-treatment",
+        "reading": "ハイドロセラピープレトリートメント",
+        "meaning": "水療法の前処置",
+        "note": "温水・水圧などを利用した水治療。施術前に体をほぐす目的で行う。"
+      },
+      {
+        "phrase": "relaxation lounge",
+        "reading": "リラクゼーションラウンジ",
+        "meaning": "リラクゼーション用の休憩スペース",
+        "note": "施術の前後にくつろぐための専用スペース。"
+      }
     ],
     "6020": [
-      { "phrase": "fitness center", "reading": "フィットネスセンター", "meaning": "フィットネスジム", "note": "ホテル内の運動施設を指す正式な呼び方。" },
-      { "phrase": "personal trainer", "reading": "パーソナルトレーナー", "meaning": "個人専属トレーナー", "note": "マンツーマンで指導するフィットネスの専門家。" },
-      { "phrase": "in-room tablet", "reading": "インルームタブレット", "meaning": "客室内のタブレット端末", "note": "各種ホテルサービスの予約・注文ができる客室備え付けの端末。" },
-      { "phrase": "resistance equipment", "reading": "レジスタンスイクイップメント", "meaning": "筋力トレーニング機器", "note": "ウェイトマシンやチューブなど、負荷をかけて筋肉を鍛える器具の総称。" },
-      { "phrase": "low-impact cross-training", "reading": "", "meaning": "低負荷のクロストレーニング", "note": "関節への負担が少ない運動（水泳・自転車など）を組み合わせてトレーニングすること。" }
+      {
+        "phrase": "fitness center",
+        "reading": "フィットネスセンター",
+        "meaning": "フィットネスジム",
+        "note": "ホテル内の運動施設を指す正式な呼び方。"
+      },
+      {
+        "phrase": "personal trainer",
+        "reading": "パーソナルトレーナー",
+        "meaning": "個人専属トレーナー",
+        "note": "マンツーマンで指導するフィットネスの専門家。"
+      },
+      {
+        "phrase": "in-room tablet",
+        "reading": "インルームタブレット",
+        "meaning": "客室内のタブレット端末",
+        "note": "各種ホテルサービスの予約・注文ができる客室備え付けの端末。"
+      },
+      {
+        "phrase": "resistance equipment",
+        "reading": "レジスタンスイクイップメント",
+        "meaning": "筋力トレーニング機器",
+        "note": "ウェイトマシンやチューブなど、負荷をかけて筋肉を鍛える器具の総称。"
+      },
+      {
+        "phrase": "low-impact cross-training",
+        "reading": "",
+        "meaning": "低負荷のクロストレーニング",
+        "note": "関節への負担が少ない運動（水泳・自転車など）を組み合わせてトレーニングすること。"
+      }
     ],
     "6021": [
-      { "phrase": "lap swimming", "reading": "ラップスイミング", "meaning": "競泳・往復水泳", "note": "" }
+      {
+        "phrase": "lap swimming",
+        "reading": "ラップスイミング",
+        "meaning": "競泳・往復水泳",
+        "note": ""
+      }
     ],
     "6022": [
-      { "phrase": "business center", "reading": "ビジネスセンター", "meaning": "ビジネスセンター（業務支援施設）", "note": "プリンター・スキャナー・PCなどを備えたホテル内の作業スペース。" },
-      { "phrase": "boardroom", "reading": "ボードルーム", "meaning": "小会議室・役員会議室", "note": "少人数の会議に使われる小型の会議室。" },
-      { "phrase": "complimentarily", "reading": "", "meaning": "無料で", "note": "「complimentary」の副詞形。ホテルサービスでよく使われる。" },
-      { "phrase": "HDMI connection", "reading": "エイチディーエムアイコネクション", "meaning": "HDMI接続（映像・音声伝送）", "note": "プロジェクターやモニターにパソコンを繋ぐ端子規格。" },
-      { "phrase": "conference phone", "reading": "コンファレンスフォン", "meaning": "会議用スピーカーフォン", "note": "テーブル中央に置き、複数人が同時に通話できる電話機。" }
+      {
+        "phrase": "business center",
+        "reading": "ビジネスセンター",
+        "meaning": "ビジネスセンター（業務支援施設）",
+        "note": "プリンター・スキャナー・PCなどを備えたホテル内の作業スペース。"
+      },
+      {
+        "phrase": "boardroom",
+        "reading": "ボードルーム",
+        "meaning": "小会議室・役員会議室",
+        "note": "少人数の会議に使われる小型の会議室。"
+      },
+      {
+        "phrase": "complimentarily",
+        "reading": "",
+        "meaning": "無料で",
+        "note": "「complimentary」の副詞形。ホテルサービスでよく使われる。"
+      },
+      {
+        "phrase": "HDMI connection",
+        "reading": "エイチディーエムアイコネクション",
+        "meaning": "HDMI接続（映像・音声伝送）",
+        "note": "プロジェクターやモニターにパソコンを繋ぐ端子規格。"
+      },
+      {
+        "phrase": "conference phone",
+        "reading": "コンファレンスフォン",
+        "meaning": "会議用スピーカーフォン",
+        "note": "テーブル中央に置き、複数人が同時に通話できる電話機。"
+      }
     ],
     "6023": [
-      { "phrase": "pet-friendly", "reading": "ペットフレンドリー", "meaning": "ペット歓迎の", "note": "ペット同伴を許可していることを示す表現。" },
-      { "phrase": "restrictions", "reading": "リストリクションズ", "meaning": "制限・規則", "note": "ペット同伴時に確認すべき利用条件。" },
-      { "phrase": "left unattended", "reading": "", "meaning": "放置された・誰もいない状態で残された", "note": "「unattended」= 監視や付き添いのない状態。ホテルではペット一人にしないよう求めることが多い。" },
-      { "phrase": "amenities for pets", "reading": "", "meaning": "ペット向けのアメニティ", "note": "人間用アメニティ（シャンプー・タオル等）と同様に、ペット向けに提供されるグッズ類。" },
-      { "phrase": "dog-walking service", "reading": "ドッグウォーキングサービス", "meaning": "犬の散歩代行サービス", "note": "外出中にペットの散歩を代わりに行ってもらうサービス。" }
+      {
+        "phrase": "pet-friendly",
+        "reading": "ペットフレンドリー",
+        "meaning": "ペット歓迎の",
+        "note": "ペット同伴を許可していることを示す表現。"
+      },
+      {
+        "phrase": "restrictions",
+        "reading": "リストリクションズ",
+        "meaning": "制限・規則",
+        "note": "ペット同伴時に確認すべき利用条件。"
+      },
+      {
+        "phrase": "left unattended",
+        "reading": "",
+        "meaning": "放置された・誰もいない状態で残された",
+        "note": "「unattended」= 監視や付き添いのない状態。ホテルではペット一人にしないよう求めることが多い。"
+      },
+      {
+        "phrase": "amenities for pets",
+        "reading": "",
+        "meaning": "ペット向けのアメニティ",
+        "note": "人間用アメニティ（シャンプー・タオル等）と同様に、ペット向けに提供されるグッズ類。"
+      },
+      {
+        "phrase": "dog-walking service",
+        "reading": "ドッグウォーキングサービス",
+        "meaning": "犬の散歩代行サービス",
+        "note": "外出中にペットの散歩を代わりに行ってもらうサービス。"
+      }
     ],
     "6024": [
-      { "phrase": "accessible room", "reading": "アクセシブルルーム", "meaning": "バリアフリー対応客室", "note": "車椅子使用者や身体障害者が利用しやすい設備を備えた客室。" },
-      { "phrase": "roll-in shower", "reading": "ロールインシャワー", "meaning": "車椅子のまま入れるシャワー室", "note": "段差のないフラットなシャワースペース。" },
-      { "phrase": "step-free access", "reading": "ステップフリーアクセス", "meaning": "段差のないバリアフリー動線", "note": "階段を使わずに移動できる経路。エレベーター完備が前提。" },
-      { "phrase": "adjacent to", "reading": "", "meaning": "〜に隣接した・すぐ近くの", "note": "「next to」より改まった表現。" },
-      { "phrase": "accessibility training", "reading": "アクセシビリティトレーニング", "meaning": "バリアフリー対応のスタッフ研修", "note": "障害のあるゲストを適切にサポートするための専門トレーニング。" }
+      {
+        "phrase": "accessible room",
+        "reading": "アクセシブルルーム",
+        "meaning": "バリアフリー対応客室",
+        "note": "車椅子使用者や身体障害者が利用しやすい設備を備えた客室。"
+      },
+      {
+        "phrase": "roll-in shower",
+        "reading": "ロールインシャワー",
+        "meaning": "車椅子のまま入れるシャワー室",
+        "note": "段差のないフラットなシャワースペース。"
+      },
+      {
+        "phrase": "step-free access",
+        "reading": "ステップフリーアクセス",
+        "meaning": "段差のないバリアフリー動線",
+        "note": "階段を使わずに移動できる経路。エレベーター完備が前提。"
+      },
+      {
+        "phrase": "adjacent to",
+        "reading": "",
+        "meaning": "〜に隣接した・すぐ近くの",
+        "note": "「next to」より改まった表現。"
+      },
+      {
+        "phrase": "accessibility training",
+        "reading": "アクセシビリティトレーニング",
+        "meaning": "バリアフリー対応のスタッフ研修",
+        "note": "障害のあるゲストを適切にサポートするための専門トレーニング。"
+      }
     ],
     "6025": [
-      { "phrase": "query a charge", "reading": "", "meaning": "料金に異議を唱える", "note": "「dispute a charge」とも言う。ホテルでよく使う表現。" },
-      { "phrase": "corrected invoice", "reading": "", "meaning": "修正済み請求書", "note": "" }
+      {
+        "phrase": "query a charge",
+        "reading": "",
+        "meaning": "料金に異議を唱える",
+        "note": "「dispute a charge」とも言う。ホテルでよく使う表現。"
+      },
+      {
+        "phrase": "corrected invoice",
+        "reading": "",
+        "meaning": "修正済み請求書",
+        "note": ""
+      }
     ]
+  },
+  "translations": {
+    "6001": "A: こんにちは。来月、約30名の企業合宿を計画しております。その規模のグループに対応いただけますか？\nB: もちろんです。法人予約専用のイベントチームがございます。ご希望の日程をお聞かせいただけますか？\nA: 来月の第2週末を考えています。金曜日到着から日曜日チェックアウトです。\nB: 空き状況を確認します。はい、グループをお受けできます。スーペリアルームが30室ご用意でき、日中のセッション用に会議用スイートもございます。\nA: 素晴らしい。法人レートに含まれるものは何ですか？\nB: 法人レートには毎日の朝食、ビジネスセンターのご利用、および1日最大4時間の会議室1室の無料利用が含まれます。",
+    "6002": "A: 弊社の従業員はこの都市に定期的に訪問します。おそらく月に10〜15室泊程度です。法人アカウントはご用意できますか？\nB: もちろんです。その利用量であれば、通常レートより約20パーセント安い優遇法人レートをご利用いただけます。\nA: 魅力的ですね。最低利用義務はありますか？\nB: 優遇レートを維持するために月最低8室泊をお願いしています。時々不足してもペナルティはありません。\nA: 法人予約のキャンセルポリシーはいかがですか？\nB: 到着の48時間前までのキャンセルは無料です。高頻度利用の法人顧客には柔軟な条件もご提供できます。正式な提案書を作成しましょうか？",
+    "6003": "A: こんにちは、チェックインをしたいのですが。スタンダードルームを予約しているのですが、アップグレードできる可能性があるかと思いまして。\nB: 今夜の空き状況を確認いたします。お名前をお聞かせください。\nA: 中村と申します。ロイヤルティプログラムのゴールド会員でもあります。\nB: 中村様、ありがとうございます。ゴールド会員ステータスですので、14階の眺望の良いデラックスキングルームへの無料アップグレードをご提供できます。パノラマの市街地ビューがございます。\nA: 素晴らしいですね。どうもありがとうございます。\nB: どういたしまして。ゴールド会員様は午後2時まで追加料金なしでレイトチェックアウトをご利用いただけます。ご予約に記録しておきましょうか？",
+    "6004": "A: こんばんは。長期滞在でチェックインします。約3週間です。ジョンソンという名前で予約があるはずです。\nB: ジョンソン様、ようこそ。はい、21泊のご予約を確認しております。ご要望通り、簡易キッチンと収納スペースを備えた8階のお部屋をご用意しました。\nA: 完璧です。長期滞在の場合、客室清掃のスケジュールは毎週ですか、それとも毎日ですか？\nB: 通常は毎日の清掃をご提供しておりますが、長期滞在のお客様の多くは日常のルーティンを保つため1日おきを好まれます。どちらがよろしいですか？\nA: 1日おきで結構です。また、近くに食料品配達サービスはありますか？\nB: はい、徒歩圏内にスーパーマーケットが2軒あります。優先的な配達サービスもあり、ご希望であれば代わりに注文いたします。",
+    "6005": "A: すみません、同僚と一緒に旅行しているので、ツインルームを特別にお願いしたのですが、ダブルルームにされています。\nB: ご混乱をおかけして誠に申し訳ございません。ご予約を確認して対応いたします。\nA: こちらに確認メールがあります。明らかにツインルームと記載されています。\nB: おっしゃる通りで、申し訳ございません。残念ながら、本日はいくつかの予約に影響した予期せぬシステムエラーが発生しました。現在、ご希望の階にツインルームがございませんが、6階のツインルームか、同じ料金で寝室エリアが2つある別々のジュニアスイートをご提供できます。\nA: ジュニアスイートは合理的な解決策ですね。料金は同じままですか？\nB: はい、もちろんです。スイートはご当初のツインルームの料金でご提供します。ご不便をおかけして大変申し訳ございません。",
+    "6006": "A: こんにちは、今朝チェックアウトしたのですが、部屋にラップトップの充電器を置いてきたかもしれません。\nB: 申し訳ございません。お名前と部屋番号をお聞かせいただけますか？\nA: ウィリアムズ、915号室です。10時ごろにチェックアウトしました。\nB: すぐにハウスキーピングに連絡いたします。充電器の特徴を教えていただけますか？\nA: グレーのMacBook用充電器で、磁気コネクター付きです。窓の近くのデスクにあったはずです。\nB: すぐに部屋を確認させます。見つかり次第、お引き取りのために保管するか、ご郵送するかどちらがご希望ですか？",
+    "6007": "A: おはようございます。スケジュールの変更があり、明日ではなく今日チェックアウトする必要があります。\nB: かしこまりました。ご滞在に問題がありましたか？\nA: すべて素晴らしかったです、ありがとうございます。ビジネス上の変更で、会議が前倒しになったんです。\nB: 承知いたしました。今すぐ早期チェックアウトの手続きをいたします。お会計は4泊ではなく3泊分となります。昨夜ミニバーやレストランでご利用はありましたか？\nA: はい、昨夜レストランで夕食を取りました。部屋付けのはずです。\nB: すでにアカウントに加算されております。合計は380ドルです。登録済みのカードに請求してよろしいですか？",
+    "6008": "A: おはようございます。席に座る前に申し上げたいのですが、ナッツアレルギーがあります。ビュッフェは安全ですか？\nB: お知らせいただきありがとうございます。ビュッフェの一部の料理にはナッツが含まれていたり、共有の調理器具で調理されている場合があります。安全のため、代わりにアラカルトの朝食メニューをお勧めします。すべての料理をナッツ不使用の環境で調理することができます。\nA: それは安心ですね。アラカルトから何かお勧めはありますか？\nB: スモークサーモンとスクランブルエッグが大変人気で、完全にナッツ不使用です。フレッシュフルーツボウルとヨーグルトも安全な選択肢です。\nA: スモークサーモンをお願いします。それとグリーンティーをポットで。\nB: かしこまりました。キッチンにアレルギーをお伝えします。約10分でご用意できます。",
+    "6009": "A: 今夜、こちらのシグネチャーレストランに予約をしたいのですが。\nB: かしこまりました。何名様でお食事されますか？\nA: 4名です。小さなビジネスディナーで、静かな席が理想的です。\nB: 7時30分にビジネスの場に最適な半個室のボックス席をご用意できます。\nA: 最高ですね。ブルゴーニュのボトルを事前に注文できますか？こちらのワインリストは素晴らしいと聞いています。\nB: もちろんです。ご希望の予算内で適切なブルゴーニュをご提案するソムリエにお繋ぎします。今すぐ転送してよろしいですか？\nA: はい、お願いします。高橋という名前で予約をお願いします。",
+    "6010": "A: ルームサービスを注文したいのですが。ヴィーガンです。どのようなオプションがあるか教えていただけますか？\nB: もちろんです。ヴィーガンメニューには、ローストベジタブルのブッダボウル、オリーブオイルのパスタプリマベーラ、レンズ豆のスープがあります。また、フレッシュフルーツプレートと植物性デザートもございます。\nA: ブッダボウルが美味しそうです。アボカドを追加していただけますか？\nB: もちろんです。ドレッシングのご希望は？\nA: タヒニドレッシングを別添えでお願いします。それとハーブティーを大きなポットで。\nB: かしこまりました。約25分でご用意できます。他に何かお持ちしましょうか？",
+    "6011": "A: こんばんは。カクテルメニューを見せていただけますか？\nB: もちろんです。シグネチャーカクテルは前のページにございます。今夜は「シティスケープ」というフィーチャーカクテルもあります。日本のウイスキー、柚子リキュール、ジンジャービターズのブレンドです。\nA: 興味深いですね。それをいただきます。軽いスナックはありますか？\nB: はい、バーのスナックメニューを深夜まで提供しております。トリュフポップコーンとシャルキュトリーボードが特に人気です。\nA: シャルキュトリーボードをいただきます。すべて部屋付けにできますか？\nB: もちろんです。お部屋番号とお名前をお聞かせいただけますか？",
+    "6012": "A: 8名のプライベートディナーを手配する必要があります。重要なクライアントミーティングのためです。どのような選択肢がありますか？\nB: 最大12名収容の個室ダイニングルームがあります。専属のサーバーと、必要に応じて音響映像設備も完備しています。\nA: 音響映像は不要ですが、静かでプライベートな空間は必須です。約3時間必要です。\nB: 個室は明日の夜7時からご利用可能です。事前選択のコースメニューかカスタマイズメニューかをご選択いただけます。ビジネスディナーには後者をお選びになるお客様が多いです。\nA: カスタマイズメニューにしましょう。事前にテイスティングは手配できますか？\nB: もちろんです。明日の午後、シェフとの簡単なテイスティングを手配できます。そのような段取りをいたしましょうか？",
+    "6013": "A: 今夜ショーを観たいのですが。お勧めの演目はありますか？\nB: 今週はロイヤルシアターで批評家絶賛のハムレットの公演と、当ホテルのお客様に大変人気の「ザ・ブルーローム」でのジャズ演奏があります。\nA: ライブジャズを観たいと思っていました。まだチケットはありますか？\nB: 確認いたします。はい、10時のショーのチケットがまだ残っています。徒歩約30分かタクシーで10分です。\nA: チケット2枚と、9時15分ごろのタクシーを手配していただけますか？\nB: もちろんです。チケットはフロントデスクでお渡しし、9時15分のタクシーを予約いたします。事前にディナーのご予約もいたしましょうか？",
+    "6014": "A: 明日1日レンタカーを借りる必要があります。コンシェルジュに手配していただけますか？\nB: もちろんです。信頼できるレンタカー会社2社と提携しております。車両の種類にご希望はありますか？\nA: 日帰り旅行に快適なもので、合計で約200キロ運転します。\nB: その距離なら中型セダンか小型SUVをお勧めします。GPSはご必要ですか？\nA: はい、お願いします。できれば朝8時に受け取りたいのですが。\nB: 今すぐ手配いたします。8時にホテルのエントランスに直接車をお届けできます。予約を完了するために運転免許証の情報が必要です。",
+    "6015": "A: すみません、体調が悪いです。医師に診ていただく必要があると思うのですが、助けていただけますか？\nB: もちろんです。緊急医療が必要な状況ですか、それとも予約まで待てますか？\nA: 緊急ではありませんが、一日中ひどくなってきた熱と喉の痛みがあります。\nB: 承知いたしました。毎日午後にホテルを訪問する常駐の医師がおります。本日の予約枠は午後4時です。ご予約いたしましょうか？\nA: はい、お願いします。薬が必要な場合に備えて、近くに薬局はありますか？\nB: はい、正面玄関から2分のところに薬局がございます。外出するお気持ちでない場合は、コンシェルジュチームが処方薬を代わりにお受け取りすることができます。",
+    "6016": "A: スーツの急ぎのクリーニングが必要です。明朝会議があるので。\nB: もちろんです。今夜9時までにお預けいただければ、明朝7時までにご用意できます。\nA: 完璧です。何枚かシャツのプレスも必要です。\nB: それも承ります。クローゼットの中のランドリーバッグに記入済みの用紙と一緒にすべてお入れいただくか、直接お部屋まで回収にお伺いすることもできます。\nA: 回収に来ていただけますか？712号室です。\nB: 約15分でランドリーチームをお伺いさせます。確認ですが、クリーニングは特急サービスとして記録されます。わずかな追加料金が発生いたします。",
+    "6017": "A: 明日の空港への送迎を手配する必要があります。フライトは11時15分です。\nB: かしこまりました。空港と何番ターミナルですか？\nA: ヒースロー、第3ターミナルです。9時には到着していたいです。\nB: 第3ターミナルへは、朝のラッシュ時間帯を考慮して7時30分にホテルを出発されることをお勧めします。ホテルのカーサービスと認可を受けたタクシー会社の両方と提携しております。\nA: 料金の違いは何ですか？\nB: ホテルの車は45ポンドで、ロビーで名前カードを持ったドライバーがお迎えいたします。タクシーは約35ポンドと少し安いですが、正面玄関でお乗りいただきます。両方とも大変信頼できます。\nA: ホテルの車にします。荷物がある時、名前カードのサービスは助かりますから。",
+    "6018": "A: パートナーとハネムーンを過ごしています。滞在を思い出深いものにするために何か特別な手配はできますか？\nB: おめでとうございます！喜んでお手伝いいたします。ハネムーンパッケージをご用意しております。到着時にシャンプンのボトル、バラの花びらのターンダウンサービス、最初の朝のベッドでの朝食サービスが含まれます。\nA: 素晴らしいですね。部屋にお花のアレンジメントも手配していただけますか？\nB: もちろんです。ご到着時にご希望のブーケをご用意できます。お花のご希望はありますか？\nA: 可能であれば白いバラをお願いします。\nB: 素晴らしい。レストランチームにも伝えます。お食事の際は、キャンドルライトのテーブルをご用意いたします。他に特別な滞在のためにできることはありますか？",
+    "6019": "A: 今日の午後にスパトリートメントを予約したいのですが。何が受けられますか？\nB: 今日の午後はスウェーデン式マッサージ、深層筋マッサージ、シグネチャーのアロマセラピーフェイシャルの予約枠がございます。\nA: スウェーデン式マッサージをいただきたいです。セッションはどのくらいの時間ですか？\nB: 60分と90分のコースがございます。90分のコースには15分の水治療の前処置が含まれます。\nA: 90分が良さそうです。何時に伺えますか？\nB: 2時または4時30分がご利用可能です。スパにはリラクゼーションラウンジと加熱プールもあり、施術の30分前からご利用いただけます。",
+    "6020": "A: ジムを使いたいのですが。営業時間は何時ですか？\nB: フィットネスセンターはホテルの宿泊客向けに24時間オープンしております。ルームキーでアクセスできます。\nA: パーソナルトレーナーはいますか？\nB: はい、朝6時から夜8時まで2名のパーソナルトレーナーが勤務しております。フロントデスクまたは客室のタブレットから30分または60分のセッションを予約できます。\nA: どのような設備がありますか？マラソンのトレーニング中なので、特にトレッドミルが必要です。\nB: トレッドミルが6台、フルレンジのレジスタンスマシン、フリーウェイトがあります。負荷の少ないクロストレーニングに変化をつけたい場合は、プールも最適です。",
+    "6021": "A: プールを使いたいのですが。この時期は温水ですか？\nB: はい、屋内プールは年間を通じて28度に加熱しています。5月から9月は屋外テラスプールもご利用いただけます。\nA: 屋内プールは競泳のレーン水泳に使えますか？\nB: もちろんです。朝6時から9時までの朝の時間帯に、競泳用のレーンを設定しています。その時間以外は共有のレジャープールです。\nA: 水泳キャップは必要ですか？\nB: 競泳レーンでは水泳キャップが必須で、レジャープールでも強くお勧めします。お持ちでない場合はプールサイドのレセプションで販売しています。またご要望があればお部屋に無料でお届けすることもできます。",
+    "6022": "A: 今日の午後に書類を印刷して、約2時間会議室を使用する必要があります。\nB: かしこまりました。ビジネスセンターにはセルフサービスのプリンター、スキャナー、高速インターネットがあります。会議室については、午後2時から4時まで小会議室がご利用いただけます。\nA: 会議室は有料ですか？\nB: ホテルの宿泊客は最大2時間無料でご利用いただけます。追加時間は1時間25ドルです。部屋にはスクリーン、HDMI接続、会議用電話機が備わっています。\nA: 完璧です。プレゼンテーションにHDMIが必要です。3名分のコーヒーと水も手配していただけますか？\nB: もちろんです。午後2時に準備しておきます。お名前で部屋を予約しておきましょうか？",
+    "6023": "A: 来月こちらに滞在する予定ですが、ペットポリシーについてお聞きしたいです。小型犬がおります。\nB: 当ホテルはペットフレンドリーです。10キログラムまでの犬は追加料金なしで歓迎しております。\nA: 素晴らしいです。知っておくべき制限はありますか？\nB: 犬は客室と屋外テラスエリアでご同伴いただけます。レストランとスパへの同伴はご遠慮いただいています。また、長時間部屋に一人にすることはお控えください。\nA: とても合理的ですね。ペット用の特別なアメニティはご用意いただけますか？\nB: 犬用のベッド、水入れ、ウェルカムトリートをご到着時にご提供しています。日中必要な場合は、地元の犬の散歩代行サービスもご紹介できます。",
+    "6024": "A: 車椅子を使用している父のために予約したいのですが。バリアフリー対応の部屋はありますか？\nB: もちろんです。1階と2階にはロールインシャワー、低い設備、広い扉を備えた完全バリアフリー対応の客室があります。\nA: 入口から客室まで段差のないアクセスはありますか？\nB: はい、レストラン、スパ、エレベーターを通じたすべての客室フロアを含め、ホテル全体に段差のないアクセスがあります。バリアフリー駐車スペースは正面玄関に隣接しています。\nA: それは安心ですね。必要な場合、移動のサポートができるスタッフはいますか？\nB: はい、ゲストサービスチーム全員がバリアフリー対応の研修を受けています。利便性をさらに高めるため、エレベーターに最も近い1階の客室もご用意できます。これらすべてをご予約に記録しておきましょうか？",
+    "6025": "A: 請求書の内容について確認したいのですが。ミニバーの請求が42ドルありますが、ミニバーは全く使っていません。\nB: 大変申し訳ございません。詳細を確認しますので、部屋番号をお聞かせいただけますか？\nA: 1104号室です。請求は滞在3日目のものです。\nB: 調査いたします。ハウスキーピングにミニバーの在庫を確認します。少々お待ちいただけますか？\nA: もちろんです。また、2日目にスパの請求がありますが、私は承認していません。スパサービスについて問い合わせの電話をしましたが、予約はしていません。\nB: 両方の内容を確認いたしました。スパの予約記録も確認いたします。どちらかの請求が誤りであれば、すぐに削除し、ご出発前に修正済み請求書をご提供いたします。"
   }
 }

@@ -4,293 +4,911 @@
   "description": "ビジネス英語・TOEIC頻出シーン 25題",
   "icon": "📊",
   "categories": [
-    { "id": "phone",    "label": "電話対応", "icon": "📞" },
-    { "id": "meeting",  "label": "会議",     "icon": "📊" },
-    { "id": "business", "label": "ビジネス", "icon": "💼" },
-    { "id": "office",   "label": "オフィス", "icon": "🏢" }
+    {
+      "id": "phone",
+      "label": "電話対応",
+      "icon": "📞"
+    },
+    {
+      "id": "meeting",
+      "label": "会議",
+      "icon": "📊"
+    },
+    {
+      "id": "business",
+      "label": "ビジネス",
+      "icon": "💼"
+    },
+    {
+      "id": "office",
+      "label": "オフィス",
+      "icon": "🏢"
+    }
   ],
   "texts": [
     {
-      "id": 3001, "category": "phone",
-      "title": "Answering a Business Call", "titleJa": "ビジネス電話に出る",
+      "id": 3001,
+      "category": "phone",
+      "title": "Answering a Business Call",
+      "titleJa": "ビジネス電話に出る",
       "text": "A: Good afternoon, Apex Solutions, this is Karen speaking. How can I help you?\nB: Hello Karen, this is David Park from Sterling Finance. Could I speak to your sales director, Mr. Collins?\nA: Of course. May I ask what this is regarding?\nB: I'd like to discuss a potential partnership. We're very interested in your product line.\nA: Mr. Collins is in a meeting, but I expect him to be free in about twenty minutes. Shall I have him call you back?\nB: That would be perfect. My direct number is zero-two-zero, seven-seven-eight-four, three-three-nine-zero."
     },
     {
-      "id": 3002, "category": "phone",
-      "title": "Making a Business Call", "titleJa": "ビジネス電話をかける",
+      "id": 3002,
+      "category": "phone",
+      "title": "Making a Business Call",
+      "titleJa": "ビジネス電話をかける",
       "text": "A: Good morning, I'm calling from Horizon Tech. I'd like to speak with whoever handles marketing partnerships.\nB: That would be Ms. Sandra Walsh. I'll transfer you. Could I have your name?\nA: Certainly — it's Michael Tanaka, Senior Manager at Horizon Tech.\nB: Thank you. Please hold. If the line is busy, press one to leave a voicemail.\nA: Noted. Actually, would it be better to email first?\nB: Ms. Walsh generally prefers an initial email. Shall I give you her direct address?"
     },
     {
-      "id": 3003, "category": "phone",
-      "title": "Leaving a Voicemail", "titleJa": "留守番電話を残す",
+      "id": 3003,
+      "category": "phone",
+      "title": "Leaving a Voicemail",
+      "titleJa": "留守番電話を残す",
       "text": "Hi Sarah, it's James calling from the London office — it's about two-thirty on Tuesday afternoon. I'm reaching out regarding the proposal we submitted last week. I wanted to check whether you've had a chance to review the revised pricing. We're keen to move forward before the end of the month if possible. Could you call me back at your earliest convenience? My number is zero-seven-seven, four-five-six, eight-nine-zero-one. I'll be in the office until six today and available tomorrow morning from nine. Thank you, and I look forward to hearing from you."
     },
     {
-      "id": 3004, "category": "phone",
-      "title": "Transferring a Call", "titleJa": "電話を転送する",
+      "id": 3004,
+      "category": "phone",
+      "title": "Transferring a Call",
+      "titleJa": "電話を転送する",
       "text": "A: Good morning, Bennett and Associates.\nB: Hello, I'm calling to speak to Mr. Harrison about the contract renewal we discussed last week.\nA: I'll transfer you now. Could I have your name please?\nB: It's Lisa Chen from Yamamoto Trading.\nA: One moment, Ms. Chen. I'm putting you through. I'm afraid Mr. Harrison is on another line. Would you like to hold, or shall I take a message?\nB: I'll hold, thank you."
     },
     {
-      "id": 3005, "category": "phone",
-      "title": "Conference Call", "titleJa": "電話会議",
+      "id": 3005,
+      "category": "phone",
+      "title": "Conference Call",
+      "titleJa": "電話会議",
       "text": "A: Good morning, everyone. Can you all hear me clearly?\nB: Yes, this is Rachel in Singapore. I can hear you fine.\nA: Great. And we have James and Yuko joining from Tokyo, correct?\nC: Yes, James and Yuko here. The connection is a bit choppy — could you speak up slightly?\nA: Of course. Let me begin with a summary of last quarter's results. Please hold questions until the end of each section.\nB: Before you start — Priya from Mumbai is also dialing in. Are you on, Priya?"
     },
     {
-      "id": 3006, "category": "phone",
-      "title": "Handling a Customer Complaint", "titleJa": "クレーム電話への対応",
+      "id": 3006,
+      "category": "phone",
+      "title": "Handling a Customer Complaint",
+      "titleJa": "クレーム電話への対応",
       "text": "A: Good afternoon, customer services. My name's Ben. How can I help you today?\nB: Hello Ben. I placed an order three weeks ago and it still hasn't arrived. The tracking hasn't updated in ten days.\nA: I'm very sorry to hear that. Could I have your order number?\nB: It's QR-seven-seven-four-two-nine.\nA: I can see your order. It's been delayed at our fulfillment center due to high demand. I sincerely apologize.\nB: I wasn't notified at all. This was a birthday gift and the birthday is tomorrow."
     },
     {
-      "id": 3007, "category": "meeting",
-      "title": "Scheduling a Meeting", "titleJa": "会議のスケジュールを調整する",
+      "id": 3007,
+      "category": "meeting",
+      "title": "Scheduling a Meeting",
+      "titleJa": "会議のスケジュールを調整する",
       "text": "A: Are you available for a meeting this week to go over the quarterly report?\nB: I'm tied up on Wednesday but Thursday afternoon works. What time?\nA: How about two-thirty? It should take about an hour.\nB: Two-thirty works. Should I book Conference Room B?\nA: Yes, please. And could you send an invite to the whole team? Make sure Sarah and Robert are included.\nB: Sure. Should I attach the report so people can review it beforehand?"
     },
     {
-      "id": 3008, "category": "meeting",
-      "title": "Opening a Meeting", "titleJa": "会議の開始",
+      "id": 3008,
+      "category": "meeting",
+      "title": "Opening a Meeting",
+      "titleJa": "会議の開始",
       "text": "Good morning, everyone. Thank you for being here on time. Before we begin, I'd like to welcome our two new team members, Emma and David, who joined us this week from the Singapore office. Today's agenda has four items — first, a review of last quarter's sales figures; second, a presentation from the marketing team; third, budget planning for the upcoming quarter; and finally, any other business. I expect this to run for about ninety minutes, so let's try to stay on schedule. I'll ask you to hold questions until the end of each section unless it's urgent. Right then, let's get started."
     },
     {
-      "id": 3009, "category": "meeting",
-      "title": "Presenting Data in a Meeting", "titleJa": "データをプレゼンする",
+      "id": 3009,
+      "category": "meeting",
+      "title": "Presenting Data in a Meeting",
+      "titleJa": "データをプレゼンする",
       "text": "A: As you can see on slide four, our customer acquisition costs have decreased by seventeen percent compared to last quarter.\nB: That's a significant improvement. What drove that reduction?\nA: Primarily the new automated marketing campaigns — they've improved targeting efficiency and reduced manual workload.\nC: Can you break that down by region? I'm curious whether the improvement was consistent across all markets.\nA: Good question. Asia-Pacific showed the strongest improvement at twenty-three percent, while European markets were more modest at twelve.\nB: What are our projections for next quarter?"
     },
     {
-      "id": 3010, "category": "meeting",
-      "title": "Meeting Minutes", "titleJa": "議事録を取る（モノローグ）",
+      "id": 3010,
+      "category": "meeting",
+      "title": "Meeting Minutes",
+      "titleJa": "議事録を取る（モノローグ）",
       "text": "Present at today's meeting: Sarah Johnson, director; Mark Lee, marketing manager; and Lisa Yamamoto, financial analyst. The meeting began at ten AM. First agenda item — Q3 performance review. Sarah confirmed overall revenue was up eight percent year-over-year. Mark noted the digital campaign exceeded targets by fifteen percent. Lisa raised concerns about rising operational costs and proposed a cost review. It was agreed that Lisa would prepare a detailed analysis by the fifteenth. Second item — Q4 strategy. It was decided to increase digital advertising by twenty percent. Action items: Mark to draft the Q4 campaign brief by Friday; Lisa to complete the cost analysis by the fifteenth. Meeting ended at eleven-twenty."
     },
     {
-      "id": 3011, "category": "meeting",
-      "title": "Closing a Meeting", "titleJa": "会議を締めくくる",
+      "id": 3011,
+      "category": "meeting",
+      "title": "Closing a Meeting",
+      "titleJa": "会議を締めくくる",
       "text": "A: I think we've covered everything. Before we close, let me quickly summarize the action items.\nB: Could we also clarify the deadline for the client proposal? I want to make sure we're aligned.\nA: Good point. The final proposal needs to be submitted by end of business on the fourteenth. Rachel, you're leading that, correct?\nC: Yes, I'll have a draft to the team by Wednesday.\nA: Great. To summarize: Rachel delivers the draft on Wednesday, Mark finalizes the budget by Friday, and we reconvene on the twentieth. Thank you all. Well done today.\nB: Thanks, everyone."
     },
     {
-      "id": 3012, "category": "meeting",
-      "title": "Video Conference", "titleJa": "ビデオ会議",
+      "id": 3012,
+      "category": "meeting",
+      "title": "Video Conference",
+      "titleJa": "ビデオ会議",
       "text": "A: Hi everyone, welcome to the call. Please mute yourselves when not speaking — there seems to be some background noise.\nB: Sorry, that's from my end. There's construction outside.\nA: No problem. Also, please use the chat function for questions and I'll address them as we go. Can everyone see the presentation?\nC: I can't see it on my screen — could you share it again?\nA: Of course. Resharing now. Let me know when you see slide one.\nB: Got it. Works perfectly now."
     },
     {
-      "id": 3013, "category": "business",
-      "title": "Introducing Yourself", "titleJa": "ビジネスの場での自己紹介",
+      "id": 3013,
+      "category": "business",
+      "title": "Introducing Yourself",
+      "titleJa": "ビジネスの場での自己紹介",
       "text": "A: Hi, I don't think we've met. I'm Alex Watanabe from Sumitomo Partners.\nB: Nice to meet you, Alex. I'm Catherine Morgan — a consultant with Global Strategy Group.\nA: Interesting. What kind of work do you focus on?\nB: Mainly organizational restructuring for mid-size tech companies. What about Sumitomo?\nA: We work primarily in renewable energy investments across Asia. It's a very exciting space right now.\nB: It really is. Here's my card — I'd love to connect and hear more about your portfolio."
     },
     {
-      "id": 3014, "category": "business",
-      "title": "Following Up by Email", "titleJa": "メールでフォローアップ（モノローグ）",
+      "id": 3014,
+      "category": "business",
+      "title": "Following Up by Email",
+      "titleJa": "メールでフォローアップ（モノローグ）",
       "text": "Hi Emma, I'm writing to follow up on our conversation from last Thursday's meeting. As we discussed, the product launch timeline has been moved forward by two weeks, which means marketing materials will need to be finalized by end of this month. I've attached the updated project schedule for your reference. Could you please confirm by Wednesday whether your team can meet the new deadline? If there are any resource constraints, please let me know as soon as possible so we can find solutions. I'd also like to schedule a call early next week to align on key messaging. Please let me know your availability. Thank you for your flexibility. Best regards, Tom."
     },
     {
-      "id": 3015, "category": "business",
-      "title": "Negotiating a Price", "titleJa": "価格交渉",
+      "id": 3015,
+      "category": "business",
+      "title": "Negotiating a Price",
+      "titleJa": "価格交渉",
       "text": "A: I've reviewed your proposal — the quality looks excellent, but the pricing is slightly above our budget.\nB: I understand. What range did you have in mind?\nA: We were hoping to come in around eighty thousand for the full package.\nB: Our standard package is ninety-five thousand. However, we might be able to meet somewhere in the middle by adjusting the scope.\nA: What kind of adjustments?\nB: If we reduce on-site visits from five to three and shift some deliverables to digital, we could bring it down to eighty-eight thousand."
     },
     {
-      "id": 3016, "category": "business",
-      "title": "Presenting a Proposal", "titleJa": "提案書をプレゼンする",
+      "id": 3016,
+      "category": "business",
+      "title": "Presenting a Proposal",
+      "titleJa": "提案書をプレゼンする",
       "text": "A: Thank you for the opportunity to present today. We're proposing a twelve-month digital transformation program to modernize your operations.\nB: What makes your approach different from the others we've received?\nA: Two things. First, we've delivered similar transformations for three companies in your sector in the past two years. Second, we build client capability throughout, so you're not dependent on external support after we leave.\nB: What's the expected ROI?\nA: Based on benchmarks from similar projects, you can expect to recover the investment within eighteen months, with ongoing savings of fifteen to twenty percent annually.\nC: Can you walk us through the implementation timeline?"
     },
     {
-      "id": 3017, "category": "business",
-      "title": "Project Follow-Up", "titleJa": "プロジェクトの進捗確認",
+      "id": 3017,
+      "category": "business",
+      "title": "Project Follow-Up",
+      "titleJa": "プロジェクトの進捗確認",
       "text": "A: Hi Mark, just touching base on the client presentation. How are we tracking?\nB: Making good progress — the slides are about seventy percent complete. I'll have a draft ready by end of day tomorrow.\nA: Great. One thing — the client asked us to include a competitive analysis section. Did you see that email?\nB: I did. I've already flagged it to Rachel. She's working on it and says she'll have it done tomorrow morning.\nA: Perfect. Could you send me the draft as soon as it's ready? I want to review it thoroughly before submission.\nB: Of course. I'll copy you on everything."
     },
     {
-      "id": 3018, "category": "business",
-      "title": "Requesting Time Off", "titleJa": "有給休暇の申請",
+      "id": 3018,
+      "category": "business",
+      "title": "Requesting Time Off",
+      "titleJa": "有給休暇の申請",
       "text": "A: Hi, do you have a moment? I wanted to request some annual leave.\nB: Sure, go ahead. What dates?\nA: The twenty-second to the twenty-ninth of next month. It's a family trip planned a while ago.\nB: Let me check the team schedule. Yes, there are no major deadlines that week. Can you ensure everything is handed over before you leave?\nA: Absolutely. I'll prepare a full handover document and brief the team on ongoing projects.\nB: Great. I'll approve it in the system today. Have a wonderful trip."
     },
     {
-      "id": 3019, "category": "business",
-      "title": "Job Interview", "titleJa": "就職面接",
+      "id": 3019,
+      "category": "business",
+      "title": "Job Interview",
+      "titleJa": "就職面接",
       "text": "A: Good morning. Thank you for coming in. Could you start by telling me about yourself and your background?\nB: Of course. I have eight years of experience in financial analysis, most recently as a senior analyst at JP Consulting, where I led a team of six and oversaw quarterly reporting for thirty corporate clients.\nA: What drew you to apply for this role?\nB: I've been following your company's growth in Asia-Pacific closely, and I'm excited by the opportunity to work in a more dynamic international environment.\nA: Can you give me an example of a time you successfully handled a high-pressure situation?\nB: Certainly. Last year, our team had to deliver a major financial review in three days instead of two weeks due to an unexpected merger announcement."
     },
     {
-      "id": 3020, "category": "office",
-      "title": "Asking a Colleague for Help", "titleJa": "同僚に相談する",
+      "id": 3020,
+      "category": "office",
+      "title": "Asking a Colleague for Help",
+      "titleJa": "同僚に相談する",
       "text": "A: Hey, do you have a few minutes? I'm stuck on something.\nB: Sure, what's up?\nA: I'm trying to reconcile figures in the Q3 report, but the numbers from Southeast Asia don't match the summary sheet. I've checked twice.\nB: Let me take a look. Oh — the currency conversion formula in column G is using last year's exchange rate. It's a common mistake.\nA: You're right. I can't believe I missed that. How do I fix it?\nB: Just update the cell reference to point to the current rate table. Takes thirty seconds. Want me to show you?"
     },
     {
-      "id": 3021, "category": "office",
-      "title": "Onboarding a New Employee", "titleJa": "新入社員の研修",
+      "id": 3021,
+      "category": "office",
+      "title": "Onboarding a New Employee",
+      "titleJa": "新入社員の研修",
       "text": "A: Welcome aboard, Jessica! I'll be your buddy for the first two weeks. How are you feeling?\nB: A bit overwhelmed but excited! There's so much to take in.\nA: That's completely normal. Let me give you a tour first, then we'll set up your accounts. We'll take it step by step.\nB: Could you also explain the team structure? I'm still figuring out who reports to whom.\nA: The team has three levels — directors, team leads, and analysts. You'll mainly work with the other analysts and report directly to Marcus.\nB: Got it. And are there any unwritten rules I should know about?"
     },
     {
-      "id": 3022, "category": "office",
-      "title": "Reporting to Your Manager", "titleJa": "上司への報告",
+      "id": 3022,
+      "category": "office",
+      "title": "Reporting to Your Manager",
+      "titleJa": "上司への報告",
       "text": "A: I wanted to give you a quick update on the Henderson account before your meeting.\nB: Good timing. Where do things stand?\nA: We've resolved the delivery issue from last week. They received the corrected shipment this morning and confirmed they're satisfied.\nB: Great. Any ongoing concerns?\nA: One thing — they've asked about expanding the contract to include our new product line. I think it's worth pursuing. I can prepare a brief proposal.\nB: Yes, do that. Two pages maximum. Can you have something ready by Thursday?"
     },
     {
-      "id": 3023, "category": "office",
-      "title": "Office Announcement", "titleJa": "社内アナウンス（モノローグ）",
+      "id": 3023,
+      "category": "office",
+      "title": "Office Announcement",
+      "titleJa": "社内アナウンス（モノローグ）",
       "text": "Good afternoon, everyone. A quick announcement from the office management team. From next Monday, we're introducing a flexible start time of between seven-thirty and nine-thirty AM to help with commute options. Core hours remain nine to five. Please discuss your preferred schedule with your team lead by Friday. Additionally, the third-floor meeting rooms will be closed for renovation from the fifteenth through the twenty-second. During this time, please use the fourth-floor rooms — bookings can be made through the usual calendar system. Finally, a reminder that the company wellness day is on the twenty-eighth — more details will be circulated later this week. Thank you."
     },
     {
-      "id": 3024, "category": "office",
-      "title": "Business Trip Planning", "titleJa": "出張の手配",
+      "id": 3024,
+      "category": "office",
+      "title": "Business Trip Planning",
+      "titleJa": "出張の手配",
       "text": "A: I need to travel to the Frankfurt office next month for the client summit. Could you help coordinate arrangements?\nB: Of course. Do you have specific dates?\nA: The summit runs from the fourteenth to the sixteenth. I'd need to fly in on the thirteenth and return on the seventeenth.\nB: I'll look at flights. Any preferences?\nA: A direct flight if possible, and business class for overnight legs — company policy allows it for flights over six hours.\nB: Got it. I'll also arrange hotel near the venue. Any other requirements — transfers, meeting space?"
     },
     {
-      "id": 3025, "category": "office",
-      "title": "Equipment Malfunction", "titleJa": "機器のトラブル",
+      "id": 3025,
+      "category": "office",
+      "title": "Equipment Malfunction",
+      "titleJa": "機器のトラブル",
       "text": "A: Hi, the printer on the third floor is jamming every time someone prints more than a few pages.\nB: Thanks for letting us know. Is it the color printer or the black-and-white one?\nA: The main color printer — the large one near the windows.\nB: Could you clear the paper tray and reseat the paper? Sometimes that fixes it.\nA: I tried that. It prints one or two pages fine, then jams on the third.\nB: Sounds like a roller issue. I'll escalate to the service team. In the meantime, use the printer in the mailroom on the second floor."
     }
   ],
   "explanations": {
     "3001": [
-      { "phrase": "this is Karen speaking", "reading": "", "meaning": "こちらはカレンです", "note": "電話を受けたときの定型表現。" },
-      { "phrase": "May I ask what this is regarding?", "reading": "", "meaning": "ご用件をお聞かせいただけますか？", "note": "TOEIC頻出の丁寧な確認表現。" },
-      { "phrase": "have him call you back", "reading": "", "meaning": "折り返し電話させます", "note": "" }
+      {
+        "phrase": "this is Karen speaking",
+        "reading": "",
+        "meaning": "こちらはカレンです",
+        "note": "電話を受けたときの定型表現。"
+      },
+      {
+        "phrase": "May I ask what this is regarding?",
+        "reading": "",
+        "meaning": "ご用件をお聞かせいただけますか？",
+        "note": "TOEIC頻出の丁寧な確認表現。"
+      },
+      {
+        "phrase": "have him call you back",
+        "reading": "",
+        "meaning": "折り返し電話させます",
+        "note": ""
+      }
     ],
     "3002": [
-      { "phrase": "whoever handles", "reading": "", "meaning": "〜を担当している人（誰でも）", "note": "担当者が不明なときに使う便利な表現。" },
-      { "phrase": "I'll transfer you", "reading": "", "meaning": "電話をつなぎます", "note": "電話の転送を伝える定番表現。" },
-      { "phrase": "Please hold", "reading": "", "meaning": "そのままお待ちください", "note": "保留を依頼する定型フレーズ。" },
-      { "phrase": "leave a voicemail", "reading": "ボイスメール", "meaning": "留守番電話にメッセージを残す", "note": "" },
-      { "phrase": "generally prefers", "reading": "", "meaning": "通常〜を好む・〜が慣例", "note": "相手の習慣・好みを伝える表現。" }
+      {
+        "phrase": "whoever handles",
+        "reading": "",
+        "meaning": "〜を担当している人（誰でも）",
+        "note": "担当者が不明なときに使う便利な表現。"
+      },
+      {
+        "phrase": "I'll transfer you",
+        "reading": "",
+        "meaning": "電話をつなぎます",
+        "note": "電話の転送を伝える定番表現。"
+      },
+      {
+        "phrase": "Please hold",
+        "reading": "",
+        "meaning": "そのままお待ちください",
+        "note": "保留を依頼する定型フレーズ。"
+      },
+      {
+        "phrase": "leave a voicemail",
+        "reading": "ボイスメール",
+        "meaning": "留守番電話にメッセージを残す",
+        "note": ""
+      },
+      {
+        "phrase": "generally prefers",
+        "reading": "",
+        "meaning": "通常〜を好む・〜が慣例",
+        "note": "相手の習慣・好みを伝える表現。"
+      }
     ],
     "3003": [
-      { "phrase": "reaching out", "reading": "リーチングアウト", "meaning": "連絡を取る", "note": "ビジネス英語で「連絡する」の丁寧な表現。" },
-      { "phrase": "at your earliest convenience", "reading": "", "meaning": "ご都合のよいときにすぐに", "note": "メール・電話の定型表現。" }
+      {
+        "phrase": "reaching out",
+        "reading": "リーチングアウト",
+        "meaning": "連絡を取る",
+        "note": "ビジネス英語で「連絡する」の丁寧な表現。"
+      },
+      {
+        "phrase": "at your earliest convenience",
+        "reading": "",
+        "meaning": "ご都合のよいときにすぐに",
+        "note": "メール・電話の定型表現。"
+      }
     ],
     "3004": [
-      { "phrase": "contract renewal", "reading": "コントラクトリニューアル", "meaning": "契約更新", "note": "TOEICでよく出るビジネス用語。" },
-      { "phrase": "putting you through", "reading": "", "meaning": "電話をつなぐ", "note": "transfer と同義の口語表現。" },
-      { "phrase": "on another line", "reading": "", "meaning": "別の電話に出ている", "note": "「話し中」を丁寧に言う表現。" },
-      { "phrase": "shall I take a message", "reading": "", "meaning": "伝言を承りましょうか", "note": "電話の定型応答フレーズ。" }
+      {
+        "phrase": "contract renewal",
+        "reading": "コントラクトリニューアル",
+        "meaning": "契約更新",
+        "note": "TOEICでよく出るビジネス用語。"
+      },
+      {
+        "phrase": "putting you through",
+        "reading": "",
+        "meaning": "電話をつなぐ",
+        "note": "transfer と同義の口語表現。"
+      },
+      {
+        "phrase": "on another line",
+        "reading": "",
+        "meaning": "別の電話に出ている",
+        "note": "「話し中」を丁寧に言う表現。"
+      },
+      {
+        "phrase": "shall I take a message",
+        "reading": "",
+        "meaning": "伝言を承りましょうか",
+        "note": "電話の定型応答フレーズ。"
+      }
     ],
     "3005": [
-      { "phrase": "Can you all hear me clearly?", "reading": "", "meaning": "皆さん、はっきり聞こえますか？", "note": "電話会議の開始時によく使われる確認表現。" },
-      { "phrase": "The connection is a bit choppy", "reading": "チョッピー", "meaning": "接続が少し途切れ途切れです", "note": "通信不良を表す口語表現。" },
-      { "phrase": "speak up slightly", "reading": "", "meaning": "少し大きな声で話してください", "note": "" },
-      { "phrase": "dialing in", "reading": "ダイアリングイン", "meaning": "電話で参加する・接続する", "note": "conference callに参加するときの表現。" }
+      {
+        "phrase": "Can you all hear me clearly?",
+        "reading": "",
+        "meaning": "皆さん、はっきり聞こえますか？",
+        "note": "電話会議の開始時によく使われる確認表現。"
+      },
+      {
+        "phrase": "The connection is a bit choppy",
+        "reading": "チョッピー",
+        "meaning": "接続が少し途切れ途切れです",
+        "note": "通信不良を表す口語表現。"
+      },
+      {
+        "phrase": "speak up slightly",
+        "reading": "",
+        "meaning": "少し大きな声で話してください",
+        "note": ""
+      },
+      {
+        "phrase": "dialing in",
+        "reading": "ダイアリングイン",
+        "meaning": "電話で参加する・接続する",
+        "note": "conference callに参加するときの表現。"
+      }
     ],
     "3006": [
-      { "phrase": "placed an order", "reading": "", "meaning": "注文した", "note": "「place an order」は「注文する」の定番動詞句。" },
-      { "phrase": "tracking hasn't updated", "reading": "", "meaning": "追跡情報が更新されていない", "note": "荷物追跡の文脈で頻出。" },
-      { "phrase": "fulfillment center", "reading": "フルフィルメントセンター", "meaning": "配送センター・物流倉庫", "note": "Eコマース関連でTOEICに登場する語。" },
-      { "phrase": "I sincerely apologize", "reading": "", "meaning": "心からお詫び申し上げます", "note": "クレーム対応の丁寧な謝罪表現。" },
-      { "phrase": "I wasn't notified", "reading": "", "meaning": "連絡をもらっていなかった", "note": "" }
+      {
+        "phrase": "placed an order",
+        "reading": "",
+        "meaning": "注文した",
+        "note": "「place an order」は「注文する」の定番動詞句。"
+      },
+      {
+        "phrase": "tracking hasn't updated",
+        "reading": "",
+        "meaning": "追跡情報が更新されていない",
+        "note": "荷物追跡の文脈で頻出。"
+      },
+      {
+        "phrase": "fulfillment center",
+        "reading": "フルフィルメントセンター",
+        "meaning": "配送センター・物流倉庫",
+        "note": "Eコマース関連でTOEICに登場する語。"
+      },
+      {
+        "phrase": "I sincerely apologize",
+        "reading": "",
+        "meaning": "心からお詫び申し上げます",
+        "note": "クレーム対応の丁寧な謝罪表現。"
+      },
+      {
+        "phrase": "I wasn't notified",
+        "reading": "",
+        "meaning": "連絡をもらっていなかった",
+        "note": ""
+      }
     ],
     "3007": [
-      { "phrase": "tied up", "reading": "タイドアップ", "meaning": "手が離せない・忙しい", "note": "「busy」よりフォーマルなビジネス表現。" },
-      { "phrase": "go over", "reading": "", "meaning": "見直す・確認する", "note": "会議や書類のレビューに使う。" }
+      {
+        "phrase": "tied up",
+        "reading": "タイドアップ",
+        "meaning": "手が離せない・忙しい",
+        "note": "「busy」よりフォーマルなビジネス表現。"
+      },
+      {
+        "phrase": "go over",
+        "reading": "",
+        "meaning": "見直す・確認する",
+        "note": "会議や書類のレビューに使う。"
+      }
     ],
     "3008": [
-      { "phrase": "today's agenda", "reading": "アジェンダ", "meaning": "本日の議題・進行予定", "note": "会議の冒頭で必ず出る表現。" },
-      { "phrase": "any other business", "reading": "", "meaning": "その他の議題", "note": "略して AOB とも言う。会議の最終議題として定番。" },
-      { "phrase": "stay on schedule", "reading": "", "meaning": "スケジュール通りに進める", "note": "" },
-      { "phrase": "hold questions until the end", "reading": "", "meaning": "最後まで質問を控える", "note": "会議進行の指示として頻出。" },
-      { "phrase": "let's get started", "reading": "", "meaning": "では始めましょう", "note": "会議・プレゼン開始の定番フレーズ。" }
+      {
+        "phrase": "today's agenda",
+        "reading": "アジェンダ",
+        "meaning": "本日の議題・進行予定",
+        "note": "会議の冒頭で必ず出る表現。"
+      },
+      {
+        "phrase": "any other business",
+        "reading": "",
+        "meaning": "その他の議題",
+        "note": "略して AOB とも言う。会議の最終議題として定番。"
+      },
+      {
+        "phrase": "stay on schedule",
+        "reading": "",
+        "meaning": "スケジュール通りに進める",
+        "note": ""
+      },
+      {
+        "phrase": "hold questions until the end",
+        "reading": "",
+        "meaning": "最後まで質問を控える",
+        "note": "会議進行の指示として頻出。"
+      },
+      {
+        "phrase": "let's get started",
+        "reading": "",
+        "meaning": "では始めましょう",
+        "note": "会議・プレゼン開始の定番フレーズ。"
+      }
     ],
     "3009": [
-      { "phrase": "customer acquisition costs", "reading": "", "meaning": "顧客獲得コスト", "note": "TOEIC Part 3/4でよく出るビジネス指標。" },
-      { "phrase": "break that down by region", "reading": "", "meaning": "地域別に分解する", "note": "データ分析の定番表現。" }
+      {
+        "phrase": "customer acquisition costs",
+        "reading": "",
+        "meaning": "顧客獲得コスト",
+        "note": "TOEIC Part 3/4でよく出るビジネス指標。"
+      },
+      {
+        "phrase": "break that down by region",
+        "reading": "",
+        "meaning": "地域別に分解する",
+        "note": "データ分析の定番表現。"
+      }
     ],
     "3010": [
-      { "phrase": "year-over-year", "reading": "イヤーオーバーイヤー", "meaning": "前年比", "note": "財務・業績報告で頻出の略語（YoY）。" },
-      { "phrase": "exceeded targets", "reading": "", "meaning": "目標を上回った", "note": "「exceed」はTOEICで頻出の動詞。" },
-      { "phrase": "raised concerns about", "reading": "", "meaning": "〜について懸念を示した", "note": "会議での発言を議事録に記録する表現。" },
-      { "phrase": "it was agreed that", "reading": "", "meaning": "〜することで合意された", "note": "議事録の受動態表現として典型的。" },
-      { "phrase": "action items", "reading": "アクションアイテム", "meaning": "実行すべき事項・タスク", "note": "会議の議事録・締めくくりで必須の語。" }
+      {
+        "phrase": "year-over-year",
+        "reading": "イヤーオーバーイヤー",
+        "meaning": "前年比",
+        "note": "財務・業績報告で頻出の略語（YoY）。"
+      },
+      {
+        "phrase": "exceeded targets",
+        "reading": "",
+        "meaning": "目標を上回った",
+        "note": "「exceed」はTOEICで頻出の動詞。"
+      },
+      {
+        "phrase": "raised concerns about",
+        "reading": "",
+        "meaning": "〜について懸念を示した",
+        "note": "会議での発言を議事録に記録する表現。"
+      },
+      {
+        "phrase": "it was agreed that",
+        "reading": "",
+        "meaning": "〜することで合意された",
+        "note": "議事録の受動態表現として典型的。"
+      },
+      {
+        "phrase": "action items",
+        "reading": "アクションアイテム",
+        "meaning": "実行すべき事項・タスク",
+        "note": "会議の議事録・締めくくりで必須の語。"
+      }
     ],
     "3011": [
-      { "phrase": "let me quickly summarize", "reading": "", "meaning": "手短にまとめます", "note": "会議の締めくくりでよく使う表現。" },
-      { "phrase": "end of business", "reading": "", "meaning": "営業時間終了時・業務終了時", "note": "略して EOB とも言う。締め切り表現として頻出。" },
-      { "phrase": "make sure we're aligned", "reading": "", "meaning": "認識が一致していることを確認する", "note": "「aligned」はビジネス英語の重要語。" },
-      { "phrase": "reconvene", "reading": "リコンヴィーン", "meaning": "再度集まる・会議を再開する", "note": "" },
-      { "phrase": "Well done today", "reading": "", "meaning": "本日はお疲れさまでした・よくやりました", "note": "会議の締めの労いの表現。" }
+      {
+        "phrase": "let me quickly summarize",
+        "reading": "",
+        "meaning": "手短にまとめます",
+        "note": "会議の締めくくりでよく使う表現。"
+      },
+      {
+        "phrase": "end of business",
+        "reading": "",
+        "meaning": "営業時間終了時・業務終了時",
+        "note": "略して EOB とも言う。締め切り表現として頻出。"
+      },
+      {
+        "phrase": "make sure we're aligned",
+        "reading": "",
+        "meaning": "認識が一致していることを確認する",
+        "note": "「aligned」はビジネス英語の重要語。"
+      },
+      {
+        "phrase": "reconvene",
+        "reading": "リコンヴィーン",
+        "meaning": "再度集まる・会議を再開する",
+        "note": ""
+      },
+      {
+        "phrase": "Well done today",
+        "reading": "",
+        "meaning": "本日はお疲れさまでした・よくやりました",
+        "note": "会議の締めの労いの表現。"
+      }
     ],
     "3012": [
-      { "phrase": "mute yourselves", "reading": "ミュート", "meaning": "マイクをミュートにする", "note": "ビデオ会議の定番指示。" },
-      { "phrase": "background noise", "reading": "バックグラウンドノイズ", "meaning": "バックグラウンドの雑音", "note": "" },
-      { "phrase": "chat function", "reading": "チャット", "meaning": "チャット機能", "note": "ビデオ会議ツールの機能として頻出。" },
-      { "phrase": "address them as we go", "reading": "", "meaning": "進めながら対応する", "note": "「as we go」は「進めながら」の意味の慣用句。" },
-      { "phrase": "Resharing now", "reading": "", "meaning": "今すぐ再共有します", "note": "画面共有のやり直しを伝える表現。" }
+      {
+        "phrase": "mute yourselves",
+        "reading": "ミュート",
+        "meaning": "マイクをミュートにする",
+        "note": "ビデオ会議の定番指示。"
+      },
+      {
+        "phrase": "background noise",
+        "reading": "バックグラウンドノイズ",
+        "meaning": "バックグラウンドの雑音",
+        "note": ""
+      },
+      {
+        "phrase": "chat function",
+        "reading": "チャット",
+        "meaning": "チャット機能",
+        "note": "ビデオ会議ツールの機能として頻出。"
+      },
+      {
+        "phrase": "address them as we go",
+        "reading": "",
+        "meaning": "進めながら対応する",
+        "note": "「as we go」は「進めながら」の意味の慣用句。"
+      },
+      {
+        "phrase": "Resharing now",
+        "reading": "",
+        "meaning": "今すぐ再共有します",
+        "note": "画面共有のやり直しを伝える表現。"
+      }
     ],
     "3013": [
-      { "phrase": "I don't think we've met", "reading": "", "meaning": "お会いするのは初めてですよね", "note": "自己紹介を切り出すときの定番フレーズ。" },
-      { "phrase": "organizational restructuring", "reading": "オーガナイゼーショナルリストラクチャリング", "meaning": "組織再編", "note": "TOEICの企業関連語として頻出。" },
-      { "phrase": "mid-size tech companies", "reading": "", "meaning": "中規模テック企業", "note": "" },
-      { "phrase": "renewable energy investments", "reading": "リニューアブルエナジー", "meaning": "再生可能エネルギーへの投資", "note": "" },
-      { "phrase": "Here's my card", "reading": "", "meaning": "名刺をどうぞ", "note": "名刺交換の定番表現。" }
+      {
+        "phrase": "I don't think we've met",
+        "reading": "",
+        "meaning": "お会いするのは初めてですよね",
+        "note": "自己紹介を切り出すときの定番フレーズ。"
+      },
+      {
+        "phrase": "organizational restructuring",
+        "reading": "オーガナイゼーショナルリストラクチャリング",
+        "meaning": "組織再編",
+        "note": "TOEICの企業関連語として頻出。"
+      },
+      {
+        "phrase": "mid-size tech companies",
+        "reading": "",
+        "meaning": "中規模テック企業",
+        "note": ""
+      },
+      {
+        "phrase": "renewable energy investments",
+        "reading": "リニューアブルエナジー",
+        "meaning": "再生可能エネルギーへの投資",
+        "note": ""
+      },
+      {
+        "phrase": "Here's my card",
+        "reading": "",
+        "meaning": "名刺をどうぞ",
+        "note": "名刺交換の定番表現。"
+      }
     ],
     "3014": [
-      { "phrase": "follow up on", "reading": "", "meaning": "〜について追って連絡する", "note": "メール・ビジネス英語で最頻出の表現。" },
-      { "phrase": "moved forward by two weeks", "reading": "", "meaning": "2週間前倒しになった", "note": "スケジュール変更の表現。" },
-      { "phrase": "finalized by end of this month", "reading": "", "meaning": "今月末までに完成させる", "note": "" },
-      { "phrase": "resource constraints", "reading": "リソースコンストレイント", "meaning": "リソース（人員・予算）の制約", "note": "プロジェクト管理の重要語。" },
-      { "phrase": "align on key messaging", "reading": "", "meaning": "主要メッセージについて認識を合わせる", "note": "「align on」はビジネス英語の頻出表現。" }
+      {
+        "phrase": "follow up on",
+        "reading": "",
+        "meaning": "〜について追って連絡する",
+        "note": "メール・ビジネス英語で最頻出の表現。"
+      },
+      {
+        "phrase": "moved forward by two weeks",
+        "reading": "",
+        "meaning": "2週間前倒しになった",
+        "note": "スケジュール変更の表現。"
+      },
+      {
+        "phrase": "finalized by end of this month",
+        "reading": "",
+        "meaning": "今月末までに完成させる",
+        "note": ""
+      },
+      {
+        "phrase": "resource constraints",
+        "reading": "リソースコンストレイント",
+        "meaning": "リソース（人員・予算）の制約",
+        "note": "プロジェクト管理の重要語。"
+      },
+      {
+        "phrase": "align on key messaging",
+        "reading": "",
+        "meaning": "主要メッセージについて認識を合わせる",
+        "note": "「align on」はビジネス英語の頻出表現。"
+      }
     ],
     "3015": [
-      { "phrase": "above our budget", "reading": "", "meaning": "予算を超えている", "note": "" },
-      { "phrase": "adjusting the scope", "reading": "", "meaning": "業務範囲を調整する", "note": "プロジェクト管理の基本用語。" }
+      {
+        "phrase": "above our budget",
+        "reading": "",
+        "meaning": "予算を超えている",
+        "note": ""
+      },
+      {
+        "phrase": "adjusting the scope",
+        "reading": "",
+        "meaning": "業務範囲を調整する",
+        "note": "プロジェクト管理の基本用語。"
+      }
     ],
     "3016": [
-      { "phrase": "digital transformation", "reading": "デジタルトランスフォーメーション", "meaning": "デジタル変革（DX）", "note": "TOEICの現代ビジネス語として頻出。" },
-      { "phrase": "build client capability", "reading": "", "meaning": "クライアント側の能力を育てる", "note": "外部依存を残さないアプローチを表す表現。" },
-      { "phrase": "expected ROI", "reading": "アールオーアイ", "meaning": "期待される投資利益率", "note": "Return on Investment の略。財務・提案で必須語。" },
-      { "phrase": "recover the investment", "reading": "", "meaning": "投資を回収する", "note": "" },
-      { "phrase": "implementation timeline", "reading": "インプリメンテーション", "meaning": "実施スケジュール", "note": "" }
+      {
+        "phrase": "digital transformation",
+        "reading": "デジタルトランスフォーメーション",
+        "meaning": "デジタル変革（DX）",
+        "note": "TOEICの現代ビジネス語として頻出。"
+      },
+      {
+        "phrase": "build client capability",
+        "reading": "",
+        "meaning": "クライアント側の能力を育てる",
+        "note": "外部依存を残さないアプローチを表す表現。"
+      },
+      {
+        "phrase": "expected ROI",
+        "reading": "アールオーアイ",
+        "meaning": "期待される投資利益率",
+        "note": "Return on Investment の略。財務・提案で必須語。"
+      },
+      {
+        "phrase": "recover the investment",
+        "reading": "",
+        "meaning": "投資を回収する",
+        "note": ""
+      },
+      {
+        "phrase": "implementation timeline",
+        "reading": "インプリメンテーション",
+        "meaning": "実施スケジュール",
+        "note": ""
+      }
     ],
     "3017": [
-      { "phrase": "touching base on", "reading": "", "meaning": "〜について状況確認する", "note": "「touch base」はビジネス英語の頻出イディオム。" },
-      { "phrase": "how are we tracking?", "reading": "", "meaning": "進捗はどうですか？", "note": "プロジェクト管理での口語的確認表現。" },
-      { "phrase": "competitive analysis", "reading": "コンペティティブアナリシス", "meaning": "競合分析", "note": "ビジネス提案・プレゼンで頻出の語。" },
-      { "phrase": "I'll copy you on everything", "reading": "", "meaning": "すべてのメールをCCに入れます", "note": "「copy」をメールのCCの意味で使う表現。" }
+      {
+        "phrase": "touching base on",
+        "reading": "",
+        "meaning": "〜について状況確認する",
+        "note": "「touch base」はビジネス英語の頻出イディオム。"
+      },
+      {
+        "phrase": "how are we tracking?",
+        "reading": "",
+        "meaning": "進捗はどうですか？",
+        "note": "プロジェクト管理での口語的確認表現。"
+      },
+      {
+        "phrase": "competitive analysis",
+        "reading": "コンペティティブアナリシス",
+        "meaning": "競合分析",
+        "note": "ビジネス提案・プレゼンで頻出の語。"
+      },
+      {
+        "phrase": "I'll copy you on everything",
+        "reading": "",
+        "meaning": "すべてのメールをCCに入れます",
+        "note": "「copy」をメールのCCの意味で使う表現。"
+      }
     ],
     "3018": [
-      { "phrase": "annual leave", "reading": "アニュアルリーブ", "meaning": "年次有給休暇", "note": "paid time off（PTO）とも言う。" },
-      { "phrase": "handover document", "reading": "ハンドオーバー", "meaning": "引き継ぎ資料", "note": "" }
+      {
+        "phrase": "annual leave",
+        "reading": "アニュアルリーブ",
+        "meaning": "年次有給休暇",
+        "note": "paid time off（PTO）とも言う。"
+      },
+      {
+        "phrase": "handover document",
+        "reading": "ハンドオーバー",
+        "meaning": "引き継ぎ資料",
+        "note": ""
+      }
     ],
     "3019": [
-      { "phrase": "financial analysis", "reading": "ファイナンシャルアナリシス", "meaning": "財務分析", "note": "TOEIC Part 4等で頻出の職種・業務。" },
-      { "phrase": "oversaw quarterly reporting", "reading": "", "meaning": "四半期報告を監督した", "note": "「oversee」は「監督する・管理する」の意。" },
-      { "phrase": "What drew you to apply?", "reading": "", "meaning": "なぜ応募しようと思ったのですか？", "note": "面接の定番質問フレーズ。" },
-      { "phrase": "high-pressure situation", "reading": "ハイプレッシャー", "meaning": "プレッシャーの高い状況", "note": "行動面接（behavioral interview）の頻出トピック。" },
-      { "phrase": "unexpected merger announcement", "reading": "マージャー", "meaning": "予期せぬ合併発表", "note": "「merger」はTOEIC Part 7頻出のビジネス語。" }
+      {
+        "phrase": "financial analysis",
+        "reading": "ファイナンシャルアナリシス",
+        "meaning": "財務分析",
+        "note": "TOEIC Part 4等で頻出の職種・業務。"
+      },
+      {
+        "phrase": "oversaw quarterly reporting",
+        "reading": "",
+        "meaning": "四半期報告を監督した",
+        "note": "「oversee」は「監督する・管理する」の意。"
+      },
+      {
+        "phrase": "What drew you to apply?",
+        "reading": "",
+        "meaning": "なぜ応募しようと思ったのですか？",
+        "note": "面接の定番質問フレーズ。"
+      },
+      {
+        "phrase": "high-pressure situation",
+        "reading": "ハイプレッシャー",
+        "meaning": "プレッシャーの高い状況",
+        "note": "行動面接（behavioral interview）の頻出トピック。"
+      },
+      {
+        "phrase": "unexpected merger announcement",
+        "reading": "マージャー",
+        "meaning": "予期せぬ合併発表",
+        "note": "「merger」はTOEIC Part 7頻出のビジネス語。"
+      }
     ],
     "3020": [
-      { "phrase": "I'm stuck on something", "reading": "", "meaning": "何かで詰まっています・困っています", "note": "同僚に助けを求める際の自然な口語表現。" },
-      { "phrase": "reconcile figures", "reading": "リコンサイル", "meaning": "数字を突き合わせる・照合する", "note": "経理・財務でよく使われる動詞。" },
-      { "phrase": "currency conversion formula", "reading": "カレンシーコンバージョン", "meaning": "通貨換算式", "note": "" },
-      { "phrase": "exchange rate", "reading": "エクスチェンジレート", "meaning": "為替レート", "note": "TOEICの財務・会計分野で頻出。" },
-      { "phrase": "update the cell reference", "reading": "", "meaning": "セル参照を更新する", "note": "Excelなど表計算ソフトの操作表現。" }
+      {
+        "phrase": "I'm stuck on something",
+        "reading": "",
+        "meaning": "何かで詰まっています・困っています",
+        "note": "同僚に助けを求める際の自然な口語表現。"
+      },
+      {
+        "phrase": "reconcile figures",
+        "reading": "リコンサイル",
+        "meaning": "数字を突き合わせる・照合する",
+        "note": "経理・財務でよく使われる動詞。"
+      },
+      {
+        "phrase": "currency conversion formula",
+        "reading": "カレンシーコンバージョン",
+        "meaning": "通貨換算式",
+        "note": ""
+      },
+      {
+        "phrase": "exchange rate",
+        "reading": "エクスチェンジレート",
+        "meaning": "為替レート",
+        "note": "TOEICの財務・会計分野で頻出。"
+      },
+      {
+        "phrase": "update the cell reference",
+        "reading": "",
+        "meaning": "セル参照を更新する",
+        "note": "Excelなど表計算ソフトの操作表現。"
+      }
     ],
     "3021": [
-      { "phrase": "Welcome aboard", "reading": "ウェルカムアボード", "meaning": "ようこそ（入社・加入の歓迎）", "note": "新入社員・新メンバーへの定番歓迎フレーズ。" },
-      { "phrase": "A bit overwhelmed", "reading": "オーバーウェルムド", "meaning": "少し圧倒されている・戸惑っている", "note": "" },
-      { "phrase": "set up your accounts", "reading": "", "meaning": "アカウントをセットアップする", "note": "新入社員研修の定番作業。" },
-      { "phrase": "team structure", "reading": "", "meaning": "チーム構成・組織構造", "note": "" },
-      { "phrase": "unwritten rules", "reading": "", "meaning": "暗黙のルール", "note": "職場文化を学ぶ場面でよく出る表現。" }
+      {
+        "phrase": "Welcome aboard",
+        "reading": "ウェルカムアボード",
+        "meaning": "ようこそ（入社・加入の歓迎）",
+        "note": "新入社員・新メンバーへの定番歓迎フレーズ。"
+      },
+      {
+        "phrase": "A bit overwhelmed",
+        "reading": "オーバーウェルムド",
+        "meaning": "少し圧倒されている・戸惑っている",
+        "note": ""
+      },
+      {
+        "phrase": "set up your accounts",
+        "reading": "",
+        "meaning": "アカウントをセットアップする",
+        "note": "新入社員研修の定番作業。"
+      },
+      {
+        "phrase": "team structure",
+        "reading": "",
+        "meaning": "チーム構成・組織構造",
+        "note": ""
+      },
+      {
+        "phrase": "unwritten rules",
+        "reading": "",
+        "meaning": "暗黙のルール",
+        "note": "職場文化を学ぶ場面でよく出る表現。"
+      }
     ],
     "3022": [
-      { "phrase": "give you a quick update", "reading": "", "meaning": "手短に状況を報告する", "note": "上司への報告でよく使われる表現。" },
-      { "phrase": "Where do things stand?", "reading": "", "meaning": "状況はどうなっていますか？", "note": "進捗確認の口語的フレーズ。" },
-      { "phrase": "corrected shipment", "reading": "", "meaning": "修正された出荷品", "note": "" },
-      { "phrase": "expanding the contract", "reading": "", "meaning": "契約を拡大する・追加する", "note": "" },
-      { "phrase": "Two pages maximum", "reading": "", "meaning": "最大2ページで", "note": "資料作成の指示としてTOEICで頻出。" }
+      {
+        "phrase": "give you a quick update",
+        "reading": "",
+        "meaning": "手短に状況を報告する",
+        "note": "上司への報告でよく使われる表現。"
+      },
+      {
+        "phrase": "Where do things stand?",
+        "reading": "",
+        "meaning": "状況はどうなっていますか？",
+        "note": "進捗確認の口語的フレーズ。"
+      },
+      {
+        "phrase": "corrected shipment",
+        "reading": "",
+        "meaning": "修正された出荷品",
+        "note": ""
+      },
+      {
+        "phrase": "expanding the contract",
+        "reading": "",
+        "meaning": "契約を拡大する・追加する",
+        "note": ""
+      },
+      {
+        "phrase": "Two pages maximum",
+        "reading": "",
+        "meaning": "最大2ページで",
+        "note": "資料作成の指示としてTOEICで頻出。"
+      }
     ],
     "3023": [
-      { "phrase": "flexible start time", "reading": "フレキシブルスタートタイム", "meaning": "フレックスタイム制の開始時間", "note": "" },
-      { "phrase": "Core hours", "reading": "コアアワーズ", "meaning": "コアタイム（必ず出勤が必要な時間帯）", "note": "フレックスタイム制度の重要語。" },
-      { "phrase": "closed for renovation", "reading": "リノベーション", "meaning": "改修工事のため閉鎖される", "note": "" },
-      { "phrase": "wellness day", "reading": "ウェルネスデー", "meaning": "健康促進日・ウェルネスデー", "note": "福利厚生関連語としてTOEICに登場する。" },
-      { "phrase": "will be circulated", "reading": "", "meaning": "（情報が）回覧される・共有される", "note": "社内連絡の受動態表現として頻出。" }
+      {
+        "phrase": "flexible start time",
+        "reading": "フレキシブルスタートタイム",
+        "meaning": "フレックスタイム制の開始時間",
+        "note": ""
+      },
+      {
+        "phrase": "Core hours",
+        "reading": "コアアワーズ",
+        "meaning": "コアタイム（必ず出勤が必要な時間帯）",
+        "note": "フレックスタイム制度の重要語。"
+      },
+      {
+        "phrase": "closed for renovation",
+        "reading": "リノベーション",
+        "meaning": "改修工事のため閉鎖される",
+        "note": ""
+      },
+      {
+        "phrase": "wellness day",
+        "reading": "ウェルネスデー",
+        "meaning": "健康促進日・ウェルネスデー",
+        "note": "福利厚生関連語としてTOEICに登場する。"
+      },
+      {
+        "phrase": "will be circulated",
+        "reading": "",
+        "meaning": "（情報が）回覧される・共有される",
+        "note": "社内連絡の受動態表現として頻出。"
+      }
     ],
     "3024": [
-      { "phrase": "client summit", "reading": "クライアントサミット", "meaning": "顧客向け首脳会議・大型ミーティング", "note": "" },
-      { "phrase": "coordinate arrangements", "reading": "コーディネート", "meaning": "手配・段取りを調整する", "note": "" },
-      { "phrase": "direct flight", "reading": "ダイレクトフライト", "meaning": "直行便", "note": "TOEIC旅行・出張シーンの必須語。" },
-      { "phrase": "business class for overnight legs", "reading": "ビジネスクラス", "meaning": "夜行便はビジネスクラスで", "note": "「leg」は旅程の「区間」の意。" },
-      { "phrase": "company policy allows it", "reading": "", "meaning": "会社規定で認められている", "note": "出張ルールの説明表現。" }
+      {
+        "phrase": "client summit",
+        "reading": "クライアントサミット",
+        "meaning": "顧客向け首脳会議・大型ミーティング",
+        "note": ""
+      },
+      {
+        "phrase": "coordinate arrangements",
+        "reading": "コーディネート",
+        "meaning": "手配・段取りを調整する",
+        "note": ""
+      },
+      {
+        "phrase": "direct flight",
+        "reading": "ダイレクトフライト",
+        "meaning": "直行便",
+        "note": "TOEIC旅行・出張シーンの必須語。"
+      },
+      {
+        "phrase": "business class for overnight legs",
+        "reading": "ビジネスクラス",
+        "meaning": "夜行便はビジネスクラスで",
+        "note": "「leg」は旅程の「区間」の意。"
+      },
+      {
+        "phrase": "company policy allows it",
+        "reading": "",
+        "meaning": "会社規定で認められている",
+        "note": "出張ルールの説明表現。"
+      }
     ],
     "3025": [
-      { "phrase": "paper jam", "reading": "ペーパージャム", "meaning": "紙詰まり", "note": "オフィス機器トラブルの最頻出語。" },
-      { "phrase": "reseat the paper", "reading": "リシート", "meaning": "用紙をセットし直す", "note": "プリンタトラブル対応の基本操作。" },
-      { "phrase": "roller issue", "reading": "ローラー", "meaning": "ローラーの不具合", "note": "" },
-      { "phrase": "escalate to the service team", "reading": "エスカレート", "meaning": "サービスチームに引き継ぐ・上申する", "note": "「escalate」はビジネス英語で問題を上位に引き上げる意。" },
-      { "phrase": "In the meantime", "reading": "インザミーンタイム", "meaning": "それまでの間・当面は", "note": "代替手段を提示するときの定番つなぎ表現。" }
+      {
+        "phrase": "paper jam",
+        "reading": "ペーパージャム",
+        "meaning": "紙詰まり",
+        "note": "オフィス機器トラブルの最頻出語。"
+      },
+      {
+        "phrase": "reseat the paper",
+        "reading": "リシート",
+        "meaning": "用紙をセットし直す",
+        "note": "プリンタトラブル対応の基本操作。"
+      },
+      {
+        "phrase": "roller issue",
+        "reading": "ローラー",
+        "meaning": "ローラーの不具合",
+        "note": ""
+      },
+      {
+        "phrase": "escalate to the service team",
+        "reading": "エスカレート",
+        "meaning": "サービスチームに引き継ぐ・上申する",
+        "note": "「escalate」はビジネス英語で問題を上位に引き上げる意。"
+      },
+      {
+        "phrase": "In the meantime",
+        "reading": "インザミーンタイム",
+        "meaning": "それまでの間・当面は",
+        "note": "代替手段を提示するときの定番つなぎ表現。"
+      }
     ]
+  },
+  "translations": {
+    "3001": "A: お電話ありがとうございます、エイペックス・ソリューションズでございます。担当のカレンです。どのようなご用件でしょうか？\nB: こんにちは、カレンさん。スターリング・ファイナンスのデビッド・パークと申します。営業部長のコリンズさんにお繋ぎいただけますか？\nA: もちろんです。ご用件をお聞かせいただけますか？\nB: パートナーシップの可能性についてご相談したいと思っています。御社の製品ラインに大変関心を持っております。\nA: コリンズは現在会議中ですが、あと約20分で終わる予定です。折り返しお電話させましょうか？\nB: ぜひお願いします。私の直通番号は020-7784-3390です。",
+    "3002": "A: おはようございます、ホライゾン・テックと申します。マーケティングのパートナーシップを担当されている方にお繋ぎいただけますか？\nB: サンドラ・ウォルシュが担当です。おつなぎします。お名前をお聞かせいただけますか？\nA: ホライゾン・テックのシニアマネージャー、田中マイケルと申します。\nB: ありがとうございます。少々お待ちください。回線が話し中の場合は1番を押してボイスメールを残してください。\nA: わかりました。実は、先にメールを送った方が良いでしょうか？\nB: ウォルシュはまず最初にメールを好みます。直接のアドレスをお教えしましょうか？",
+    "3003": "こんにちは、サラさん、ロンドンオフィスのジェームズです。火曜日の午後2時30分ごろにお電話しています。先週ご提出した提案書についてご連絡しております。改訂した価格についてご確認いただける機会があったかどうか確認したかったのです。できれば今月末前に進めたいと思っています。ご都合がよろしい時にご連絡いただけますか？番号は077-456-8901です。本日は6時まで会社におり、明日の朝9時から対応可能です。よろしくお願いいたします。ご連絡をお待ちしております。",
+    "3004": "A: おはようございます、ベネット・アンド・アソシエイツでございます。\nB: こんにちは、先週お話しした契約更新についてハリソンさんにお繋ぎいただきたいのですが。\nA: 今おつなぎします。お名前をお聞かせいただけますか？\nB: ヤマモトトレーディングのリサ・チェンと申します。\nA: 少々お待ちください、チェン様。おつなぎします。ハリソンは別の電話に出ております。しばらくお待ちになりますか、それとも伝言を承りましょうか？\nB: このまま待ちます。ありがとうございます。",
+    "3005": "A: おはようございます。皆さん、はっきり聞こえていますか？\nB: はい、シンガポールのレイチェルです。よく聞こえます。\nA: では、東京からジェームズさんとゆうこさんもいらっしゃいますね？\nC: はい、ジェームズとゆうこです。少し接続が途切れがちです。少し大きな声で話していただけますか？\nA: もちろんです。前四半期の実績のまとめから始めます。各セクションの終わりまで質問はお控えください。\nB: 始める前に、ムンバイのプリヤさんも接続中です。プリヤさん、つながっていますか？",
+    "3006": "A: お電話ありがとうございます、カスタマーサービスのベンです。本日はどのようなご用件でしょうか？\nB: こんにちは、ベンさん。3週間前に注文したのにまだ届いていません。追跡情報が10日間更新されていないんです。\nA: 大変失礼いたしました。ご注文番号をお教えいただけますか？\nB: QR-77429です。\nA: ご注文を確認いたしました。高需要のため配送センターで遅延が生じております。誠に申し訳ございません。\nB: 何も連絡がなかったんです。誕生日プレゼント用で、誕生日は明日なんです。",
+    "3007": "A: 今週、四半期レポートを確認する会議のご都合はいかがですか？\nB: 水曜日は手が離せませんが、木曜日の午後はいいですよ。何時がいいですか？\nA: 2時30分はいかがですか？1時間ほどかかると思います。\nB: 2時30分で大丈夫です。会議室Bを予約しましょうか？\nA: はい、お願いします。チーム全員に招待状を送っていただけますか？サラとロバートを必ず含めてください。\nB: かしこまりました。事前に確認できるようにレポートを添付しましょうか？",
+    "3008": "おはようございます。時間通りにお集まりいただきありがとうございます。始める前に、今週シンガポールオフィスから加わった新しいチームメンバー、エマとデビッドを歓迎したいと思います。本日の議題は4項目あります。まず、前四半期の売上実績のレビュー、次にマーケティングチームからのプレゼンテーション、3つ目は来期の予算計画、最後にその他の議題です。約90分を予定していますので、スケジュール通りに進めたいと思います。緊急でない限り、各セクションの終わりまで質問はお控えください。では、始めましょう。",
+    "3009": "A: スライド4をご覧いただくと、顧客獲得コストが前四半期比で17パーセント減少しています。\nB: 大幅な改善ですね。何が要因ですか？\nA: 主に新しい自動化マーケティングキャンペーンです。ターゲティングの効率が上がり、手作業の負荷が減りました。\nC: 地域別に分けていただけますか？すべての市場で均等に改善したのか気になります。\nA: 良い質問です。アジア太平洋地域が最も大きな改善を見せ23パーセント、欧州市場は12パーセントと控えめでした。\nB: 来四半期の見通しはいかがですか？",
+    "3010": "本日の出席者：取締役のサラ・ジョンソン、マーケティングマネージャーのマーク・リー、財務アナリストのリサ・ヤマモト。会議は午前10時に開始。第1議題、第3四半期業績レビュー。サラより、総収益が前年比8パーセント増との確認。マークより、デジタルキャンペーンが目標を15パーセント上回ったとの報告。リサより、運営コストの増加について懸念が示され、コスト見直しを提案。15日までにリサが詳細分析を準備することで合意。第2議題、第4四半期戦略。デジタル広告を20パーセント増やすことが決定。アクション項目：マークが金曜日までに第4四半期キャンペーン概要を作成、リサが15日までにコスト分析を完成。会議は11時20分に終了。",
+    "3011": "A: 内容をすべてカバーできたと思います。締める前に、アクション項目を手短にまとめます。\nB: クライアント提案の締め切りも確認できますか？認識が一致しているか確認したいので。\nA: 良い指摘です。最終提案書は14日の営業終了時間までに提出が必要です。レイチェル、あなたが担当ですね？\nC: はい、水曜日までにチームにドラフトをお渡しします。\nA: では、まとめます。レイチェルは水曜日にドラフトを提出、マークは金曜日までに予算を確定し、20日に再集合します。皆さんありがとうございます。今日はお疲れさまでした。\nB: お疲れさまでした。",
+    "3012": "A: こんにちは、皆さん通話へようこそ。話していない時はマイクをミュートにしてください。バックグラウンドの雑音がありますね。\nB: すみません、こちら側からです。外で工事があって。\nA: 大丈夫ですよ。質問はチャット機能を使っていただき、進めながら対応します。プレゼンテーションは皆さんのスクリーンに表示されていますか？\nC: 私の画面には表示されていません。もう一度共有していただけますか？\nA: もちろんです。今すぐ再共有します。スライド1が表示されたらお知らせください。\nB: 表示されました。うまく動いています。",
+    "3013": "A: こんにちは、初めてお会いしますよね。住友パートナーズのアレックス・渡辺と申します。\nB: はじめまして、アレックスさん。グローバル・ストラテジー・グループのコンサルタント、キャサリン・モーガンです。\nA: 面白いですね。どのような業務に携わっていらっしゃいますか？\nB: 主に中規模テック企業の組織再編です。住友さんはいかがですか？\nA: 私たちはアジア全域での再生可能エネルギー投資を主に手がけています。今とても活発な分野です。\nB: そうですね。こちらが名刺です。ぜひ繋がって、御社のポートフォリオについてもっと聞かせていただければと思います。",
+    "3014": "エマさん、先週木曜日の会議でお話しした件についてご連絡しております。お話ししたとおり、製品ローンチのスケジュールが2週間前倒しになりました。そのため、マーケティング資料を今月末までに最終化する必要があります。参考として更新したプロジェクトスケジュールを添付しています。水曜日までにあなたのチームが新しい締め切りに対応できるかご確認いただけますか？リソース上の制約がある場合は、解決策を見つけるためにできるだけ早くお知らせください。また、主要なメッセージの方向性を合わせるため、来週の早いうちに電話でお話しできればと思います。ご都合をお聞かせください。ご対応いただきありがとうございます。トムより。",
+    "3015": "A: ご提案を確認しました。品質は素晴らしいのですが、料金が少し予算を超えています。\nB: 承知いたしました。どのくらいをお考えですか？\nA: フルパッケージで8万ドル程度を考えていました。\nB: 標準パッケージは9万5千ドルです。ただし、スコープを調整することで中間あたりの合意が可能かもしれません。\nA: どのような調整ですか？\nB: 現地訪問を5回から3回に減らし、一部の成果物をデジタルに移行すれば、8万8千ドルまで下げることができます。",
+    "3016": "A: 本日はプレゼンテーションの機会をいただきありがとうございます。御社の業務を近代化するための12ヶ月のデジタルトランスフォーメーションプログラムをご提案いたします。\nB: 他社の提案と何が違うのですか？\nA: 2点あります。まず、過去2年間で御社の業界に属する3社の同様の変革を実現してきました。次に、プロジェクト全体を通じてクライアント側の能力を育てますので、私たちが離れた後も外部サポートに頼る必要がありません。\nB: 期待されるROIはどのくらいですか？\nA: 同様のプロジェクトのベンチマークによると、18ヶ月以内に投資を回収し、その後毎年15〜20パーセントのコスト削減が見込めます。\nC: 実施スケジュールについて詳しく教えていただけますか？",
+    "3017": "A: マークさん、クライアントのプレゼンについて確認したいのですが。進捗はどうですか？\nB: 順調に進んでいます。スライドは約70パーセント完成しています。明日の終業時にはドラフトを用意できます。\nA: 1点ですが、クライアントから競合分析のセクションを追加するよう依頼がありました。そのメール見ましたか？\nB: 見ました。すでにレイチェルに報告しました。取り組んでいて、明日の朝には完成すると言っています。\nA: 良かった。できあがり次第ドラフトを送ってもらえますか？提出前にしっかり確認したいので。\nB: もちろんです。すべてのメールをCCに入れます。",
+    "3018": "A: すみません、少しよろしいですか？年次有給休暇を申請したいのですが。\nB: もちろんです。いつですか？\nA: 来月の22日から29日です。以前から計画していた家族旅行なんです。\nB: チームのスケジュールを確認します。はい、その週には大きな締め切りはありません。出発前に引き継ぎをしっかりお願いできますか？\nA: もちろんです。詳細な引き継ぎ資料を作成し、進行中のプロジェクトについてチームにブリーフィングします。\nB: 了解しました。今日システムで承認します。素晴らしい旅を。",
+    "3019": "A: おはようございます。お越しいただきありがとうございます。まずご自身の経歴についてお聞かせください。\nB: もちろんです。財務分析の経験が8年あります。直近ではJPコンサルティングのシニアアナリストとして、6名のチームをリードし、30社の法人クライアントの四半期報告を統括しました。\nA: この職種に応募された理由は何ですか？\nB: 御社のアジア太平洋地域での成長を注目してきました。よりダイナミックな国際的な環境で働く機会に大変興奮しています。\nA: 高圧的な状況をうまく対処した具体例を教えていただけますか？\nB: はい。昨年、突然の合併発表により、2週間ではなく3日間で大規模な財務レビューを提出しなければならなくなりました。",
+    "3020": "A: すみません、少しよろしいですか？何かで詰まっています。\nB: もちろん、どうしましたか？\nA: 第3四半期レポートの数字を照合しようとしているのですが、東南アジアの数字がサマリーシートと一致しないんです。2回確認したんですが。\nB: 見てみましょう。あ、G列の通貨換算式が昨年の為替レートを使っています。よくあるミスです。\nA: そうですね。見落としていました。どう修正すればいいですか？\nB: セル参照を現在のレートテーブルに更新するだけです。30秒でできます。見せましょうか？",
+    "3021": "A: ようこそ、ジェシカ！最初の2週間、私がバディを担当します。調子はどうですか？\nB: 少し戸惑っていますが、楽しみです！吸収しなければならないことがたくさんありますね。\nA: 全くその通りです。まずツアーをして、それからアカウントのセットアップをします。一歩一歩進めていきましょう。\nB: チームの構成も教えていただけますか？誰が誰に報告しているのかまだ把握できていなくて。\nA: チームには3つのレベルがあります。ディレクター、チームリード、アナリストです。主に他のアナリストと一緒に働き、マーカスに直接報告することになります。\nB: わかりました。知っておくべき暗黙のルールはありますか？",
+    "3022": "A: 会議の前にヘンダーソン社の件について簡単にご報告したいのですが。\nB: ちょうど良いタイミングです。状況はどうなっていますか？\nA: 先週の配送問題は解決しました。今朝修正された商品が届き、満足していただけているとの確認が取れました。\nB: 良かったですね。懸念事項はありますか？\nA: 1点あります。新製品ラインを含めた契約拡大について打診がありました。追求する価値があると思います。簡単な提案書を作成できます。\nB: ぜひ、やってください。最大2ページで。木曜日までに何か用意できますか？",
+    "3023": "皆さん、こんにちは。オフィス管理チームからお知らせがあります。来週月曜日より、通勤オプションに対応するため、7時30分から9時30分の間でフレックスタイム制を導入します。コアタイムは9時から5時のままです。希望のスケジュールを金曜日までにチームリードとご相談ください。また、3階の会議室は15日から22日まで改修工事のため閉鎖されます。この期間中は4階の会議室をご利用ください。予約は通常のカレンダーシステムで行えます。最後に、28日の会社ウェルネスデーについてのリマインダーです。詳細は今週後半にお知らせします。よろしくお願いします。",
+    "3024": "A: 来月、クライアントサミットのためフランクフルトオフィスへ出張する必要があります。手配のご協力をお願いできますか？\nB: もちろんです。日程はお決まりですか？\nA: サミットは14日から16日です。13日に到着して、17日に帰国する便が必要です。\nB: フライトを調べます。ご希望はありますか？\nA: 可能であれば直行便で、夜間便はビジネスクラスをお願いします。6時間以上のフライトは会社規定で認められています。\nB: かしこまりました。会場近くのホテルも手配します。他に必要なことはありますか？送迎や会議スペースなど。",
+    "3025": "A: 3階のプリンターが数ページ以上印刷すると毎回紙詰まりを起こしています。\nB: ご連絡ありがとうございます。カラープリンターですか、白黒プリンターですか？\nA: メインのカラープリンターです。窓の近くにある大きなやつです。\nB: 用紙トレイを取り出して用紙を入れ直してみていただけますか？それで直ることがあります。\nA: 試してみました。1〜2枚は問題なく印刷できるのですが、3枚目で詰まります。\nB: ローラーの問題のようですね。サービスチームに連絡します。それまでの間、2階のメールルームのプリンターをお使いください。"
   }
 }

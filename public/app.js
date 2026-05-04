@@ -11,6 +11,7 @@ const DEFAULT_PACK = {
   categories:  CATEGORIES,
   texts:       PRACTICE_TEXTS,
   explanations: EXPLANATIONS,
+  translations: typeof TRANSLATIONS !== 'undefined' ? TRANSLATIONS : {},
 };
 
 function getPackLibrary() {
@@ -35,6 +36,7 @@ function getActivePack() {
 }
 function getActiveTexts()        { return getActivePack().texts; }
 function getActiveExplanations() { return getActivePack().explanations || {}; }
+function getActiveTranslations() { return getActivePack().translations  || {}; }
 function getActiveCategories()   { return getActivePack().categories; }
 
 // ── HTMLからDATAオブジェクトを抽出 ──
@@ -86,7 +88,7 @@ function iconForCategory(name) {
 }
 
 function dataToPackTexts(data, idBase) {
-  const categories = [], texts = [], explanations = {};
+  const categories = [], texts = [], explanations = {}, translations = {};
   const catSeen = new Set();
   let id = idBase;
   for (const [catName, items] of Object.entries(data)) {
@@ -98,6 +100,9 @@ function dataToPackTexts(data, idBase) {
       const textId = id++;
       const text   = item.turns.map(t => `${t.s}: ${t.en}`).join('\n');
       texts.push({ id: textId, category: catName, title: item.title, titleJa: item.title, text });
+      // 日本語訳：各ターンのja フィールドから構築
+      const jaLines = (item.turns || []).filter(t => t.ja).map(t => `${t.s}: ${t.ja}`);
+      if (jaLines.length) translations[textId] = jaLines.join('\n');
       const exp = [];
       if (item.tip) exp.push({ phrase: '📝 学習ポイント', reading: '', meaning: item.tip, note: '' });
       (item.turns || []).slice(0, 6).forEach(t => {
@@ -107,7 +112,7 @@ function dataToPackTexts(data, idBase) {
       if (exp.length) explanations[textId] = exp;
     }
   }
-  return { categories, texts, explanations };
+  return { categories, texts, explanations, translations };
 }
 
 function guessPackMeta(html, filename) {
@@ -905,7 +910,35 @@ el.explainModal.addEventListener('click', e => { if (e.target === el.explainModa
 function openExplainModal() {
   if (!state.currentText || state.selectedTextId === null) return;
   const items = getActiveExplanations()[state.selectedTextId];
+  const trans = getActiveTranslations()[state.selectedTextId] || null;
+
+  // ── 英文表示 ──
   el.explainSource.innerHTML = buildWordSpans(state.currentText).replace(/\n/g, '<br>');
+
+  // ── 日本語訳ブロック（モーダル内 explain-source の直後に挿入） ──
+  let transEl = document.getElementById('explain-translation');
+  if (!transEl) {
+    transEl = document.createElement('div');
+    transEl.id = 'explain-translation';
+    el.explainSource.insertAdjacentElement('afterend', transEl);
+  }
+  if (trans) {
+    // A:/B: 形式を整形
+    const transHtml = trans
+      .split('\n')
+      .map(line => {
+        const m = line.match(/^([A-Z]):\s+(.+)/);
+        if (m) return `<span class="trans-speaker">${escapeHtml(m[1])}：</span>${escapeHtml(m[2])}`;
+        return escapeHtml(line);
+      })
+      .join('<br>');
+    transEl.innerHTML = `<div class="explain-trans-block"><span class="explain-trans-label">🇯🇵 日本語訳</span><div class="explain-trans-text">${transHtml}</div></div>`;
+    transEl.classList.remove('hidden');
+  } else {
+    transEl.innerHTML = '';
+    transEl.classList.add('hidden');
+  }
+
   el.explainList.innerHTML   = '';
   el.explainLoading.classList.add('hidden');
   el.explainModal.classList.remove('hidden');
@@ -1180,7 +1213,7 @@ function importPackFromHtml(file) {
     const idBase = existing
       ? (existing.texts.reduce((m, t) => Math.max(m, t.id), 900000) + 1)
       : nextIdBase();
-    const { categories, texts, explanations } = dataToPackTexts(data, idBase);
+    const { categories, texts, explanations, translations } = dataToPackTexts(data, idBase);
     const { name, icon } = guessPackMeta(html, file.name);
 
     const pack = {
@@ -1190,7 +1223,7 @@ function importPackFromHtml(file) {
       icon:        existing ? existing.icon : icon,
       sourceFile:  file.name,
       importedAt:  new Date().toISOString(),
-      categories, texts, explanations,
+      categories, texts, explanations, translations,
     };
 
     if (existing) lib[lib.findIndex(p => p.id === existing.id)] = pack;
@@ -1268,9 +1301,10 @@ async function activatePackKey() {
       icon:        packData.icon || '📦',
       sourceFile:  null,
       importedAt:  new Date().toISOString(),
-      categories:  packData.categories || [],
-      texts:       packData.texts || [],
+      categories:   packData.categories  || [],
+      texts:        packData.texts       || [],
       explanations: packData.explanations || {},
+      translations: packData.translations || {},
     };
     if (existing) lib[lib.findIndex(p => p.id === pack.id)] = pack;
     else lib.push(pack);

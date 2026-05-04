@@ -4,273 +4,792 @@
   "description": "社会・国際関係・健康・科学の最前線 25題",
   "icon": "🌏",
   "categories": [
-    { "id": "society",       "label": "社会・政策",   "icon": "🏛️" },
-    { "id": "international", "label": "国際関係",     "icon": "🌏" },
-    { "id": "health",        "label": "健康・科学",   "icon": "🔬" }
+    {
+      "id": "society",
+      "label": "社会・政策",
+      "icon": "🏛️"
+    },
+    {
+      "id": "international",
+      "label": "国際関係",
+      "icon": "🌏"
+    },
+    {
+      "id": "health",
+      "label": "健康・科学",
+      "icon": "🔬"
+    }
   ],
   "texts": [
     {
-      "id": 5001, "category": "society",
-      "title": "Education Reform", "titleJa": "教育改革の議論",
+      "id": 5001,
+      "category": "society",
+      "title": "Education Reform",
+      "titleJa": "教育改革の議論",
       "text": "A: The government just announced a major curriculum reform, emphasizing critical thinking and digital literacy.\nB: It's overdue. The current system is too focused on rote memorization rather than real-world skills.\nA: Critics worry about teacher training — you can't implement new methods without properly retraining educators.\nB: That's the perennial challenge. The vision is sound, but execution is slow and patchy.\nA: Finland and Singapore seem to have cracked it. What do you think is their secret?\nB: Investment in teacher quality is key. In Finland, teaching is as prestigious as medicine. That changes everything."
     },
     {
-      "id": 5002, "category": "society",
-      "title": "Japan's Aging Society", "titleJa": "日本の少子高齢化",
+      "id": 5002,
+      "category": "society",
+      "title": "Japan's Aging Society",
+      "titleJa": "日本の少子高齢化",
       "text": "A: Japan's population has been declining for over fifteen years and over sixty-five-year-olds have passed thirty percent.\nB: It puts enormous strain on pension systems, healthcare, and the workforce. Fewer workers supporting more retirees is unsustainable.\nA: Immigration is one solution, but Japan has been historically very cautious about opening its borders.\nB: Attitudes are slowly shifting, but the pace is insufficient. Automation can help, but it's not a complete answer.\nA: Some economists argue the priority should be enabling more women and older adults to fully participate in the workforce.\nB: Japan still has significant untapped potential in both groups. Changing workplace culture matters as much as policy."
     },
     {
-      "id": 5003, "category": "society",
-      "title": "Diversity in Leadership", "titleJa": "ダイバーシティと組織のリーダーシップ",
+      "id": 5003,
+      "category": "society",
+      "title": "Diversity in Leadership",
+      "titleJa": "ダイバーシティと組織のリーダーシップ",
       "text": "A: Our company's diversity report shows only fourteen percent of senior leadership are women. Still disappointing.\nB: That's frustratingly common across industries. What's your company doing about it?\nA: New mentoring programs, transparent promotion criteria, and targets for gender balance in recruitment shortlists.\nB: Targets help, but the deeper issue is workplace culture — whether women feel genuinely supported and valued.\nA: The flexible working arrangements post-pandemic have helped. Parents can more easily balance career and family.\nB: That's a real silver lining. Flexibility benefits everyone, but it's particularly important for primary caregivers."
     },
     {
-      "id": 5004, "category": "society",
-      "title": "Mental Health Stigma", "titleJa": "メンタルヘルスの偏見",
+      "id": 5004,
+      "category": "society",
+      "title": "Mental Health Stigma",
+      "titleJa": "メンタルヘルスの偏見",
       "text": "Mental health issues affect approximately one in five adults globally, yet in many societies, stigma prevents people from seeking help. A new survey across twelve countries found that sixty-three percent of respondents would be reluctant to tell their employer about a mental health condition, fearing discrimination. However, attitudes are gradually changing — particularly among younger generations who are more open about discussing anxiety, depression, and burnout. Major corporations are increasingly offering mental health days, employee assistance programs, and counseling services. Experts argue that investment in mental health is not just a moral imperative but an economic one: untreated conditions cost the global economy an estimated one trillion dollars annually in lost productivity."
     },
     {
-      "id": 5005, "category": "society",
-      "title": "Four-Day Working Week", "titleJa": "週4日勤務の実験",
+      "id": 5005,
+      "category": "society",
+      "title": "Four-Day Working Week",
+      "titleJa": "週4日勤務の実験",
       "text": "A: Belgium recently gave workers the legal right to a four-day working week. Will it catch on?\nB: I hope so. The evidence from pilots in Iceland and the UK is compelling — productivity stayed the same or improved.\nA: That surprised many skeptics. Working fewer hours maintaining the same output seems counterintuitive.\nB: But burnout and absenteeism are costly. A well-rested employee is more effective per hour than an exhausted one.\nA: The challenge is implementing it fairly — it's easier for knowledge workers than healthcare or retail staff.\nB: True. A universal policy may not work, but giving more flexibility to companies and workers seems the right direction."
     },
     {
-      "id": 5006, "category": "society",
-      "title": "Urban Housing Crisis", "titleJa": "都市部の住宅危機",
+      "id": 5006,
+      "category": "society",
+      "title": "Urban Housing Crisis",
+      "titleJa": "都市部の住宅危機",
       "text": "A: The average home here now costs over twelve times the median annual salary. How did we get here?\nB: It's a perfect storm — low interest rates fueled speculation, supply failed to keep up, and zoning restricted new construction.\nA: And international investment pushed prices up further, particularly in desirable urban centers.\nB: Some cities are introducing vacancy taxes and limits on foreign ownership, with mixed results.\nA: Ultimately, you need to build more housing — particularly affordable units near transit and employment.\nB: Every city knows that in theory. Political will to override neighborhood resistance to new development is usually what's lacking."
     },
     {
-      "id": 5007, "category": "society",
-      "title": "Social Media Polarization", "titleJa": "SNSと政治的分極化",
+      "id": 5007,
+      "category": "society",
+      "title": "Social Media Polarization",
+      "titleJa": "SNSと政治的分極化",
       "text": "A: Research suggests algorithms are deepening political polarization by reinforcing existing beliefs.\nB: The filter bubble effect is very real. People end up in echo chambers where extreme views are normalized.\nA: Misinformation spreads far faster than corrections. A false story can circle the globe before the truth gets moving.\nB: Some platforms label disputed content and reduce viral amplification of divisive material.\nA: But their revenue model depends on engagement, and outrage drives more engagement than nuance.\nB: That's the structural problem. Without regulatory intervention or a different business model, incentives won't change."
     },
     {
-      "id": 5008, "category": "society",
-      "title": "Living Abroad — Language Immersion", "titleJa": "海外留学・語学イマージョン体験",
+      "id": 5008,
+      "category": "society",
+      "title": "Living Abroad — Language Immersion",
+      "titleJa": "海外留学・語学イマージョン体験",
       "text": "A: I just came back from a month-long exchange program in Portugal. It was transformative.\nB: What made it so impactful?\nA: Living with a host family and working alongside local professionals — you see the world through a completely different lens.\nB: Language must have been a barrier initially.\nA: Yes, at first. But I learned more Portuguese in four weeks of immersion than in a full year of classes.\nB: There's really no substitute for being in an environment where you have to communicate to get through the day."
     },
     {
-      "id": 5009, "category": "international",
-      "title": "COP Climate Summit Progress", "titleJa": "COP気候サミットの成果",
+      "id": 5009,
+      "category": "international",
+      "title": "COP Climate Summit Progress",
+      "titleJa": "COP気候サミットの成果",
       "text": "A: World leaders are gathering again for COP. Do you think meaningful progress will come out of it?\nB: I'm cautiously optimistic. The extreme weather this past year has made the stakes impossible to ignore.\nA: But the gap between commitments and actual action remains enormous. Many countries are still expanding fossil fuels.\nB: True. The loss and damage fund for vulnerable nations was a breakthrough, but implementation is slow.\nA: Poorer countries argue that developed nations caused the crisis and should bear most of the cost.\nB: That tension won't disappear easily. But the window for meaningful action is closing rapidly."
     },
     {
-      "id": 5010, "category": "international",
-      "title": "Global Refugee Crisis", "titleJa": "世界的な難民問題",
+      "id": 5010,
+      "category": "international",
+      "title": "Global Refugee Crisis",
+      "titleJa": "世界的な難民問題",
       "text": "A: The number of displaced people has reached a record high of over a hundred million. How should the world respond?\nB: It requires coordinated action — burden-sharing among host countries, faster processing, addressing root causes.\nA: Host countries like Turkey and Colombia are bearing a disproportionate share despite being lower-income nations.\nB: The wealthiest countries have been relatively stingy in both financial contributions and directly accepting refugees.\nA: The issue has become deeply polarizing electorally in many democracies.\nB: Long-term, successful integration of refugees is an economic and social win for host societies when managed well."
     },
     {
-      "id": 5011, "category": "international",
-      "title": "Nuclear Arms Control Talks", "titleJa": "核軍縮交渉の現状",
+      "id": 5011,
+      "category": "international",
+      "title": "Nuclear Arms Control Talks",
+      "titleJa": "核軍縮交渉の現状",
       "text": "A: The latest arms reduction talks collapsed without agreement. Is disarmament a realistic goal?\nB: In today's geopolitical climate, it seems very distant. Nuclear arsenals are seen as the ultimate security guarantee.\nA: The Non-Proliferation Treaty has frayed considerably. Several countries are expanding their nuclear capabilities.\nB: And new technologies like hypersonic missiles are making existing arms control frameworks obsolete.\nA: The risk of miscalculation or accidental conflict is real. That's why dialogue, even if imperfect, matters.\nB: The absence of communication channels is more dangerous than imperfect ones. Diplomatic engagement must continue."
     },
     {
-      "id": 5012, "category": "international",
-      "title": "Effectiveness of Foreign Aid", "titleJa": "国際援助の有効性",
+      "id": 5012,
+      "category": "international",
+      "title": "Effectiveness of Foreign Aid",
+      "titleJa": "国際援助の有効性",
       "text": "A: Critics argue that much international aid is tied to donor's strategic interests rather than recipient needs.\nB: That's a valid criticism. Aid with conditions favoring donor exporters or political agendas undermines effectiveness.\nA: There's also the question of sustainability — building dependence rather than local capacity.\nB: The most effective programs invest in local institutions, education, and governance rather than importing solutions.\nA: The pandemic showed how fragile supply chains are for essentials like vaccines and medical equipment.\nB: Developing countries need capacity to produce these things domestically. That should be an aid priority."
     },
     {
-      "id": 5013, "category": "international",
-      "title": "Trade War Consequences", "titleJa": "貿易摩擦の影響",
+      "id": 5013,
+      "category": "international",
+      "title": "Trade War Consequences",
+      "titleJa": "貿易摩擦の影響",
       "text": "The prolonged trade dispute between the world's two largest economies has had far-reaching consequences beyond the two countries directly involved. A new WTO study estimates that tariffs imposed over five years have reduced bilateral trade by nearly forty percent, while disrupting global supply chains that relied on components from both nations. Third countries have faced complex decisions about which trade bloc to align with, often at the cost of efficiency. While some domestic industries benefited from protection, the overall economic impact has been broadly negative, with higher consumer prices and reduced investment certainty. Analysts warn that further escalation risks splitting the global economy into competing blocs."
     },
     {
-      "id": 5014, "category": "international",
-      "title": "Cultural Diplomacy — Soft Power", "titleJa": "文化外交とソフトパワー",
+      "id": 5014,
+      "category": "international",
+      "title": "Cultural Diplomacy — Soft Power",
+      "titleJa": "文化外交とソフトパワー",
       "text": "A: Japan's cultural exports — anime, food, fashion — seem to be doing tremendous work for the country's soft power.\nB: Absolutely. The Cool Japan phenomenon has created genuine affection in places where there might otherwise be indifference.\nA: Cultural diplomacy achieves things formal diplomacy cannot. It builds people-to-people connections that outlast political shifts.\nB: South Korea has also been masterful — K-pop, K-drama, Korean cuisine have created a global fanbase translating into political goodwill.\nA: There's a lesson here — investing in arts and creativity pays dividends in international relations.\nB: And in tourism, foreign investment, and language learning. The ripple effects of cultural appeal are enormous."
     },
     {
-      "id": 5015, "category": "international",
-      "title": "Immigration Policy Debate", "titleJa": "移民政策の議論",
+      "id": 5015,
+      "category": "international",
+      "title": "Immigration Policy Debate",
+      "titleJa": "移民政策の議論",
       "text": "A: Immigration has become one of the most divisive political issues in many countries. How do you see it?\nB: It's genuinely complex. Immigration brings real economic benefits — filling labor shortages, new skills and entrepreneurship.\nA: The economic evidence is quite clear. But concerns about social cohesion and the pace of cultural change are real.\nB: Fast, poorly managed immigration can strain local services and create genuine hardship, fueling resentment.\nA: The solution seems to be better management rather than less immigration — faster integration, language training.\nB: And more honest political dialogue. When mainstream politicians avoid the topic, extreme voices fill the space."
     },
     {
-      "id": 5016, "category": "international",
-      "title": "Sports and Human Rights", "titleJa": "スポーツと人権問題",
+      "id": 5016,
+      "category": "international",
+      "title": "Sports and Human Rights",
+      "titleJa": "スポーツと人権問題",
       "text": "A: Several Western countries announced diplomatic boycotts of events hosted by governments with poor human rights records.\nB: It sends a message, but the effectiveness is debatable. The athletes still compete and events still generate revenue.\nA: Critics argue that engagement is better than isolation — you have more influence with a seat at the table.\nB: But engagement without conditions can also be seen as tacit endorsement. It's a genuine dilemma.\nA: Athletes find themselves in an impossible position — years of preparation, then asked to make a political statement.\nB: Governing bodies have been criticized for not protecting athletes from being caught in geopolitical disputes."
     },
     {
-      "id": 5017, "category": "international",
-      "title": "Global Food Security Crisis", "titleJa": "世界の食料安全保障",
+      "id": 5017,
+      "category": "international",
+      "title": "Global Food Security Crisis",
+      "titleJa": "世界の食料安全保障",
       "text": "The United Nations FAO has warned that global food insecurity is at its worst level in decades, driven by climate-related crop failures, conflict, rising energy costs, and supply chain disruptions. Nearly eight hundred million people currently face food insecurity, with numbers expected to rise as extreme weather becomes more frequent. Sub-Saharan Africa and parts of South Asia are particularly vulnerable, where droughts have devastated harvests for consecutive years. The agency is calling for urgent investment in climate-resilient agriculture, improved food distribution, and greater support for smallholder farmers who produce the majority of food in developing countries. Without coordinated action, food insecurity could contribute to increased conflict and mass migration."
     },
     {
-      "id": 5018, "category": "health",
-      "title": "Pandemic Preparedness Lessons", "titleJa": "パンデミックへの備え",
+      "id": 5018,
+      "category": "health",
+      "title": "Pandemic Preparedness Lessons",
+      "titleJa": "パンデミックへの備え",
       "text": "A: Four years after the pandemic began, what lessons have actually been learned and implemented?\nB: Some progress — the WHO has drafted a pandemic treaty, and vaccine manufacturing in the Global South has increased.\nA: But vaccine nationalism was a serious failure. Rich countries hoarded doses while poorer ones went without for years.\nB: COVAX was well-intentioned but under-resourced and too slow. A better-funded global procurement mechanism is essential.\nA: Early warning systems also need improvement. The virus circulated for weeks before health authorities were notified.\nB: Pandemic preparedness requires long-term investment — not just a reactive surge when crisis hits."
     },
     {
-      "id": 5019, "category": "health",
-      "title": "Gene Therapy Breakthrough", "titleJa": "遺伝子治療の画期的進歩",
+      "id": 5019,
+      "category": "health",
+      "title": "Gene Therapy Breakthrough",
+      "titleJa": "遺伝子治療の画期的進歩",
       "text": "A: There was a remarkable announcement — a one-time gene therapy has cured a child of a previously untreatable disorder.\nB: Which disease?\nA: Sickle cell anemia. The treatment modifies the patient's own stem cells to produce healthy blood cells permanently.\nB: The potential is staggering — conditions requiring lifelong treatment addressed with a single intervention.\nA: The challenge is cost. These therapies can run into millions of dollars per patient.\nB: Breakthrough science that's only accessible to the wealthy doesn't solve the problem at a population level. Pricing and access must be addressed from the start."
     },
     {
-      "id": 5020, "category": "health",
-      "title": "mRNA Vaccine Technology", "titleJa": "mRNAワクチン技術の可能性",
+      "id": 5020,
+      "category": "health",
+      "title": "mRNA Vaccine Technology",
+      "titleJa": "mRNAワクチン技術の可能性",
       "text": "A: COVID vaccines were developed in under a year. Does that mean future vaccines will also come much faster?\nB: The mRNA platform was key — once established, adapting it to a new pathogen is far quicker.\nA: Regulatory pathways also moved faster because of emergency authorization. But did corners get cut?\nB: The safety data was actually quite robust, given the enormous number of trial participants. Speed and rigor aren't mutually exclusive.\nA: What's the next application of mRNA technology?\nB: Personalized cancer vaccines that train the immune system to target specific tumor cells. Early results are very promising."
     },
     {
-      "id": 5021, "category": "health",
-      "title": "Workplace Burnout Epidemic", "titleJa": "職場燃え尽き症候群の蔓延",
+      "id": 5021,
+      "category": "health",
+      "title": "Workplace Burnout Epidemic",
+      "titleJa": "職場燃え尽き症候群の蔓延",
       "text": "A: Burnout has reached epidemic proportions in many professions. How should organizations respond?\nB: Structural changes matter more than individual coping strategies. You can't meditate your way out of a systematically overloaded environment.\nA: That's a fair point. Wellness programs that don't address root causes can feel patronizing.\nB: What works is genuine workload management, adequate staffing, autonomy, and a culture where it's safe to say you're struggling.\nA: Leadership modeling matters enormously. If the CEO glorifies working eighty hours, that sets the culture.\nB: Organizations taking mental health seriously have lower turnover, fewer sick days, and better performance. It makes business sense."
     },
     {
-      "id": 5022, "category": "health",
-      "title": "Secrets of Longevity", "titleJa": "長寿の秘訣",
+      "id": 5022,
+      "category": "health",
+      "title": "Secrets of Longevity",
+      "titleJa": "長寿の秘訣",
       "text": "A: Research on centenarians in Blue Zone regions — Sardinia, Okinawa — points to social connection as the most important longevity factor.\nB: That resonates with the data. Loneliness appears to be as damaging as smoking fifteen cigarettes a day.\nA: Modern lifestyles have systematically dismantled the community structures that traditionally provided that connection.\nB: And it's affecting younger generations too — many young adults report deep loneliness despite being constantly connected online.\nA: The solution requires redesigning urban spaces, rebuilding community institutions, changing cultural values around independence.\nB: And addressing the digital dimension. Passive social media consumption appears to deepen loneliness rather than alleviate it."
     },
     {
-      "id": 5023, "category": "health",
-      "title": "AI Outperforms Doctors in Diagnosis", "titleJa": "診断でAIが医師を超える",
+      "id": 5023,
+      "category": "health",
+      "title": "AI Outperforms Doctors in Diagnosis",
+      "titleJa": "診断でAIが医師を超える",
       "text": "A: An AI model recently outperformed specialist doctors in diagnosing certain cancers from medical images.\nB: It's genuinely exciting. AI can process data at a scale and consistency no human can match — particularly for pattern recognition.\nA: Does that threaten the role of doctors?\nB: I think it transforms rather than replaces. AI becomes a decision-support tool, freeing doctors to focus on the human aspects — communication, judgment, empathy.\nA: There are ethical questions too — data privacy, algorithmic bias, accountability when AI makes an error.\nB: Critical questions. The technology is advancing faster than the regulatory and ethical frameworks needed to govern it safely."
     },
     {
-      "id": 5024, "category": "health",
-      "title": "Drug Pricing Debate", "titleJa": "新薬の価格問題",
+      "id": 5024,
+      "category": "health",
+      "title": "Drug Pricing Debate",
+      "titleJa": "新薬の価格問題",
       "text": "A: A new drug dramatically improves outcomes for a rare disease, but it's priced at three million dollars per patient. Justified?\nB: Pharmaceutical companies argue they need to recoup enormous R&D costs. Only a fraction of candidates ever reach market.\nA: But many foundational research breakthroughs were funded by taxpayer money through public grants.\nB: If the public took the risk in early research, it should have some say in pricing. That's a compelling counterargument.\nA: The US model of minimal price regulation drives innovation but terrible equity. Other countries negotiate national pricing.\nB: There's a middle ground — supporting innovation without creating a system where life-saving treatments are inaccessible to most."
     },
     {
-      "id": 5025, "category": "health",
-      "title": "Universal Healthcare Debate", "titleJa": "ユニバーサルヘルスケアの議論",
+      "id": 5025,
+      "category": "health",
+      "title": "Universal Healthcare Debate",
+      "titleJa": "ユニバーサルヘルスケアの議論",
       "text": "A: The debate over universal healthcare is as heated as ever. What's your view?\nB: The evidence is fairly clear — countries with universal coverage have better overall health outcomes at lower per capita cost.\nA: Critics argue universal systems face long waiting times and limit patient choice.\nB: Wait times can be managed with adequate funding. And 'choice' in a private system is largely illusory if you can't afford the options.\nA: Political feasibility seems the biggest barrier. Vested interests in the healthcare industry are powerful.\nB: Public support for universal healthcare is consistently high when surveyed. It's often political donors and lobbying, not public opinion, that blocks reform."
     }
   ],
   "explanations": {
     "5001": [
-      { "phrase": "rote memorization", "reading": "ロートメモリゼーション", "meaning": "丸暗記", "note": "詰め込み型教育への批判でよく使われる表現。" },
-      { "phrase": "the perennial challenge", "reading": "", "meaning": "永遠の課題", "note": "\"perennial\" = 繰り返し起こる・多年生の。" }
+      {
+        "phrase": "rote memorization",
+        "reading": "ロートメモリゼーション",
+        "meaning": "丸暗記",
+        "note": "詰め込み型教育への批判でよく使われる表現。"
+      },
+      {
+        "phrase": "the perennial challenge",
+        "reading": "",
+        "meaning": "永遠の課題",
+        "note": "\"perennial\" = 繰り返し起こる・多年生の。"
+      }
     ],
     "5002": [
-      { "phrase": "unsustainable", "reading": "アンサステイナブル", "meaning": "持続不可能な", "note": "経済・環境議論の頻出語。" }
+      {
+        "phrase": "unsustainable",
+        "reading": "アンサステイナブル",
+        "meaning": "持続不可能な",
+        "note": "経済・環境議論の頻出語。"
+      }
     ],
     "5003": [
-      { "phrase": "promotion criteria", "reading": "", "meaning": "昇進基準", "note": "transparent（透明な）と組み合わせて使われることが多い。" },
-      { "phrase": "recruitment shortlists", "reading": "", "meaning": "採用候補者の最終リスト", "note": "shortlist = 最終候補に絞られたリスト。" },
-      { "phrase": "silver lining", "reading": "シルバーライニング", "meaning": "不幸中の幸い・明るい側面", "note": "\"Every cloud has a silver lining\"（どんな雲にも銀の縁がある）という慣用句から。" },
-      { "phrase": "primary caregivers", "reading": "", "meaning": "主たる介護・育児担当者", "note": "主に育児・介護を担う人（多くは女性）を指す表現。" }
-    ],
-    "5005": [
-      { "phrase": "compelling evidence", "reading": "", "meaning": "説得力のある証拠", "note": "compelling = 強く納得させる力がある。議論・政策提言でよく使う。" },
-      { "phrase": "counterintuitive", "reading": "カウンターインテュイティブ", "meaning": "直感に反する", "note": "常識とは逆の結果を説明するときの定番語。" },
-      { "phrase": "burnout and absenteeism", "reading": "", "meaning": "燃え尽き症候群と欠勤", "note": "absenteeism = 常習的な欠勤。職場の生産性議論で頻出。" },
-      { "phrase": "knowledge workers", "reading": "ノレッジワーカー", "meaning": "知識労働者", "note": "主にデスクワーク・頭脳労働に従事する人々を指す。" }
+      {
+        "phrase": "promotion criteria",
+        "reading": "",
+        "meaning": "昇進基準",
+        "note": "transparent（透明な）と組み合わせて使われることが多い。"
+      },
+      {
+        "phrase": "recruitment shortlists",
+        "reading": "",
+        "meaning": "採用候補者の最終リスト",
+        "note": "shortlist = 最終候補に絞られたリスト。"
+      },
+      {
+        "phrase": "silver lining",
+        "reading": "シルバーライニング",
+        "meaning": "不幸中の幸い・明るい側面",
+        "note": "\"Every cloud has a silver lining\"（どんな雲にも銀の縁がある）という慣用句から。"
+      },
+      {
+        "phrase": "primary caregivers",
+        "reading": "",
+        "meaning": "主たる介護・育児担当者",
+        "note": "主に育児・介護を担う人（多くは女性）を指す表現。"
+      }
     ],
     "5004": [
-      { "phrase": "moral imperative", "reading": "", "meaning": "道徳的義務・責務", "note": "強い倫理的主張をするときの表現。" },
-      { "phrase": "lost productivity", "reading": "", "meaning": "失われた生産性", "note": "" }
+      {
+        "phrase": "moral imperative",
+        "reading": "",
+        "meaning": "道徳的義務・責務",
+        "note": "強い倫理的主張をするときの表現。"
+      },
+      {
+        "phrase": "lost productivity",
+        "reading": "",
+        "meaning": "失われた生産性",
+        "note": ""
+      }
+    ],
+    "5005": [
+      {
+        "phrase": "compelling evidence",
+        "reading": "",
+        "meaning": "説得力のある証拠",
+        "note": "compelling = 強く納得させる力がある。議論・政策提言でよく使う。"
+      },
+      {
+        "phrase": "counterintuitive",
+        "reading": "カウンターインテュイティブ",
+        "meaning": "直感に反する",
+        "note": "常識とは逆の結果を説明するときの定番語。"
+      },
+      {
+        "phrase": "burnout and absenteeism",
+        "reading": "",
+        "meaning": "燃え尽き症候群と欠勤",
+        "note": "absenteeism = 常習的な欠勤。職場の生産性議論で頻出。"
+      },
+      {
+        "phrase": "knowledge workers",
+        "reading": "ノレッジワーカー",
+        "meaning": "知識労働者",
+        "note": "主にデスクワーク・頭脳労働に従事する人々を指す。"
+      }
     ],
     "5006": [
-      { "phrase": "perfect storm", "reading": "パーフェクトストーム", "meaning": "最悪の条件が重なった状況", "note": "複数の悪条件が同時に起きて最悪の結果をもたらすことの比喩。" },
-      { "phrase": "zoning restrictions", "reading": "ゾーニング", "meaning": "用途地域規制", "note": "土地利用・建築を制限する都市計画上のルール。" },
-      { "phrase": "vacancy taxes", "reading": "", "meaning": "空き家（空き物件）課税", "note": "住宅を空き家のまま所有することへの課税。投機的保有の抑制が目的。" },
-      { "phrase": "political will", "reading": "", "meaning": "政治的意志・決断力", "note": "政策を実行する意思があるかどうかを問う表現として頻出。" },
-      { "phrase": "neighborhood resistance", "reading": "", "meaning": "地域住民の反対（NIMBY）", "note": "自分の近所への開発を嫌がる住民感情。\"Not In My Back Yard\" 問題とも言う。" }
+      {
+        "phrase": "perfect storm",
+        "reading": "パーフェクトストーム",
+        "meaning": "最悪の条件が重なった状況",
+        "note": "複数の悪条件が同時に起きて最悪の結果をもたらすことの比喩。"
+      },
+      {
+        "phrase": "zoning restrictions",
+        "reading": "ゾーニング",
+        "meaning": "用途地域規制",
+        "note": "土地利用・建築を制限する都市計画上のルール。"
+      },
+      {
+        "phrase": "vacancy taxes",
+        "reading": "",
+        "meaning": "空き家（空き物件）課税",
+        "note": "住宅を空き家のまま所有することへの課税。投機的保有の抑制が目的。"
+      },
+      {
+        "phrase": "political will",
+        "reading": "",
+        "meaning": "政治的意志・決断力",
+        "note": "政策を実行する意思があるかどうかを問う表現として頻出。"
+      },
+      {
+        "phrase": "neighborhood resistance",
+        "reading": "",
+        "meaning": "地域住民の反対（NIMBY）",
+        "note": "自分の近所への開発を嫌がる住民感情。\"Not In My Back Yard\" 問題とも言う。"
+      }
     ],
     "5007": [
-      { "phrase": "echo chambers", "reading": "エコーチェンバー", "meaning": "同質的な意見しか入ってこない環境", "note": "フィルターバブルとともに重要なメディアリテラシー用語。" },
-      { "phrase": "outrage drives engagement", "reading": "", "meaning": "怒りがエンゲージメントを生む", "note": "SNSのアルゴリズム問題を説明する表現。" }
+      {
+        "phrase": "echo chambers",
+        "reading": "エコーチェンバー",
+        "meaning": "同質的な意見しか入ってこない環境",
+        "note": "フィルターバブルとともに重要なメディアリテラシー用語。"
+      },
+      {
+        "phrase": "outrage drives engagement",
+        "reading": "",
+        "meaning": "怒りがエンゲージメントを生む",
+        "note": "SNSのアルゴリズム問題を説明する表現。"
+      }
     ],
     "5008": [
-      { "phrase": "transformative", "reading": "トランスフォーマティブ", "meaning": "変革をもたらすような・人生を変えるような", "note": "単なる良い経験以上の、根本的な変化を意味する強調語。" },
-      { "phrase": "language immersion", "reading": "ランゲージイマージョン", "meaning": "語学イマージョン（目標言語に完全に浸かること）", "note": "immerse = 浸す。教室学習と対比して使われる。" },
-      { "phrase": "see the world through a different lens", "reading": "", "meaning": "異なる視点から世界を見る", "note": "lens（レンズ）は「視点・見方」の比喩としてよく使われる。" },
-      { "phrase": "no substitute for ~", "reading": "", "meaning": "〜に勝るものはない・〜の代わりになるものはない", "note": "There's no substitute for 〜 = 〜の代替はないという強調表現。" }
+      {
+        "phrase": "transformative",
+        "reading": "トランスフォーマティブ",
+        "meaning": "変革をもたらすような・人生を変えるような",
+        "note": "単なる良い経験以上の、根本的な変化を意味する強調語。"
+      },
+      {
+        "phrase": "language immersion",
+        "reading": "ランゲージイマージョン",
+        "meaning": "語学イマージョン（目標言語に完全に浸かること）",
+        "note": "immerse = 浸す。教室学習と対比して使われる。"
+      },
+      {
+        "phrase": "see the world through a different lens",
+        "reading": "",
+        "meaning": "異なる視点から世界を見る",
+        "note": "lens（レンズ）は「視点・見方」の比喩としてよく使われる。"
+      },
+      {
+        "phrase": "no substitute for ~",
+        "reading": "",
+        "meaning": "〜に勝るものはない・〜の代わりになるものはない",
+        "note": "There's no substitute for 〜 = 〜の代替はないという強調表現。"
+      }
     ],
     "5009": [
-      { "phrase": "cautiously optimistic", "reading": "", "meaning": "慎重に楽観的な・一定の期待を持ちながらも慎重な", "note": "楽観的だが手放しではないというバランスを示す頻出表現。" },
-      { "phrase": "loss and damage fund", "reading": "", "meaning": "損失と損害基金", "note": "気候変動による被害を受けた途上国への補償・支援のための国際基金。COP27で合意。" },
-      { "phrase": "fossil fuels", "reading": "フォッシルフューエル", "meaning": "化石燃料", "note": "石炭・石油・天然ガスの総称。気候変動議論の中心概念。" },
-      { "phrase": "window for action is closing", "reading": "", "meaning": "行動できる時間的余裕がなくなりつつある", "note": "window（窓）が閉まりかけているという比喩で、期限が迫っている緊迫感を表す。" }
+      {
+        "phrase": "cautiously optimistic",
+        "reading": "",
+        "meaning": "慎重に楽観的な・一定の期待を持ちながらも慎重な",
+        "note": "楽観的だが手放しではないというバランスを示す頻出表現。"
+      },
+      {
+        "phrase": "loss and damage fund",
+        "reading": "",
+        "meaning": "損失と損害基金",
+        "note": "気候変動による被害を受けた途上国への補償・支援のための国際基金。COP27で合意。"
+      },
+      {
+        "phrase": "fossil fuels",
+        "reading": "フォッシルフューエル",
+        "meaning": "化石燃料",
+        "note": "石炭・石油・天然ガスの総称。気候変動議論の中心概念。"
+      },
+      {
+        "phrase": "window for action is closing",
+        "reading": "",
+        "meaning": "行動できる時間的余裕がなくなりつつある",
+        "note": "window（窓）が閉まりかけているという比喩で、期限が迫っている緊迫感を表す。"
+      }
     ],
     "5010": [
-      { "phrase": "displaced people", "reading": "", "meaning": "故郷を追われた人々・強制移住者", "note": "難民（refugees）より広い概念で、国内避難民（IDPs）も含む。" },
-      { "phrase": "burden-sharing", "reading": "バーデンシェアリング", "meaning": "負担分担", "note": "難民受け入れや費用を各国で分かち合う仕組みを指す。" },
-      { "phrase": "disproportionate share", "reading": "", "meaning": "不均衡に大きな負担・割合以上の負担", "note": "disproportionate = 比例していない・不釣り合いな。" },
-      { "phrase": "successful integration", "reading": "", "meaning": "社会への統合（成功）", "note": "難民・移民が受け入れ社会に定着・参加することを指す政策用語。" }
+      {
+        "phrase": "displaced people",
+        "reading": "",
+        "meaning": "故郷を追われた人々・強制移住者",
+        "note": "難民（refugees）より広い概念で、国内避難民（IDPs）も含む。"
+      },
+      {
+        "phrase": "burden-sharing",
+        "reading": "バーデンシェアリング",
+        "meaning": "負担分担",
+        "note": "難民受け入れや費用を各国で分かち合う仕組みを指す。"
+      },
+      {
+        "phrase": "disproportionate share",
+        "reading": "",
+        "meaning": "不均衡に大きな負担・割合以上の負担",
+        "note": "disproportionate = 比例していない・不釣り合いな。"
+      },
+      {
+        "phrase": "successful integration",
+        "reading": "",
+        "meaning": "社会への統合（成功）",
+        "note": "難民・移民が受け入れ社会に定着・参加することを指す政策用語。"
+      }
     ],
     "5011": [
-      { "phrase": "arms reduction talks", "reading": "", "meaning": "軍縮交渉", "note": "核兵器を含む軍備削減に関する外交交渉。" },
-      { "phrase": "Non-Proliferation Treaty", "reading": "ノン・プロリフェレーション・トリーティ", "meaning": "核不拡散条約（NPT）", "note": "核保有国の増加を防ぐための国際条約。略称NPT。" },
-      { "phrase": "hypersonic missiles", "reading": "ハイパーソニック", "meaning": "極超音速ミサイル", "note": "音速の5倍以上で飛行するミサイル。既存の迎撃システムで対応困難。" },
-      { "phrase": "risk of miscalculation", "reading": "", "meaning": "誤算のリスク・誤判断による衝突の危険", "note": "意図せぬ戦争勃発のシナリオを指す安全保障用語。" }
+      {
+        "phrase": "arms reduction talks",
+        "reading": "",
+        "meaning": "軍縮交渉",
+        "note": "核兵器を含む軍備削減に関する外交交渉。"
+      },
+      {
+        "phrase": "Non-Proliferation Treaty",
+        "reading": "ノン・プロリフェレーション・トリーティ",
+        "meaning": "核不拡散条約（NPT）",
+        "note": "核保有国の増加を防ぐための国際条約。略称NPT。"
+      },
+      {
+        "phrase": "hypersonic missiles",
+        "reading": "ハイパーソニック",
+        "meaning": "極超音速ミサイル",
+        "note": "音速の5倍以上で飛行するミサイル。既存の迎撃システムで対応困難。"
+      },
+      {
+        "phrase": "risk of miscalculation",
+        "reading": "",
+        "meaning": "誤算のリスク・誤判断による衝突の危険",
+        "note": "意図せぬ戦争勃発のシナリオを指す安全保障用語。"
+      }
     ],
     "5012": [
-      { "phrase": "tied aid", "reading": "タイドエイド", "meaning": "紐付き援助", "note": "援助国の商品購入や条件を受け入れることを義務付ける援助形態。" },
-      { "phrase": "building local capacity", "reading": "", "meaning": "現地の能力構築", "note": "外部からの解決策ではなく、現地自らが問題解決できる力を育てること。" },
-      { "phrase": "donor's strategic interests", "reading": "", "meaning": "供与国の戦略的利益", "note": "援助が人道目的ではなく供与国の政治・外交目的に使われる批判を表す。" },
-      { "phrase": "fragile supply chains", "reading": "", "meaning": "脆弱なサプライチェーン", "note": "パンデミックで明らかになった、必須物資の供給網の弱さを指す。" }
+      {
+        "phrase": "tied aid",
+        "reading": "タイドエイド",
+        "meaning": "紐付き援助",
+        "note": "援助国の商品購入や条件を受け入れることを義務付ける援助形態。"
+      },
+      {
+        "phrase": "building local capacity",
+        "reading": "",
+        "meaning": "現地の能力構築",
+        "note": "外部からの解決策ではなく、現地自らが問題解決できる力を育てること。"
+      },
+      {
+        "phrase": "donor's strategic interests",
+        "reading": "",
+        "meaning": "供与国の戦略的利益",
+        "note": "援助が人道目的ではなく供与国の政治・外交目的に使われる批判を表す。"
+      },
+      {
+        "phrase": "fragile supply chains",
+        "reading": "",
+        "meaning": "脆弱なサプライチェーン",
+        "note": "パンデミックで明らかになった、必須物資の供給網の弱さを指す。"
+      }
     ],
     "5013": [
-      { "phrase": "trade blocs", "reading": "トレードブロック", "meaning": "貿易ブロック（経済圏）", "note": "EU、RCEP などが例。" },
-      { "phrase": "bilateral trade", "reading": "", "meaning": "二国間貿易", "note": "" }
+      {
+        "phrase": "trade blocs",
+        "reading": "トレードブロック",
+        "meaning": "貿易ブロック（経済圏）",
+        "note": "EU、RCEP などが例。"
+      },
+      {
+        "phrase": "bilateral trade",
+        "reading": "",
+        "meaning": "二国間貿易",
+        "note": ""
+      }
     ],
     "5014": [
-      { "phrase": "soft power", "reading": "ソフトパワー", "meaning": "ソフトパワー（文化・価値観による影響力）", "note": "軍事力・経済力（ハードパワー）と対比される概念。政治学者ジョセフ・ナイが提唱。" },
-      { "phrase": "cultural diplomacy", "reading": "カルチャーダイプロマシー", "meaning": "文化外交", "note": "文化・芸術・スポーツなどを通じた国際関係の構築。" },
-      { "phrase": "people-to-people connections", "reading": "", "meaning": "人と人との繋がり・民間交流", "note": "政府間ではなく市民レベルでの国際的な繋がりを指す。" },
-      { "phrase": "ripple effects", "reading": "リップルエフェクト", "meaning": "波及効果", "note": "ripple = 波紋。ある事象が周囲に広がる影響を指す比喩。" }
+      {
+        "phrase": "soft power",
+        "reading": "ソフトパワー",
+        "meaning": "ソフトパワー（文化・価値観による影響力）",
+        "note": "軍事力・経済力（ハードパワー）と対比される概念。政治学者ジョセフ・ナイが提唱。"
+      },
+      {
+        "phrase": "cultural diplomacy",
+        "reading": "カルチャーダイプロマシー",
+        "meaning": "文化外交",
+        "note": "文化・芸術・スポーツなどを通じた国際関係の構築。"
+      },
+      {
+        "phrase": "people-to-people connections",
+        "reading": "",
+        "meaning": "人と人との繋がり・民間交流",
+        "note": "政府間ではなく市民レベルでの国際的な繋がりを指す。"
+      },
+      {
+        "phrase": "ripple effects",
+        "reading": "リップルエフェクト",
+        "meaning": "波及効果",
+        "note": "ripple = 波紋。ある事象が周囲に広がる影響を指す比喩。"
+      }
     ],
     "5015": [
-      { "phrase": "labor shortages", "reading": "", "meaning": "労働力不足", "note": "移民受け入れの経済的根拠として頻繁に挙げられる。" },
-      { "phrase": "social cohesion", "reading": "ソーシャルコーヒージョン", "meaning": "社会的結束・社会的まとまり", "note": "多様な人々が共存できる社会の安定性を指す概念。" },
-      { "phrase": "strain local services", "reading": "", "meaning": "地域のサービスに過大な負担をかける", "note": "住宅・医療・学校などへの圧迫を指す。" },
-      { "phrase": "extreme voices fill the space", "reading": "", "meaning": "過激な意見が議論の場を占める", "note": "主流派が課題を避けると、極端な立場が台頭するという政治的現象を指す。" }
+      {
+        "phrase": "labor shortages",
+        "reading": "",
+        "meaning": "労働力不足",
+        "note": "移民受け入れの経済的根拠として頻繁に挙げられる。"
+      },
+      {
+        "phrase": "social cohesion",
+        "reading": "ソーシャルコーヒージョン",
+        "meaning": "社会的結束・社会的まとまり",
+        "note": "多様な人々が共存できる社会の安定性を指す概念。"
+      },
+      {
+        "phrase": "strain local services",
+        "reading": "",
+        "meaning": "地域のサービスに過大な負担をかける",
+        "note": "住宅・医療・学校などへの圧迫を指す。"
+      },
+      {
+        "phrase": "extreme voices fill the space",
+        "reading": "",
+        "meaning": "過激な意見が議論の場を占める",
+        "note": "主流派が課題を避けると、極端な立場が台頭するという政治的現象を指す。"
+      }
     ],
     "5016": [
-      { "phrase": "diplomatic boycott", "reading": "ダイプロマティックボイコット", "meaning": "外交的ボイコット", "note": "競技には選手を送るが政府要人は出席しない形式の抗議手段。" },
-      { "phrase": "engagement vs. isolation", "reading": "", "meaning": "関与か孤立化か", "note": "人権問題を持つ国への対応として、対話を続けるか孤立させるかという外交上の選択肢。" },
-      { "phrase": "tacit endorsement", "reading": "", "meaning": "暗黙の支持・黙認", "note": "明示的には支持していないが、行動によって支持していると受け取られること。" },
-      { "phrase": "geopolitical disputes", "reading": "ジオポリティカル", "meaning": "地政学的な争い・国際政治的対立", "note": "地理・国際政治が絡む国家間の問題を指す。" }
+      {
+        "phrase": "diplomatic boycott",
+        "reading": "ダイプロマティックボイコット",
+        "meaning": "外交的ボイコット",
+        "note": "競技には選手を送るが政府要人は出席しない形式の抗議手段。"
+      },
+      {
+        "phrase": "engagement vs. isolation",
+        "reading": "",
+        "meaning": "関与か孤立化か",
+        "note": "人権問題を持つ国への対応として、対話を続けるか孤立させるかという外交上の選択肢。"
+      },
+      {
+        "phrase": "tacit endorsement",
+        "reading": "",
+        "meaning": "暗黙の支持・黙認",
+        "note": "明示的には支持していないが、行動によって支持していると受け取られること。"
+      },
+      {
+        "phrase": "geopolitical disputes",
+        "reading": "ジオポリティカル",
+        "meaning": "地政学的な争い・国際政治的対立",
+        "note": "地理・国際政治が絡む国家間の問題を指す。"
+      }
     ],
     "5017": [
-      { "phrase": "food insecurity", "reading": "フードインセキュリティ", "meaning": "食料不安定・食料不足の状態", "note": "十分な食料へのアクセスが保障されない状態。food security（食料安全保障）の反対概念。" },
-      { "phrase": "climate-resilient agriculture", "reading": "", "meaning": "気候変動に強い農業", "note": "異常気象に対応できるよう設計された農業技術・手法。" },
-      { "phrase": "smallholder farmers", "reading": "", "meaning": "小規模農家", "note": "途上国の農業生産の大部分を担う零細農家。支援政策の重要対象。" },
-      { "phrase": "consecutive years", "reading": "", "meaning": "連続した年・連年", "note": "consecutive = 連続する。\"for consecutive years\" = 連続して何年も。" }
+      {
+        "phrase": "food insecurity",
+        "reading": "フードインセキュリティ",
+        "meaning": "食料不安定・食料不足の状態",
+        "note": "十分な食料へのアクセスが保障されない状態。food security（食料安全保障）の反対概念。"
+      },
+      {
+        "phrase": "climate-resilient agriculture",
+        "reading": "",
+        "meaning": "気候変動に強い農業",
+        "note": "異常気象に対応できるよう設計された農業技術・手法。"
+      },
+      {
+        "phrase": "smallholder farmers",
+        "reading": "",
+        "meaning": "小規模農家",
+        "note": "途上国の農業生産の大部分を担う零細農家。支援政策の重要対象。"
+      },
+      {
+        "phrase": "consecutive years",
+        "reading": "",
+        "meaning": "連続した年・連年",
+        "note": "consecutive = 連続する。\"for consecutive years\" = 連続して何年も。"
+      }
     ],
     "5018": [
-      { "phrase": "vaccine nationalism", "reading": "ワクチンナショナリズム", "meaning": "ワクチン囲い込み・自国優先のワクチン確保", "note": "富裕国が途上国より先に大量のワクチンを確保した問題。COVID-19で顕在化。" },
-      { "phrase": "COVAX", "reading": "コバックス", "meaning": "コバックス（ワクチンの公平配分を目指す国際枠組み）", "note": "WHO・GAVIなどが主導するワクチンの公平なアクセスを目指す国際的な取り組み。" },
-      { "phrase": "early warning systems", "reading": "", "meaning": "早期警告システム", "note": "感染症の流行をいち早く検知・通知するための監視体制。" },
-      { "phrase": "reactive surge", "reading": "", "meaning": "事後的な対応の急増", "note": "危機が起きてから初めて資源を大量投入する場当たり的な対応を指す。" }
+      {
+        "phrase": "vaccine nationalism",
+        "reading": "ワクチンナショナリズム",
+        "meaning": "ワクチン囲い込み・自国優先のワクチン確保",
+        "note": "富裕国が途上国より先に大量のワクチンを確保した問題。COVID-19で顕在化。"
+      },
+      {
+        "phrase": "COVAX",
+        "reading": "コバックス",
+        "meaning": "コバックス（ワクチンの公平配分を目指す国際枠組み）",
+        "note": "WHO・GAVIなどが主導するワクチンの公平なアクセスを目指す国際的な取り組み。"
+      },
+      {
+        "phrase": "early warning systems",
+        "reading": "",
+        "meaning": "早期警告システム",
+        "note": "感染症の流行をいち早く検知・通知するための監視体制。"
+      },
+      {
+        "phrase": "reactive surge",
+        "reading": "",
+        "meaning": "事後的な対応の急増",
+        "note": "危機が起きてから初めて資源を大量投入する場当たり的な対応を指す。"
+      }
     ],
     "5019": [
-      { "phrase": "stem cells", "reading": "ステムセル", "meaning": "幹細胞", "note": "再生医療の基本用語。" },
-      { "phrase": "staggering potential", "reading": "", "meaning": "驚異的な可能性", "note": "" }
+      {
+        "phrase": "stem cells",
+        "reading": "ステムセル",
+        "meaning": "幹細胞",
+        "note": "再生医療の基本用語。"
+      },
+      {
+        "phrase": "staggering potential",
+        "reading": "",
+        "meaning": "驚異的な可能性",
+        "note": ""
+      }
     ],
     "5020": [
-      { "phrase": "mRNA platform", "reading": "エムアールエヌエー", "meaning": "mRNA（メッセンジャーRNA）技術基盤", "note": "遺伝情報を使って体内でタンパク質を作らせる新しいワクチン技術。" },
-      { "phrase": "emergency authorization", "reading": "エマージェンシーオーソライゼーション", "meaning": "緊急承認", "note": "通常より短い審査期間で医薬品・ワクチンを承認する制度。" },
-      { "phrase": "speed and rigor", "reading": "", "meaning": "速度と厳密さ", "note": "これらが必ずしもトレードオフではないという文脈で使われた表現。rigor = 厳格さ。" },
-      { "phrase": "personalized cancer vaccines", "reading": "", "meaning": "個別化がんワクチン", "note": "患者ごとの腫瘍の遺伝子変異に合わせて設計されるワクチン。mRNAの次世代応用。" }
+      {
+        "phrase": "mRNA platform",
+        "reading": "エムアールエヌエー",
+        "meaning": "mRNA（メッセンジャーRNA）技術基盤",
+        "note": "遺伝情報を使って体内でタンパク質を作らせる新しいワクチン技術。"
+      },
+      {
+        "phrase": "emergency authorization",
+        "reading": "エマージェンシーオーソライゼーション",
+        "meaning": "緊急承認",
+        "note": "通常より短い審査期間で医薬品・ワクチンを承認する制度。"
+      },
+      {
+        "phrase": "speed and rigor",
+        "reading": "",
+        "meaning": "速度と厳密さ",
+        "note": "これらが必ずしもトレードオフではないという文脈で使われた表現。rigor = 厳格さ。"
+      },
+      {
+        "phrase": "personalized cancer vaccines",
+        "reading": "",
+        "meaning": "個別化がんワクチン",
+        "note": "患者ごとの腫瘍の遺伝子変異に合わせて設計されるワクチン。mRNAの次世代応用。"
+      }
     ],
     "5021": [
-      { "phrase": "epidemic proportions", "reading": "エピデミック", "meaning": "流行病並みの規模・蔓延した状態", "note": "\"reach epidemic proportions\" = 深刻な社会問題となるほど広がること。" },
-      { "phrase": "coping strategies", "reading": "", "meaning": "対処戦略・ストレス対処法", "note": "個人レベルのストレス管理手法（瞑想・休暇など）を指す。構造的解決策と対比される。" },
-      { "phrase": "workload management", "reading": "", "meaning": "業務量の管理・コントロール", "note": "燃え尽き防止の組織的対策として重要な概念。" },
-      { "phrase": "lower turnover", "reading": "ターンオーバー", "meaning": "離職率の低下", "note": "turnover（離職率）が低いことは組織の健全さの指標。" }
+      {
+        "phrase": "epidemic proportions",
+        "reading": "エピデミック",
+        "meaning": "流行病並みの規模・蔓延した状態",
+        "note": "\"reach epidemic proportions\" = 深刻な社会問題となるほど広がること。"
+      },
+      {
+        "phrase": "coping strategies",
+        "reading": "",
+        "meaning": "対処戦略・ストレス対処法",
+        "note": "個人レベルのストレス管理手法（瞑想・休暇など）を指す。構造的解決策と対比される。"
+      },
+      {
+        "phrase": "workload management",
+        "reading": "",
+        "meaning": "業務量の管理・コントロール",
+        "note": "燃え尽き防止の組織的対策として重要な概念。"
+      },
+      {
+        "phrase": "lower turnover",
+        "reading": "ターンオーバー",
+        "meaning": "離職率の低下",
+        "note": "turnover（離職率）が低いことは組織の健全さの指標。"
+      }
     ],
     "5022": [
-      { "phrase": "Blue Zone regions", "reading": "ブルーゾーン", "meaning": "ブルーゾーン（長寿者が集中する地域）", "note": "人口学者が特定した長寿者が多い地域。沖縄・サルデーニャ島などが有名。" },
-      { "phrase": "centenarians", "reading": "センテナリアン", "meaning": "百歳以上の長寿者", "note": "century（100）から派生した語。長寿研究の対象として注目される。" },
-      { "phrase": "passive social media consumption", "reading": "", "meaning": "受動的なSNS消費（ただ眺めるだけの使い方）", "note": "投稿・交流せず閲覧するだけの使い方は、孤独感を深める可能性があるとされる。" },
-      { "phrase": "community institutions", "reading": "", "meaning": "地域コミュニティの制度・組織", "note": "教会・地域クラブ・互助組織など、伝統的な社会的繋がりの場を指す。" }
+      {
+        "phrase": "Blue Zone regions",
+        "reading": "ブルーゾーン",
+        "meaning": "ブルーゾーン（長寿者が集中する地域）",
+        "note": "人口学者が特定した長寿者が多い地域。沖縄・サルデーニャ島などが有名。"
+      },
+      {
+        "phrase": "centenarians",
+        "reading": "センテナリアン",
+        "meaning": "百歳以上の長寿者",
+        "note": "century（100）から派生した語。長寿研究の対象として注目される。"
+      },
+      {
+        "phrase": "passive social media consumption",
+        "reading": "",
+        "meaning": "受動的なSNS消費（ただ眺めるだけの使い方）",
+        "note": "投稿・交流せず閲覧するだけの使い方は、孤独感を深める可能性があるとされる。"
+      },
+      {
+        "phrase": "community institutions",
+        "reading": "",
+        "meaning": "地域コミュニティの制度・組織",
+        "note": "教会・地域クラブ・互助組織など、伝統的な社会的繋がりの場を指す。"
+      }
     ],
     "5023": [
-      { "phrase": "outperformed specialist doctors", "reading": "", "meaning": "専門医を上回る成績を出した", "note": "outperform = 〜よりも優れた結果を出す。AIの能力を示す文脈で頻出。" },
-      { "phrase": "decision-support tool", "reading": "", "meaning": "意思決定支援ツール", "note": "AIが医師を置き換えるのではなく補助する役割を表す概念。" },
-      { "phrase": "algorithmic bias", "reading": "アルゴリズミック・バイアス", "meaning": "アルゴリズムの偏り・差別", "note": "AIが学習データの偏りを反映して不公平な判断をする問題。" },
-      { "phrase": "regulatory frameworks", "reading": "", "meaning": "規制の枠組み", "note": "技術の発展に対応する法規制・ガイドラインの体系。" }
+      {
+        "phrase": "outperformed specialist doctors",
+        "reading": "",
+        "meaning": "専門医を上回る成績を出した",
+        "note": "outperform = 〜よりも優れた結果を出す。AIの能力を示す文脈で頻出。"
+      },
+      {
+        "phrase": "decision-support tool",
+        "reading": "",
+        "meaning": "意思決定支援ツール",
+        "note": "AIが医師を置き換えるのではなく補助する役割を表す概念。"
+      },
+      {
+        "phrase": "algorithmic bias",
+        "reading": "アルゴリズミック・バイアス",
+        "meaning": "アルゴリズムの偏り・差別",
+        "note": "AIが学習データの偏りを反映して不公平な判断をする問題。"
+      },
+      {
+        "phrase": "regulatory frameworks",
+        "reading": "",
+        "meaning": "規制の枠組み",
+        "note": "技術の発展に対応する法規制・ガイドラインの体系。"
+      }
     ],
     "5024": [
-      { "phrase": "R&D costs", "reading": "アールアンドディー", "meaning": "研究開発費", "note": "research and development の略。" },
-      { "phrase": "recoup costs", "reading": "", "meaning": "コストを回収する", "note": "" }
+      {
+        "phrase": "R&D costs",
+        "reading": "アールアンドディー",
+        "meaning": "研究開発費",
+        "note": "research and development の略。"
+      },
+      {
+        "phrase": "recoup costs",
+        "reading": "",
+        "meaning": "コストを回収する",
+        "note": ""
+      }
     ],
     "5025": [
-      { "phrase": "universal healthcare", "reading": "ユニバーサルヘルスケア", "meaning": "ユニバーサルヘルスケア（皆保険・国民皆医療）", "note": "すべての人が必要な医療を受けられる制度。日本の国民健康保険もその一形態。" },
-      { "phrase": "per capita cost", "reading": "パー・カピタ", "meaning": "一人当たりのコスト", "note": "per capita = 一人頭（ラテン語由来）。国際比較の標準指標。" },
-      { "phrase": "waiting times", "reading": "", "meaning": "待ち時間（医療の待機期間）", "note": "公的医療制度への批判として頻繁に挙げられる。" },
-      { "phrase": "vested interests", "reading": "ベステッドインタレスト", "meaning": "既得権益", "note": "既存の利益を守ろうとする業界・団体の利害を指す。医療改革の障壁として言及される。" }
+      {
+        "phrase": "universal healthcare",
+        "reading": "ユニバーサルヘルスケア",
+        "meaning": "ユニバーサルヘルスケア（皆保険・国民皆医療）",
+        "note": "すべての人が必要な医療を受けられる制度。日本の国民健康保険もその一形態。"
+      },
+      {
+        "phrase": "per capita cost",
+        "reading": "パー・カピタ",
+        "meaning": "一人当たりのコスト",
+        "note": "per capita = 一人頭（ラテン語由来）。国際比較の標準指標。"
+      },
+      {
+        "phrase": "waiting times",
+        "reading": "",
+        "meaning": "待ち時間（医療の待機期間）",
+        "note": "公的医療制度への批判として頻繁に挙げられる。"
+      },
+      {
+        "phrase": "vested interests",
+        "reading": "ベステッドインタレスト",
+        "meaning": "既得権益",
+        "note": "既存の利益を守ろうとする業界・団体の利害を指す。医療改革の障壁として言及される。"
+      }
     ]
+  },
+  "translations": {
+    "5001": "A: 政府は批判的思考とデジタルリテラシーを重視した大規模な学習指導要領改革を発表しました。\nB: 遅きに失した感がありますね。現在のシステムは実践的なスキルよりも丸暗記に重点を置きすぎています。\nA: 批評家は教師の研修を心配しています。適切な再訓練なしに新しい方法は導入できません。\nB: それが永遠の課題です。ビジョンは正しいですが、実行は遅くムラがあります。\nA: フィンランドとシンガポールはうまくいっているようです。秘訣は何だと思いますか？\nB: 教師の質への投資が鍵です。フィンランドでは教職は医師と同じくらい権威のある職業です。それがすべてを変えます。",
+    "5002": "A: 日本では人口が15年以上減少しており、65歳以上の人口が30パーセントを超えました。\nB: 年金制度、医療、そして労働力に多大な負担をかけています。より多くの退職者を支えるより少ない労働者という状況は持続不可能です。\nA: 移民が一つの解決策ですが、日本は歴史的に国境を開くことにとても慎重でした。\nB: 意識は少しずつ変わってきていますが、そのペースは不十分です。自動化は助けになりますが、完全な答えではありません。\nA: 一部の経済学者は、優先すべきは女性と高齢者がより完全に労働力に参加できるようにすることだと主張しています。\nB: 日本はどちらのグループにも大きな未開発の可能性があります。職場文化の変革は政策と同じくらい重要です。",
+    "5003": "A: 当社のダイバーシティレポートによると、シニアリーダーシップの14パーセントしか女性がいません。まだ残念な結果です。\nB: 業界全体でよくある状況です。会社は何か対策をしていますか？\nA: 新しいメンタリングプログラム、透明な昇進基準、採用候補者リストのジェンダーバランスの目標設定です。\nB: 目標は助けになりますが、より根本的な問題は職場文化です。女性が本当にサポートされ、評価されていると感じるかどうかです。\nA: パンデミック後のフレキシブルな勤務形態が助けになりました。親たちはキャリアと家庭をより簡単にバランスできるようになっています。\nB: それは不幸中の幸いですね。柔軟性は全員にとって利点ですが、主たる養育者にとって特に重要です。",
+    "5004": "精神的健康問題は世界的に成人の約5人に1人に影響を与えていますが、多くの社会ではスティグマ（偏見）によって人々は助けを求めることを妨げられています。12カ国の新しい調査では、回答者の63パーセントが、差別を恐れて精神的健康の状態について雇用主に話すことをためらうだろうと答えました。しかし、特に不安やうつ病、燃え尽き症候群について話すことに対してよりオープンな若い世代の間で、意識は徐々に変わっています。大企業はメンタルヘルス・デー、従業員支援プログラム、カウンセリングサービスをますます提供するようになっています。専門家たちは、メンタルヘルスへの投資は道徳的な義務であるだけでなく、経済的にも意義があると主張しています。治療されない状態は、生産性の損失として世界経済に年間推定1兆ドルのコストをかけているからです。",
+    "5005": "A: ベルギーは最近、労働者に週4日勤務の法的権利を与えました。広まると思いますか？\nB: そう願っています。アイスランドとイギリスの試験導入からのデータは説得力があります。生産性は同じかむしろ向上しました。\nA: それは多くの懐疑論者を驚かせました。より短い時間で同じ成果を出すとは直感に反します。\nB: でも燃え尽き症候群と欠勤にはコストがかかります。十分な休養を取った従業員は、消耗した従業員よりも1時間当たりの効率が高いです。\nA: 課題は公平に導入することです。知識労働者には容易ですが、医療や小売スタッフにとっては難しいです。\nB: その通りです。万能な政策は機能しないかもしれませんが、企業と労働者に柔軟性を与えることが正しい方向だと思います。",
+    "5006": "A: ここの平均的な住宅価格は今や年間中央値給与の12倍以上です。どうしてこうなったのですか？\nB: 完璧な嵐ですね。低金利が投機を呼び込み、供給が追いつかず、ゾーニングが新しい建設を制限しました。\nA: そして国際的な投資、特に人気の高い都市部で、さらに価格を押し上げました。\nB: 一部の都市は空き家税と外国人所有制限を導入しましたが、結果はまちまちです。\nA: 結局のところ、もっと住宅を建てる必要があります。特に交通機関と雇用の近くに手頃な価格の住宅を。\nB: 理論上はすべての都市が知っています。開発への近隣住民の抵抗を乗り越える政治的意志が通常欠けています。",
+    "5007": "A: 研究によると、アルゴリズムが既存の信念を強化することで政治的分極化を深めていることが示されています。\nB: フィルターバブル効果は確かに存在します。人々は過激な見解が普通とされる同質的な環境に閉じ込められてしまいます。\nA: 誤情報は訂正よりもはるかに速く広まります。嘘の話は真実が動き出す前に世界を一周できます。\nB: 一部のプラットフォームは議論のあるコンテンツにラベルを付け、分断を引き起こすコンテンツの拡散を抑制しています。\nA: しかし彼らの収益モデルはエンゲージメントに依存しており、怒りは思慮深さよりもエンゲージメントを生みます。\nB: それが構造的な問題です。規制介入や異なるビジネスモデルなしには、インセンティブは変わりません。",
+    "5008": "A: ポルトガルでの1ヶ月の交換留学プログラムから戻ってきたところです。変革的な体験でした。\nB: どんな点でそんなに印象的でしたか？\nA: ホストファミリーと暮らし、地元の専門家と一緒に仕事をすることで、全く異なる視点から世界を見ることができます。\nB: 最初は言語が障壁になったのでは。\nA: そうです、最初は。でも4週間のイマージョンで1年間の授業よりも多くのポルトガル語を学びました。\nB: 日々生活するために意思疎通しなければならない環境に身を置くことに勝るものはありませんね。",
+    "5009": "A: 世界のリーダーたちが再びCOPに集まっています。意味のある進展が生まれると思いますか？\nB: 慎重に楽観的でいます。今年の異常気象で、危機の深刻さは無視できないものになりました。\nA: しかし、コミットメントと実際の行動の間のギャップは依然として膨大です。多くの国はまだ化石燃料の拡大を続けています。\nB: その通りです。脆弱な国への損失と損害基金は突破口でしたが、実施は遅いです。\nA: 貧しい国々は先進国が危機を引き起こしたのだから、コストの大部分を負担すべきだと主張しています。\nB: その緊張は簡単には消えません。しかし意味のある行動の窓は急速に閉じつつあります。",
+    "5010": "A: 避難を余儡なくされた人々の数が1億人を超えました。世界はどのように対応すべきでしょうか？\nB: 協調した行動が必要です。受け入れ国間の負担分担、迅速な審査処理、根本的な原因への対処です。\nA: トルコやコロンビアのような受け入れ国は、低所得国でありながら不均衡に大きな負担を担っています。\nB: 最も裕福な国々は、財政的な貢献においても難民を直接受け入れることにおいても、比較的消極的でした。\nA: この問題は多くの民主主義国家で選挙において深く分断を生む問題になっています。\nB: 長期的には、うまく管理された時、難民の社会統合は受け入れ社会にとって経済的・社会的な利益になります。",
+    "5011": "A: 最新の軍縮交渉は合意なく崩壊しました。軍縮は現実的な目標なのでしょうか？\nB: 今日の地政学的状況では、非常に遠い目標に思えます。核兵器は究極の安全保障の保証と見なされています。\nA: 核不拡散条約はかなり弱体化しました。複数の国が核能力を拡張しています。\nB: そして極超音速ミサイルのような新技術は、既存の軍備管理の枠組みを時代遅れにしています。\nA: 誤算や偶発的な紛争のリスクは現実に存在します。だから対話は不完全であっても重要です。\nB: 不完全なコミュニケーションチャンネルがないよりも、不完全なものが存在する方が危険ではありません。外交的な関与を続けなければなりません。",
+    "5012": "A: 批評家たちは、多くの国際援助が受援国のニーズよりも供与国の戦略的利益に結びついていると主張しています。\nB: それは妥当な批判です。供与国の輸出業者や政治的議題を優遇する条件付きの援助は有効性を損ないます。\nA: 持続可能性の問題もあります。現地の能力を構築するのではなく依存を生み出してしまいます。\nB: 最も効果的なプログラムは、解決策を輸入するのではなく、現地の制度、教育、ガバナンスに投資します。\nA: パンデミックは、ワクチンや医療機器などの必需品のサプライチェーンがいかに脆弱かを示しました。\nB: 途上国はこれらのものを国内で生産する能力が必要です。それが援助の優先事項であるべきです。",
+    "5013": "世界最大の2つの経済大国間で長引く貿易紛争は、直接関与する2カ国をはるかに超えた広範な影響をもたらしました。WTOの新しい研究によると、5年間で課された関税は二国間貿易を約40パーセント減少させた一方、両国の部品に依存していたグローバルサプライチェーンを混乱させました。第三国は、どの貿易圏に加盟するかという複雑な選択に直面し、しばしば効率性のコストを払いました。一部の国内産業は保護の恩恵を受けましたが、全体的な経済的影響は広く否定的であり、消費者価格の上昇と投資の不確実性の増大をもたらしました。アナリストたちは、さらなるエスカレーションは世界経済を競合するブロックに分裂させるリスクがあると警告しています。",
+    "5014": "A: 日本の文化的輸出、アニメ、食、ファッションは、国のソフトパワーに計り知れない貢献をしているようです。\nB: まったくそうです。クールジャパン現象は、そうでなければ無関心だったかもしれない場所で本物の親しみを生み出しました。\nA: 文化外交は公式外交が達成できないことを成し遂げます。政治的変化を超えて続く人と人との繋がりを築きます。\nB: 韓国も見事です。K-ポップ、K-ドラマ、韓国料理は政治的な善意に変換されるグローバルなファンベースを生み出しました。\nA: ここに教訓があります。芸術と創造性への投資は国際関係において配当を生み出します。\nB: そして観光、外国投資、語学学習においても。文化的な魅力の波及効果は膨大です。",
+    "5015": "A: 移民問題は多くの国で最も分断を生む政治的問題の一つになっています。どのようにご覧になっていますか？\nB: 本当に複雑です。移民は本物の経済的利益をもたらします。労働力不足を補い、新しいスキルと起業家精神をもたらします。\nA: 経済的な証拠はかなり明確です。しかし、社会的結束と文化的変化のペースへの懸念は現実のものです。\nB: 急速で管理の悪い移民は、地域のサービスに負担をかけ、本当の困難を生み出し、不満をあおります。\nA: 解決策は移民を少なくすることではなく、より良い管理をすることのようです。迅速な統合、語学訓練。\nB: そして、より誠実な政治的対話が必要です。主流の政治家が問題を避けると、過激な声が場を占めます。",
+    "5016": "A: 複数の西側諸国が、人権記録の悪い政府が開催するイベントへの外交的ボイコットを発表しました。\nB: メッセージを送ることはできますが、その効果は議論の余地があります。選手はまだ競技し、イベントはまだ収益を生みます。\nA: 批評家は、孤立よりも関与の方が良いと主張します。テーブルに座席があれば、より多くの影響力を持てます。\nB: しかし、条件なしの関与は暗黙の支持と見なされることもあります。本当のジレンマです。\nA: 選手たちは不可能な立場に置かれています。何年もの準備をして、政治的声明を出すよう求められます。\nB: 競技統括団体は、地政学的な争いに巻き込まれる選手を守っていないと批判されています。",
+    "5017": "国連FAOは、気候に関連した作物不作、紛争、エネルギーコストの上昇、サプライチェーンの混乱によって、世界的な食料不安が数十年ぶりの最悪水準にあると警告しました。現在約8億人が食料不安に直面しており、異常気象がより頻繁になるにつれて数は増加すると予想されています。連続した年でも旱魃が収穫を壊滅させているサブサハラアフリカと南アジアの一部が特に脆弱です。同機関は、気候変動に強い農業への緊急投資、食料流通の改善、途上国で食料の大半を生産する小規模農家へのより大きな支援を求めています。協調した行動なしには、食料不安が紛争の増加と大規模な移住に貢献する恐れがあります。",
+    "5018": "A: パンデミックが始まって4年が経ちました。どのような教訓が実際に学ばれ、実施されましたか？\nB: 一部の進展はあります。WHOはパンデミック条約の草案を作成し、グローバルサウスでのワクチン製造が増加しました。\nA: しかし、ワクチンナショナリズムは深刻な失敗でした。富裕国がワクチンを抱え込む一方、貧しい国々は何年もの間不足しました。\nB: COVAXは善意はありましたが、リソースが不足して遅すぎました。より充実した財政を持つグローバルな調達メカニズムが不可欠です。\nA: 早期警告システムも改善が必要です。ウイルスは保健当局に通知される何週間も前から感染拡大していました。\nB: パンデミックへの備えには長期的な投資が必要です。危機が発生した際に事後対応する緊急対応だけではなく。",
+    "5019": "A: 驚くべき発表がありました。1回限りの遺伝子治療が以前は治療不可能だった疾患を抱えた子供を治癒させました。\nB: どの病気ですか？\nA: 鎌状赤血球症です。この治療法は患者自身の幹細胞を改変して、永続的に健康な血球を産生するようにします。\nB: その可能性は驚異的です。生涯にわたる治療が必要な状態が1回の介入で解決できます。\nA: 課題はコストです。これらの治療法は1患者あたり数百万ドルに上る可能性があります。\nB: 裕福な人々にしかアクセスできない画期的な科学は、人口レベルでは問題を解決しません。価格設定とアクセスは最初から対処しなければなりません。",
+    "5020": "A: COVID ワクチンは1年未満で開発されました。将来のワクチンもそんなに速く作れるのでしょうか？\nB: mRNA プラットフォームが鍵でした。一度確立されれば、新しい病原体に適応するのははるかに速くなります。\nA: 規制の承認過程も緊急承認によって速くなりました。でも手を抜いたのでしょうか？\nB: 膨大な数の試験参加者がいたことを考えると、安全性データは実際にはかなり堅固でした。速さと厳密さは必ずしも相互に排他的ではありません。\nA: mRNA 技術の次の応用は何ですか？\nB: 免疫システムを特定の腫瘍細胞を標的とするよう訓練する個別化がんワクチンです。初期の結果はとても有望です。",
+    "5021": "A: 燃え尽き症候群は多くの職業で流行病規模に達しています。組織はどのように対応すべきでしょうか？\nB: 個人の対処戦略よりも構造的な変化の方が重要です。体系的に過負荷になっている環境では、瞑想で抜け出すことはできません。\nA: それは公平な指摘です。根本的な原因に対処しないウェルネスプログラムは恩着せがましく感じられることがあります。\nB: 効果があるのは、本物の業務量管理、十分な人員配置、自主性、そして苦しんでいると言っても安全な文化です。\nA: リーダーシップのモデルが非常に重要です。CEOが80時間労働を美化すれば、それが文化を設定します。\nB: メンタルヘルスを真剣に取り組む組織は、離職率が低く、病欠日が少なく、パフォーマンスが向上します。ビジネス上の意義があります。",
+    "5022": "A: ブルーゾーン地域、サルデーニャ島と沖縄の百歳以上の長寿者に関する研究は、社会的繋がりが最も重要な長寿の要因として示しています。\nB: データと一致していますね。孤独は1日15本のタバコを吸うのと同じくらい有害に見えます。\nA: 現代のライフスタイルは、伝統的にその繋がりを提供していたコミュニティ構造を体系的に壊してきました。\nB: そして若い世代にも影響しています。多くの若い成人がオンラインで常に繋がっているにもかかわらず、深い孤独を感じていると報告しています。\nA: 解決策には、都市空間の再設計、コミュニティ制度の再構築、独立に関する文化的価値観の変革が必要です。\nB: そしてデジタルの次元への対処も必要です。受動的なソーシャルメディアの利用は孤独を和らげるどころか深めるようです。",
+    "5023": "A: AIモデルが最近、医療画像から特定のがんを診断することで専門医を上回る成績を出しました。\nB: 本当にエキサイティングです。AIはどんな人間も及ばない規模と一貫性でデータを処理できます。特にパターン認識において。\nA: それは医師の役割を脅かしますか？\nB: 代替というよりも変革だと思います。AIは意思決定支援ツールになり、医師がコミュニケーション、判断力、共感など人間的な側面に集中できるようにします。\nA: 倫理的な問題もあります。データのプライバシー、アルゴリズムの偏り、AIが誤りを犯した際の説明責任。\nB: 重要な問題です。技術は安全に管理するために必要な規制や倫理的な枠組みよりも速く進化しています。",
+    "5024": "A: 新薬がある希少疾患の治療成績を劇的に改善しましたが、1患者あたり300万ドルで値付けされています。正当化できますか？\nB: 製薬会社は膨大な研究開発コストを回収する必要があると主張しています。候補の中で市場に出るのはほんの一部です。\nA: しかし多くの基礎的な研究の突破口は、公的補助金を通じた納税者のお金で資金調達されています。\nB: 国民が初期研究でリスクを取ったのなら、価格設定に何らかの発言権を持つべきです。説得力ある反論です。\nA: 最小限の価格規制というアメリカモデルはイノベーションを促進しますが、公正性が非常に悪いです。他の国々は国家価格を交渉します。\nB: 中間の道があります。生命を救う治療法が大多数に届かないシステムを作ることなく、イノベーションを支援することです。",
+    "5025": "A: ユニバーサルヘルスケアをめぐる議論はこれまで以上に白熱しています。あなたのご意見は？\nB: 証拠はかなり明確です。ユニバーサルカバレッジを持つ国々は、一人当たりのコストを低く抑えながら全体的に優れた健康成果を持っています。\nA: 批評家は、公的医療システムは長い待ち時間があり患者の選択を制限すると主張しています。\nB: 待ち時間は十分な資金があれば管理できます。そして民間システムの「選択」は、その選択肢を払う余裕がなければほぼ幻想です。\nA: 政治的な実現可能性が最大の障壁のようです。医療業界の既得権益は強力です。\nB: ユニバーサルヘルスケアへの国民の支持は調査すると一貫して高いです。改革を阻んでいるのは世論ではなく、政治的な献金者やロビー活動であることが多いです。"
   }
 }
