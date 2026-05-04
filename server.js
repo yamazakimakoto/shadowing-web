@@ -133,6 +133,7 @@ app.get('/admin/api/licenses', requireAdmin, (req, res) => {
     .map(([kh, v]) => ({
       hash:            kh,
       hashShort:       kh.slice(0, 8),
+      key:             v.key || null,
       product:         v.product,
       maxActivations:  v.maxActivations || 3,
       activationsUsed: Object.keys(v.activations || {}).length,
@@ -170,6 +171,7 @@ app.post('/admin/api/generate', requireAdmin, (req, res) => {
     const key = genKey();
     const kh  = hashKey(key);
     db.licenses[kh] = {
+      key,
       product,
       maxActivations: maxA,
       createdAt:      new Date().toISOString(),
@@ -206,6 +208,7 @@ app.post('/admin/api/generate-bundle', requireAdmin, (req, res) => {
     const key = genKey();
     const kh  = hashKey(key);
     db.licenses[kh] = {
+      key,
       product,
       maxActivations: maxA,
       createdAt:      new Date().toISOString(),

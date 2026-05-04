@@ -152,6 +152,19 @@
     .pack-name { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
     .pack-count { font-size: 0.78rem; color: var(--text2); }
 
+    /* ─── KEY DISPLAY ─── */
+    .lic-key-row { display: flex; align-items: center; gap: 8px; margin: 6px 0 2px; }
+    .lic-key-value {
+      font-family: 'Courier New', monospace; font-size: 0.92rem; font-weight: 700;
+      color: var(--green); letter-spacing: 1px;
+    }
+    .lic-key-none { font-size: 0.78rem; color: var(--text2); font-family: monospace; }
+    .btn-copy-key {
+      background: none; border: none; cursor: pointer; font-size: 0.85rem;
+      padding: 2px 4px; border-radius: 4px; opacity: 0.7; line-height: 1;
+    }
+    .btn-copy-key:hover { opacity: 1; background: var(--bg3); }
+
     /* ─── MEMO EDIT ─── */
     .memo-row { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
     .memo-text { font-size: 0.82rem; color: var(--text2); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -612,12 +625,16 @@ function renderLicenses() {
         <button class="btn btn-danger btn-sm" onclick="revokeDevice('${l.hash}','${d.deviceIdShort}')">解除</button>
       </div>`).join('') : '<p style="font-size:0.78rem;color:var(--text2)">未使用</p>';
     const safeNote = (l.note || '').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+    const keyDisplay = l.key
+      ? `<span class="lic-key-value">${l.key}</span><button class="btn-copy-key" onclick="copyKey('${l.key}')" title="コピー">📋</button>`
+      : `<span class="lic-key-none" title="このキーは旧バージョンで発行されたため表示できません">${l.hashShort}… <small>（旧形式）</small></span>`;
     return `
       <div class="lic-item ${l.activationsUsed>0?'has-devices':''}" id="lic-${l.hash}">
         <div class="lic-top">
           <span class="lic-product">${pl.icon} ${pl.label}</span>
           <span class="lic-date">${formatDate(l.createdAt)}</span>
         </div>
+        <div class="lic-key-row">${keyDisplay}</div>
         <div class="memo-row" id="memo-view-${l.hash}">
           <span class="memo-text" id="memo-text-${l.hash}">${l.note || '<span style="opacity:0.45">メモなし</span>'}</span>
           <button class="btn-memo-edit" onclick="startMemoEdit('${l.hash}', '${safeNote}')">✏️ メモ編集</button>
