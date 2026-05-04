@@ -623,25 +623,32 @@ el.recordBtn.addEventListener('click', () => {
   if (state.isRecording) stopRecording(); else startRecording();
 });
 
-// ── デバッグオーバーレイ（画面下部に表示 / 診断後に削除予定）──
-function _recDbg(msg) {
-  console.log('[REC]', msg);
-  let box = document.getElementById('_rec_dbg');
-  if (!box) {
-    box = document.createElement('pre');
-    box.id = '_rec_dbg';
-    box.style.cssText = 'position:fixed;left:0;right:0;bottom:0;margin:0;padding:6px 8px;' +
-      'background:rgba(0,0,0,.85);color:#0f0;font-size:11px;z-index:9999;' +
-      'max-height:130px;overflow:auto;white-space:pre-wrap;pointer-events:none;';
-    document.body.appendChild(box);
+// iOS 判定（iPad Pro デスクトップモード含む）
+const _isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+// iOS 用: Float32Array PCM バッファ群 → WAV ArrayBuffer
+function _pcmToWAV(bufs, sr) {
+  const total = bufs.reduce((n, b) => n + b.length, 0);
+  const ab = new ArrayBuffer(44 + total * 2);
+  const dv = new DataView(ab);
+  const ws = (o, s) => { for (let i = 0; i < s.length; i++) dv.setUint8(o + i, s.charCodeAt(i)); };
+  ws(0,'RIFF'); dv.setUint32(4, 36 + total*2, true); ws(8,'WAVE');
+  ws(12,'fmt '); dv.setUint32(16,16,true); dv.setUint16(20,1,true); dv.setUint16(22,1,true);
+  dv.setUint32(24,sr,true); dv.setUint32(28,sr*2,true); dv.setUint16(32,2,true); dv.setUint16(34,16,true);
+  ws(36,'data'); dv.setUint32(40,total*2,true);
+  let off = 44;
+  for (const b of bufs) {
+    for (let i = 0; i < b.length; i++, off += 2) {
+      const s = Math.max(-1, Math.min(1, b[i]));
+      dv.setInt16(off, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+    }
   }
-  box.textContent += new Date().toISOString().slice(11,19) + ' ' + msg + '\n';
-  box.scrollTop = box.scrollHeight;
+  return ab;
 }
 
 // 録音完了後: 新しい <audio> 要素を生成して差し替え + 再生エリアを表示
 function _showRecordedAudio(blob) {
-  _recDbg('_showRecordedAudio type=' + blob.type + ' size=' + blob.size);
   const url   = URL.createObjectURL(blob);
   const fresh = document.createElement('audio');
   fresh.id       = 'recorded-audio';
@@ -651,21 +658,14 @@ function _showRecordedAudio(blob) {
   if (old && old.src && old.src.startsWith('blob:')) {
     try { URL.revokeObjectURL(old.src); } catch {}
   }
-  if (old && old.parentNode) { old.replaceWith(fresh); }
-  else { el.audioArea.appendChild(fresh); }
+  if (old && old.parentNode) { old.replaceWith(fresh); } else { el.audioArea.appendChild(fresh); }
   el.recordedAudio = fresh;
   el.audioArea.classList.remove('hidden');
-  _recDbg('audioArea hidden=' + el.audioArea.classList.contains('hidden'));
 }
 
 async function startRecording() {
   if (!state.currentText) return;
   stopSpeech();
-
-  if (typeof MediaRecorder === 'undefined') {
-    alert('このブラウザはマイク録音に対応していません。\nChrome（Android）または Safari（iOS 14.3 以降）をご利用ください。');
-    return;
-  }
 
   // マイク取得
   let stream;
@@ -684,86 +684,126 @@ async function startRecording() {
     return;
   }
 
-  // MediaRecorder 生成
-  let mr;
-  try { mr = new MediaRecorder(stream); }
-  catch (e) {
-    stream.getTracks().forEach(t => t.stop());
-    alert('録音の初期化に失敗しました。ブラウザを再読み込みして再試行してください。\n' + e.message);
-    return;
-  }
-  _recDbg('MediaRecorder created mimeType="' + mr.mimeType + '"');
-
-  const chunks = [];
-  let audioShown = false;
-
-  // データが揃ったら音声を表示（重複防止フラグ付き）
-  function tryShowAudio() {
-    if (audioShown) return;
-    if (!chunks.length) { _recDbg('tryShow: chunks empty'); return; }
-    audioShown = true;
-    let blobMime = mr.mimeType || 'audio/mp4';
-    if (blobMime === 'video/mp4') blobMime = 'audio/mp4';
-    _recDbg('tryShow: chunks=' + chunks.length + ' mime=' + blobMime);
-    _showRecordedAudio(new Blob(chunks, { type: blobMime }));
-  }
-
-  state.mediaRecorder  = mr;
-  state.audioChunks    = chunks;
   state.isRecording    = true;
   state.lastTranscript = '';
   state.lastScore      = null;
-
   el.recordBtn.classList.add('recording');
   el.recordLabel.textContent = '録音停止';
   el.recStatus.classList.remove('hidden');
   el.audioArea.classList.add('hidden');
   el.scoreArea.classList.add('hidden');
 
-  mr.addEventListener('dataavailable', e => {
-    _recDbg('dataavailable size=' + (e.data ? e.data.size : 'null'));
-    if (e.data && e.data.size > 0) {
-      chunks.push(e.data);
-      // iOS では stop より後に dataavailable が来る場合がある
-      if (mr.state === 'inactive') tryShowAudio();
+  // ═══════════════════════════════════════════════════
+  // iOS: MediaRecorder は dataavailable が常に size=0 になる根本バグがあるため
+  //      Web Audio API (AudioContext + ScriptProcessorNode) で PCM を収集し
+  //      WAV ファイルとして出力する
+  // ═══════════════════════════════════════════════════
+  if (_isIOS) {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      await ctx.resume().catch(() => {});
+      const source = ctx.createMediaStreamSource(stream);
+      const proc   = ctx.createScriptProcessor(4096, 1, 1);
+      const sink   = ctx.createGain();
+      sink.gain.value = 0; // 出力音量ゼロ（フィードバック防止）
+      const bufs = [];
+      proc.onaudioprocess = e => {
+        if (state.isRecording)
+          bufs.push(new Float32Array(e.inputBuffer.getChannelData(0)));
+      };
+      source.connect(proc);
+      proc.connect(sink);
+      sink.connect(ctx.destination);
+      state._iosStop = () => {
+        try { proc.disconnect(); source.disconnect(); sink.disconnect(); } catch {}
+        ctx.close().catch(() => {});
+        stream.getTracks().forEach(t => t.stop());
+        if (!bufs.length) return;
+        const wavBuf = _pcmToWAV(bufs, ctx.sampleRate);
+        _showRecordedAudio(new Blob([wavBuf], { type: 'audio/wav' }));
+      };
+    } catch (e) {
+      stream.getTracks().forEach(t => t.stop());
+      state.isRecording = false;
+      el.recordBtn.classList.remove('recording');
+      el.recordLabel.textContent = '録音開始';
+      el.recStatus.classList.add('hidden');
+      alert('iOS 録音エラー: ' + e.message);
     }
-  });
+    return; // iOS はここで終了（SpeechRecognition 非対応のため不要）
+  }
 
-  mr.addEventListener('stop', () => {
-    _recDbg('stop event chunks=' + chunks.length + ' mimeType="' + mr.mimeType + '"');
+  // ═══════════════════════════════════════════════════
+  // PC / Android: MediaRecorder を使用
+  // ═══════════════════════════════════════════════════
+  if (typeof MediaRecorder === 'undefined') {
     stream.getTracks().forEach(t => t.stop());
-    tryShowAudio();
-    // iOS: stop より後に dataavailable が来る場合の保険
-    setTimeout(tryShowAudio, 300);
-    setTimeout(tryShowAudio, 800);
-  });
-
-  mr.addEventListener('error', e => {
-    _recDbg('error: ' + (e.error || e));
-    stream.getTracks().forEach(t => t.stop());
-    state.mediaRecorder = null;
-    state.isRecording   = false;
+    state.isRecording = false;
     el.recordBtn.classList.remove('recording');
     el.recordLabel.textContent = '録音開始';
     el.recStatus.classList.add('hidden');
-  });
-
-  try {
-    mr.start(500); // 500ms タイムスライス: iOS でデータを確実に蓄積
-    _recDbg('mr.start(500) OK state=' + mr.state);
-  } catch (e) {
-    _recDbg('mr.start error: ' + e.message);
-    stream.getTracks().forEach(t => t.stop());
-    state.mediaRecorder = null;
-    state.isRecording   = false;
-    el.recordBtn.classList.remove('recording');
-    el.recordLabel.textContent = '録音開始';
-    el.recStatus.classList.add('hidden');
-    alert('録音の開始に失敗しました。\n' + e.message);
+    alert('このブラウザはマイク録音に対応していません。Chrome をご利用ください。');
     return;
   }
 
-  // SpeechRecognition（採点用 / iOS Safari は未対応のためスキップ）
+  let mr;
+  try { mr = new MediaRecorder(stream); }
+  catch (e) {
+    stream.getTracks().forEach(t => t.stop());
+    state.isRecording = false;
+    el.recordBtn.classList.remove('recording');
+    el.recordLabel.textContent = '録音開始';
+    el.recStatus.classList.add('hidden');
+    alert('録音の初期化に失敗しました: ' + e.message);
+    return;
+  }
+
+  const chunks = [];
+  let audioShown = false;
+  function tryShowAudio() {
+    if (audioShown || !chunks.length) return;
+    audioShown = true;
+    let mime = mr.mimeType || 'audio/webm';
+    if (mime === 'video/mp4') mime = 'audio/mp4';
+    _showRecordedAudio(new Blob(chunks, { type: mime }));
+  }
+
+  state.mediaRecorder = mr;
+  state.audioChunks   = chunks;
+
+  mr.addEventListener('dataavailable', e => {
+    if (e.data && e.data.size > 0) {
+      chunks.push(e.data);
+      if (mr.state === 'inactive') tryShowAudio();
+    }
+  });
+  mr.addEventListener('stop', () => {
+    stream.getTracks().forEach(t => t.stop());
+    tryShowAudio();
+    setTimeout(tryShowAudio, 400);
+  });
+  mr.addEventListener('error', () => {
+    stream.getTracks().forEach(t => t.stop());
+    state.mediaRecorder = null;
+    state.isRecording   = false;
+    el.recordBtn.classList.remove('recording');
+    el.recordLabel.textContent = '録音開始';
+    el.recStatus.classList.add('hidden');
+  });
+  try {
+    mr.start(500);
+  } catch (e) {
+    stream.getTracks().forEach(t => t.stop());
+    state.mediaRecorder = null;
+    state.isRecording   = false;
+    el.recordBtn.classList.remove('recording');
+    el.recordLabel.textContent = '録音開始';
+    el.recStatus.classList.add('hidden');
+    alert('録音開始エラー: ' + e.message);
+    return;
+  }
+
+  // SpeechRecognition（採点用 / PC・Android Chrome のみ）
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (SR) {
     try {
@@ -799,9 +839,20 @@ function stopRecording() {
     state.recognition = null;
   }
 
+  // iOS path
+  if (state._iosStop) {
+    const fn = state._iosStop;
+    state._iosStop = null;
+    fn();
+    const score = calcScore(state.currentText, state.lastTranscript);
+    state.lastScore = score;
+    if (score !== null) showScore(score);
+    return;
+  }
+
+  // MediaRecorder path
   const mr = state.mediaRecorder;
   state.mediaRecorder = null;
-  _recDbg('stopRecording mr.state=' + (mr ? mr.state : 'null'));
   if (mr && mr.state !== 'inactive') {
     try { mr.stop(); } catch {}
   }
