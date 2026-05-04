@@ -642,10 +642,10 @@ function _pickMimeType() {
 function _resetAudioElement() {
   const prev = el.recordedAudio.src;
   if (prev && prev.startsWith('blob:')) {
-    try { URL.revokeObjectURL(prev); } catch { /* ignore */ }
+    try { URL.revokeObjectURL(prev); } catch {}
   }
-  el.recordedAudio.removeAttribute('src');
-  el.recordedAudio.load(); // iOS でキャッシュをクリア
+  // load() は iOS の audio 要素を壊すことがあるため呼ばない
+  el.recordedAudio.src = '';
 }
 
 // UI を録音前の状態に戻す
@@ -745,7 +745,7 @@ async function startRecording() {
   state.audioChunks   = chunks;
 
   try {
-    mr.start(1000); // 1秒タイムスライス（モバイルで安定）
+    mr.start(); // タイムスライスなし: stop() 時に dataavailable が確実に1回発火（iOS で最も安定）
   } catch (e) {
     stream.getTracks().forEach(t => t.stop());
     alert('録音の開始に失敗しました。\n' + e.message);
@@ -796,10 +796,8 @@ function stopRecording() {
   const mr = state.mediaRecorder;
   state.mediaRecorder = null;
   if (mr && mr.state !== 'inactive') {
-    try {
-      mr.requestData(); // iOS で最後のチャンクを確実にフラッシュ
-      mr.stop();
-    } catch { /* ignore */ }
+    try { mr.requestData(); } catch {} // iOS で未サポートでも次の stop() は必ず実行
+    try { mr.stop(); } catch {}        // ★ 別 try に分離: requestData 失敗でも stop() を呼ぶ
   }
   const score = calcScore(state.currentText, state.lastTranscript);
   state.lastScore = score;
