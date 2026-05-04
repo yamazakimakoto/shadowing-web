@@ -557,9 +557,17 @@ function copyDelivery(keys, note) {
     ``,
     ...Object.entries(keys).map(([p, k]) => `■ ${productLabel(p).label}: ${k}`),
     ``,
-    `■ 使い方: https://shadowing-web.onrender.com`,
-    `■ サポート: お気軽にご連絡ください`,
-    note ? `\n注文番号: ${note}` : ''
+    `■ アクセス: https://shadowing-web.onrender.com`,
+    ``,
+    `■ 手順`,
+    `  1. 上記URLにアクセス`,
+    `  2. 本体キーで認証 → アプリ起動`,
+    `  3.「📦 セット」タブ →「🔑 パックキーでアンロック」から`,
+    `     パックキーを順番に入力`,
+    ``,
+    `■ 最大3台まで認証できます（機種変更時はご連絡ください）`,
+    `■ お問い合わせ: info-yamazaki@j05.itscom.net`,
+    note ? `■ 注文番号: ${note}` : ''
   ];
   navigator.clipboard.writeText(lines.join('\n')).then(() => alert('配信テキストをコピーしました'));
 }

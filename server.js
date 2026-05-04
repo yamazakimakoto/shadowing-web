@@ -56,7 +56,7 @@ function saveDB(db) {
 function hashKey(key) {
   return crypto.createHash('sha256').update(key.trim().toUpperCase()).digest('hex');
 }
-function signToken(payload, expiresIn = '90d') {
+function signToken(payload, expiresIn = '365d') {
   return jwt.sign(payload, JWT_SECRET, { expiresIn });
 }
 function verifyJwt(token) {
