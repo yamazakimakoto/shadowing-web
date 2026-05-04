@@ -623,22 +623,8 @@ el.recordBtn.addEventListener('click', () => {
   if (state.isRecording) stopRecording(); else startRecording();
 });
 
-// iOS/Android/PC 対応 MIME タイプ選択
-function _pickMimeType() {
-  if (typeof MediaRecorder === 'undefined') return '';
-  const candidates = [
-    'audio/webm;codecs=opus',
-    'audio/webm',
-    'audio/ogg;codecs=opus',
-    'audio/mp4',
-    'video/mp4',  // iOS Safari は audio/mp4 非対応の場合にデフォルトで video/mp4 を使う
-  ];
-  for (const t of candidates) { if (MediaRecorder.isTypeSupported(t)) return t; }
-  return '';
-}
-
 // 録音完了後: 新しい <audio> 要素を生成して差し替え + 再生エリアを表示
-// iOS Safari では既存 <audio> の src を書き換えると再生バーが消えるため毎回 createElement する
+// iOS Safari では既存 <audio> の src 再利用で再生バーが消えるため毎回 createElement する
 function _showRecordedAudio(blob) {
   const url   = URL.createObjectURL(blob);
   const fresh = document.createElement('audio');
@@ -663,40 +649,30 @@ async function startRecording() {
     return;
   }
 
-  // マイク取得（constraints 非対応ブラウザへのフォールバックあり）
+  // マイク取得
   let stream;
   try {
-    stream = await navigator.mediaDevices.getUserMedia({
-      audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
-    });
-  } catch (e1) {
-    try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
-    catch (e2) {
-      const n = e2.name;
-      if      (n === 'NotAllowedError'  || n === 'PermissionDeniedError')
-        alert('マイクへのアクセスを許可してください。\nブラウザのアドレスバー左のアイコンから権限を「許可」にしてください。');
-      else if (n === 'NotFoundError'    || n === 'DevicesNotFoundError')
-        alert('マイクが見つかりません。マイクを接続してから再試行してください。');
-      else if (n === 'NotReadableError' || n === 'TrackStartError')
-        alert('マイクが他のアプリで使用中です。他のアプリを閉じてから再試行してください。');
-      else
-        alert('マイクエラー: ' + e2.message);
-      return;
-    }
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  } catch (err) {
+    const n = err.name;
+    if      (n === 'NotAllowedError'  || n === 'PermissionDeniedError')
+      alert('マイクへのアクセスを許可してください。\nブラウザのアドレスバー左のアイコンから権限を「許可」にしてください。');
+    else if (n === 'NotFoundError'    || n === 'DevicesNotFoundError')
+      alert('マイクが見つかりません。マイクを接続してから再試行してください。');
+    else if (n === 'NotReadableError' || n === 'TrackStartError')
+      alert('マイクが他のアプリで使用中です。他のアプリを閉じてから再試行してください。');
+    else
+      alert('マイクエラー: ' + err.message);
+    return;
   }
 
-  // MediaRecorder 生成
-  const mimeType = _pickMimeType();
+  // MediaRecorder 生成（MIME タイプは自動選択、iOS は video/mp4 or audio/mp4）
   let mr;
-  try {
-    mr = mimeType ? new MediaRecorder(stream, { mimeType }) : new MediaRecorder(stream);
-  } catch {
-    try { mr = new MediaRecorder(stream); }
-    catch (e) {
-      stream.getTracks().forEach(t => t.stop());
-      alert('録音の初期化に失敗しました。ブラウザを再読み込みして再試行してください。\n' + e.message);
-      return;
-    }
+  try { mr = new MediaRecorder(stream); }
+  catch (e) {
+    stream.getTracks().forEach(t => t.stop());
+    alert('録音の初期化に失敗しました。ブラウザを再読み込みして再試行してください。\n' + e.message);
+    return;
   }
 
   const chunks = [];
@@ -712,39 +688,20 @@ async function startRecording() {
   el.audioArea.classList.add('hidden');
   el.scoreArea.classList.add('hidden');
 
-  // iOS Safari では stop イベントが dataavailable より先に来るバグがある。
-  // 両イベントのどちらが先でも正しく動くよう finalize フラグで制御する。
-  let stopFired    = false;
-  let finalized    = false;
-
-  function finalizeAudio() {
-    if (finalized || !chunks.length) return;
-    finalized = true;
-    // iOS Safari は video/mp4 で録音するが <audio> 要素では再生できないので audio/mp4 にリマップ
-    let blobMime = (mr.mimeType && mr.mimeType !== '') ? mr.mimeType : (mimeType || 'audio/mp4');
-    if (blobMime === 'video/mp4' || blobMime === 'video/webm') {
-      blobMime = blobMime.includes('webm') ? 'audio/webm' : 'audio/mp4';
-    }
-    _showRecordedAudio(new Blob(chunks, { type: blobMime }));
-  }
-
   mr.addEventListener('dataavailable', e => {
-    if (e.data && e.data.size > 0) {
-      chunks.push(e.data);
-      if (stopFired) finalizeAudio(); // iOS バグ: stop の後に dataavailable が来た場合
-    }
+    if (e.data && e.data.size > 0) chunks.push(e.data);
   });
 
   mr.addEventListener('stop', () => {
     stream.getTracks().forEach(t => t.stop());
-    stopFired = true;
-    finalizeAudio(); // 通常ルート: dataavailable の後に stop が来た場合
-    // iOS バグ対策: dataavailable がまだ来ていない場合のタイムアウト
-    setTimeout(() => finalizeAudio(), 800);
+    if (!chunks.length) return;
+    // iOS Safari は video/mp4 で録音するが <audio> 再生には audio/mp4 が必要
+    let blobMime = mr.mimeType || 'audio/mp4';
+    if (blobMime === 'video/mp4') blobMime = 'audio/mp4';
+    _showRecordedAudio(new Blob(chunks, { type: blobMime }));
   });
 
-  mr.addEventListener('error', e => {
-    console.error('MediaRecorder error:', e);
+  mr.addEventListener('error', () => {
     stream.getTracks().forEach(t => t.stop());
     state.mediaRecorder = null;
     state.isRecording   = false;
@@ -754,7 +711,8 @@ async function startRecording() {
   });
 
   try {
-    mr.start(); // タイムスライスなし: stop() 呼び出し時に dataavailable が1回まとめて発火
+    // 1秒タイムスライス: iOS/PC/Android 全対応。stop() を呼ぶ前に必ずデータが蓄積される
+    mr.start(1000);
   } catch (e) {
     stream.getTracks().forEach(t => t.stop());
     state.mediaRecorder = null;
@@ -779,7 +737,6 @@ async function startRecording() {
         for (let i = e.resultIndex; i < e.results.length; i++)
           if (e.results[i].isFinal) state.lastTranscript += ' ' + e.results[i][0].transcript;
       });
-      // モバイル Chrome は無音・ネット不調で自動停止 → 録音中なら再起動
       rec.addEventListener('end', () => {
         if (state.isRecording && state.recognition === rec) try { rec.start(); } catch {}
       });
@@ -806,7 +763,6 @@ function stopRecording() {
   const mr = state.mediaRecorder;
   state.mediaRecorder = null;
   if (mr && mr.state !== 'inactive') {
-    try { mr.requestData(); } catch {} // iOS: stop() 前にデータをフラッシュ（非対応ブラウザは無視）
     try { mr.stop(); } catch {}
   }
 
