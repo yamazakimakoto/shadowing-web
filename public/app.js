@@ -626,7 +626,13 @@ el.recordBtn.addEventListener('click', () => {
 // iOS/Android/PC 対応 MIME タイプ選択
 function _pickMimeType() {
   if (typeof MediaRecorder === 'undefined') return '';
-  const candidates = ['audio/webm;codecs=opus', 'audio/webm', 'audio/ogg;codecs=opus', 'audio/mp4'];
+  const candidates = [
+    'audio/webm;codecs=opus',
+    'audio/webm',
+    'audio/ogg;codecs=opus',
+    'audio/mp4',
+    'video/mp4',  // iOS Safari は audio/mp4 非対応の場合にデフォルトで video/mp4 を使う
+  ];
   for (const t of candidates) { if (MediaRecorder.isTypeSupported(t)) return t; }
   return '';
 }
@@ -713,8 +719,12 @@ async function startRecording() {
   mr.addEventListener('stop', () => {
     stream.getTracks().forEach(t => t.stop());
     if (!chunks.length) return;
-    // mr.mimeType が空の場合は要求 mimeType → iOS フォールバックの audio/mp4 の順で決定
-    const blobMime = (mr.mimeType && mr.mimeType !== '') ? mr.mimeType : (mimeType || 'audio/mp4');
+    // 実際に使われた MIME タイプを取得（空の場合は要求値 → MP4 フォールバックの順）
+    let blobMime = (mr.mimeType && mr.mimeType !== '') ? mr.mimeType : (mimeType || 'audio/mp4');
+    // iOS Safari は video/mp4 で録音するが <audio> 要素では再生できないため audio/mp4 にリマップ
+    if (blobMime === 'video/mp4' || blobMime === 'video/webm') {
+      blobMime = blobMime.includes('webm') ? 'audio/webm' : 'audio/mp4';
+    }
     const blob = new Blob(chunks, { type: blobMime });
     _showRecordedAudio(blob);
   });
