@@ -276,6 +276,34 @@ app.delete('/admin/api/license', requireAdmin, (req, res) => {
   res.json({ ok: true });
 });
 
+// GET /admin/api/backup — licenses.json をダウンロード
+app.get('/admin/api/backup', requireAdmin, (req, res) => {
+  const db   = loadDB();
+  const date = new Date().toISOString().slice(0, 10);
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Content-Disposition', `attachment; filename="licenses-backup-${date}.json"`);
+  res.send(JSON.stringify(db, null, 2));
+});
+
+// POST /admin/api/restore — バックアップから復元（マージ）
+app.post('/admin/api/restore', requireAdmin, (req, res) => {
+  const body = req.body || {};
+  const src  = body.licenses;
+  if (!src || typeof src !== 'object') {
+    return res.status(400).json({ error: 'バックアップデータの形式が正しくありません' });
+  }
+  const db     = loadDB();
+  const before = Object.keys(db.licenses).length;
+  let added = 0, skipped = 0;
+  for (const [hash, lic] of Object.entries(src)) {
+    if (!db.licenses[hash]) { db.licenses[hash] = lic; added++; }
+    else skipped++;
+  }
+  saveDB(db);
+  const after = Object.keys(db.licenses).length;
+  res.json({ ok: true, before, added, skipped, after });
+});
+
 // GET /admin/api/packs — 利用可能パック一覧
 app.get('/admin/api/packs', requireAdmin, (req, res) => {
   try {

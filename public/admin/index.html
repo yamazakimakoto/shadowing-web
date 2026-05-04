@@ -219,6 +219,7 @@
     <button class="nav-btn" data-tab="generate">🔑 キー発行</button>
     <button class="nav-btn" data-tab="licenses">📋 ライセンス一覧</button>
     <button class="nav-btn" data-tab="packs">📦 パック管理</button>
+    <button class="nav-btn" data-tab="backup">💾 バックアップ</button>
   </nav>
   <main>
 
@@ -349,6 +350,52 @@
       </div>
     </div>
 
+    <!-- ===== BACKUP ===== -->
+    <div id="tab-backup" class="tab-content">
+
+      <!-- バックアップ -->
+      <div class="card">
+        <div class="card-title">💾 ライセンスデータのバックアップ</div>
+        <p style="font-size:0.85rem;color:var(--text2);margin-bottom:16px;line-height:1.7;">
+          サーバー再デプロイでデータが消えた場合に備え、<strong style="color:var(--yellow)">定期的にバックアップを保存してください。</strong><br>
+          ダウンロードした JSON ファイルはリストア時に使用します。
+        </p>
+        <button class="btn btn-primary" onclick="downloadBackup()">📥 licenses.json をダウンロード</button>
+        <div id="backup-msg" class="hidden" style="margin-top:12px;"></div>
+      </div>
+
+      <!-- リストア -->
+      <div class="card">
+        <div class="card-title">🔄 ライセンスデータのリストア</div>
+        <p style="font-size:0.85rem;color:var(--text2);margin-bottom:16px;line-height:1.7;">
+          バックアップした JSON ファイルを選択してリストアします。<br>
+          <strong style="color:var(--text)">既存データを保持しつつ、バックアップ内の欠損分のみを追加します（マージ方式）。</strong>
+        </p>
+        <div class="form-row">
+          <label class="form-label">バックアップファイル（licenses-backup-*.json）</label>
+          <input type="file" id="restore-file" accept=".json" class="form-input" style="padding:8px;">
+        </div>
+        <button class="btn btn-warning" onclick="restoreBackup()">🔄 リストア実行</button>
+        <div id="restore-msg" class="hidden" style="margin-top:12px;"></div>
+      </div>
+
+      <!-- Render.com ディスク確認 -->
+      <div class="card">
+        <div class="card-title">⚠️ データ消失の原因と恒久対策</div>
+        <div style="font-size:0.85rem;line-height:1.8;color:var(--text2);">
+          <p style="color:var(--yellow);font-weight:700;margin-bottom:8px;">ライセンスが消える主な原因：Render.com の永続ディスクが未接続</p>
+          <p>1. <a href="https://dashboard.render.com" target="_blank" style="color:var(--accent)">dashboard.render.com</a> にアクセス</p>
+          <p>2. <strong style="color:var(--text)">shadowing-web</strong> サービスを開く</p>
+          <p>3. 左メニュー <strong style="color:var(--text)">Disks</strong> タブを確認</p>
+          <p>4. <code>shadowing-data</code> というディスクが <strong style="color:var(--green)">マウント済み（/data）</strong> になっているか確認</p>
+          <p>5. ディスクがない場合 → <strong style="color:var(--text)">Add Disk</strong> ボタンから作成（Name: shadowing-data / Mount Path: /data / Size: 1GB）</p>
+          <br>
+          <p style="color:var(--text2);">ディスクが正しく接続されていれば、再デプロイ後もデータは保持されます。</p>
+        </div>
+      </div>
+
+    </div>
+
   </main>
 </div>
 
@@ -419,6 +466,7 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
     if (tab === 'licenses') loadLicenses();
     if (tab === 'dashboard') loadDashboard();
     if (tab === 'packs') loadPacks();
+    if (tab === 'backup') { /* static content */ }
   });
 });
 
@@ -741,6 +789,59 @@ async function loadPacks() {
       </div>`).join('') || '<p class="empty-state">パックがありません</p>';
   } catch (e) {
     loading.textContent = 'エラー: ' + e.message;
+  }
+}
+
+// ─── BACKUP / RESTORE ───
+async function downloadBackup() {
+  const msgEl = document.getElementById('backup-msg');
+  try {
+    const res = await fetch('/admin/api/backup', {
+      headers: { 'Authorization': `Bearer ${adminToken}` }
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const blob = await res.blob();
+    const date = new Date().toISOString().slice(0, 10);
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = `licenses-backup-${date}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    msgEl.className = 'msg-box msg-success';
+    msgEl.textContent = '✓ ダウンロードしました。安全な場所に保管してください。';
+    msgEl.classList.remove('hidden');
+  } catch (e) {
+    msgEl.className = 'msg-box msg-error';
+    msgEl.textContent = 'エラー: ' + e.message;
+    msgEl.classList.remove('hidden');
+  }
+}
+
+async function restoreBackup() {
+  const fileInput = document.getElementById('restore-file');
+  const msgEl     = document.getElementById('restore-msg');
+  const file      = fileInput.files[0];
+  if (!file) { alert('ファイルを選択してください'); return; }
+  if (!confirm(`「${file.name}」からリストアします。\n既存データは保持され、バックアップ内の不足分が追加されます。\n実行しますか？`)) return;
+  try {
+    const text   = await file.text();
+    const backup = JSON.parse(text);
+    if (!backup.licenses || typeof backup.licenses !== 'object') {
+      throw new Error('このファイルはライセンスバックアップではありません');
+    }
+    const data = await api('POST', '/admin/api/restore', { licenses: backup.licenses });
+    msgEl.className = 'msg-box msg-success';
+    msgEl.innerHTML = `✓ リストア完了<br>
+      追加: <strong>${data.added}</strong> 件 ／
+      スキップ（既存）: <strong>${data.skipped}</strong> 件 ／
+      合計: <strong>${data.after}</strong> 件`;
+    msgEl.classList.remove('hidden');
+    fileInput.value = '';
+  } catch (e) {
+    msgEl.className = 'msg-box msg-error';
+    msgEl.textContent = 'エラー: ' + e.message;
+    msgEl.classList.remove('hidden');
   }
 }
 
