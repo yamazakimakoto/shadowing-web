@@ -143,25 +143,134 @@
     "5002": [
       { "phrase": "unsustainable", "reading": "アンサステイナブル", "meaning": "持続不可能な", "note": "経済・環境議論の頻出語。" }
     ],
+    "5003": [
+      { "phrase": "promotion criteria", "reading": "", "meaning": "昇進基準", "note": "transparent（透明な）と組み合わせて使われることが多い。" },
+      { "phrase": "recruitment shortlists", "reading": "", "meaning": "採用候補者の最終リスト", "note": "shortlist = 最終候補に絞られたリスト。" },
+      { "phrase": "silver lining", "reading": "シルバーライニング", "meaning": "不幸中の幸い・明るい側面", "note": "\"Every cloud has a silver lining\"（どんな雲にも銀の縁がある）という慣用句から。" },
+      { "phrase": "primary caregivers", "reading": "", "meaning": "主たる介護・育児担当者", "note": "主に育児・介護を担う人（多くは女性）を指す表現。" }
+    ],
+    "5005": [
+      { "phrase": "compelling evidence", "reading": "", "meaning": "説得力のある証拠", "note": "compelling = 強く納得させる力がある。議論・政策提言でよく使う。" },
+      { "phrase": "counterintuitive", "reading": "カウンターインテュイティブ", "meaning": "直感に反する", "note": "常識とは逆の結果を説明するときの定番語。" },
+      { "phrase": "burnout and absenteeism", "reading": "", "meaning": "燃え尽き症候群と欠勤", "note": "absenteeism = 常習的な欠勤。職場の生産性議論で頻出。" },
+      { "phrase": "knowledge workers", "reading": "ノレッジワーカー", "meaning": "知識労働者", "note": "主にデスクワーク・頭脳労働に従事する人々を指す。" }
+    ],
     "5004": [
       { "phrase": "moral imperative", "reading": "", "meaning": "道徳的義務・責務", "note": "強い倫理的主張をするときの表現。" },
       { "phrase": "lost productivity", "reading": "", "meaning": "失われた生産性", "note": "" }
+    ],
+    "5006": [
+      { "phrase": "perfect storm", "reading": "パーフェクトストーム", "meaning": "最悪の条件が重なった状況", "note": "複数の悪条件が同時に起きて最悪の結果をもたらすことの比喩。" },
+      { "phrase": "zoning restrictions", "reading": "ゾーニング", "meaning": "用途地域規制", "note": "土地利用・建築を制限する都市計画上のルール。" },
+      { "phrase": "vacancy taxes", "reading": "", "meaning": "空き家（空き物件）課税", "note": "住宅を空き家のまま所有することへの課税。投機的保有の抑制が目的。" },
+      { "phrase": "political will", "reading": "", "meaning": "政治的意志・決断力", "note": "政策を実行する意思があるかどうかを問う表現として頻出。" },
+      { "phrase": "neighborhood resistance", "reading": "", "meaning": "地域住民の反対（NIMBY）", "note": "自分の近所への開発を嫌がる住民感情。\"Not In My Back Yard\" 問題とも言う。" }
     ],
     "5007": [
       { "phrase": "echo chambers", "reading": "エコーチェンバー", "meaning": "同質的な意見しか入ってこない環境", "note": "フィルターバブルとともに重要なメディアリテラシー用語。" },
       { "phrase": "outrage drives engagement", "reading": "", "meaning": "怒りがエンゲージメントを生む", "note": "SNSのアルゴリズム問題を説明する表現。" }
     ],
+    "5008": [
+      { "phrase": "transformative", "reading": "トランスフォーマティブ", "meaning": "変革をもたらすような・人生を変えるような", "note": "単なる良い経験以上の、根本的な変化を意味する強調語。" },
+      { "phrase": "language immersion", "reading": "ランゲージイマージョン", "meaning": "語学イマージョン（目標言語に完全に浸かること）", "note": "immerse = 浸す。教室学習と対比して使われる。" },
+      { "phrase": "see the world through a different lens", "reading": "", "meaning": "異なる視点から世界を見る", "note": "lens（レンズ）は「視点・見方」の比喩としてよく使われる。" },
+      { "phrase": "no substitute for ~", "reading": "", "meaning": "〜に勝るものはない・〜の代わりになるものはない", "note": "There's no substitute for 〜 = 〜の代替はないという強調表現。" }
+    ],
+    "5009": [
+      { "phrase": "cautiously optimistic", "reading": "", "meaning": "慎重に楽観的な・一定の期待を持ちながらも慎重な", "note": "楽観的だが手放しではないというバランスを示す頻出表現。" },
+      { "phrase": "loss and damage fund", "reading": "", "meaning": "損失と損害基金", "note": "気候変動による被害を受けた途上国への補償・支援のための国際基金。COP27で合意。" },
+      { "phrase": "fossil fuels", "reading": "フォッシルフューエル", "meaning": "化石燃料", "note": "石炭・石油・天然ガスの総称。気候変動議論の中心概念。" },
+      { "phrase": "window for action is closing", "reading": "", "meaning": "行動できる時間的余裕がなくなりつつある", "note": "window（窓）が閉まりかけているという比喩で、期限が迫っている緊迫感を表す。" }
+    ],
+    "5010": [
+      { "phrase": "displaced people", "reading": "", "meaning": "故郷を追われた人々・強制移住者", "note": "難民（refugees）より広い概念で、国内避難民（IDPs）も含む。" },
+      { "phrase": "burden-sharing", "reading": "バーデンシェアリング", "meaning": "負担分担", "note": "難民受け入れや費用を各国で分かち合う仕組みを指す。" },
+      { "phrase": "disproportionate share", "reading": "", "meaning": "不均衡に大きな負担・割合以上の負担", "note": "disproportionate = 比例していない・不釣り合いな。" },
+      { "phrase": "successful integration", "reading": "", "meaning": "社会への統合（成功）", "note": "難民・移民が受け入れ社会に定着・参加することを指す政策用語。" }
+    ],
+    "5011": [
+      { "phrase": "arms reduction talks", "reading": "", "meaning": "軍縮交渉", "note": "核兵器を含む軍備削減に関する外交交渉。" },
+      { "phrase": "Non-Proliferation Treaty", "reading": "ノン・プロリフェレーション・トリーティ", "meaning": "核不拡散条約（NPT）", "note": "核保有国の増加を防ぐための国際条約。略称NPT。" },
+      { "phrase": "hypersonic missiles", "reading": "ハイパーソニック", "meaning": "極超音速ミサイル", "note": "音速の5倍以上で飛行するミサイル。既存の迎撃システムで対応困難。" },
+      { "phrase": "risk of miscalculation", "reading": "", "meaning": "誤算のリスク・誤判断による衝突の危険", "note": "意図せぬ戦争勃発のシナリオを指す安全保障用語。" }
+    ],
+    "5012": [
+      { "phrase": "tied aid", "reading": "タイドエイド", "meaning": "紐付き援助", "note": "援助国の商品購入や条件を受け入れることを義務付ける援助形態。" },
+      { "phrase": "building local capacity", "reading": "", "meaning": "現地の能力構築", "note": "外部からの解決策ではなく、現地自らが問題解決できる力を育てること。" },
+      { "phrase": "donor's strategic interests", "reading": "", "meaning": "供与国の戦略的利益", "note": "援助が人道目的ではなく供与国の政治・外交目的に使われる批判を表す。" },
+      { "phrase": "fragile supply chains", "reading": "", "meaning": "脆弱なサプライチェーン", "note": "パンデミックで明らかになった、必須物資の供給網の弱さを指す。" }
+    ],
     "5013": [
       { "phrase": "trade blocs", "reading": "トレードブロック", "meaning": "貿易ブロック（経済圏）", "note": "EU、RCEP などが例。" },
       { "phrase": "bilateral trade", "reading": "", "meaning": "二国間貿易", "note": "" }
+    ],
+    "5014": [
+      { "phrase": "soft power", "reading": "ソフトパワー", "meaning": "ソフトパワー（文化・価値観による影響力）", "note": "軍事力・経済力（ハードパワー）と対比される概念。政治学者ジョセフ・ナイが提唱。" },
+      { "phrase": "cultural diplomacy", "reading": "カルチャーダイプロマシー", "meaning": "文化外交", "note": "文化・芸術・スポーツなどを通じた国際関係の構築。" },
+      { "phrase": "people-to-people connections", "reading": "", "meaning": "人と人との繋がり・民間交流", "note": "政府間ではなく市民レベルでの国際的な繋がりを指す。" },
+      { "phrase": "ripple effects", "reading": "リップルエフェクト", "meaning": "波及効果", "note": "ripple = 波紋。ある事象が周囲に広がる影響を指す比喩。" }
+    ],
+    "5015": [
+      { "phrase": "labor shortages", "reading": "", "meaning": "労働力不足", "note": "移民受け入れの経済的根拠として頻繁に挙げられる。" },
+      { "phrase": "social cohesion", "reading": "ソーシャルコーヒージョン", "meaning": "社会的結束・社会的まとまり", "note": "多様な人々が共存できる社会の安定性を指す概念。" },
+      { "phrase": "strain local services", "reading": "", "meaning": "地域のサービスに過大な負担をかける", "note": "住宅・医療・学校などへの圧迫を指す。" },
+      { "phrase": "extreme voices fill the space", "reading": "", "meaning": "過激な意見が議論の場を占める", "note": "主流派が課題を避けると、極端な立場が台頭するという政治的現象を指す。" }
+    ],
+    "5016": [
+      { "phrase": "diplomatic boycott", "reading": "ダイプロマティックボイコット", "meaning": "外交的ボイコット", "note": "競技には選手を送るが政府要人は出席しない形式の抗議手段。" },
+      { "phrase": "engagement vs. isolation", "reading": "", "meaning": "関与か孤立化か", "note": "人権問題を持つ国への対応として、対話を続けるか孤立させるかという外交上の選択肢。" },
+      { "phrase": "tacit endorsement", "reading": "", "meaning": "暗黙の支持・黙認", "note": "明示的には支持していないが、行動によって支持していると受け取られること。" },
+      { "phrase": "geopolitical disputes", "reading": "ジオポリティカル", "meaning": "地政学的な争い・国際政治的対立", "note": "地理・国際政治が絡む国家間の問題を指す。" }
+    ],
+    "5017": [
+      { "phrase": "food insecurity", "reading": "フードインセキュリティ", "meaning": "食料不安定・食料不足の状態", "note": "十分な食料へのアクセスが保障されない状態。food security（食料安全保障）の反対概念。" },
+      { "phrase": "climate-resilient agriculture", "reading": "", "meaning": "気候変動に強い農業", "note": "異常気象に対応できるよう設計された農業技術・手法。" },
+      { "phrase": "smallholder farmers", "reading": "", "meaning": "小規模農家", "note": "途上国の農業生産の大部分を担う零細農家。支援政策の重要対象。" },
+      { "phrase": "consecutive years", "reading": "", "meaning": "連続した年・連年", "note": "consecutive = 連続する。\"for consecutive years\" = 連続して何年も。" }
+    ],
+    "5018": [
+      { "phrase": "vaccine nationalism", "reading": "ワクチンナショナリズム", "meaning": "ワクチン囲い込み・自国優先のワクチン確保", "note": "富裕国が途上国より先に大量のワクチンを確保した問題。COVID-19で顕在化。" },
+      { "phrase": "COVAX", "reading": "コバックス", "meaning": "コバックス（ワクチンの公平配分を目指す国際枠組み）", "note": "WHO・GAVIなどが主導するワクチンの公平なアクセスを目指す国際的な取り組み。" },
+      { "phrase": "early warning systems", "reading": "", "meaning": "早期警告システム", "note": "感染症の流行をいち早く検知・通知するための監視体制。" },
+      { "phrase": "reactive surge", "reading": "", "meaning": "事後的な対応の急増", "note": "危機が起きてから初めて資源を大量投入する場当たり的な対応を指す。" }
     ],
     "5019": [
       { "phrase": "stem cells", "reading": "ステムセル", "meaning": "幹細胞", "note": "再生医療の基本用語。" },
       { "phrase": "staggering potential", "reading": "", "meaning": "驚異的な可能性", "note": "" }
     ],
+    "5020": [
+      { "phrase": "mRNA platform", "reading": "エムアールエヌエー", "meaning": "mRNA（メッセンジャーRNA）技術基盤", "note": "遺伝情報を使って体内でタンパク質を作らせる新しいワクチン技術。" },
+      { "phrase": "emergency authorization", "reading": "エマージェンシーオーソライゼーション", "meaning": "緊急承認", "note": "通常より短い審査期間で医薬品・ワクチンを承認する制度。" },
+      { "phrase": "speed and rigor", "reading": "", "meaning": "速度と厳密さ", "note": "これらが必ずしもトレードオフではないという文脈で使われた表現。rigor = 厳格さ。" },
+      { "phrase": "personalized cancer vaccines", "reading": "", "meaning": "個別化がんワクチン", "note": "患者ごとの腫瘍の遺伝子変異に合わせて設計されるワクチン。mRNAの次世代応用。" }
+    ],
+    "5021": [
+      { "phrase": "epidemic proportions", "reading": "エピデミック", "meaning": "流行病並みの規模・蔓延した状態", "note": "\"reach epidemic proportions\" = 深刻な社会問題となるほど広がること。" },
+      { "phrase": "coping strategies", "reading": "", "meaning": "対処戦略・ストレス対処法", "note": "個人レベルのストレス管理手法（瞑想・休暇など）を指す。構造的解決策と対比される。" },
+      { "phrase": "workload management", "reading": "", "meaning": "業務量の管理・コントロール", "note": "燃え尽き防止の組織的対策として重要な概念。" },
+      { "phrase": "lower turnover", "reading": "ターンオーバー", "meaning": "離職率の低下", "note": "turnover（離職率）が低いことは組織の健全さの指標。" }
+    ],
+    "5022": [
+      { "phrase": "Blue Zone regions", "reading": "ブルーゾーン", "meaning": "ブルーゾーン（長寿者が集中する地域）", "note": "人口学者が特定した長寿者が多い地域。沖縄・サルデーニャ島などが有名。" },
+      { "phrase": "centenarians", "reading": "センテナリアン", "meaning": "百歳以上の長寿者", "note": "century（100）から派生した語。長寿研究の対象として注目される。" },
+      { "phrase": "passive social media consumption", "reading": "", "meaning": "受動的なSNS消費（ただ眺めるだけの使い方）", "note": "投稿・交流せず閲覧するだけの使い方は、孤独感を深める可能性があるとされる。" },
+      { "phrase": "community institutions", "reading": "", "meaning": "地域コミュニティの制度・組織", "note": "教会・地域クラブ・互助組織など、伝統的な社会的繋がりの場を指す。" }
+    ],
+    "5023": [
+      { "phrase": "outperformed specialist doctors", "reading": "", "meaning": "専門医を上回る成績を出した", "note": "outperform = 〜よりも優れた結果を出す。AIの能力を示す文脈で頻出。" },
+      { "phrase": "decision-support tool", "reading": "", "meaning": "意思決定支援ツール", "note": "AIが医師を置き換えるのではなく補助する役割を表す概念。" },
+      { "phrase": "algorithmic bias", "reading": "アルゴリズミック・バイアス", "meaning": "アルゴリズムの偏り・差別", "note": "AIが学習データの偏りを反映して不公平な判断をする問題。" },
+      { "phrase": "regulatory frameworks", "reading": "", "meaning": "規制の枠組み", "note": "技術の発展に対応する法規制・ガイドラインの体系。" }
+    ],
     "5024": [
       { "phrase": "R&D costs", "reading": "アールアンドディー", "meaning": "研究開発費", "note": "research and development の略。" },
       { "phrase": "recoup costs", "reading": "", "meaning": "コストを回収する", "note": "" }
+    ],
+    "5025": [
+      { "phrase": "universal healthcare", "reading": "ユニバーサルヘルスケア", "meaning": "ユニバーサルヘルスケア（皆保険・国民皆医療）", "note": "すべての人が必要な医療を受けられる制度。日本の国民健康保険もその一形態。" },
+      { "phrase": "per capita cost", "reading": "パー・カピタ", "meaning": "一人当たりのコスト", "note": "per capita = 一人頭（ラテン語由来）。国際比較の標準指標。" },
+      { "phrase": "waiting times", "reading": "", "meaning": "待ち時間（医療の待機期間）", "note": "公的医療制度への批判として頻繁に挙げられる。" },
+      { "phrase": "vested interests", "reading": "ベステッドインタレスト", "meaning": "既得権益", "note": "既存の利益を守ろうとする業界・団体の利害を指す。医療改革の障壁として言及される。" }
     ]
   }
 }

@@ -136,31 +136,142 @@
     }
   ],
   "explanations": {
+    "2002": [
+      { "phrase": "Right this way", "reading": "", "meaning": "こちらへどうぞ", "note": "案内するときの丁寧な決まり文句。" },
+      { "phrase": "May I take your coats?", "reading": "", "meaning": "コートをお預かりしましょうか？", "note": "高級レストランでのホスピタリティ表現。" },
+      { "phrase": "Could we sit by the window instead?", "reading": "", "meaning": "代わりに窓際に座れますか？", "note": "「instead」で別の選択肢を求めるニュアンス。" },
+      { "phrase": "The corner window table is open", "reading": "", "meaning": "角の窓際テーブルが空いています", "note": "「open」= 空席がある。" }
+    ],
     "2001": [
       { "phrase": "make a reservation", "reading": "", "meaning": "予約を入れる", "note": "book a table とも言う。" },
       { "phrase": "gluten allergy", "reading": "グルテンアレルギー", "meaning": "グルテンアレルギー", "note": "食事制限はよく確認される重要表現。" }
+    ],
+    "2004": [
+      { "phrase": "lactose intolerant", "reading": "ラクトース・イントレラント", "meaning": "乳糖不耐症", "note": "乳製品を消化できない体質。食事制限を伝える際の重要表現。" },
+      { "phrase": "dairy-free", "reading": "デイリーフリー", "meaning": "乳製品不使用", "note": "gluten-free と同様、メニューに表記されることが多い。" },
+      { "phrase": "bisque", "reading": "ビスク", "meaning": "濃厚なクリームスープ（主に海鮮）", "note": "tomato bisque はトマトクリームスープ。" },
+      { "phrase": "the kitchen notes your dietary requirement", "reading": "", "meaning": "キッチンにあなたの食事制限を伝えます", "note": "dietary requirement = 食事上の制限・要件。" }
     ],
     "2003": [
       { "phrase": "pan-seared", "reading": "パンシアード", "meaning": "フライパンで焼いた", "note": "グリルとは異なるメニュー表現。" },
       { "phrase": "house white wine", "reading": "", "meaning": "ハウスワイン（白）", "note": "レストランの定番ドリンク表現。" }
     ],
+    "2006": [
+      { "phrase": "when you get a chance", "reading": "", "meaning": "お手すきの際に", "note": "急かさず丁寧にお願いするときの便利な前置き表現。" },
+      { "phrase": "paying together or separately", "reading": "", "meaning": "一緒に払いますか、別々に払いますか", "note": "割り勘は「split the bill」とも言う。" },
+      { "phrase": "crème brûlée", "reading": "クレームブリュレ", "meaning": "クレームブリュレ（フランスのデザート）", "note": "表面をバーナーで焦がしたカスタードデザート。" },
+      { "phrase": "have your bill ready", "reading": "", "meaning": "お会計を用意する", "note": "bill（英）= check（米）。どちらも「勘定書き」を指す。" }
+    ],
     "2005": [
       { "phrase": "Your meal will be on us", "reading": "", "meaning": "お食事代はサービスさせていただきます", "note": "「on us」= 私たちが払う = 無料にする。" }
+    ],
+    "2008": [
+      { "phrase": "to take away", "reading": "", "meaning": "テイクアウトで", "note": "英国英語。米国英語では「to go」を使う。" },
+      { "phrase": "portions", "reading": "ポーションズ", "meaning": "〜人前・〜食分", "note": "two portions = 2人前。" },
+      { "phrase": "tartar sauce on the side", "reading": "タルタルソース・オン・ザ・サイド", "meaning": "タルタルソースは別添えで", "note": "「on the side」= ソースやドレッシングを別に出してもらう定番表現。" },
+      { "phrase": "That'll be ready in about eight minutes", "reading": "", "meaning": "8分ほどで準備できます", "note": "注文後の待ち時間を伝える際の自然な表現。" },
+      { "phrase": "The total is fourteen fifty", "reading": "", "meaning": "合計14ドル50セントです", "note": "金額の読み方：14.50 → fourteen fifty。" }
     ],
     "2007": [
       { "phrase": "at your discretion", "reading": "", "meaning": "お客様のご判断で", "note": "チップは義務ではないというニュアンス。" },
       { "phrase": "service charge", "reading": "サービスチャージ", "meaning": "サービス料", "note": "" }
     ],
+    "2009": [
+      { "phrase": "What kind of gift did you have in mind?", "reading": "", "meaning": "どのような贈り物をお考えですか？", "note": "「have in mind」= 頭に思い描いている。" },
+      { "phrase": "She's in her sixties", "reading": "", "meaning": "彼女は60代です", "note": "年代を表す定型表現：in her twenties（20代）など。" },
+      { "phrase": "silk scarves", "reading": "シルクスカーフ", "meaning": "シルクスカーフ", "note": "複数形は scarves。" },
+      { "phrase": "if scarves don't suit your taste", "reading": "", "meaning": "スカーフがお好みでない場合は", "note": "「suit one's taste」= 好みに合う。" }
+    ],
+    "2010": [
+      { "phrase": "I can only see large on the rack", "reading": "", "meaning": "ラックにはLサイズしか見当たりません", "note": "「on the rack」= 商品ラックに並んでいる。" },
+      { "phrase": "stockroom", "reading": "ストックルーム", "meaning": "在庫室・バックヤード", "note": "店の裏にある在庫保管スペース。" },
+      { "phrase": "regular fit or slim fit", "reading": "レギュラーフィット・スリムフィット", "meaning": "レギュラーフィットかスリムフィットか", "note": "服のシルエット（型）を表す表現。" },
+      { "phrase": "just in case", "reading": "", "meaning": "念のため", "note": "万一に備えるときの頻出フレーズ。" }
+    ],
+    "2011": [
+      { "phrase": "fitting rooms", "reading": "フィッティングルーム", "meaning": "試着室", "note": "changing rooms とも言う。" },
+      { "phrase": "How many items are you bringing in?", "reading": "", "meaning": "何点お持ちになりますか？", "note": "試着室の持ち込み点数を確認する表現。" },
+      { "phrase": "Take your time", "reading": "", "meaning": "ごゆっくりどうぞ", "note": "急かさない接客の定番フレーズ。" },
+      { "phrase": "hang it by the register", "reading": "", "meaning": "レジのそばに掛けておく", "note": "register = レジ・会計カウンター。" }
+    ],
     "2012": [
       { "phrase": "voucher", "reading": "バウチャー", "meaning": "割引券・クーポン", "note": "" }
+    ],
+    "2014": [
+      { "phrase": "mild cold", "reading": "", "meaning": "軽い風邪", "note": "mild = 軽度の。症状の程度を伝える形容詞。" },
+      { "phrase": "congestion", "reading": "コンジェスチョン", "meaning": "鼻づまり・うっ血", "note": "nasal congestion（鼻づまり）の略としてよく使われる。" },
+      { "phrase": "cold and flu tablet", "reading": "", "meaning": "風邪・インフルエンザ用錠剤", "note": "薬局での市販薬の一般的な呼び方。" },
+      { "phrase": "won't make you drowsy", "reading": "", "meaning": "眠くなりません", "note": "drowsy = 眠い。市販薬でよく見る non-drowsy（眠くならない）の関連表現。" },
+      { "phrase": "mild sleep aid", "reading": "", "meaning": "軽い睡眠補助剤", "note": "夜用の風邪薬に含まれる成分。sleep aid = 眠りを助けるもの。" }
     ],
     "2013": [
       { "phrase": "original packaging", "reading": "", "meaning": "元の包装・パッケージ", "note": "返品の条件としてよく使われる表現。" },
       { "phrase": "store credit", "reading": "ストアクレジット", "meaning": "店内で使える金券", "note": "返金の代わりに次回使えるクレジット。" }
     ],
+    "2015": [
+      { "phrase": "something traditional to bring home", "reading": "", "meaning": "家に持ち帰る伝統的なもの", "note": "お土産を探すときの自然な言い回し。" },
+      { "phrase": "locally handmade ceramics", "reading": "", "meaning": "地元の手作りの陶器", "note": "ceramics = 陶器・焼き物。locally = その土地で作られた。" },
+      { "phrase": "easy to pack", "reading": "", "meaning": "荷造りしやすい", "note": "旅行のお土産選びでよく使う表現。" },
+      { "phrase": "unique to the region", "reading": "", "meaning": "その地域にしかない", "note": "その土地ならではの希少性を表す表現。" },
+      { "phrase": "ship internationally", "reading": "", "meaning": "国際配送する", "note": "overseas shipping とも言う。" }
+    ],
+    "2016": [
+      { "phrase": "entirely handmade with genuine leather", "reading": "", "meaning": "本革を使って完全手作り", "note": "genuine leather = 本革（フェイクレザーと区別）。" },
+      { "phrase": "over my budget", "reading": "", "meaning": "予算オーバーです", "note": "値交渉を切り出す際の丁寧な言い回し。" },
+      { "phrase": "Could you do it for forty?", "reading": "", "meaning": "40ドルにしてもらえますか？", "note": "値切りの基本表現。Could you do it for ＋金額？" },
+      { "phrase": "throw in", "reading": "", "meaning": "おまけとして加える", "note": "「throw in」= 値引きや特典として付け足す口語表現。" },
+      { "phrase": "You drive a hard bargain", "reading": "", "meaning": "なかなかの交渉上手ですね", "note": "値交渉で相手を褒めながら折れるときの慣用句。" }
+    ],
     "2017": [
       { "phrase": "You need to turn around", "reading": "", "meaning": "来た道を戻る必要があります", "note": "道案内の基本表現。" },
       { "phrase": "You can't miss it", "reading": "", "meaning": "すぐわかります", "note": "目印が分かりやすいときに使う。" }
+    ],
+    "2018": [
+      { "phrase": "Luggage for the trunk?", "reading": "", "meaning": "荷物はトランクに入れますか？", "note": "trunk = 車のトランク（英国英語では boot）。" },
+      { "phrase": "Traffic is light right now", "reading": "", "meaning": "今は道が空いています", "note": "light traffic = 交通量が少ない。heavy traffic = 渋滞。" },
+      { "phrase": "I'm catching a train at three-fifteen", "reading": "", "meaning": "3時15分の電車に乗ります", "note": "catch a train = 電車に乗る・間に合う。" },
+      { "phrase": "You'll make it comfortably", "reading": "", "meaning": "余裕で間に合いますよ", "note": "make it = 間に合う・やり遂げる。" },
+      { "phrase": "back route", "reading": "バックルート", "meaning": "裏道・抜け道", "note": "渋滞を避けるための近道のこと。" }
+    ],
+    "2019": [
+      { "phrase": "Take the number fourteen from stop B", "reading": "", "meaning": "B停留所から14番のバスに乗ってください", "note": "バスの乗り方を説明するときの定番表現。" },
+      { "phrase": "How often do they run?", "reading": "", "meaning": "どのくらいの頻度で来ますか？", "note": "バスや電車の運行間隔を聞く基本フレーズ。" },
+      { "phrase": "exact change", "reading": "", "meaning": "ぴったりの小銭", "note": "バスなど現金払いで釣り銭不可の場合に必要。" },
+      { "phrase": "tap a contactless card", "reading": "", "meaning": "タッチ式カードをかざす", "note": "ICカードやクレジットカードのタッチ決済。" },
+      { "phrase": "transit app", "reading": "トランジットアプリ", "meaning": "交通系アプリ", "note": "スマートフォンで乗車・決済できるアプリ。" }
+    ],
+    "2020": [
+      { "phrase": "standard exhibition", "reading": "スタンダード・エキシビション", "meaning": "常設展示", "note": "special / temporary exhibition = 企画展・特別展。" },
+      { "phrase": "price difference", "reading": "", "meaning": "料金の差額", "note": "「What's the price difference?」は価格比較の鉄板表現。" },
+      { "phrase": "combined ticket", "reading": "コンバインドチケット", "meaning": "セット券・共通入場券", "note": "複数の展示や施設をセットにしたお得なチケット。" },
+      { "phrase": "specific entry time", "reading": "", "meaning": "指定入場時間", "note": "人気展示では時間指定制（timed entry）が多い。" },
+      { "phrase": "available slot", "reading": "アベイラブル・スロット", "meaning": "空き枠・空き時間帯", "note": "slot = 予約の枠・時間帯。" }
+    ],
+    "2021": [
+      { "phrase": "Photography without a flash is permitted", "reading": "", "meaning": "フラッシュなしの撮影は許可されています", "note": "美術館での写真撮影ルールの典型的な表現。" },
+      { "phrase": "strictly no photography", "reading": "", "meaning": "撮影厳禁", "note": "「strictly」で例外なしの禁止を強調。" },
+      { "phrase": "temporary exhibition", "reading": "テンポラリー・エキシビション", "meaning": "企画展・特別展", "note": "期間限定の展示。permanent / standing exhibition = 常設展。" },
+      { "phrase": "Renaissance paintings", "reading": "ルネサンスペインティングス", "meaning": "ルネサンス絵画", "note": "美術史の時代区分として頻出。" },
+      { "phrase": "audio guide", "reading": "オーディオガイド", "meaning": "音声ガイド", "note": "展示解説を音声で聞けるサービス。" }
+    ],
+    "2022": [
+      { "phrase": "harbor walk", "reading": "ハーバーウォーク", "meaning": "港沿いの遊歩道", "note": "harbor = 港。観光地でよく勧められるスポット。" },
+      { "phrase": "stunning views", "reading": "", "meaning": "息をのむような絶景", "note": "stunning = 圧倒的に美しい。景色の賞賛でよく使う形容詞。" },
+      { "phrase": "popular with locals", "reading": "", "meaning": "地元の人に人気", "note": "地元民に愛されているという信頼感を示す表現。" },
+      { "phrase": "nothing fancy but delicious", "reading": "", "meaning": "おしゃれではないけど美味しい", "note": "fancy = 高級な・しゃれた。飾らない本音の推薦表現。" }
+    ],
+    "2023": [
+      { "phrase": "Would you mind taking a photo of us?", "reading": "", "meaning": "写真を撮っていただけますか？", "note": "「Would you mind ~ing?」は丁寧な依頼の定番表現。" },
+      { "phrase": "press the big button on the side", "reading": "", "meaning": "側面の大きいボタンを押してください", "note": "カメラ操作を説明するときの自然な言い回し。" },
+      { "phrase": "That's a lovely shot", "reading": "", "meaning": "素敵な写真が撮れましたよ", "note": "shot = 写真・一枚。" },
+      { "phrase": "just in case", "reading": "", "meaning": "念のため", "note": "もう一枚撮る理由として使われる汎用フレーズ。" }
+    ],
+    "2024": [
+      { "phrase": "I think I'm completely lost", "reading": "", "meaning": "完全に道に迷ってしまいました", "note": "get lost = 迷子になる。旅行中に必ず覚えたい表現。" },
+      { "phrase": "You've walked in the opposite direction", "reading": "", "meaning": "反対方向に歩いてきてしまいました", "note": "opposite direction = 反対の方向。" },
+      { "phrase": "on foot", "reading": "", "meaning": "徒歩で", "note": "by foot とも言う。移動手段を表す前置詞句。" },
+      { "phrase": "goes directly to the square", "reading": "", "meaning": "広場へ直接行きます", "note": "directly = 乗り換えなし・直通で。" },
+      { "phrase": "You've been a lifesaver", "reading": "", "meaning": "本当に助かりました", "note": "lifesaver = 命の恩人。大いに助けてもらったときの感謝表現。" }
     ],
     "2025": [
       { "phrase": "EpiPen", "reading": "エピペン", "meaning": "アナフィラキシー用自己注射薬", "note": "severe allergic reaction（重篤なアレルギー反応）に使用。" },

@@ -142,29 +142,155 @@
       { "phrase": "May I ask what this is regarding?", "reading": "", "meaning": "ご用件をお聞かせいただけますか？", "note": "TOEIC頻出の丁寧な確認表現。" },
       { "phrase": "have him call you back", "reading": "", "meaning": "折り返し電話させます", "note": "" }
     ],
+    "3002": [
+      { "phrase": "whoever handles", "reading": "", "meaning": "〜を担当している人（誰でも）", "note": "担当者が不明なときに使う便利な表現。" },
+      { "phrase": "I'll transfer you", "reading": "", "meaning": "電話をつなぎます", "note": "電話の転送を伝える定番表現。" },
+      { "phrase": "Please hold", "reading": "", "meaning": "そのままお待ちください", "note": "保留を依頼する定型フレーズ。" },
+      { "phrase": "leave a voicemail", "reading": "ボイスメール", "meaning": "留守番電話にメッセージを残す", "note": "" },
+      { "phrase": "generally prefers", "reading": "", "meaning": "通常〜を好む・〜が慣例", "note": "相手の習慣・好みを伝える表現。" }
+    ],
     "3003": [
       { "phrase": "reaching out", "reading": "リーチングアウト", "meaning": "連絡を取る", "note": "ビジネス英語で「連絡する」の丁寧な表現。" },
       { "phrase": "at your earliest convenience", "reading": "", "meaning": "ご都合のよいときにすぐに", "note": "メール・電話の定型表現。" }
+    ],
+    "3004": [
+      { "phrase": "contract renewal", "reading": "コントラクトリニューアル", "meaning": "契約更新", "note": "TOEICでよく出るビジネス用語。" },
+      { "phrase": "putting you through", "reading": "", "meaning": "電話をつなぐ", "note": "transfer と同義の口語表現。" },
+      { "phrase": "on another line", "reading": "", "meaning": "別の電話に出ている", "note": "「話し中」を丁寧に言う表現。" },
+      { "phrase": "shall I take a message", "reading": "", "meaning": "伝言を承りましょうか", "note": "電話の定型応答フレーズ。" }
+    ],
+    "3005": [
+      { "phrase": "Can you all hear me clearly?", "reading": "", "meaning": "皆さん、はっきり聞こえますか？", "note": "電話会議の開始時によく使われる確認表現。" },
+      { "phrase": "The connection is a bit choppy", "reading": "チョッピー", "meaning": "接続が少し途切れ途切れです", "note": "通信不良を表す口語表現。" },
+      { "phrase": "speak up slightly", "reading": "", "meaning": "少し大きな声で話してください", "note": "" },
+      { "phrase": "dialing in", "reading": "ダイアリングイン", "meaning": "電話で参加する・接続する", "note": "conference callに参加するときの表現。" }
+    ],
+    "3006": [
+      { "phrase": "placed an order", "reading": "", "meaning": "注文した", "note": "「place an order」は「注文する」の定番動詞句。" },
+      { "phrase": "tracking hasn't updated", "reading": "", "meaning": "追跡情報が更新されていない", "note": "荷物追跡の文脈で頻出。" },
+      { "phrase": "fulfillment center", "reading": "フルフィルメントセンター", "meaning": "配送センター・物流倉庫", "note": "Eコマース関連でTOEICに登場する語。" },
+      { "phrase": "I sincerely apologize", "reading": "", "meaning": "心からお詫び申し上げます", "note": "クレーム対応の丁寧な謝罪表現。" },
+      { "phrase": "I wasn't notified", "reading": "", "meaning": "連絡をもらっていなかった", "note": "" }
     ],
     "3007": [
       { "phrase": "tied up", "reading": "タイドアップ", "meaning": "手が離せない・忙しい", "note": "「busy」よりフォーマルなビジネス表現。" },
       { "phrase": "go over", "reading": "", "meaning": "見直す・確認する", "note": "会議や書類のレビューに使う。" }
     ],
+    "3008": [
+      { "phrase": "today's agenda", "reading": "アジェンダ", "meaning": "本日の議題・進行予定", "note": "会議の冒頭で必ず出る表現。" },
+      { "phrase": "any other business", "reading": "", "meaning": "その他の議題", "note": "略して AOB とも言う。会議の最終議題として定番。" },
+      { "phrase": "stay on schedule", "reading": "", "meaning": "スケジュール通りに進める", "note": "" },
+      { "phrase": "hold questions until the end", "reading": "", "meaning": "最後まで質問を控える", "note": "会議進行の指示として頻出。" },
+      { "phrase": "let's get started", "reading": "", "meaning": "では始めましょう", "note": "会議・プレゼン開始の定番フレーズ。" }
+    ],
     "3009": [
       { "phrase": "customer acquisition costs", "reading": "", "meaning": "顧客獲得コスト", "note": "TOEIC Part 3/4でよく出るビジネス指標。" },
       { "phrase": "break that down by region", "reading": "", "meaning": "地域別に分解する", "note": "データ分析の定番表現。" }
+    ],
+    "3010": [
+      { "phrase": "year-over-year", "reading": "イヤーオーバーイヤー", "meaning": "前年比", "note": "財務・業績報告で頻出の略語（YoY）。" },
+      { "phrase": "exceeded targets", "reading": "", "meaning": "目標を上回った", "note": "「exceed」はTOEICで頻出の動詞。" },
+      { "phrase": "raised concerns about", "reading": "", "meaning": "〜について懸念を示した", "note": "会議での発言を議事録に記録する表現。" },
+      { "phrase": "it was agreed that", "reading": "", "meaning": "〜することで合意された", "note": "議事録の受動態表現として典型的。" },
+      { "phrase": "action items", "reading": "アクションアイテム", "meaning": "実行すべき事項・タスク", "note": "会議の議事録・締めくくりで必須の語。" }
+    ],
+    "3011": [
+      { "phrase": "let me quickly summarize", "reading": "", "meaning": "手短にまとめます", "note": "会議の締めくくりでよく使う表現。" },
+      { "phrase": "end of business", "reading": "", "meaning": "営業時間終了時・業務終了時", "note": "略して EOB とも言う。締め切り表現として頻出。" },
+      { "phrase": "make sure we're aligned", "reading": "", "meaning": "認識が一致していることを確認する", "note": "「aligned」はビジネス英語の重要語。" },
+      { "phrase": "reconvene", "reading": "リコンヴィーン", "meaning": "再度集まる・会議を再開する", "note": "" },
+      { "phrase": "Well done today", "reading": "", "meaning": "本日はお疲れさまでした・よくやりました", "note": "会議の締めの労いの表現。" }
+    ],
+    "3012": [
+      { "phrase": "mute yourselves", "reading": "ミュート", "meaning": "マイクをミュートにする", "note": "ビデオ会議の定番指示。" },
+      { "phrase": "background noise", "reading": "バックグラウンドノイズ", "meaning": "バックグラウンドの雑音", "note": "" },
+      { "phrase": "chat function", "reading": "チャット", "meaning": "チャット機能", "note": "ビデオ会議ツールの機能として頻出。" },
+      { "phrase": "address them as we go", "reading": "", "meaning": "進めながら対応する", "note": "「as we go」は「進めながら」の意味の慣用句。" },
+      { "phrase": "Resharing now", "reading": "", "meaning": "今すぐ再共有します", "note": "画面共有のやり直しを伝える表現。" }
+    ],
+    "3013": [
+      { "phrase": "I don't think we've met", "reading": "", "meaning": "お会いするのは初めてですよね", "note": "自己紹介を切り出すときの定番フレーズ。" },
+      { "phrase": "organizational restructuring", "reading": "オーガナイゼーショナルリストラクチャリング", "meaning": "組織再編", "note": "TOEICの企業関連語として頻出。" },
+      { "phrase": "mid-size tech companies", "reading": "", "meaning": "中規模テック企業", "note": "" },
+      { "phrase": "renewable energy investments", "reading": "リニューアブルエナジー", "meaning": "再生可能エネルギーへの投資", "note": "" },
+      { "phrase": "Here's my card", "reading": "", "meaning": "名刺をどうぞ", "note": "名刺交換の定番表現。" }
+    ],
+    "3014": [
+      { "phrase": "follow up on", "reading": "", "meaning": "〜について追って連絡する", "note": "メール・ビジネス英語で最頻出の表現。" },
+      { "phrase": "moved forward by two weeks", "reading": "", "meaning": "2週間前倒しになった", "note": "スケジュール変更の表現。" },
+      { "phrase": "finalized by end of this month", "reading": "", "meaning": "今月末までに完成させる", "note": "" },
+      { "phrase": "resource constraints", "reading": "リソースコンストレイント", "meaning": "リソース（人員・予算）の制約", "note": "プロジェクト管理の重要語。" },
+      { "phrase": "align on key messaging", "reading": "", "meaning": "主要メッセージについて認識を合わせる", "note": "「align on」はビジネス英語の頻出表現。" }
     ],
     "3015": [
       { "phrase": "above our budget", "reading": "", "meaning": "予算を超えている", "note": "" },
       { "phrase": "adjusting the scope", "reading": "", "meaning": "業務範囲を調整する", "note": "プロジェクト管理の基本用語。" }
     ],
+    "3016": [
+      { "phrase": "digital transformation", "reading": "デジタルトランスフォーメーション", "meaning": "デジタル変革（DX）", "note": "TOEICの現代ビジネス語として頻出。" },
+      { "phrase": "build client capability", "reading": "", "meaning": "クライアント側の能力を育てる", "note": "外部依存を残さないアプローチを表す表現。" },
+      { "phrase": "expected ROI", "reading": "アールオーアイ", "meaning": "期待される投資利益率", "note": "Return on Investment の略。財務・提案で必須語。" },
+      { "phrase": "recover the investment", "reading": "", "meaning": "投資を回収する", "note": "" },
+      { "phrase": "implementation timeline", "reading": "インプリメンテーション", "meaning": "実施スケジュール", "note": "" }
+    ],
+    "3017": [
+      { "phrase": "touching base on", "reading": "", "meaning": "〜について状況確認する", "note": "「touch base」はビジネス英語の頻出イディオム。" },
+      { "phrase": "how are we tracking?", "reading": "", "meaning": "進捗はどうですか？", "note": "プロジェクト管理での口語的確認表現。" },
+      { "phrase": "competitive analysis", "reading": "コンペティティブアナリシス", "meaning": "競合分析", "note": "ビジネス提案・プレゼンで頻出の語。" },
+      { "phrase": "I'll copy you on everything", "reading": "", "meaning": "すべてのメールをCCに入れます", "note": "「copy」をメールのCCの意味で使う表現。" }
+    ],
     "3018": [
       { "phrase": "annual leave", "reading": "アニュアルリーブ", "meaning": "年次有給休暇", "note": "paid time off（PTO）とも言う。" },
       { "phrase": "handover document", "reading": "ハンドオーバー", "meaning": "引き継ぎ資料", "note": "" }
     ],
+    "3019": [
+      { "phrase": "financial analysis", "reading": "ファイナンシャルアナリシス", "meaning": "財務分析", "note": "TOEIC Part 4等で頻出の職種・業務。" },
+      { "phrase": "oversaw quarterly reporting", "reading": "", "meaning": "四半期報告を監督した", "note": "「oversee」は「監督する・管理する」の意。" },
+      { "phrase": "What drew you to apply?", "reading": "", "meaning": "なぜ応募しようと思ったのですか？", "note": "面接の定番質問フレーズ。" },
+      { "phrase": "high-pressure situation", "reading": "ハイプレッシャー", "meaning": "プレッシャーの高い状況", "note": "行動面接（behavioral interview）の頻出トピック。" },
+      { "phrase": "unexpected merger announcement", "reading": "マージャー", "meaning": "予期せぬ合併発表", "note": "「merger」はTOEIC Part 7頻出のビジネス語。" }
+    ],
+    "3020": [
+      { "phrase": "I'm stuck on something", "reading": "", "meaning": "何かで詰まっています・困っています", "note": "同僚に助けを求める際の自然な口語表現。" },
+      { "phrase": "reconcile figures", "reading": "リコンサイル", "meaning": "数字を突き合わせる・照合する", "note": "経理・財務でよく使われる動詞。" },
+      { "phrase": "currency conversion formula", "reading": "カレンシーコンバージョン", "meaning": "通貨換算式", "note": "" },
+      { "phrase": "exchange rate", "reading": "エクスチェンジレート", "meaning": "為替レート", "note": "TOEICの財務・会計分野で頻出。" },
+      { "phrase": "update the cell reference", "reading": "", "meaning": "セル参照を更新する", "note": "Excelなど表計算ソフトの操作表現。" }
+    ],
+    "3021": [
+      { "phrase": "Welcome aboard", "reading": "ウェルカムアボード", "meaning": "ようこそ（入社・加入の歓迎）", "note": "新入社員・新メンバーへの定番歓迎フレーズ。" },
+      { "phrase": "A bit overwhelmed", "reading": "オーバーウェルムド", "meaning": "少し圧倒されている・戸惑っている", "note": "" },
+      { "phrase": "set up your accounts", "reading": "", "meaning": "アカウントをセットアップする", "note": "新入社員研修の定番作業。" },
+      { "phrase": "team structure", "reading": "", "meaning": "チーム構成・組織構造", "note": "" },
+      { "phrase": "unwritten rules", "reading": "", "meaning": "暗黙のルール", "note": "職場文化を学ぶ場面でよく出る表現。" }
+    ],
     "3022": [
-      { "phrase": "touching base", "reading": "タッチングベース", "meaning": "連絡を取る・確認する", "note": "ビジネス英語の頻出表現。" },
-      { "phrase": "ongoing concerns", "reading": "", "meaning": "継続中の懸念事項", "note": "" }
+      { "phrase": "give you a quick update", "reading": "", "meaning": "手短に状況を報告する", "note": "上司への報告でよく使われる表現。" },
+      { "phrase": "Where do things stand?", "reading": "", "meaning": "状況はどうなっていますか？", "note": "進捗確認の口語的フレーズ。" },
+      { "phrase": "corrected shipment", "reading": "", "meaning": "修正された出荷品", "note": "" },
+      { "phrase": "expanding the contract", "reading": "", "meaning": "契約を拡大する・追加する", "note": "" },
+      { "phrase": "Two pages maximum", "reading": "", "meaning": "最大2ページで", "note": "資料作成の指示としてTOEICで頻出。" }
+    ],
+    "3023": [
+      { "phrase": "flexible start time", "reading": "フレキシブルスタートタイム", "meaning": "フレックスタイム制の開始時間", "note": "" },
+      { "phrase": "Core hours", "reading": "コアアワーズ", "meaning": "コアタイム（必ず出勤が必要な時間帯）", "note": "フレックスタイム制度の重要語。" },
+      { "phrase": "closed for renovation", "reading": "リノベーション", "meaning": "改修工事のため閉鎖される", "note": "" },
+      { "phrase": "wellness day", "reading": "ウェルネスデー", "meaning": "健康促進日・ウェルネスデー", "note": "福利厚生関連語としてTOEICに登場する。" },
+      { "phrase": "will be circulated", "reading": "", "meaning": "（情報が）回覧される・共有される", "note": "社内連絡の受動態表現として頻出。" }
+    ],
+    "3024": [
+      { "phrase": "client summit", "reading": "クライアントサミット", "meaning": "顧客向け首脳会議・大型ミーティング", "note": "" },
+      { "phrase": "coordinate arrangements", "reading": "コーディネート", "meaning": "手配・段取りを調整する", "note": "" },
+      { "phrase": "direct flight", "reading": "ダイレクトフライト", "meaning": "直行便", "note": "TOEIC旅行・出張シーンの必須語。" },
+      { "phrase": "business class for overnight legs", "reading": "ビジネスクラス", "meaning": "夜行便はビジネスクラスで", "note": "「leg」は旅程の「区間」の意。" },
+      { "phrase": "company policy allows it", "reading": "", "meaning": "会社規定で認められている", "note": "出張ルールの説明表現。" }
+    ],
+    "3025": [
+      { "phrase": "paper jam", "reading": "ペーパージャム", "meaning": "紙詰まり", "note": "オフィス機器トラブルの最頻出語。" },
+      { "phrase": "reseat the paper", "reading": "リシート", "meaning": "用紙をセットし直す", "note": "プリンタトラブル対応の基本操作。" },
+      { "phrase": "roller issue", "reading": "ローラー", "meaning": "ローラーの不具合", "note": "" },
+      { "phrase": "escalate to the service team", "reading": "エスカレート", "meaning": "サービスチームに引き継ぐ・上申する", "note": "「escalate」はビジネス英語で問題を上位に引き上げる意。" },
+      { "phrase": "In the meantime", "reading": "インザミーンタイム", "meaning": "それまでの間・当面は", "note": "代替手段を提示するときの定番つなぎ表現。" }
     ]
   }
 }

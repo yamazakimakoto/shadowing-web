@@ -149,24 +149,126 @@
       { "phrase": "loyalty program", "reading": "ロイヤルティプログラム", "meaning": "顧客優待プログラム", "note": "ホテルや航空会社のポイント・マイルプログラム。" },
       { "phrase": "complimentary upgrade", "reading": "", "meaning": "無料アップグレード", "note": "「complimentary」= 無料サービスの意。" }
     ],
+    "6004": [
+      { "phrase": "extended stay", "reading": "", "meaning": "長期滞在", "note": "「long stay」とも言う。通常1週間以上の滞在を指す。" },
+      { "phrase": "kitchenette", "reading": "キチネット", "meaning": "簡易キッチン", "note": "コンロ・電子レンジ・小型冷蔵庫などを備えた小さな台所。" },
+      { "phrase": "housekeeping schedule", "reading": "", "meaning": "客室清掃のスケジュール", "note": "長期滞在時は毎日か隔日かを選べることが多い。" },
+      { "phrase": "every other day", "reading": "", "meaning": "1日おき・隔日で", "note": "「alternate days」とも言う。" },
+      { "phrase": "place orders on your behalf", "reading": "", "meaning": "代わりに注文する", "note": "「on your behalf」= あなたの代わりに、という意味の定型表現。" }
+    ],
     "6005": [
       { "phrase": "system error affecting bookings", "reading": "", "meaning": "予約に影響したシステムエラー", "note": "丁寧なクレーム対応の表現。" }
+    ],
+    "6006": [
+      { "phrase": "checked out", "reading": "", "meaning": "チェックアウトした", "note": "「check in」の対義語。ホテルを退出する手続きを指す。" },
+      { "phrase": "contact housekeeping", "reading": "", "meaning": "客室清掃係に連絡する", "note": "「housekeeping」はホテルの清掃・リネン担当部門。" },
+      { "phrase": "magnetic connector", "reading": "マグネティックコネクター", "meaning": "磁気コネクター", "note": "MacBookの旧MagSafe充電端子のような磁石式接続部品。" },
+      { "phrase": "hold it for pickup", "reading": "", "meaning": "受け取りのために保管する", "note": "「ship it to you」（郵送する）と対比される選択肢。" }
+    ],
+    "6007": [
+      { "phrase": "early checkout", "reading": "アーリーチェックアウト", "meaning": "早期チェックアウト", "note": "予定より前にチェックアウトすること。" },
+      { "phrase": "my meeting was moved forward", "reading": "", "meaning": "会議が前倒しになった", "note": "「move forward」= 予定を繰り上げる。「pushed back」は逆に先送り。" },
+      { "phrase": "minibar", "reading": "ミニバー", "meaning": "客室内の小型冷蔵庫・飲料棚", "note": "利用分は自動的に部屋代に加算される。" },
+      { "phrase": "charge it to the card on file", "reading": "", "meaning": "登録済みカードに請求する", "note": "チェックイン時に登録したクレジットカードへ請求する定型表現。" }
     ],
     "6008": [
       { "phrase": "à la carte", "reading": "アラカルト", "meaning": "単品注文メニュー", "note": "バイキング（ビュッフェ）の対義語。" },
       { "phrase": "nut-free environment", "reading": "", "meaning": "ナッツ不使用の環境", "note": "アレルギー対応でよく使う表現。" }
     ],
+    "6009": [
+      { "phrase": "signature restaurant", "reading": "シグネチャーレストラン", "meaning": "ホテルの看板レストラン", "note": "そのホテルを代表する高級レストランを指す。" },
+      { "phrase": "semi-private booth", "reading": "", "meaning": "半個室のボックス席", "note": "完全個室ではないが、周囲から区切られた落ち着いた座席。" },
+      { "phrase": "sommelier", "reading": "ソムリエ", "meaning": "ワイン専門給仕人", "note": "ワインの選定・サービスを担当するプロフェッショナル。" },
+      { "phrase": "preferred price range", "reading": "", "meaning": "ご希望の予算帯", "note": "「within your budget」と同義。価格帯を尋ねる丁寧な表現。" }
+    ],
+    "6010": [
+      { "phrase": "vegan", "reading": "ヴィーガン", "meaning": "完全菜食主義者（の）", "note": "肉・魚・卵・乳製品などすべての動物性食品を避ける食スタイル。" },
+      { "phrase": "Buddha bowl", "reading": "ブッダボウル", "meaning": "ブッダボウル（健康的な丼料理）", "note": "穀物・野菜・豆類などを盛り合わせたヘルシーな一品。" },
+      { "phrase": "plant-based", "reading": "プラントベースド", "meaning": "植物性由来の", "note": "動物性原料を使わない食品・食事スタイルを指す近年の表現。" },
+      { "phrase": "Tahini dressing", "reading": "タヒニドレッシング", "meaning": "ゴマペーストのドレッシング", "note": "中東料理由来のごまペースト（タヒニ）を使ったソース。" },
+      { "phrase": "on the side", "reading": "", "meaning": "別添えで", "note": "ドレッシングやソースを料理にかけずに別皿で出してほしいときの表現。" }
+    ],
+    "6011": [
+      { "phrase": "signature cocktail", "reading": "シグネチャーカクテル", "meaning": "そのバー独自の看板カクテル", "note": "" },
+      { "phrase": "yuzu liqueur", "reading": "ユズリキュール", "meaning": "柚子リキュール", "note": "日本の柑橘・柚子を使った洋酒。海外でも人気が高まっている。" },
+      { "phrase": "bitters", "reading": "ビターズ", "meaning": "苦味系カクテルスパイス", "note": "カクテルに少量加える植物系の苦味エキス。アンゴスチュラが有名。" },
+      { "phrase": "charcuterie board", "reading": "シャルキュトリーボード", "meaning": "ハム・サラミ等の盛り合わせ", "note": "フランス語由来。ハム・サラミ・チーズ・クラッカーなどを盛った前菜プレート。" },
+      { "phrase": "charge everything to my room", "reading": "", "meaning": "すべて部屋付けにする", "note": "ホテル滞在中の飲食代をチェックアウト時にまとめて精算する方法。" }
+    ],
+    "6012": [
+      { "phrase": "private dining room", "reading": "プライベートダイニングルーム", "meaning": "個室ダイニング", "note": "ビジネス接待や特別な会食に使われる完全個室の食事室。" },
+      { "phrase": "dedicated server", "reading": "", "meaning": "専属のウェイター", "note": "その部屋だけを担当する専任スタッフ。" },
+      { "phrase": "audio-visual equipment", "reading": "オーディオビジュアルイクイップメント", "meaning": "音響映像設備", "note": "プロジェクター・スクリーン・マイク等を指す。略して「AV equipment」とも。" },
+      { "phrase": "set menu", "reading": "", "meaning": "コース料理（固定メニュー）", "note": "「customized menu」（カスタムメニュー）の対義語。" },
+      { "phrase": "tasting beforehand", "reading": "", "meaning": "事前の試食・テイスティング", "note": "大切な接待向けに、料理を事前に確認するためのアレンジ。" }
+    ],
     "6013": [
       { "phrase": "critically acclaimed", "reading": "", "meaning": "批評家に高く評価された", "note": "映画・演劇のレビューでよく使う。" }
+    ],
+    "6014": [
+      { "phrase": "rental company", "reading": "レンタルカンパニー", "meaning": "レンタカー会社", "note": "" },
+      { "phrase": "mid-size sedan", "reading": "ミッドサイズセダン", "meaning": "中型セダン車", "note": "コンパクトカーより広く、SUVより燃費が良い。長距離ドライブに適する。" },
+      { "phrase": "GPS", "reading": "ジーピーエス", "meaning": "カーナビ・全地球測位システム", "note": "レンタカーではオプションとして追加する場合が多い。" },
+      { "phrase": "delivered directly to the hotel entrance", "reading": "", "meaning": "ホテルの玄関まで直接届ける", "note": "車を営業所に取りに行く代わりにホテルへ配車するサービス。" },
+      { "phrase": "driving license details", "reading": "", "meaning": "運転免許証の情報", "note": "免許証番号・有効期限など。レンタカー手配に必要。" }
+    ],
+    "6015": [
+      { "phrase": "in-house physician", "reading": "", "meaning": "ホテル常駐の医師", "note": "大型ホテルでは医師が定期的に来訪するサービスを提供している。" },
+      { "phrase": "appointment slot", "reading": "アポイントメントスロット", "meaning": "診察の予約枠", "note": "「slot」は時間枠を指す。" },
+      { "phrase": "pharmacy", "reading": "ファーマシー", "meaning": "薬局", "note": "英国英語では「chemist」とも言う。" },
+      { "phrase": "prescription", "reading": "プレスクリプション", "meaning": "処方箋", "note": "医師が発行する薬の指示書。" },
+      { "phrase": "collect any prescription for you", "reading": "", "meaning": "処方箋を代わりに受け取る", "note": "コンシェルジュが薬局まで代行するホテルサービスの例。" }
     ],
     "6016": [
       { "phrase": "express service", "reading": "エクスプレスサービス", "meaning": "特急サービス", "note": "追加料金が必要な場合が多い。" }
     ],
+    "6017": [
+      { "phrase": "airport transfer", "reading": "エアポートトランスファー", "meaning": "空港送迎", "note": "ホテルと空港間の送迎サービス全般を指す。" },
+      { "phrase": "morning rush hour", "reading": "モーニングラッシュアワー", "meaning": "朝の通勤ラッシュ時間帯", "note": "移動時間の見積もりに必ずバッファを取る必要がある。" },
+      { "phrase": "hotel car service", "reading": "", "meaning": "ホテル専用車サービス", "note": "ホテル直営の送迎車。タクシーより高いが安心感がある。" },
+      { "phrase": "name card", "reading": "ネームカード", "meaning": "お迎えの名前プレート", "note": "ドライバーが到着ホールでゲストの名前を掲げるボード。" },
+      { "phrase": "licensed taxi company", "reading": "", "meaning": "認可を受けたタクシー会社", "note": "「licensed」= 正規の営業許可を持つ。白タクと区別する際に重要。" }
+    ],
     "6018": [
       { "phrase": "turndown service", "reading": "ターンダウンサービス", "meaning": "夜の就寝準備サービス", "note": "ベッドカバーを折り返してチョコレートを置くサービス。" }
     ],
+    "6019": [
+      { "phrase": "spa treatment", "reading": "スパトリートメント", "meaning": "スパの施術", "note": "マッサージ・フェイシャル・ボディラップなど各種施術を指す。" },
+      { "phrase": "Swedish massage", "reading": "スウェーディッシュマッサージ", "meaning": "スウェーデン式マッサージ", "note": "圧を用いた全身の筋肉をほぐす西洋式マッサージの基本手法。" },
+      { "phrase": "deep tissue treatment", "reading": "ディープティッシュトリートメント", "meaning": "深層筋マッサージ", "note": "筋肉の深い層にアプローチする強圧マッサージ。" },
+      { "phrase": "hydrotherapy pre-treatment", "reading": "ハイドロセラピープレトリートメント", "meaning": "水療法の前処置", "note": "温水・水圧などを利用した水治療。施術前に体をほぐす目的で行う。" },
+      { "phrase": "relaxation lounge", "reading": "リラクゼーションラウンジ", "meaning": "リラクゼーション用の休憩スペース", "note": "施術の前後にくつろぐための専用スペース。" }
+    ],
+    "6020": [
+      { "phrase": "fitness center", "reading": "フィットネスセンター", "meaning": "フィットネスジム", "note": "ホテル内の運動施設を指す正式な呼び方。" },
+      { "phrase": "personal trainer", "reading": "パーソナルトレーナー", "meaning": "個人専属トレーナー", "note": "マンツーマンで指導するフィットネスの専門家。" },
+      { "phrase": "in-room tablet", "reading": "インルームタブレット", "meaning": "客室内のタブレット端末", "note": "各種ホテルサービスの予約・注文ができる客室備え付けの端末。" },
+      { "phrase": "resistance equipment", "reading": "レジスタンスイクイップメント", "meaning": "筋力トレーニング機器", "note": "ウェイトマシンやチューブなど、負荷をかけて筋肉を鍛える器具の総称。" },
+      { "phrase": "low-impact cross-training", "reading": "", "meaning": "低負荷のクロストレーニング", "note": "関節への負担が少ない運動（水泳・自転車など）を組み合わせてトレーニングすること。" }
+    ],
     "6021": [
       { "phrase": "lap swimming", "reading": "ラップスイミング", "meaning": "競泳・往復水泳", "note": "" }
+    ],
+    "6022": [
+      { "phrase": "business center", "reading": "ビジネスセンター", "meaning": "ビジネスセンター（業務支援施設）", "note": "プリンター・スキャナー・PCなどを備えたホテル内の作業スペース。" },
+      { "phrase": "boardroom", "reading": "ボードルーム", "meaning": "小会議室・役員会議室", "note": "少人数の会議に使われる小型の会議室。" },
+      { "phrase": "complimentarily", "reading": "", "meaning": "無料で", "note": "「complimentary」の副詞形。ホテルサービスでよく使われる。" },
+      { "phrase": "HDMI connection", "reading": "エイチディーエムアイコネクション", "meaning": "HDMI接続（映像・音声伝送）", "note": "プロジェクターやモニターにパソコンを繋ぐ端子規格。" },
+      { "phrase": "conference phone", "reading": "コンファレンスフォン", "meaning": "会議用スピーカーフォン", "note": "テーブル中央に置き、複数人が同時に通話できる電話機。" }
+    ],
+    "6023": [
+      { "phrase": "pet-friendly", "reading": "ペットフレンドリー", "meaning": "ペット歓迎の", "note": "ペット同伴を許可していることを示す表現。" },
+      { "phrase": "restrictions", "reading": "リストリクションズ", "meaning": "制限・規則", "note": "ペット同伴時に確認すべき利用条件。" },
+      { "phrase": "left unattended", "reading": "", "meaning": "放置された・誰もいない状態で残された", "note": "「unattended」= 監視や付き添いのない状態。ホテルではペット一人にしないよう求めることが多い。" },
+      { "phrase": "amenities for pets", "reading": "", "meaning": "ペット向けのアメニティ", "note": "人間用アメニティ（シャンプー・タオル等）と同様に、ペット向けに提供されるグッズ類。" },
+      { "phrase": "dog-walking service", "reading": "ドッグウォーキングサービス", "meaning": "犬の散歩代行サービス", "note": "外出中にペットの散歩を代わりに行ってもらうサービス。" }
+    ],
+    "6024": [
+      { "phrase": "accessible room", "reading": "アクセシブルルーム", "meaning": "バリアフリー対応客室", "note": "車椅子使用者や身体障害者が利用しやすい設備を備えた客室。" },
+      { "phrase": "roll-in shower", "reading": "ロールインシャワー", "meaning": "車椅子のまま入れるシャワー室", "note": "段差のないフラットなシャワースペース。" },
+      { "phrase": "step-free access", "reading": "ステップフリーアクセス", "meaning": "段差のないバリアフリー動線", "note": "階段を使わずに移動できる経路。エレベーター完備が前提。" },
+      { "phrase": "adjacent to", "reading": "", "meaning": "〜に隣接した・すぐ近くの", "note": "「next to」より改まった表現。" },
+      { "phrase": "accessibility training", "reading": "アクセシビリティトレーニング", "meaning": "バリアフリー対応のスタッフ研修", "note": "障害のあるゲストを適切にサポートするための専門トレーニング。" }
     ],
     "6025": [
       { "phrase": "query a charge", "reading": "", "meaning": "料金に異議を唱える", "note": "「dispute a charge」とも言う。ホテルでよく使う表現。" },

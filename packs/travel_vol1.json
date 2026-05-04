@@ -156,25 +156,116 @@
       { "phrase": "boarding gate", "reading": "ボーディングゲート", "meaning": "搭乗ゲート", "note": "" },
       { "phrase": "You might want to hurry", "reading": "", "meaning": "急いだ方がいいかもしれません", "note": "やんわりと急ぎを促す丁寧な表現。" }
     ],
+    "1006": [
+      { "phrase": "I believe you might be sitting in my seat", "reading": "", "meaning": "私の席に座っていらっしゃるようです", "note": "直接的に言わず「might」を使うことで穏やかに伝える丁寧表現。" },
+      { "phrase": "I'll move right away", "reading": "", "meaning": "すぐに移ります", "note": "" },
+      { "phrase": "No problem at all", "reading": "", "meaning": "全く問題ありません", "note": "「Don't worry about it.」と同じ意味の気遣い表現。" },
+      { "phrase": "long-haul flight", "reading": "ロングホールフライト", "meaning": "長距離フライト", "note": "short-haul（近距離）の対義語。" }
+    ],
+    "1007": [
+      { "phrase": "Would you prefer A or B?", "reading": "", "meaning": "AとBどちらになさいますか？", "note": "機内食の選択など、2択を提示する定型表現。" },
+      { "phrase": "That would be lovely", "reading": "", "meaning": "それは素晴らしいです／ぜひ", "note": "British Englishでよく使う丁寧な承諾表現。" },
+      { "phrase": "vegetarian", "reading": "ベジタリアン", "meaning": "菜食主義の・肉や魚を使わない", "note": "" },
+      { "phrase": "economy seat", "reading": "エコノミーシート", "meaning": "エコノミークラスの席", "note": "business class / first classと区別して使う。" }
+    ],
     "1008": [
       { "phrase": "for tourism", "reading": "", "meaning": "観光目的で", "note": "入国審査でよく使う表現。for business / for sightseeing なども同様。" },
       { "phrase": "That won't be necessary", "reading": "", "meaning": "それには及びません", "note": "" }
+    ],
+    "1009": [
+      { "phrase": "Do you have anything to declare?", "reading": "", "meaning": "申告するものはありますか？", "note": "税関で必ず使われる定型フレーズ。" },
+      { "phrase": "duty-free limit", "reading": "デューティーフリーリミット", "meaning": "免税範囲・免税限度額", "note": "この範囲内であれば関税がかからない。" },
+      { "phrase": "declaration form", "reading": "デクラレーションフォーム", "meaning": "申告書", "note": "入国時に機内で配られる用紙。" },
+      { "phrase": "standard bottle", "reading": "", "meaning": "一般的な瓶（750ml）", "note": "ワイン1本の標準サイズ。" }
     ],
     "1010": [
       { "phrase": "conveyor belt", "reading": "コンベヤーベルト", "meaning": "手荷物受取のベルトコンベア", "note": "baggage carousel とも言う。" },
       { "phrase": "offloaded", "reading": "", "meaning": "降ろされた（荷物が別便に）", "note": "" }
     ],
+    "1011": [
+      { "phrase": "exchange A into B", "reading": "", "meaning": "AをBに両替する", "note": "「exchange yen into dollars」の形で使う。" },
+      { "phrase": "flat service fee", "reading": "", "meaning": "一律手数料", "note": "金額に関係なく固定でかかる手数料。" },
+      { "phrase": "in smaller bills", "reading": "", "meaning": "小額紙幣で", "note": "「Could I have some in smaller bills?」は窓口での定番フレーズ。" },
+      { "phrase": "Please count it before you leave", "reading": "", "meaning": "その場でご確認ください", "note": "両替所でよく言われるフレーズ。" }
+    ],
+    "1012": [
+      { "phrase": "ground transportation", "reading": "グラウンドトランスポーテーション", "meaning": "地上交通機関（バス・鉄道・タクシーなど）", "note": "空港から市内への移動手段を指す総称。" },
+      { "phrase": "depending on traffic", "reading": "", "meaning": "交通状況次第で", "note": "所要時間が変動する理由を説明するフレーズ。" },
+      { "phrase": "express train", "reading": "エクスプレストレイン", "meaning": "エクスプレス（急行・快速）列車", "note": "空港と市内を結ぶ直行列車によく使われる語。" },
+      { "phrase": "They accept cards and cash", "reading": "", "meaning": "カードと現金が使えます", "note": "支払い方法を案内する表現。" }
+    ],
     "1013": [
       { "phrase": "non-smoking room", "reading": "", "meaning": "禁煙室", "note": "" },
       { "phrase": "Is breakfast included?", "reading": "", "meaning": "朝食は含まれていますか？", "note": "ホテル定番の確認フレーズ。" }
+    ],
+    "1014": [
+      { "phrase": "high occupancy", "reading": "", "meaning": "高稼働率・満室に近い状態", "note": "ホテルが混雑していて部屋の準備が遅れる理由として使う。" },
+      { "phrase": "Is there any estimate for when...?", "reading": "", "meaning": "…はいつになる見込みですか？", "note": "見通しを丁寧に尋ねる表現。" },
+      { "phrase": "complimentary drink", "reading": "コンプリメンタリードリンク", "meaning": "無料提供の飲み物", "note": "complimentary = 無料の・サービスの。" },
+      { "phrase": "as soon as ~ is available", "reading": "", "meaning": "〜が準備でき次第", "note": "「as soon as the room is ready」とも言い換えられる。" }
+    ],
+    "1015": [
+      { "phrase": "report a problem", "reading": "", "meaning": "問題を報告する", "note": "ホテルフロントへのクレーム定番フレーズ。" },
+      { "phrase": "isn't working properly", "reading": "", "meaning": "正常に動いていない", "note": "「properly」を使うことで「完全には壊れていないが不具合がある」というニュアンス。" },
+      { "phrase": "making a strange noise", "reading": "", "meaning": "異音がする", "note": "" },
+      { "phrase": "at no extra charge", "reading": "", "meaning": "追加料金なしで", "note": "「free of charge」と同義。" }
     ],
     "1016": [
       { "phrase": "room service", "reading": "ルームサービス", "meaning": "客室への配膳サービス", "note": "" },
       { "phrase": "charged to your room", "reading": "", "meaning": "部屋付けにする", "note": "チェックアウト時にまとめて精算する。" }
     ],
+    "1017": [
+      { "phrase": "must-see attractions", "reading": "マストシーアトラクションズ", "meaning": "必見の観光スポット", "note": "「must-see」は「ぜひ見るべき」という意味の形容詞。" },
+      { "phrase": "free admission", "reading": "", "meaning": "入場無料", "note": "" },
+      { "phrase": "known for", "reading": "", "meaning": "〜で知られる", "note": "「be known for + 名詞」で特徴・名物を紹介する定型表現。" },
+      { "phrase": "Shall I make a reservation?", "reading": "", "meaning": "予約をしましょうか？", "note": "コンシェルジュが申し出る丁寧な提案表現。" }
+    ],
+    "1018": [
+      { "phrase": "dining alone", "reading": "", "meaning": "お一人でお食事ですか？", "note": "レストランスタッフが人数を確認する表現。" },
+      { "phrase": "a table by the window", "reading": "", "meaning": "窓際のテーブル", "note": "" },
+      { "phrase": "buffet", "reading": "ビュッフェ", "meaning": "ビュッフェ形式（食べ放題形式）", "note": "" },
+      { "phrase": "eggs any style", "reading": "", "meaning": "卵料理はお好みのスタイルで", "note": "scrambled（スクランブル）・poached（ポーチド）・omelette（オムレツ）などが続く。" }
+    ],
+    "1019": [
+      { "phrase": "request extra items", "reading": "", "meaning": "追加のアメニティ（備品）を依頼する", "note": "「extra」は「追加の」という意味。" },
+      { "phrase": "bath towel", "reading": "バスタオル", "meaning": "バスタオル", "note": "hand towel（ハンドタオル）と区別して使う。" },
+      { "phrase": "spare blanket", "reading": "", "meaning": "予備の毛布", "note": "「spare」は「予備の・余分の」。" },
+      { "phrase": "to make your stay more comfortable", "reading": "", "meaning": "より快適にお過ごしいただくために", "note": "ホテルスタッフの丁寧な気遣い表現。" }
+    ],
+    "1020": [
+      { "phrase": "having trouble connecting to", "reading": "", "meaning": "〜に接続できない", "note": "Wi-Fiや機器の接続トラブルに使う定番表現。" },
+      { "phrase": "The password isn't working", "reading": "", "meaning": "パスワードが通らない・使えない", "note": "「incorrect」と表示される状況を日常英語で表した表現。" },
+      { "phrase": "password update", "reading": "パスワードアップデート", "meaning": "パスワードの変更・更新", "note": "" },
+      { "phrase": "extension", "reading": "エクステンション", "meaning": "（電話の）内線番号", "note": "「extension 250」＝内線250番。" }
+    ],
+    "1021": [
+      { "phrase": "wake-up call", "reading": "ウェイクアップコール", "meaning": "モーニングコール", "note": "ホテルから指定時刻に電話で起こしてもらうサービス。" },
+      { "phrase": "I have an early flight to catch", "reading": "", "meaning": "早朝の便に乗らなければなりません", "note": "「catch a flight」は「フライトに乗る・間に合わせる」という意味。" },
+      { "phrase": "arrange a taxi", "reading": "", "meaning": "タクシーを手配する", "note": "" },
+      { "phrase": "Is there anything else I can help with?", "reading": "", "meaning": "他にお手伝いできることはありますか？", "note": "ホテルスタッフの締めくくりの定番フレーズ。" }
+    ],
     "1022": [
       { "phrase": "late check-out", "reading": "レイトチェックアウト", "meaning": "チェックアウト時間の延長", "note": "追加料金がかかる場合が多い。" },
       { "phrase": "I can offer you", "reading": "", "meaning": "〜を提供できます", "note": "ホテルスタッフが使う丁寧な提案表現。" }
+    ],
+    "1023": [
+      { "phrase": "check out of room ~", "reading": "", "meaning": "〜号室のチェックアウトをする", "note": "「check out of」のあとに部屋番号が続く。" },
+      { "phrase": "minibar", "reading": "ミニバー", "meaning": "客室内のミニ冷蔵庫（有料）", "note": "飲み物やスナックが入っており、使用分はチェックアウト時に請求される。" },
+      { "phrase": "card on file", "reading": "", "meaning": "登録済みのカード", "note": "チェックイン時に預けたクレジットカードのこと。" },
+      { "phrase": "We hope to see you again", "reading": "", "meaning": "またのご来訪をお待ちしています", "note": "ホテルスタッフの定番の送り出しフレーズ。" }
+    ],
+    "1024": [
+      { "phrase": "store my luggage", "reading": "", "meaning": "荷物を預ける", "note": "「luggage storage」は手荷物一時預かりサービス。" },
+      { "phrase": "complimentary", "reading": "コンプリメンタリー", "meaning": "無料の・サービスとして提供される", "note": "" },
+      { "phrase": "claim tag", "reading": "クレームタグ", "meaning": "荷物引換証", "note": "荷物を引き取るときに必要な番号札。" },
+      { "phrase": "freshen up", "reading": "", "meaning": "身なりを整える・さっぱりする", "note": "出発前にトイレや洗面で身支度する際に使う表現。" }
+    ],
+    "1025": [
+      { "phrase": "make a reservation", "reading": "", "meaning": "予約をする", "note": "「book a room」とも言い換えられる。" },
+      { "phrase": "preferably", "reading": "", "meaning": "できれば・なるべくなら", "note": "希望を柔らかく伝える副詞。" },
+      { "phrase": "early check-in", "reading": "アーリーチェックイン", "meaning": "通常より早いチェックイン", "note": "追加料金がかかる場合もあるため、事前確認が必要。" },
+      { "phrase": "confirm availability", "reading": "", "meaning": "空き状況を確認する", "note": "" },
+      { "phrase": "room rate", "reading": "ルームレート", "meaning": "客室料金・宿泊料", "note": "" }
     ]
   }
 }

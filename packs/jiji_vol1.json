@@ -144,20 +144,144 @@
       { "phrase": "surpassed expectations", "reading": "", "meaning": "期待を上回った", "note": "ニュース英語の定番表現。" },
       { "phrase": "the pace must accelerate", "reading": "", "meaning": "ペースを加速しなければならない", "note": "" }
     ],
+    "4003": [
+      { "phrase": "a drop in the ocean", "reading": "", "meaning": "焼け石に水・ほんのわずかな貢献", "note": "「大きな問題に対してほんの少ししか効果がない」という比喩的表現。" },
+      { "phrase": "single-use plastics", "reading": "", "meaning": "使い捨てプラスチック", "note": "環境問題の文脈で最頻出の語句。" },
+      { "phrase": "from the source", "reading": "", "meaning": "根本から・発生源から", "note": "問題の「根本解決」を表す際に使う表現。" },
+      { "phrase": "conscious consumers", "reading": "", "meaning": "意識の高い消費者", "note": "" },
+      { "phrase": "every little action adds up", "reading": "", "meaning": "小さな行動も積み重なれば大きくなる", "note": "環境・社会問題の議論でよく使われる表現。" }
+    ],
+    "4004": [
+      { "phrase": "upfront cost", "reading": "アップフロントコスト", "meaning": "初期費用・先行コスト", "note": "製品購入やプロジェクト開始時にかかる費用を指す。" },
+      { "phrase": "government subsidies", "reading": "", "meaning": "政府補助金", "note": "EV普及政策の文脈で頻出の語。" },
+      { "phrase": "charging infrastructure", "reading": "", "meaning": "充電インフラ", "note": "EV普及の課題として常に挙げられるキーワード。" },
+      { "phrase": "fast chargers", "reading": "ファストチャージャー", "meaning": "急速充電器", "note": "" },
+      { "phrase": "at my next upgrade", "reading": "", "meaning": "次に乗り換えるとき", "note": "「次の買い替えのタイミングで」という口語的表現。" }
+    ],
+    "4005": [
+      { "phrase": "carbon neutrality", "reading": "カーボンニュートラリティ", "meaning": "カーボンニュートラル・炭素中立", "note": "CO₂排出量と吸収量を均衡させた状態。" },
+      { "phrase": "phasing out coal", "reading": "", "meaning": "石炭の段階的廃止", "note": "phase out は「段階的に廃止する」という重要な動詞句。" },
+      { "phrase": "back on the table", "reading": "", "meaning": "再び議題に上がる・復活する", "note": "議論や選択肢として再浮上する、という慣用表現。" },
+      { "phrase": "baseload power", "reading": "ベースロードパワー", "meaning": "ベースロード電力（常時安定供給が必要な電力）", "note": "電力供給の文脈で使われる技術用語。" },
+      { "phrase": "cross-sector policy coordination", "reading": "", "meaning": "分野横断的な政策調整", "note": "" }
+    ],
+    "4006": [
+      { "phrase": "working around the clock", "reading": "", "meaning": "24時間体制で作業する", "note": "「昼夜問わず働き続ける」という慣用表現。" },
+      { "phrase": "declared a state of emergency", "reading": "", "meaning": "緊急事態を宣言した", "note": "disaster報道の定番表現。" },
+      { "phrase": "displaced", "reading": "", "meaning": "避難を余儀なくされた・住む場所を失った", "note": "災害・紛争報道で非常に多く使われる語。" },
+      { "phrase": "in critical demand", "reading": "", "meaning": "緊急に必要とされている", "note": "物資・支援が切実に求められている状況を表す。" },
+      { "phrase": "mobilized military units", "reading": "", "meaning": "軍部隊を動員した", "note": "" }
+    ],
+    "4007": [
+      { "phrase": "marine protected area", "reading": "マリン・プロテクテッド・エリア", "meaning": "海洋保護区", "note": "略称MPA。国際的な海洋保全の枠組みで使われる用語。" },
+      { "phrase": "overfishing", "reading": "オーバーフィッシング", "meaning": "乱獲・過剰漁業", "note": "海洋生態系破壊の主要原因の一つ。" },
+      { "phrase": "deep-sea mining", "reading": "", "meaning": "深海採掘", "note": "新たな環境リスクとして注目されているトピック。" },
+      { "phrase": "go hand in hand", "reading": "", "meaning": "密接に連携する・両立して進める", "note": "「二つのことが切り離せない関係にある」という慣用表現。" }
+    ],
+    "4008": [
+      { "phrase": "urban heat islands", "reading": "アーバン・ヒートアイランド", "meaning": "都市ヒートアイランド現象", "note": "都市部が周囲より気温が高くなる現象。" },
+      { "phrase": "green corridors", "reading": "", "meaning": "緑の回廊・緑地帯", "note": "都市内の連続した緑地ネットワークを指す。" },
+      { "phrase": "measurably", "reading": "", "meaning": "測定できるほど・明らかに", "note": "改善効果が数値として確認できる程度であることを強調する副詞。" },
+      { "phrase": "livable", "reading": "リバブル", "meaning": "住みやすい・暮らしやすい", "note": "都市計画・まちづくりの文脈で頻出の語。" },
+      { "phrase": "prioritize human wellbeing", "reading": "", "meaning": "人間の幸福・福祉を優先する", "note": "" }
+    ],
     "4009": [
       { "phrase": "double-edged sword", "reading": "ダブルエッジドソード", "meaning": "諸刃の剣", "note": "ビジネス議論で頻出の比喩表現。" },
       { "phrase": "augmenting human work", "reading": "", "meaning": "人間の仕事を補完する", "note": "AI議論の重要キーワード。" }
+    ],
+    "4010": [
+      { "phrase": "correlation versus causation", "reading": "", "meaning": "相関関係と因果関係の違い", "note": "「相関があっても因果関係とは限らない」という統計・科学的議論の基本概念。" },
+      { "phrase": "screen time limits", "reading": "スクリーンタイムリミット", "meaning": "スクリーンタイム制限", "note": "" },
+      { "phrase": "self-regulation", "reading": "セルフレギュレーション", "meaning": "自主規制", "note": "企業や業界が法規制なしに自ら設ける規制を指す。" },
+      { "phrase": "age verification", "reading": "エイジベリフィケーション", "meaning": "年齢確認", "note": "未成年保護の観点からSNS規制の文脈で重要なキーワード。" },
+      { "phrase": "parental controls", "reading": "ペアレンタルコントロール", "meaning": "保護者による使用制限", "note": "子どものデジタル利用を管理するための機能・設定。" }
     ],
     "4011": [
       { "phrase": "ransomware attack", "reading": "ランサムウェア攻撃", "meaning": "身代金型サイバー攻撃", "note": "" },
       { "phrase": "state-sponsored actors", "reading": "", "meaning": "国家支援を受けた（ハッカー）集団", "note": "" }
     ],
+    "4012": [
+      { "phrase": "permanent hybrid policy", "reading": "", "meaning": "恒久的なハイブリッド勤務制度", "note": "" },
+      { "phrase": "informal mentoring", "reading": "インフォーマルメンタリング", "meaning": "非公式な指導・日常的なメンタリング", "note": "制度的なトレーニングではなく、日常業務の中で自然に行われる指導のこと。" },
+      { "phrase": "in-person collaboration", "reading": "インパーソンコラボレーション", "meaning": "対面での協働", "note": "テレワークと対比して使われる。" },
+      { "phrase": "manage it thoughtfully", "reading": "", "meaning": "思慮深く管理する・丁寧に運営する", "note": "" },
+      { "phrase": "shifting permanently", "reading": "", "meaning": "恒久的に変化した", "note": "コロナ後の働き方が元に戻らないことを表す表現。" }
+    ],
+    "4013": [
+      { "phrase": "stepping stone", "reading": "ステッピングストーン", "meaning": "踏み台・ステップ", "note": "次の大きな目標に向けた中間地点を比喩的に表す表現。" },
+      { "phrase": "years in the making", "reading": "", "meaning": "長年にわたって準備されてきた", "note": "「何年もかけて実現した」という意味の慣用表現。" },
+      { "phrase": "lunar surface", "reading": "", "meaning": "月面", "note": "" },
+      { "phrase": "commercial space sector", "reading": "コマーシャルスペースセクター", "meaning": "民間宇宙産業", "note": "SpaceXなどの民間企業による宇宙開発分野を指す。" },
+      { "phrase": "driving innovation", "reading": "", "meaning": "イノベーションを促進する", "note": "" }
+    ],
+    "4014": [
+      { "phrase": "self-driving taxis", "reading": "セルフドライビングタクシー", "meaning": "自動運転タクシー", "note": "autonomous taxi とも言う。" },
+      { "phrase": "regulatory and liability questions", "reading": "", "meaning": "規制と責任の問題", "note": "自動運転普及における法的課題を指す。" },
+      { "phrase": "unnerving", "reading": "", "meaning": "不安な・神経を逆なでする", "note": "新技術に初めて触れたときの心理的不安感を表す形容詞。" },
+      { "phrase": "the legal framework hasn't caught up", "reading": "", "meaning": "法的な枠組みが技術に追いついていない", "note": "技術と法律の乖離を表すよく使われるフレーズ。" }
+    ],
+    "4015": [
+      { "phrase": "all-time high", "reading": "オールタイムハイ", "meaning": "史上最高値", "note": "株・暗号資産・記録の文脈で頻出の語句。" },
+      { "phrase": "decentralized finance", "reading": "ディセントラライズドファイナンス", "meaning": "分散型金融（DeFi）", "note": "略称DeFi。ブロックチェーンを利用した金融サービス全般。" },
+      { "phrase": "supply chain tracking", "reading": "", "meaning": "サプライチェーン追跡", "note": "ブロックチェーンの実用例として頻繁に引用される応用分野。" },
+      { "phrase": "energy-efficient mechanisms", "reading": "", "meaning": "エネルギー効率の高い仕組み", "note": "Proof of Stakeなどへの移行を指す。" },
+      { "phrase": "extreme volatility", "reading": "エクストリームボラティリティ", "meaning": "極端な価格変動", "note": "暗号資産のリスクを表す際の定番表現。" }
+    ],
+    "4016": [
+      { "phrase": "rolling out broadly", "reading": "", "meaning": "広範囲に展開・普及する", "note": "roll out は新技術やサービスを段階的に広める際に使う動詞句。" },
+      { "phrase": "remote surgery", "reading": "リモートサージェリー", "meaning": "遠隔手術", "note": "5Gの低遅延を活用した医療応用の代表例。" },
+      { "phrase": "near-zero latency", "reading": "ニアゼロレイテンシー", "meaning": "ほぼゼロの遅延", "note": "5Gの技術的特徴を表すキーワード。latencyは「通信遅延」。" },
+      { "phrase": "underserved regions", "reading": "", "meaning": "十分なサービスが届いていない地域", "note": "医療・教育・インフラ格差の文脈で使われる表現。" },
+      { "phrase": "robotic arms", "reading": "ロボティックアームズ", "meaning": "ロボットアーム", "note": "" }
+    ],
+    "4017": [
+      { "phrase": "real time", "reading": "リアルタイム", "meaning": "リアルタイム・即時", "note": "遅延なくデータを処理・表示することを指す。" },
+      { "phrase": "per capita consumption", "reading": "パーキャピタコンサンプション", "meaning": "一人当たりの消費量", "note": "統計・政策文書で頻出の表現。" },
+      { "phrase": "seamless integration", "reading": "シームレスインテグレーション", "meaning": "シームレスな統合・円滑な連携", "note": "スマートシティ成功の鍵として言及されることが多い。" },
+      { "phrase": "digital infrastructure", "reading": "デジタルインフラ", "meaning": "デジタルインフラ・情報通信基盤", "note": "" },
+      { "phrase": "long-term investment", "reading": "", "meaning": "長期的な投資", "note": "" }
+    ],
     "4018": [
       { "phrase": "bearing the brunt", "reading": "", "meaning": "（影響の）直撃を受ける", "note": "「最も大きな打撃を受ける」という意味のイディオム。" }
+    ],
+    "4019": [
+      { "phrase": "just-in-time inventory", "reading": "ジャストインタイムインベントリ", "meaning": "ジャストインタイム在庫管理", "note": "必要な時に必要な量だけ調達する在庫方式。効率的だが在庫バッファがなく脆弱。" },
+      { "phrase": "supply chain disruptions", "reading": "サプライチェーンディスラプション", "meaning": "サプライチェーンの混乱・寸断", "note": "" },
+      { "phrase": "reshoring", "reading": "リショアリング", "meaning": "国内回帰（生産拠点を自国に戻すこと）", "note": "対義語はoffshoring（海外移転）。" },
+      { "phrase": "diversifying suppliers", "reading": "", "meaning": "調達先を分散する", "note": "サプライチェーンのリスク管理策として重要な概念。" },
+      { "phrase": "globalization brought efficiency but also fragility", "reading": "", "meaning": "グローバル化は効率をもたらしたが脆弱性も生んだ", "note": "グローバルサプライチェーンのトレードオフを端的に表す表現。" }
+    ],
+    "4020": [
+      { "phrase": "interest rate concerns", "reading": "", "meaning": "金利に関する懸念", "note": "株式市場の下落要因としてよく報じられる表現。" },
+      { "phrase": "long-term strategy", "reading": "", "meaning": "長期的な戦略・方針", "note": "" },
+      { "phrase": "panic selling", "reading": "パニックセリング", "meaning": "狼狽売り・パニック売り", "note": "相場下落時に感情的に株を売る行動を指す。" },
+      { "phrase": "near-term turbulence", "reading": "", "meaning": "短期的な混乱・荒れ", "note": "turbulenceは「乱気流」が原義。金融市場の不安定な状態を比喩的に表す。" },
+      { "phrase": "demographics strongly favor", "reading": "", "meaning": "人口動態が強く後押しする", "note": "高齢化社会が医療セクターへの投資を有利にするという文脈。" }
+    ],
+    "4021": [
+      { "phrase": "frenzied growth", "reading": "フレンジードグロース", "meaning": "熱狂的な成長・狂乱の成長", "note": "frenzy（熱狂・狂乱）から派生。過度な盛り上がりを表す。" },
+      { "phrase": "cheap capital", "reading": "チープキャピタル", "meaning": "低コストの資金・安い資本", "note": "低金利時代に大量に調達できた資金を指す。" },
+      { "phrase": "path to revenue", "reading": "パストゥレベニュー", "meaning": "収益化への道筋", "note": "投資家がスタートアップに求める収益実現の見通しを指す。" },
+      { "phrase": "overvalued on pure hype", "reading": "", "meaning": "純粋な誇大宣伝だけで過大評価された", "note": "hypeは「過剰な宣伝・誇大広告」。" },
+      { "phrase": "center of gravity is shifting", "reading": "", "meaning": "重心が移動している・中心地が変わりつつある", "note": "テクノロジーや経済の主導権の地理的変化を表す比喩表現。" }
+    ],
+    "4022": [
+      { "phrase": "regional trade agreement", "reading": "リージョナルトレードアグリーメント", "meaning": "地域貿易協定", "note": "略称RTA。複数国間の関税削減・貿易促進の協定。" },
+      { "phrase": "tariffs", "reading": "タリフス", "meaning": "関税", "note": "貿易政策の最重要キーワードの一つ。" },
+      { "phrase": "displaced workers", "reading": "", "meaning": "失業を余儀なくされた労働者", "note": "貿易自由化や技術革新による雇用喪失を指す文脈で使われる。" },
+      { "phrase": "efficiency gains", "reading": "", "meaning": "効率化による利益・効率向上の恩恵", "note": "自由貿易の経済的メリットを指す。" },
+      { "phrase": "protectionism has significant costs", "reading": "", "meaning": "保護主義にも大きなコストがある", "note": "自由貿易対保護主義の議論で必ず言及されるポイント。" }
     ],
     "4023": [
       { "phrase": "disproportionately benefiting", "reading": "", "meaning": "不均衡に恩恵を受ける", "note": "" },
       { "phrase": "progressive taxation", "reading": "", "meaning": "累進課税", "note": "経済政策の重要用語。" }
+    ],
+    "4024": [
+      { "phrase": "skills mismatch", "reading": "スキルズミスマッチ", "meaning": "スキルのミスマッチ・技能のずれ", "note": "求職者のスキルと求人の要件が一致しない現象を指す経済学用語。" },
+      { "phrase": "disrupting roles", "reading": "", "meaning": "職種・仕事を破壊・変革する", "note": "disruptは「根本的に覆す」という意味。テクノロジーが雇用を変える文脈で頻出。" },
+      { "phrase": "internal upskilling programs", "reading": "インターナルアップスキリングプログラム", "meaning": "社内スキルアップ研修制度", "note": "upskill は「既存従業員に新たなスキルを習得させる」という動詞。" },
+      { "phrase": "subsidize", "reading": "サブシダイズ", "meaning": "補助金を出す・助成する", "note": "政府が費用を負担して支援することを指す。" },
+      { "phrase": "long-term unemployment", "reading": "ロングタームアンエンプロイメント", "meaning": "長期失業", "note": "個人と社会への深刻なコストとして経済政策議論で重要視される。" }
     ],
     "4025": [
       { "phrase": "loved to death", "reading": "", "meaning": "過剰な訪問者で台無しにされる", "note": "オーバーツーリズムを表す慣用表現。" }
