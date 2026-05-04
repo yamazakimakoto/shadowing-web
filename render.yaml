@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: shadowing-web
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    disk:
+      name: shadowing-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /data

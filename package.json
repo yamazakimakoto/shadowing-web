@@ -1,0 +1,15 @@
+{
+  "name": "shadowing-web",
+  "version": "1.0.0",
+  "description": "英会話シャドウイング Web App with license management",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "gen-key": "node tools/gen-license.mjs"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

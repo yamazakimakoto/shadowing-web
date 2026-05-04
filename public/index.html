@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>英会話シャドウイング – Model Text Edition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== 認証オーバーレイ（ライセンス未認証時に表示）===== -->
+  <div id="auth-overlay" class="auth-overlay">
+    <div class="auth-box">
+      <div class="auth-logo">🎤</div>
+      <h1 class="auth-title">英会話シャドウイング</h1>
+      <p class="auth-edition">Model Text Edition</p>
+      <p class="auth-desc">ご利用にはライセンスキーの認証が必要です</p>
+
+      <input
+        type="text"
+        id="license-key-input"
+        class="auth-key-input"
+        placeholder="SHAD-XXXX-XXXX-XXXX"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="characters"
+        spellcheck="false"
+        maxlength="19"
+      />
+      <button id="activate-btn" class="btn-activate">認証する</button>
+
+      <div id="auth-error"   class="auth-error   hidden"></div>
+      <div id="auth-success" class="auth-success  hidden"></div>
+
+      <p class="auth-footer">
+        購入済みのライセンスキーを入力してください<br>
+        最大3台のデバイスで使用できます（転売防止のため）
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== アプリ本体 ===== -->
+  <header>
+    <div class="header-inner">
+      <div class="header-icon">🎤</div>
+      <div>
+        <h1>英会話シャドウイング</h1>
+        <p id="pack-subtitle">📚 デフォルト100題</p>
+      </div>
+      <span id="offline-badge" class="offline-badge hidden">オフライン</span>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <button class="nav-btn active" data-tab="practice">練習</button>
+    <button class="nav-btn" data-tab="history">📌 保存</button>
+    <button class="nav-btn" data-tab="packs">📦 セット</button>
+    <button class="nav-btn" data-tab="settings">⚙️ 設定</button>
+  </nav>
+
+  <main>
+
+    <!-- ===== PRACTICE TAB ===== -->
+    <div id="tab-practice" class="tab-content active">
+
+      <section class="card">
+        <div class="card-header">
+          <span class="step-badge">1</span>
+          <h2>テキスト選択</h2>
+        </div>
+
+        <div class="input-tabs">
+          <button class="input-tab active" data-input="selector">📚 セットから選ぶ</button>
+          <button class="input-tab"        data-input="manual">✏️ 手動入力</button>
+        </div>
+
+        <div id="input-selector" class="input-panel active">
+          <div id="cat-tab-row" class="cat-tab-row"></div>
+          <div id="text-card-list" class="text-card-list"></div>
+        </div>
+
+        <div id="input-manual" class="input-panel">
+          <textarea
+            id="manual-text"
+            rows="5"
+            placeholder="練習したい英文をここに貼り付けてください…"
+          ></textarea>
+          <button id="save-manual-btn" class="btn-primary">テキストを設定</button>
+        </div>
+      </section>
+
+      <section class="card" id="practice-card">
+        <div class="card-header">
+          <span class="step-badge">2</span>
+          <h2>読み上げ・シャドウイング</h2>
+        </div>
+
+        <div id="text-display" class="text-display">
+          <p class="placeholder-text">上でテキストを選択してください</p>
+        </div>
+
+        <div class="text-save-row">
+          <button id="explain-btn"   class="btn-explain"   disabled>📖 フレーズ解説</button>
+          <button id="save-text-btn" class="btn-save-text" disabled>📌 テキストを保存</button>
+        </div>
+
+        <div id="dialogue-controls" class="dialogue-controls hidden">
+          <div class="dialogue-top-row">
+            <span class="dialogue-badge">💬 対話モード</span>
+            <div class="play-mode-group">
+              <button class="play-mode-btn active" data-mode="practice">🎤 役割練習</button>
+              <button class="play-mode-btn"        data-mode="full">🔊 全体読み上げ</button>
+            </div>
+          </div>
+          <div id="role-selector" class="role-selector">
+            <span class="role-select-label">あなたの役割：</span>
+            <div class="role-btn-group">
+              <button class="role-btn" data-practice="A">🎤 A を練習</button>
+              <button class="role-btn active" data-practice="B">🎤 B を練習</button>
+            </div>
+            <span class="role-hint" id="role-hint">A を読み上げ → B をシャドウイング</span>
+          </div>
+        </div>
+
+        <div class="tts-controls">
+          <div class="btn-row">
+            <button id="play-btn"   class="btn-play"   disabled>▶ 再生</button>
+            <button id="stop-btn"   class="btn-stop"   disabled>■ 停止</button>
+            <button id="repeat-btn" class="btn-repeat" disabled>🔁 リピート</button>
+          </div>
+          <div class="speed-row">
+            <label for="speed-slider">速度</label>
+            <input type="range" id="speed-slider" min="0.5" max="2.0" step="0.1" value="1.0" />
+            <span id="speed-value">1.0</span><span class="unit">x</span>
+          </div>
+          <div class="voice-row">
+            <label for="voice-select">音声</label>
+            <select id="voice-select"></select>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <span class="step-badge">3</span>
+          <h2>録音・発音チェック</h2>
+        </div>
+
+        <div class="record-area">
+          <button id="record-btn" class="btn-record" disabled>
+            <span class="rec-dot">●</span>
+            <span id="record-label">録音開始</span>
+          </button>
+          <div id="rec-status" class="rec-status hidden">
+            <span class="blink-dot"></span> 録音中…
+          </div>
+        </div>
+
+        <div id="audio-playback-area" class="audio-playback hidden">
+          <p class="section-label">録音した音声:</p>
+          <audio id="recorded-audio" controls></audio>
+        </div>
+
+        <div id="score-area" class="hidden">
+          <div class="score-row">
+            <div id="score-ring" class="score-ring">
+              <svg viewBox="0 0 100 100">
+                <circle class="ring-bg"   cx="50" cy="50" r="42"/>
+                <circle id="ring-fill" class="ring-fill" cx="50" cy="50" r="42"
+                  stroke-dasharray="0 264" transform="rotate(-90 50 50)"/>
+              </svg>
+              <div class="score-inner">
+                <span id="score-num">–</span>
+                <span class="score-pct">%</span>
+              </div>
+            </div>
+            <div class="score-info">
+              <p id="score-msg" class="score-msg"></p>
+              <p class="score-hint">単語一致率で算出</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== PACKS TAB ===== -->
+    <div id="tab-packs" class="tab-content">
+      <section class="card">
+        <div class="card-header">
+          <span class="step-badge">📦</span>
+          <h2>テキストセット</h2>
+        </div>
+        <p class="pack-intro">
+          HTMLファイルの読み込み、またはパックキーでサーバーからアンロックできます。
+        </p>
+
+        <div class="pack-action-row">
+          <button class="btn-pack-add btn-pack-add-import" onclick="triggerHtmlImport()">
+            📂 HTMLファイルを読み込む
+          </button>
+          <button class="btn-pack-add btn-pack-add-server" onclick="togglePackKeySection()">
+            🔑 パックキーでアンロック
+          </button>
+        </div>
+        <input type="file" id="pack-file-input" accept=".html,.htm" style="display:none"
+          onchange="if(this.files[0]){ importPackFromHtml(this.files[0]); }">
+
+        <!-- パックキー入力欄（折りたたみ） -->
+        <div id="pack-key-section" class="pack-key-section hidden">
+          <p class="pack-key-desc">購入したパックのライセンスキーを入力してください</p>
+          <div class="pack-key-form">
+            <input
+              type="text"
+              id="pack-key-input"
+              class="pack-key-input"
+              placeholder="SHAD-XXXX-XXXX-XXXX"
+              autocomplete="off"
+              autocapitalize="characters"
+              spellcheck="false"
+              maxlength="19"
+            />
+            <button id="pack-key-btn" class="btn-primary" onclick="activatePackKey()">アンロック</button>
+          </div>
+          <div id="pack-key-error"   class="pack-key-msg pack-key-error   hidden"></div>
+          <div id="pack-key-success" class="pack-key-msg pack-key-success hidden"></div>
+        </div>
+
+        <div id="pack-list"></div>
+      </section>
+    </div>
+
+    <!-- ===== HISTORY TAB ===== -->
+    <div id="tab-history" class="tab-content">
+      <section class="card">
+        <div class="history-top">
+          <h2>📌 保存テキスト</h2>
+          <button id="clear-all-btn" class="btn-clear-all">🗑 全て削除</button>
+        </div>
+        <div id="saved-list">
+          <p class="placeholder-text">保存されたテキストはありません</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== SETTINGS TAB ===== -->
+    <div id="tab-settings" class="tab-content">
+
+      <!-- ライセンス情報 -->
+      <section class="card">
+        <div class="card-header">
+          <span class="step-badge">🔑</span>
+          <h2>ライセンス情報</h2>
+        </div>
+        <div id="settings-license-info" class="settings-info-grid">
+          <div class="spinner-small"></div>
+        </div>
+        <button class="btn-danger-sm" style="margin-top:16px" onclick="doLogout()">
+          このデバイスの認証を解除
+        </button>
+      </section>
+
+      <!-- バックアップ・復元 -->
+      <section class="card">
+        <div class="card-header">
+          <span class="step-badge">💾</span>
+          <h2>バックアップ・復元</h2>
+        </div>
+        <p class="settings-desc">
+          保存テキストとローカルパックをバックアップできます。<br>
+          別のデバイスで復元する場合はそのデバイスで先にライセンス認証を行ってください。
+        </p>
+        <div class="settings-btn-row">
+          <button class="btn-primary" onclick="doExportBackup()">⬇ バックアップをエクスポート</button>
+          <button class="btn-secondary" onclick="document.getElementById('backup-file-input').click()">
+            ⬆ バックアップを復元
+          </button>
+          <input type="file" id="backup-file-input" accept=".json" style="display:none"
+            onchange="if(this.files[0]) doImportBackup(this.files[0])">
+        </div>
+        <div id="backup-msg" class="backup-msg hidden"></div>
+      </section>
+
+      <!-- デバイス情報 -->
+      <section class="card">
+        <div class="card-header">
+          <span class="step-badge">📱</span>
+          <h2>このデバイスについて</h2>
+        </div>
+        <div id="settings-device-info" class="settings-info-grid"></div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- ===== フレーズ解説モーダル ===== -->
+  <div id="explain-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-box modal-wide">
+      <div class="modal-head">
+        <h2>📖 フレーズ・単語解説</h2>
+        <button id="close-explain" class="btn-icon">✕</button>
+      </div>
+      <div id="explain-source"  class="explain-source"></div>
+      <div id="explain-loading" class="explain-loading hidden">
+        <div class="spinner"></div><p>解析中…</p>
+      </div>
+      <div id="explain-list" class="explain-list"></div>
+    </div>
+  </div>
+
+  <!-- ===== 保存テキストプレビューモーダル ===== -->
+  <div id="review-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2>📖 復習</h2>
+        <button class="close-modal btn-icon">✕</button>
+      </div>
+      <div id="review-meta"  class="review-meta"></div>
+      <div id="review-text"  class="text-display review-text"></div>
+      <div id="review-transcript-area" class="hidden">
+        <p class="section-label">前回の発音テキスト:</p>
+        <div id="review-transcript" class="transcript-box review-transcript"></div>
+      </div>
+      <div class="modal-actions">
+        <button id="review-play-btn"     class="btn-primary">▶ 読み上げ</button>
+        <button id="review-practice-btn" class="btn-practice">🎤 練習する</button>
+        <button class="close-modal btn-secondary">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="backup.js"></script>
+  <script src="texts.js"></script>
+  <script src="explanations.js"></script>
+  <script src="packs.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
