@@ -249,6 +249,19 @@ app.post('/admin/api/revoke-device', requireAdmin, (req, res) => {
   res.json({ ok: true });
 });
 
+// PATCH /admin/api/license — メモ更新
+app.patch('/admin/api/license', requireAdmin, (req, res) => {
+  const { hash, note } = req.body || {};
+  if (!hash) return res.status(400).json({ error: 'hash は必須です' });
+  const db  = loadDB();
+  const lic = db.licenses[hash];
+  if (!lic) return res.status(404).json({ error: 'ライセンスが見つかりません' });
+  lic.note = (note || '').trim();
+  db.licenses[hash] = lic;
+  saveDB(db);
+  res.json({ ok: true, note: lic.note });
+});
+
 // DELETE /admin/api/license — ライセンス削除
 app.delete('/admin/api/license', requireAdmin, (req, res) => {
   const { hash } = req.body || {};

@@ -152,6 +152,18 @@
     .pack-name { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
     .pack-count { font-size: 0.78rem; color: var(--text2); }
 
+    /* ─── MEMO EDIT ─── */
+    .memo-row { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+    .memo-text { font-size: 0.82rem; color: var(--text2); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .memo-edit-input {
+      flex: 1; padding: 5px 10px; border-radius: 6px; border: 1px solid var(--accent);
+      background: var(--bg); color: var(--text); font-size: 0.82rem;
+    }
+    .btn-memo-edit { padding: 3px 9px; font-size: 0.72rem; border-radius: 5px; border: 1px solid var(--border); background: none; color: var(--text2); cursor: pointer; white-space: nowrap; }
+    .btn-memo-edit:hover { background: var(--bg3); color: var(--text); }
+    .btn-memo-save { padding: 3px 10px; font-size: 0.72rem; border-radius: 5px; border: none; background: var(--accent); color: #fff; cursor: pointer; white-space: nowrap; }
+    .btn-memo-cancel { padding: 3px 9px; font-size: 0.72rem; border-radius: 5px; border: 1px solid var(--border); background: none; color: var(--text2); cursor: pointer; white-space: nowrap; }
+
     /* ─── MISC ─── */
     .section-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; color: var(--text); }
     .empty-state { text-align: center; padding: 40px; color: var(--text2); }
@@ -591,12 +603,21 @@ function renderLicenses() {
         <span class="device-date">認証: ${formatDate(d.activatedAt)} / 最終: ${formatDate(d.lastSeenAt)}</span>
         <button class="btn btn-danger btn-sm" onclick="revokeDevice('${l.hash}','${d.deviceIdShort}')">解除</button>
       </div>`).join('') : '<p style="font-size:0.78rem;color:var(--text2)">未使用</p>';
+    const safeNote = (l.note || '').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
     return `
-      <div class="lic-item ${l.activationsUsed>0?'has-devices':''}">
+      <div class="lic-item ${l.activationsUsed>0?'has-devices':''}" id="lic-${l.hash}">
         <div class="lic-top">
           <span class="lic-product">${pl.icon} ${pl.label}</span>
-          <span class="lic-note">${l.note || '（メモなし）'}</span>
           <span class="lic-date">${formatDate(l.createdAt)}</span>
+        </div>
+        <div class="memo-row" id="memo-view-${l.hash}">
+          <span class="memo-text" id="memo-text-${l.hash}">${l.note || '<span style="opacity:0.45">メモなし</span>'}</span>
+          <button class="btn-memo-edit" onclick="startMemoEdit('${l.hash}', '${safeNote}')">✏️ メモ編集</button>
+        </div>
+        <div class="memo-row hidden" id="memo-edit-${l.hash}">
+          <input type="text" class="memo-edit-input" id="memo-input-${l.hash}" placeholder="注文番号・備考など…" value="${safeNote}" maxlength="200">
+          <button class="btn-memo-save" onclick="saveMemo('${l.hash}')">保存</button>
+          <button class="btn-memo-cancel" onclick="cancelMemoEdit('${l.hash}')">キャンセル</button>
         </div>
         <div class="lic-bar">
           <div class="bar-track"><div class="bar-fill ${full?'full':''}" style="width:${pct}%"></div></div>
@@ -627,6 +648,45 @@ async function revokeDevice(hash, deviceIdShort) {
     alert('取り消しました');
     loadLicenses();
   } catch (e) { alert('エラー: ' + e.message); }
+}
+
+// ─── MEMO EDIT ───
+function startMemoEdit(hash, currentNote) {
+  document.getElementById(`memo-view-${hash}`).classList.add('hidden');
+  const editRow = document.getElementById(`memo-edit-${hash}`);
+  editRow.classList.remove('hidden');
+  const input = document.getElementById(`memo-input-${hash}`);
+  input.value = currentNote;
+  input.focus();
+  input.select();
+  // Enterキーで保存
+  input.onkeydown = (e) => {
+    if (e.key === 'Enter') saveMemo(hash);
+    if (e.key === 'Escape') cancelMemoEdit(hash);
+  };
+}
+
+function cancelMemoEdit(hash) {
+  document.getElementById(`memo-edit-${hash}`).classList.add('hidden');
+  document.getElementById(`memo-view-${hash}`).classList.remove('hidden');
+}
+
+async function saveMemo(hash) {
+  const input = document.getElementById(`memo-input-${hash}`);
+  const note  = input.value.trim();
+  try {
+    await api('PATCH', '/admin/api/license', { hash, note });
+    // 表示を即時更新
+    const textEl = document.getElementById(`memo-text-${hash}`);
+    textEl.innerHTML = note || '<span style="opacity:0.45">メモなし</span>';
+    // ボタンのonclickも更新（エスケープ済み）
+    const safeNote = note.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+    const editBtn = document.querySelector(`#memo-view-${hash} .btn-memo-edit`);
+    if (editBtn) editBtn.setAttribute('onclick', `startMemoEdit('${hash}', '${safeNote}')`);
+    cancelMemoEdit(hash);
+  } catch (e) {
+    alert('エラー: ' + e.message);
+  }
 }
 
 async function deleteLic(hash) {
