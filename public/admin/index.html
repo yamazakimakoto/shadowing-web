@@ -138,7 +138,11 @@
     .status-dot.active { background: var(--green); }
     .status-dot.unused { background: var(--text2); }
     .status-text { font-size: 0.72rem; color: var(--text2); }
-    .order-group-actions { padding: 12px 16px; background: var(--bg); border-top: 1px solid var(--border); display: flex; gap: 8px; flex-wrap: wrap; }
+    .order-key-mgmt { display: flex; gap: 4px; flex-shrink: 0; margin-left: auto; }
+    .btn-mgmt { width: 28px; height: 28px; border: none; border-radius: 5px; background: var(--bg2); cursor: pointer; font-size: 0.82rem; opacity: 0.6; transition: all 0.15s; padding: 0; line-height: 1; }
+    .btn-mgmt:hover { opacity: 1; background: var(--bg3); }
+    .btn-mgmt-del:hover { background: rgba(239,68,68,0.25); opacity: 1; }
+    .order-group-actions { padding: 12px 16px; background: var(--bg); border-top: 1px solid var(--border); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 
     /* メモ */
     .memo-row { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
@@ -697,29 +701,34 @@ function renderOrderView() {
     const total = lics.length;
     const used  = lics.filter(l => l.activationsUsed > 0).length;
 
-    // キー行
+    // キー行（管理ボタン付き）
     const keyRows = lics.map(l => {
       const pl = productLabel(l.product);
-      const statusDot = l.activationsUsed > 0
+      const statusText = l.activationsUsed > 0
         ? `<span class="status-dot active"></span><span class="status-text">${l.activationsUsed}/${l.maxActivations}台</span>`
         : `<span class="status-dot unused"></span><span class="status-text">未使用</span>`;
       const keyDisp = l.key
         ? `<span class="order-key-value">${l.key}</span>
-           <button class="btn-copy" onclick="copyText('${l.key}', this)" title="${l.key}">コピー</button>`
+           <button class="btn-copy" onclick="copyText('${l.key}', this)">コピー</button>`
         : `<span style="font-size:0.78rem;color:var(--text2);font-family:monospace">${l.hashShort}…（旧形式）</span>`;
       return `
         <div class="order-key-row">
           <span class="order-key-product">${pl.icon} ${pl.label}</span>
           ${keyDisp}
-          <div class="order-key-status">${statusDot}</div>
+          <div class="order-key-status">${statusText}</div>
+          <div class="order-key-mgmt">
+            <button class="btn-mgmt" title="デバイス認証を全て解除（台数リセット）" onclick="revokeAll('${l.hash}')">🔄</button>
+            <button class="btn-mgmt btn-mgmt-del" title="このキーを削除" onclick="deleteLic('${l.hash}')">🗑</button>
+          </div>
         </div>`;
     }).join('');
 
-    // 全キーリスト（コピー用）- storeに保存してIDで参照（HTML属性へのJSON埋め込み回避）
-    const allKeys = lics.filter(l => l.key).map(l => l.key);
-    const keysMap = lics.reduce((acc, l) => { if (l.key) acc[l.product] = l.key; return acc; }, {});
+    // ストアに保存（コピー・配信・グループ削除用）
+    const allKeys   = lics.filter(l => l.key).map(l => l.key);
+    const allHashes = lics.map(l => l.hash);
+    const keysMap   = lics.reduce((acc, l) => { if (l.key) acc[l.product] = l.key; return acc; }, {});
     const rid = 'r' + (++_storeCounter);
-    _resultStore[rid] = { keys: allKeys, keysMap, note: g.note };
+    _resultStore[rid] = { keys: allKeys, keysMap, note: g.note, hashes: allHashes };
 
     return `
       <div class="order-group">
@@ -733,6 +742,7 @@ function renderOrderView() {
         <div class="order-group-actions">
           <button class="btn-copy-outline" onclick="copyStoredKeys('${rid}', this)">📋 全キーをコピー</button>
           <button class="btn-copy-outline" onclick="openStoredDelivery('${rid}')">📧 配信テキストを作成</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteGroupKeys('${rid}')">🗑 注文まるごと削除</button>
         </div>
       </div>`;
   }).join('');
@@ -800,9 +810,22 @@ function escHtml(s) {
 
 // ─── DEVICE ACTIONS ───────────────────────────────────────────────────────────
 async function revokeAll(hash) {
-  if (!confirm('このキーの全デバイス認証を取り消しますか？')) return;
+  if (!confirm('このキーの全デバイス認証を取り消しますか？\n台数カウントが 0 にリセットされます。')) return;
   try { await api('POST', '/admin/api/revoke', { hash }); loadLicenses(); }
   catch (e) { alert('エラー: ' + e.message); }
+}
+
+async function deleteGroupKeys(id) {
+  const s = _resultStore[id];
+  if (!s || !s.hashes || !s.hashes.length) return;
+  const note = s.note || '（メモなし）';
+  if (!confirm(`「${note}」の ${s.hashes.length} 件のキーを全て削除しますか？\n元に戻せません。`)) return;
+  try {
+    for (const hash of s.hashes) {
+      await api('DELETE', '/admin/api/license', { hash });
+    }
+    loadLicenses();
+  } catch (e) { alert('エラー: ' + e.message); }
 }
 async function revokeDevice(hash, deviceIdShort) {
   if (!confirm(`デバイス「${deviceIdShort}」を解除しますか？`)) return;
