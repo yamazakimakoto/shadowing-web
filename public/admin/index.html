@@ -225,6 +225,8 @@
             <option value="pack:travel_vol1">【パック】海外旅行 vol.1（空港・ホテル）</option>
             <option value="pack:travel_vol2">【パック】海外旅行 vol.2（グルメ・観光）</option>
             <option value="pack:toeic">【パック】TOEICパック（ビジネス英語）</option>
+            <option value="pack:jiji_vol1">【パック】時事英語 vol.1（環境・テクノロジー・経済）</option>
+            <option value="pack:jiji_vol2">【パック】時事英語 vol.2（社会・国際・健康）</option>
           </select>
         </div>
         <div class="form-row-grid">
@@ -252,9 +254,10 @@
         <div class="form-row">
           <label class="form-label">販売セット</label>
           <select id="bundle-type" class="form-select">
-            <option value="bundle:travel_set">🌏 海外旅行セット（本体 + 旅行vol.1 + 旅行vol.2）</option>
+            <option value="bundle:travel_set">🌏 海外旅行セット（本体 + 旅行vol.1 + vol.2）</option>
             <option value="bundle:toeic_set">📊 TOEICセット（本体 + TOEICパック）</option>
-            <option value="bundle:all">🏆 全部入りセット（本体 + 旅行vol.1 + vol.2 + TOEIC）</option>
+            <option value="bundle:jiji_set">🌍 時事英語セット（本体 + 時事vol.1 + vol.2）</option>
+            <option value="bundle:all">🏆 全部入りセット（本体 + 旅行 + TOEIC + 時事 全6点）</option>
           </select>
         </div>
         <div class="form-row">
@@ -277,6 +280,8 @@
             <option value="pack:travel_vol1">旅行vol.1</option>
             <option value="pack:travel_vol2">旅行vol.2</option>
             <option value="pack:toeic">TOEIC</option>
+            <option value="pack:jiji_vol1">時事vol.1</option>
+            <option value="pack:jiji_vol2">時事vol.2</option>
           </select>
           <input type="text" id="filter-search" class="filter-input" placeholder="注文メモで絞り込み…" oninput="renderLicenses()">
           <button class="btn-refresh" onclick="loadLicenses()">🔄 更新</button>
@@ -394,7 +399,9 @@ const PRODUCT_LABELS = {
   'base':             { label: '本体', icon: '🎤' },
   'pack:travel_vol1': { label: '旅行 vol.1', icon: '✈️' },
   'pack:travel_vol2': { label: '旅行 vol.2', icon: '🗺️' },
-  'pack:toeic':       { label: 'TOEIC',    icon: '📊' }
+  'pack:toeic':       { label: 'TOEIC',      icon: '📊' },
+  'pack:jiji_vol1':   { label: '時事 vol.1', icon: '🌍' },
+  'pack:jiji_vol2':   { label: '時事 vol.2', icon: '🌏' }
 };
 function productLabel(p) { return PRODUCT_LABELS[p] || { label: p, icon: '📦' }; }
 function formatDate(iso) {
@@ -414,7 +421,7 @@ async function loadDashboard() {
     // stats
     const grid = document.getElementById('stat-grid');
     grid.innerHTML = '';
-    const statOrder = ['base','pack:travel_vol1','pack:travel_vol2','pack:toeic'];
+    const statOrder = ['base','pack:travel_vol1','pack:travel_vol2','pack:toeic','pack:jiji_vol1','pack:jiji_vol2'];
     for (const p of statOrder) {
       const s = data.stats[p] || { total: 0, activated: 0 };
       const m = productLabel(p);

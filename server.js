@@ -188,7 +188,8 @@ app.post('/admin/api/generate-bundle', requireAdmin, (req, res) => {
   const BUNDLES = {
     'bundle:travel_set':  ['base', 'pack:travel_vol1', 'pack:travel_vol2'],
     'bundle:toeic_set':   ['base', 'pack:toeic'],
-    'bundle:all':         ['base', 'pack:travel_vol1', 'pack:travel_vol2', 'pack:toeic']
+    'bundle:jiji_set':    ['base', 'pack:jiji_vol1', 'pack:jiji_vol2'],
+    'bundle:all':         ['base', 'pack:travel_vol1', 'pack:travel_vol2', 'pack:toeic', 'pack:jiji_vol1', 'pack:jiji_vol2']
   };
   const { bundle, note = '', maxActivations = 3 } = req.body || {};
   const products = BUNDLES[bundle];

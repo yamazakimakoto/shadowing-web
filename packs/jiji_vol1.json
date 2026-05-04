@@ -1,0 +1,166 @@
+{
+  "id": "jiji_vol1",
+  "name": "時事英語パック vol.1",
+  "description": "環境・テクノロジー・経済の最前線 25題",
+  "icon": "🌍",
+  "categories": [
+    { "id": "environment", "label": "環境・気候",      "icon": "🌿" },
+    { "id": "tech",        "label": "テクノロジー",    "icon": "💻" },
+    { "id": "economy",     "label": "経済・ビジネス",  "icon": "💰" }
+  ],
+  "texts": [
+    {
+      "id": 4001, "category": "environment",
+      "title": "Climate Summit Debate", "titleJa": "気候サミットの議論",
+      "text": "A: World leaders gathered this week for the annual climate summit. Were you following it?\nB: Yes. The main focus was reducing carbon emissions by fifty percent before 2035.\nA: Several major economies pledged new targets, but critics say the commitments aren't binding enough.\nB: Without enforcement mechanisms, these pledges remain largely symbolic.\nA: Still, public pressure is pushing governments to act more decisively than before.\nB: And consumer behavior is shifting too — more people are choosing sustainable companies and products."
+    },
+    {
+      "id": 4002, "category": "environment",
+      "title": "Renewable Energy Boom", "titleJa": "再生可能エネルギーの急成長",
+      "text": "Solar and wind energy capacity worldwide has surpassed expectations, with global renewable installations hitting a record high for the third consecutive year. According to the International Energy Agency, solar power now accounts for over fifteen percent of global electricity generation. The rapid decline in solar panel costs — down over ninety percent in the past decade — has made clean energy economically competitive with fossil fuels in most regions. However, experts warn that the pace of the energy transition must accelerate significantly to meet Paris Agreement targets. The biggest challenge now lies in upgrading aging power grids and developing efficient energy storage solutions."
+    },
+    {
+      "id": 4003, "category": "environment",
+      "title": "Plastic Pollution Crisis", "titleJa": "海洋プラスチック汚染",
+      "text": "A: I read that the plastic waste patch in the Pacific is now three times the size of France.\nB: That's alarming. What's being done about it?\nA: Several organizations are using specially designed vessels to collect the debris. But it's a drop in the ocean, so to speak.\nB: The real solution has to come from the source — reducing plastic production at the manufacturing level.\nA: Some countries have banned single-use plastics, and the results have been encouraging.\nB: We all need to be more conscious consumers. Every little action adds up when multiplied by billions of people."
+    },
+    {
+      "id": 4004, "category": "environment",
+      "title": "Electric Vehicle Adoption", "titleJa": "電気自動車の普及",
+      "text": "A: Have you thought about switching to an electric vehicle?\nB: I have, but the upfront cost is still quite high compared to a regular car.\nA: True, but you save significantly on fuel over time. And government subsidies are available.\nB: Charging infrastructure is my other concern. I often drive long distances.\nA: The network is expanding rapidly. Most highways now have fast chargers every fifty kilometers.\nB: If that's the case, I might seriously consider it at my next upgrade."
+    },
+    {
+      "id": 4005, "category": "environment",
+      "title": "Carbon Neutrality Goals", "titleJa": "カーボンニュートラル目標",
+      "text": "A: Japan has committed to carbon neutrality by 2050. Is it achievable?\nB: Ambitious but not impossible. The key is aggressively investing in renewables and phasing out coal.\nA: Nuclear energy seems to be back on the table, which is controversial given the Fukushima legacy.\nB: Some scientists argue that next-generation nuclear is essential for reliable baseload power without carbon emissions.\nA: Whatever the approach, the transition needs massive investment and cross-sector policy coordination.\nB: And it can't just be governments — businesses and individuals need to be part of the solution too."
+    },
+    {
+      "id": 4006, "category": "environment",
+      "title": "Earthquake Disaster Response", "titleJa": "地震・災害対応",
+      "text": "Emergency response teams are on the ground following a magnitude six-point-eight earthquake that struck the coastal region late Tuesday evening. At least forty-seven people have been confirmed dead, with hundreds injured and thousands displaced. Rescue operations are ongoing, with crews working around the clock to reach survivors trapped beneath rubble. The government has declared a state of emergency and mobilized military units to assist with logistics and temporary shelter. Aid organizations are urging donors to contribute, noting that food, clean water, and medical supplies are in critical demand. Local hospitals are overwhelmed, and additional medical staff are being flown in from neighboring regions."
+    },
+    {
+      "id": 4007, "category": "environment",
+      "title": "Ocean Conservation Victory", "titleJa": "海洋保護区の設立",
+      "text": "A: Did you hear about the new marine protected area established in the South Pacific?\nB: Yes — one of the largest in the world, covering nearly a million square kilometers.\nA: It's a huge win for conservationists. Overfishing and deep-sea mining have devastated ecosystems.\nB: And healthy oceans are critical not just for biodiversity — they absorb about a third of global CO₂ emissions.\nA: I didn't realize oceans played such a big role in climate regulation.\nB: They do. That's why marine conservation and climate policy really need to go hand in hand."
+    },
+    {
+      "id": 4008, "category": "environment",
+      "title": "Urban Green Spaces", "titleJa": "都市の緑化",
+      "text": "A: More cities are investing in urban forests and green corridors. Have you noticed changes here?\nB: Yes — they've planted thousands of trees along boulevards and added rooftop gardens on public buildings.\nA: It's not just aesthetic. It reduces urban heat islands and improves air quality measurably.\nB: And the mental health benefits are significant. Research shows green spaces reduce stress and anxiety.\nA: I hope the trend continues. We need cities that are livable, not just functional.\nB: Urban planning needs to prioritize human wellbeing alongside economic development."
+    },
+    {
+      "id": 4009, "category": "tech",
+      "title": "AI in the Workplace", "titleJa": "職場でのAI活用",
+      "text": "A: Our company is piloting an AI assistant for drafting reports and emails. What do you think?\nB: It's a double-edged sword — it boosts productivity, but there are real concerns about job displacement.\nA: I think it's more about augmenting human work than replacing it, at least in the short term.\nB: If AI handles sixty percent of a desk job's tasks, workforce restructuring seems inevitable.\nA: Companies will need to invest in retraining programs to prepare workers for new roles.\nB: The technology isn't the problem — how we manage the transition is what matters."
+    },
+    {
+      "id": 4010, "category": "tech",
+      "title": "Social Media and Teen Mental Health", "titleJa": "SNSと若者のメンタルヘルス",
+      "text": "A: A new study found teens spending over three hours daily on social media are far more likely to experience anxiety.\nB: That's concerning. Though I wonder how much is correlation versus causation.\nA: There's probably truth in both directions. Either way, the data is hard to ignore.\nB: Some platforms are introducing screen time limits and removing harmful content more proactively.\nA: It's progress, but self-regulation only goes so far. There may need to be legislation.\nB: Especially for minors — age verification and parental controls need to be far more robust."
+    },
+    {
+      "id": 4011, "category": "tech",
+      "title": "Hospital Ransomware Attack", "titleJa": "病院へのランサムウェア攻撃",
+      "text": "Cybersecurity officials have issued a high-level warning following a sophisticated ransomware attack that disrupted operations at several major hospitals across Europe. The attack encrypted critical patient data and demanded payment in cryptocurrency, forcing hospitals to cancel procedures and revert to manual record-keeping. Authorities suspect the attack was carried out by a criminal group with ties to state-sponsored actors. The incident has renewed calls for organizations to significantly upgrade their digital defenses. Experts recommend regular system audits, staff training on phishing attacks, and maintaining isolated backups of all critical data."
+    },
+    {
+      "id": 4012, "category": "tech",
+      "title": "Hybrid Work Policy", "titleJa": "ハイブリッドワークの定着",
+      "text": "A: Our company just announced a permanent hybrid policy — three days in the office, two from home.\nB: I prefer it to a full return. I'm more productive at home for focused work, but value in-person collaboration.\nA: I do worry about younger employees — they benefit from informal mentoring and being around experienced staff.\nB: Some companies have introduced mandatory in-office days for new hires specifically for that reason.\nA: The whole concept of the workplace has shifted permanently. We're not going back to the old model.\nB: And I think that's broadly a good thing — as long as companies manage it thoughtfully."
+    },
+    {
+      "id": 4013, "category": "tech",
+      "title": "Return to the Moon", "titleJa": "月面有人着陸の再挑戦",
+      "text": "A: NASA successfully landed a crew on the lunar surface for the first time in over fifty years.\nB: The Artemis program has been years in the making. And this crew includes the first woman and first person of color to walk on the moon.\nA: A historic moment on multiple levels. What's the long-term goal?\nB: A permanent lunar base, then using it as a stepping stone for future missions to Mars.\nA: The commercial space sector is accelerating development enormously.\nB: Competition between public agencies and private companies is driving innovation faster than ever."
+    },
+    {
+      "id": 4014, "category": "tech",
+      "title": "Autonomous Taxi Experience", "titleJa": "自動運転タクシーに乗る",
+      "text": "A: Self-driving taxis are now operating commercially in three major cities. Did you try one?\nB: I did — it was slightly unnerving at first, but after a few minutes it felt remarkably smooth.\nA: How did it handle complex situations — construction zones, unexpected pedestrians?\nB: Better than I expected. It detected a cyclist emerging from between parked cars before I even noticed.\nA: Though there are still significant regulatory and liability questions to resolve.\nB: If there's an accident, who's responsible? The legal framework hasn't caught up with the technology yet."
+    },
+    {
+      "id": 4015, "category": "tech",
+      "title": "Cryptocurrency Debate", "titleJa": "暗号資産をめぐる議論",
+      "text": "A: Bitcoin hit a new all-time high this week. Are you invested?\nB: A small amount, yes — but I'm cautious. The volatility is extreme. It can lose forty percent in weeks.\nA: The blockchain technology does seem to have real-world applications beyond currency.\nB: Absolutely — supply chain tracking, digital identity, decentralized finance are all legitimate use cases.\nA: But the environmental cost of mining is enormous. Some estimates compare Bitcoin's energy use to a mid-sized country.\nB: The industry is under pressure to shift to more energy-efficient mechanisms. It's a real problem."
+    },
+    {
+      "id": 4016, "category": "tech",
+      "title": "5G Transforms Healthcare", "titleJa": "5Gが変える医療",
+      "text": "A: With 5G rolling out broadly, what do you think the biggest impact will be?\nB: I think it's less about smartphones and more about enabling autonomous vehicles and remote surgery.\nA: Remote surgery sounds futuristic.\nB: It's already been demonstrated — surgeons operating on a patient in another country via robotic arms with near-zero latency.\nA: That has profound implications for healthcare access in remote or underserved regions.\nB: And for disaster response — expert medical assistance deployed remotely could save many lives."
+    },
+    {
+      "id": 4017, "category": "tech",
+      "title": "Smart City of the Future", "titleJa": "スマートシティの未来",
+      "text": "Singapore has long been recognized as a global leader in smart city development. The city-state monitors traffic flow in real time using over a hundred thousand sensors, reducing average commute times by twenty-three percent compared to five years ago. Smart waste collection systems alert crews only when bins are full, cutting collection routes by a third. Water usage is tracked at the building level, enabling conservation measures that have reduced per capita consumption by fifteen percent. City planners note that the key to success has been not just the technology, but seamless integration of data across departments — and a government committed to long-term investment in digital infrastructure."
+    },
+    {
+      "id": 4018, "category": "economy",
+      "title": "Inflation and Cost of Living", "titleJa": "インフレと生活コストの上昇",
+      "text": "A: Inflation has really hit hard this year. My grocery bill is up almost thirty percent.\nB: Same here. And rent in this city is becoming unaffordable for ordinary workers.\nA: Central banks raised interest rates to control inflation, but that's made mortgages more expensive too.\nB: It feels like a squeeze from all sides. Wages haven't kept pace with rising costs.\nA: Economists are divided on whether this is temporary or a structural shift.\nB: Either way, policymakers need to do more to protect lower-income households who are bearing the brunt."
+    },
+    {
+      "id": 4019, "category": "economy",
+      "title": "Supply Chain Disruption", "titleJa": "サプライチェーンの混乱",
+      "text": "A: Manufacturers are still struggling with supply chain disruptions years after the pandemic. Why so slow?\nB: It's a combination — geopolitical tensions have reshuffled trade routes, and extreme weather keeps disrupting logistics.\nA: And companies that over-relied on just-in-time inventory had no buffer when things went wrong.\nB: Many are now diversifying suppliers and reshoring some production to build resilience.\nA: That's the right direction, but it comes with higher costs that consumers ultimately absorb.\nB: Globalization brought efficiency but also fragility. We're rethinking the balance."
+    },
+    {
+      "id": 4020, "category": "economy",
+      "title": "Stock Market Volatility", "titleJa": "株式市場の乱高下",
+      "text": "A: The market dropped sharply this week on interest rate concerns. Are you worried?\nB: Not particularly — I invest for the long term, so short-term volatility doesn't change my strategy.\nA: That's wise. Though it's hard to stay calm when your portfolio drops ten percent in a week.\nB: It is. But history shows markets recover. Panic selling is almost always a mistake.\nA: What sectors look well-positioned going forward?\nB: Clean energy, healthcare, and technology look strong despite near-term turbulence. Demographics strongly favor healthcare."
+    },
+    {
+      "id": 4021, "category": "economy",
+      "title": "Startup Culture Cooling Down", "titleJa": "スタートアップブームの変調",
+      "text": "A: Silicon Valley's startup scene is cooling after years of frenzied growth. What's driving that?\nB: Rising interest rates made cheap capital disappear. Startups relying on endless funding without profitability are struggling.\nA: The era of 'grow at any cost' seems over. Investors now want a clear path to revenue.\nB: That's probably healthy long-term. Too many startups were overvalued on pure hype.\nA: Asia's tech startup ecosystems are emerging strongly — particularly India and Southeast Asia.\nB: Those markets have massive growth potential and increasingly sophisticated tech talent. The center of gravity is shifting."
+    },
+    {
+      "id": 4022, "category": "economy",
+      "title": "Free Trade vs. Protectionism", "titleJa": "自由貿易か保護主義か",
+      "text": "A: The new regional trade agreement is expected to reduce tariffs across fifteen countries. Your take?\nB: Free trade generally benefits economies overall, but gains aren't distributed evenly — some industries lose out.\nA: Domestic manufacturers in protected sectors often face painful competition they're not prepared for.\nB: The key is whether governments use the efficiency gains to fund retraining for displaced workers.\nA: In theory, yes. In practice, those programs are often underfunded or poorly designed.\nB: Trade policy is easy to criticize, but protectionism has significant costs of its own."
+    },
+    {
+      "id": 4023, "category": "economy",
+      "title": "Widening Wealth Gap", "titleJa": "格差の拡大",
+      "text": "A new IMF report highlights a widening gap between the world's wealthiest and the rest. The top one percent now controls over forty-five percent of global wealth — a proportion that has increased steadily for two decades. The pandemic accelerated inequality: lower-income service workers bore the brunt of job losses while asset prices in stocks and real estate soared, disproportionately benefiting those already wealthy. Economists warn that persistent inequality poses risks not only to social cohesion but to long-term growth, as it reduces consumer spending power. The report recommends progressive taxation, investment in public education, and stronger labor protections as key responses."
+    },
+    {
+      "id": 4024, "category": "economy",
+      "title": "Skills Mismatch in the Job Market", "titleJa": "雇用ミスマッチの問題",
+      "text": "A: Unemployment is at historic lows, yet companies say they can't find qualified workers. What's going on?\nB: It's what economists call a skills mismatch. Available jobs require different skills than many workers currently have.\nA: Technology is disrupting roles faster than education systems can adapt.\nB: A manufacturing worker whose job has been automated can't easily retrain as a software engineer in six months.\nA: Some companies are investing in internal upskilling programs. Amazon pledged to retrain a hundred thousand workers.\nB: Governments need to subsidize similar programs broadly. It's cheaper than dealing with long-term unemployment."
+    },
+    {
+      "id": 4025, "category": "economy",
+      "title": "Over-Tourism Problem", "titleJa": "オーバーツーリズムの課題",
+      "text": "A: International tourism has recovered to pre-pandemic levels. But I hear destinations are struggling.\nB: Places like Kyoto, Venice, and Barcelona are essentially being loved to death. The local culture suffers.\nA: Some cities are introducing visitor caps, higher entry fees, or zoning restrictions.\nB: It's a delicate balance — tourism drives jobs and revenue, but you can undermine what makes a place worth visiting.\nA: There's also the environmental impact — cruise ships and air travel have enormous carbon footprints.\nB: Sustainable tourism needs to become the norm, not the exception. The industry has to change its model."
+    }
+  ],
+  "explanations": {
+    "4001": [
+      { "phrase": "binding commitments", "reading": "", "meaning": "法的拘束力のある約束", "note": "国際条約・合意でよく使われる表現。" },
+      { "phrase": "enforcement mechanisms", "reading": "", "meaning": "執行メカニズム・強制力", "note": "" }
+    ],
+    "4002": [
+      { "phrase": "surpassed expectations", "reading": "", "meaning": "期待を上回った", "note": "ニュース英語の定番表現。" },
+      { "phrase": "the pace must accelerate", "reading": "", "meaning": "ペースを加速しなければならない", "note": "" }
+    ],
+    "4009": [
+      { "phrase": "double-edged sword", "reading": "ダブルエッジドソード", "meaning": "諸刃の剣", "note": "ビジネス議論で頻出の比喩表現。" },
+      { "phrase": "augmenting human work", "reading": "", "meaning": "人間の仕事を補完する", "note": "AI議論の重要キーワード。" }
+    ],
+    "4011": [
+      { "phrase": "ransomware attack", "reading": "ランサムウェア攻撃", "meaning": "身代金型サイバー攻撃", "note": "" },
+      { "phrase": "state-sponsored actors", "reading": "", "meaning": "国家支援を受けた（ハッカー）集団", "note": "" }
+    ],
+    "4018": [
+      { "phrase": "bearing the brunt", "reading": "", "meaning": "（影響の）直撃を受ける", "note": "「最も大きな打撃を受ける」という意味のイディオム。" }
+    ],
+    "4023": [
+      { "phrase": "disproportionately benefiting", "reading": "", "meaning": "不均衡に恩恵を受ける", "note": "" },
+      { "phrase": "progressive taxation", "reading": "", "meaning": "累進課税", "note": "経済政策の重要用語。" }
+    ],
+    "4025": [
+      { "phrase": "loved to death", "reading": "", "meaning": "過剰な訪問者で台無しにされる", "note": "オーバーツーリズムを表す慣用表現。" }
+    ]
+  }
+}

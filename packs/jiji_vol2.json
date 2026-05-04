@@ -1,0 +1,167 @@
+{
+  "id": "jiji_vol2",
+  "name": "時事英語パック vol.2",
+  "description": "社会・国際関係・健康・科学の最前線 25題",
+  "icon": "🌏",
+  "categories": [
+    { "id": "society",       "label": "社会・政策",   "icon": "🏛️" },
+    { "id": "international", "label": "国際関係",     "icon": "🌏" },
+    { "id": "health",        "label": "健康・科学",   "icon": "🔬" }
+  ],
+  "texts": [
+    {
+      "id": 5001, "category": "society",
+      "title": "Education Reform", "titleJa": "教育改革の議論",
+      "text": "A: The government just announced a major curriculum reform, emphasizing critical thinking and digital literacy.\nB: It's overdue. The current system is too focused on rote memorization rather than real-world skills.\nA: Critics worry about teacher training — you can't implement new methods without properly retraining educators.\nB: That's the perennial challenge. The vision is sound, but execution is slow and patchy.\nA: Finland and Singapore seem to have cracked it. What do you think is their secret?\nB: Investment in teacher quality is key. In Finland, teaching is as prestigious as medicine. That changes everything."
+    },
+    {
+      "id": 5002, "category": "society",
+      "title": "Japan's Aging Society", "titleJa": "日本の少子高齢化",
+      "text": "A: Japan's population has been declining for over fifteen years and over sixty-five-year-olds have passed thirty percent.\nB: It puts enormous strain on pension systems, healthcare, and the workforce. Fewer workers supporting more retirees is unsustainable.\nA: Immigration is one solution, but Japan has been historically very cautious about opening its borders.\nB: Attitudes are slowly shifting, but the pace is insufficient. Automation can help, but it's not a complete answer.\nA: Some economists argue the priority should be enabling more women and older adults to fully participate in the workforce.\nB: Japan still has significant untapped potential in both groups. Changing workplace culture matters as much as policy."
+    },
+    {
+      "id": 5003, "category": "society",
+      "title": "Diversity in Leadership", "titleJa": "ダイバーシティと組織のリーダーシップ",
+      "text": "A: Our company's diversity report shows only fourteen percent of senior leadership are women. Still disappointing.\nB: That's frustratingly common across industries. What's your company doing about it?\nA: New mentoring programs, transparent promotion criteria, and targets for gender balance in recruitment shortlists.\nB: Targets help, but the deeper issue is workplace culture — whether women feel genuinely supported and valued.\nA: The flexible working arrangements post-pandemic have helped. Parents can more easily balance career and family.\nB: That's a real silver lining. Flexibility benefits everyone, but it's particularly important for primary caregivers."
+    },
+    {
+      "id": 5004, "category": "society",
+      "title": "Mental Health Stigma", "titleJa": "メンタルヘルスの偏見",
+      "text": "Mental health issues affect approximately one in five adults globally, yet in many societies, stigma prevents people from seeking help. A new survey across twelve countries found that sixty-three percent of respondents would be reluctant to tell their employer about a mental health condition, fearing discrimination. However, attitudes are gradually changing — particularly among younger generations who are more open about discussing anxiety, depression, and burnout. Major corporations are increasingly offering mental health days, employee assistance programs, and counseling services. Experts argue that investment in mental health is not just a moral imperative but an economic one: untreated conditions cost the global economy an estimated one trillion dollars annually in lost productivity."
+    },
+    {
+      "id": 5005, "category": "society",
+      "title": "Four-Day Working Week", "titleJa": "週4日勤務の実験",
+      "text": "A: Belgium recently gave workers the legal right to a four-day working week. Will it catch on?\nB: I hope so. The evidence from pilots in Iceland and the UK is compelling — productivity stayed the same or improved.\nA: That surprised many skeptics. Working fewer hours maintaining the same output seems counterintuitive.\nB: But burnout and absenteeism are costly. A well-rested employee is more effective per hour than an exhausted one.\nA: The challenge is implementing it fairly — it's easier for knowledge workers than healthcare or retail staff.\nB: True. A universal policy may not work, but giving more flexibility to companies and workers seems the right direction."
+    },
+    {
+      "id": 5006, "category": "society",
+      "title": "Urban Housing Crisis", "titleJa": "都市部の住宅危機",
+      "text": "A: The average home here now costs over twelve times the median annual salary. How did we get here?\nB: It's a perfect storm — low interest rates fueled speculation, supply failed to keep up, and zoning restricted new construction.\nA: And international investment pushed prices up further, particularly in desirable urban centers.\nB: Some cities are introducing vacancy taxes and limits on foreign ownership, with mixed results.\nA: Ultimately, you need to build more housing — particularly affordable units near transit and employment.\nB: Every city knows that in theory. Political will to override neighborhood resistance to new development is usually what's lacking."
+    },
+    {
+      "id": 5007, "category": "society",
+      "title": "Social Media Polarization", "titleJa": "SNSと政治的分極化",
+      "text": "A: Research suggests algorithms are deepening political polarization by reinforcing existing beliefs.\nB: The filter bubble effect is very real. People end up in echo chambers where extreme views are normalized.\nA: Misinformation spreads far faster than corrections. A false story can circle the globe before the truth gets moving.\nB: Some platforms label disputed content and reduce viral amplification of divisive material.\nA: But their revenue model depends on engagement, and outrage drives more engagement than nuance.\nB: That's the structural problem. Without regulatory intervention or a different business model, incentives won't change."
+    },
+    {
+      "id": 5008, "category": "society",
+      "title": "Living Abroad — Language Immersion", "titleJa": "海外留学・語学イマージョン体験",
+      "text": "A: I just came back from a month-long exchange program in Portugal. It was transformative.\nB: What made it so impactful?\nA: Living with a host family and working alongside local professionals — you see the world through a completely different lens.\nB: Language must have been a barrier initially.\nA: Yes, at first. But I learned more Portuguese in four weeks of immersion than in a full year of classes.\nB: There's really no substitute for being in an environment where you have to communicate to get through the day."
+    },
+    {
+      "id": 5009, "category": "international",
+      "title": "COP Climate Summit Progress", "titleJa": "COP気候サミットの成果",
+      "text": "A: World leaders are gathering again for COP. Do you think meaningful progress will come out of it?\nB: I'm cautiously optimistic. The extreme weather this past year has made the stakes impossible to ignore.\nA: But the gap between commitments and actual action remains enormous. Many countries are still expanding fossil fuels.\nB: True. The loss and damage fund for vulnerable nations was a breakthrough, but implementation is slow.\nA: Poorer countries argue that developed nations caused the crisis and should bear most of the cost.\nB: That tension won't disappear easily. But the window for meaningful action is closing rapidly."
+    },
+    {
+      "id": 5010, "category": "international",
+      "title": "Global Refugee Crisis", "titleJa": "世界的な難民問題",
+      "text": "A: The number of displaced people has reached a record high of over a hundred million. How should the world respond?\nB: It requires coordinated action — burden-sharing among host countries, faster processing, addressing root causes.\nA: Host countries like Turkey and Colombia are bearing a disproportionate share despite being lower-income nations.\nB: The wealthiest countries have been relatively stingy in both financial contributions and directly accepting refugees.\nA: The issue has become deeply polarizing electorally in many democracies.\nB: Long-term, successful integration of refugees is an economic and social win for host societies when managed well."
+    },
+    {
+      "id": 5011, "category": "international",
+      "title": "Nuclear Arms Control Talks", "titleJa": "核軍縮交渉の現状",
+      "text": "A: The latest arms reduction talks collapsed without agreement. Is disarmament a realistic goal?\nB: In today's geopolitical climate, it seems very distant. Nuclear arsenals are seen as the ultimate security guarantee.\nA: The Non-Proliferation Treaty has frayed considerably. Several countries are expanding their nuclear capabilities.\nB: And new technologies like hypersonic missiles are making existing arms control frameworks obsolete.\nA: The risk of miscalculation or accidental conflict is real. That's why dialogue, even if imperfect, matters.\nB: The absence of communication channels is more dangerous than imperfect ones. Diplomatic engagement must continue."
+    },
+    {
+      "id": 5012, "category": "international",
+      "title": "Effectiveness of Foreign Aid", "titleJa": "国際援助の有効性",
+      "text": "A: Critics argue that much international aid is tied to donor's strategic interests rather than recipient needs.\nB: That's a valid criticism. Aid with conditions favoring donor exporters or political agendas undermines effectiveness.\nA: There's also the question of sustainability — building dependence rather than local capacity.\nB: The most effective programs invest in local institutions, education, and governance rather than importing solutions.\nA: The pandemic showed how fragile supply chains are for essentials like vaccines and medical equipment.\nB: Developing countries need capacity to produce these things domestically. That should be an aid priority."
+    },
+    {
+      "id": 5013, "category": "international",
+      "title": "Trade War Consequences", "titleJa": "貿易摩擦の影響",
+      "text": "The prolonged trade dispute between the world's two largest economies has had far-reaching consequences beyond the two countries directly involved. A new WTO study estimates that tariffs imposed over five years have reduced bilateral trade by nearly forty percent, while disrupting global supply chains that relied on components from both nations. Third countries have faced complex decisions about which trade bloc to align with, often at the cost of efficiency. While some domestic industries benefited from protection, the overall economic impact has been broadly negative, with higher consumer prices and reduced investment certainty. Analysts warn that further escalation risks splitting the global economy into competing blocs."
+    },
+    {
+      "id": 5014, "category": "international",
+      "title": "Cultural Diplomacy — Soft Power", "titleJa": "文化外交とソフトパワー",
+      "text": "A: Japan's cultural exports — anime, food, fashion — seem to be doing tremendous work for the country's soft power.\nB: Absolutely. The Cool Japan phenomenon has created genuine affection in places where there might otherwise be indifference.\nA: Cultural diplomacy achieves things formal diplomacy cannot. It builds people-to-people connections that outlast political shifts.\nB: South Korea has also been masterful — K-pop, K-drama, Korean cuisine have created a global fanbase translating into political goodwill.\nA: There's a lesson here — investing in arts and creativity pays dividends in international relations.\nB: And in tourism, foreign investment, and language learning. The ripple effects of cultural appeal are enormous."
+    },
+    {
+      "id": 5015, "category": "international",
+      "title": "Immigration Policy Debate", "titleJa": "移民政策の議論",
+      "text": "A: Immigration has become one of the most divisive political issues in many countries. How do you see it?\nB: It's genuinely complex. Immigration brings real economic benefits — filling labor shortages, new skills and entrepreneurship.\nA: The economic evidence is quite clear. But concerns about social cohesion and the pace of cultural change are real.\nB: Fast, poorly managed immigration can strain local services and create genuine hardship, fueling resentment.\nA: The solution seems to be better management rather than less immigration — faster integration, language training.\nB: And more honest political dialogue. When mainstream politicians avoid the topic, extreme voices fill the space."
+    },
+    {
+      "id": 5016, "category": "international",
+      "title": "Sports and Human Rights", "titleJa": "スポーツと人権問題",
+      "text": "A: Several Western countries announced diplomatic boycotts of events hosted by governments with poor human rights records.\nB: It sends a message, but the effectiveness is debatable. The athletes still compete and events still generate revenue.\nA: Critics argue that engagement is better than isolation — you have more influence with a seat at the table.\nB: But engagement without conditions can also be seen as tacit endorsement. It's a genuine dilemma.\nA: Athletes find themselves in an impossible position — years of preparation, then asked to make a political statement.\nB: Governing bodies have been criticized for not protecting athletes from being caught in geopolitical disputes."
+    },
+    {
+      "id": 5017, "category": "international",
+      "title": "Global Food Security Crisis", "titleJa": "世界の食料安全保障",
+      "text": "The United Nations FAO has warned that global food insecurity is at its worst level in decades, driven by climate-related crop failures, conflict, rising energy costs, and supply chain disruptions. Nearly eight hundred million people currently face food insecurity, with numbers expected to rise as extreme weather becomes more frequent. Sub-Saharan Africa and parts of South Asia are particularly vulnerable, where droughts have devastated harvests for consecutive years. The agency is calling for urgent investment in climate-resilient agriculture, improved food distribution, and greater support for smallholder farmers who produce the majority of food in developing countries. Without coordinated action, food insecurity could contribute to increased conflict and mass migration."
+    },
+    {
+      "id": 5018, "category": "health",
+      "title": "Pandemic Preparedness Lessons", "titleJa": "パンデミックへの備え",
+      "text": "A: Four years after the pandemic began, what lessons have actually been learned and implemented?\nB: Some progress — the WHO has drafted a pandemic treaty, and vaccine manufacturing in the Global South has increased.\nA: But vaccine nationalism was a serious failure. Rich countries hoarded doses while poorer ones went without for years.\nB: COVAX was well-intentioned but under-resourced and too slow. A better-funded global procurement mechanism is essential.\nA: Early warning systems also need improvement. The virus circulated for weeks before health authorities were notified.\nB: Pandemic preparedness requires long-term investment — not just a reactive surge when crisis hits."
+    },
+    {
+      "id": 5019, "category": "health",
+      "title": "Gene Therapy Breakthrough", "titleJa": "遺伝子治療の画期的進歩",
+      "text": "A: There was a remarkable announcement — a one-time gene therapy has cured a child of a previously untreatable disorder.\nB: Which disease?\nA: Sickle cell anemia. The treatment modifies the patient's own stem cells to produce healthy blood cells permanently.\nB: The potential is staggering — conditions requiring lifelong treatment addressed with a single intervention.\nA: The challenge is cost. These therapies can run into millions of dollars per patient.\nB: Breakthrough science that's only accessible to the wealthy doesn't solve the problem at a population level. Pricing and access must be addressed from the start."
+    },
+    {
+      "id": 5020, "category": "health",
+      "title": "mRNA Vaccine Technology", "titleJa": "mRNAワクチン技術の可能性",
+      "text": "A: COVID vaccines were developed in under a year. Does that mean future vaccines will also come much faster?\nB: The mRNA platform was key — once established, adapting it to a new pathogen is far quicker.\nA: Regulatory pathways also moved faster because of emergency authorization. But did corners get cut?\nB: The safety data was actually quite robust, given the enormous number of trial participants. Speed and rigor aren't mutually exclusive.\nA: What's the next application of mRNA technology?\nB: Personalized cancer vaccines that train the immune system to target specific tumor cells. Early results are very promising."
+    },
+    {
+      "id": 5021, "category": "health",
+      "title": "Workplace Burnout Epidemic", "titleJa": "職場燃え尽き症候群の蔓延",
+      "text": "A: Burnout has reached epidemic proportions in many professions. How should organizations respond?\nB: Structural changes matter more than individual coping strategies. You can't meditate your way out of a systematically overloaded environment.\nA: That's a fair point. Wellness programs that don't address root causes can feel patronizing.\nB: What works is genuine workload management, adequate staffing, autonomy, and a culture where it's safe to say you're struggling.\nA: Leadership modeling matters enormously. If the CEO glorifies working eighty hours, that sets the culture.\nB: Organizations taking mental health seriously have lower turnover, fewer sick days, and better performance. It makes business sense."
+    },
+    {
+      "id": 5022, "category": "health",
+      "title": "Secrets of Longevity", "titleJa": "長寿の秘訣",
+      "text": "A: Research on centenarians in Blue Zone regions — Sardinia, Okinawa — points to social connection as the most important longevity factor.\nB: That resonates with the data. Loneliness appears to be as damaging as smoking fifteen cigarettes a day.\nA: Modern lifestyles have systematically dismantled the community structures that traditionally provided that connection.\nB: And it's affecting younger generations too — many young adults report deep loneliness despite being constantly connected online.\nA: The solution requires redesigning urban spaces, rebuilding community institutions, changing cultural values around independence.\nB: And addressing the digital dimension. Passive social media consumption appears to deepen loneliness rather than alleviate it."
+    },
+    {
+      "id": 5023, "category": "health",
+      "title": "AI Outperforms Doctors in Diagnosis", "titleJa": "診断でAIが医師を超える",
+      "text": "A: An AI model recently outperformed specialist doctors in diagnosing certain cancers from medical images.\nB: It's genuinely exciting. AI can process data at a scale and consistency no human can match — particularly for pattern recognition.\nA: Does that threaten the role of doctors?\nB: I think it transforms rather than replaces. AI becomes a decision-support tool, freeing doctors to focus on the human aspects — communication, judgment, empathy.\nA: There are ethical questions too — data privacy, algorithmic bias, accountability when AI makes an error.\nB: Critical questions. The technology is advancing faster than the regulatory and ethical frameworks needed to govern it safely."
+    },
+    {
+      "id": 5024, "category": "health",
+      "title": "Drug Pricing Debate", "titleJa": "新薬の価格問題",
+      "text": "A: A new drug dramatically improves outcomes for a rare disease, but it's priced at three million dollars per patient. Justified?\nB: Pharmaceutical companies argue they need to recoup enormous R&D costs. Only a fraction of candidates ever reach market.\nA: But many foundational research breakthroughs were funded by taxpayer money through public grants.\nB: If the public took the risk in early research, it should have some say in pricing. That's a compelling counterargument.\nA: The US model of minimal price regulation drives innovation but terrible equity. Other countries negotiate national pricing.\nB: There's a middle ground — supporting innovation without creating a system where life-saving treatments are inaccessible to most."
+    },
+    {
+      "id": 5025, "category": "health",
+      "title": "Universal Healthcare Debate", "titleJa": "ユニバーサルヘルスケアの議論",
+      "text": "A: The debate over universal healthcare is as heated as ever. What's your view?\nB: The evidence is fairly clear — countries with universal coverage have better overall health outcomes at lower per capita cost.\nA: Critics argue universal systems face long waiting times and limit patient choice.\nB: Wait times can be managed with adequate funding. And 'choice' in a private system is largely illusory if you can't afford the options.\nA: Political feasibility seems the biggest barrier. Vested interests in the healthcare industry are powerful.\nB: Public support for universal healthcare is consistently high when surveyed. It's often political donors and lobbying, not public opinion, that blocks reform."
+    }
+  ],
+  "explanations": {
+    "5001": [
+      { "phrase": "rote memorization", "reading": "ロートメモリゼーション", "meaning": "丸暗記", "note": "詰め込み型教育への批判でよく使われる表現。" },
+      { "phrase": "the perennial challenge", "reading": "", "meaning": "永遠の課題", "note": "\"perennial\" = 繰り返し起こる・多年生の。" }
+    ],
+    "5002": [
+      { "phrase": "unsustainable", "reading": "アンサステイナブル", "meaning": "持続不可能な", "note": "経済・環境議論の頻出語。" }
+    ],
+    "5004": [
+      { "phrase": "moral imperative", "reading": "", "meaning": "道徳的義務・責務", "note": "強い倫理的主張をするときの表現。" },
+      { "phrase": "lost productivity", "reading": "", "meaning": "失われた生産性", "note": "" }
+    ],
+    "5007": [
+      { "phrase": "echo chambers", "reading": "エコーチェンバー", "meaning": "同質的な意見しか入ってこない環境", "note": "フィルターバブルとともに重要なメディアリテラシー用語。" },
+      { "phrase": "outrage drives engagement", "reading": "", "meaning": "怒りがエンゲージメントを生む", "note": "SNSのアルゴリズム問題を説明する表現。" }
+    ],
+    "5013": [
+      { "phrase": "trade blocs", "reading": "トレードブロック", "meaning": "貿易ブロック（経済圏）", "note": "EU、RCEP などが例。" },
+      { "phrase": "bilateral trade", "reading": "", "meaning": "二国間貿易", "note": "" }
+    ],
+    "5019": [
+      { "phrase": "stem cells", "reading": "ステムセル", "meaning": "幹細胞", "note": "再生医療の基本用語。" },
+      { "phrase": "staggering potential", "reading": "", "meaning": "驚異的な可能性", "note": "" }
+    ],
+    "5024": [
+      { "phrase": "R&D costs", "reading": "アールアンドディー", "meaning": "研究開発費", "note": "research and development の略。" },
+      { "phrase": "recoup costs", "reading": "", "meaning": "コストを回収する", "note": "" }
+    ]
+  }
+}

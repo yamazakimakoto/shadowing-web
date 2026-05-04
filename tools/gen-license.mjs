@@ -62,14 +62,17 @@ function genKey() {
 const BUNDLES = {
   'bundle:travel_set': ['base', 'pack:travel_vol1', 'pack:travel_vol2'],
   'bundle:toeic_set':  ['base', 'pack:toeic'],
-  'bundle:all':        ['base', 'pack:travel_vol1', 'pack:travel_vol2', 'pack:toeic']
+  'bundle:jiji_set':   ['base', 'pack:jiji_vol1', 'pack:jiji_vol2'],
+  'bundle:all':        ['base', 'pack:travel_vol1', 'pack:travel_vol2', 'pack:toeic', 'pack:jiji_vol1', 'pack:jiji_vol2']
 };
 
 const PRODUCT_LABELS = {
   'base':             '【本体】ベースライセンス',
   'pack:travel_vol1': '【パック】海外旅行 vol.1',
   'pack:travel_vol2': '【パック】海外旅行 vol.2',
-  'pack:toeic':       '【パック】TOEICパック'
+  'pack:toeic':       '【パック】TOEICパック',
+  'pack:jiji_vol1':   '【パック】時事英語 vol.1',
+  'pack:jiji_vol2':   '【パック】時事英語 vol.2'
 };
 
 const [product = 'base', countStr = '1', note = '', maxStr = '3'] = process.argv.slice(2);
