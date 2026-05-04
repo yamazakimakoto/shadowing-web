@@ -623,9 +623,25 @@ el.recordBtn.addEventListener('click', () => {
   if (state.isRecording) stopRecording(); else startRecording();
 });
 
+// ── デバッグオーバーレイ（画面下部に表示 / 診断後に削除予定）──
+function _recDbg(msg) {
+  console.log('[REC]', msg);
+  let box = document.getElementById('_rec_dbg');
+  if (!box) {
+    box = document.createElement('pre');
+    box.id = '_rec_dbg';
+    box.style.cssText = 'position:fixed;left:0;right:0;bottom:0;margin:0;padding:6px 8px;' +
+      'background:rgba(0,0,0,.85);color:#0f0;font-size:11px;z-index:9999;' +
+      'max-height:130px;overflow:auto;white-space:pre-wrap;pointer-events:none;';
+    document.body.appendChild(box);
+  }
+  box.textContent += new Date().toISOString().slice(11,19) + ' ' + msg + '\n';
+  box.scrollTop = box.scrollHeight;
+}
+
 // 録音完了後: 新しい <audio> 要素を生成して差し替え + 再生エリアを表示
-// iOS Safari では既存 <audio> の src 再利用で再生バーが消えるため毎回 createElement する
 function _showRecordedAudio(blob) {
+  _recDbg('_showRecordedAudio type=' + blob.type + ' size=' + blob.size);
   const url   = URL.createObjectURL(blob);
   const fresh = document.createElement('audio');
   fresh.id       = 'recorded-audio';
@@ -635,9 +651,11 @@ function _showRecordedAudio(blob) {
   if (old && old.src && old.src.startsWith('blob:')) {
     try { URL.revokeObjectURL(old.src); } catch {}
   }
-  if (old) { old.replaceWith(fresh); } else { el.audioArea.appendChild(fresh); }
+  if (old && old.parentNode) { old.replaceWith(fresh); }
+  else { el.audioArea.appendChild(fresh); }
   el.recordedAudio = fresh;
   el.audioArea.classList.remove('hidden');
+  _recDbg('audioArea hidden=' + el.audioArea.classList.contains('hidden'));
 }
 
 async function startRecording() {
@@ -666,7 +684,7 @@ async function startRecording() {
     return;
   }
 
-  // MediaRecorder 生成（MIME タイプは自動選択、iOS は video/mp4 or audio/mp4）
+  // MediaRecorder 生成
   let mr;
   try { mr = new MediaRecorder(stream); }
   catch (e) {
@@ -674,8 +692,22 @@ async function startRecording() {
     alert('録音の初期化に失敗しました。ブラウザを再読み込みして再試行してください。\n' + e.message);
     return;
   }
+  _recDbg('MediaRecorder created mimeType="' + mr.mimeType + '"');
 
   const chunks = [];
+  let audioShown = false;
+
+  // データが揃ったら音声を表示（重複防止フラグ付き）
+  function tryShowAudio() {
+    if (audioShown) return;
+    if (!chunks.length) { _recDbg('tryShow: chunks empty'); return; }
+    audioShown = true;
+    let blobMime = mr.mimeType || 'audio/mp4';
+    if (blobMime === 'video/mp4') blobMime = 'audio/mp4';
+    _recDbg('tryShow: chunks=' + chunks.length + ' mime=' + blobMime);
+    _showRecordedAudio(new Blob(chunks, { type: blobMime }));
+  }
+
   state.mediaRecorder  = mr;
   state.audioChunks    = chunks;
   state.isRecording    = true;
@@ -689,19 +721,25 @@ async function startRecording() {
   el.scoreArea.classList.add('hidden');
 
   mr.addEventListener('dataavailable', e => {
-    if (e.data && e.data.size > 0) chunks.push(e.data);
+    _recDbg('dataavailable size=' + (e.data ? e.data.size : 'null'));
+    if (e.data && e.data.size > 0) {
+      chunks.push(e.data);
+      // iOS では stop より後に dataavailable が来る場合がある
+      if (mr.state === 'inactive') tryShowAudio();
+    }
   });
 
   mr.addEventListener('stop', () => {
+    _recDbg('stop event chunks=' + chunks.length + ' mimeType="' + mr.mimeType + '"');
     stream.getTracks().forEach(t => t.stop());
-    if (!chunks.length) return;
-    // iOS Safari は video/mp4 で録音するが <audio> 再生には audio/mp4 が必要
-    let blobMime = mr.mimeType || 'audio/mp4';
-    if (blobMime === 'video/mp4') blobMime = 'audio/mp4';
-    _showRecordedAudio(new Blob(chunks, { type: blobMime }));
+    tryShowAudio();
+    // iOS: stop より後に dataavailable が来る場合の保険
+    setTimeout(tryShowAudio, 300);
+    setTimeout(tryShowAudio, 800);
   });
 
-  mr.addEventListener('error', () => {
+  mr.addEventListener('error', e => {
+    _recDbg('error: ' + (e.error || e));
     stream.getTracks().forEach(t => t.stop());
     state.mediaRecorder = null;
     state.isRecording   = false;
@@ -711,9 +749,10 @@ async function startRecording() {
   });
 
   try {
-    // 1秒タイムスライス: iOS/PC/Android 全対応。stop() を呼ぶ前に必ずデータが蓄積される
-    mr.start(1000);
+    mr.start(500); // 500ms タイムスライス: iOS でデータを確実に蓄積
+    _recDbg('mr.start(500) OK state=' + mr.state);
   } catch (e) {
+    _recDbg('mr.start error: ' + e.message);
     stream.getTracks().forEach(t => t.stop());
     state.mediaRecorder = null;
     state.isRecording   = false;
@@ -762,6 +801,7 @@ function stopRecording() {
 
   const mr = state.mediaRecorder;
   state.mediaRecorder = null;
+  _recDbg('stopRecording mr.state=' + (mr ? mr.state : 'null'));
   if (mr && mr.state !== 'inactive') {
     try { mr.stop(); } catch {}
   }
