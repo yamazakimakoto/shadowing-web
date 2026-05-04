@@ -164,7 +164,7 @@ app.post('/admin/api/generate', requireAdmin, (req, res) => {
 
   const db   = loadDB();
   const keys = [];
-  const cnt  = Math.min(Math.max(1, parseInt(count) || 1), 100);
+  const cnt  = Math.min(Math.max(1, parseInt(count) || 1), 1000);
   const maxA = Math.min(Math.max(1, parseInt(maxActivations) || 5), 10);
 
   for (let i = 0; i < cnt; i++) {
