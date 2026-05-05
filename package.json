@@ -9,6 +9,7 @@
     "gen-key": "node tools/gen-license.mjs"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2"
   },

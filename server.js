@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
@@ -464,6 +465,79 @@ app.get('/api/pack/:packId', (req, res) => {
 
   const packData = JSON.parse(readFileSync(packFile, 'utf8'));
   res.json(packData);
+});
+
+// ── TTS インメモリキャッシュ（最大300件・LRU風） ─────────────────────────────
+const ttsMemCache = new Map();
+const TTS_CACHE_MAX = 300;
+const VALID_TTS_VOICES = ['alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer'];
+
+function getTTSCache(text, voice) {
+  const key = `${voice}:${text}`;
+  const hit = ttsMemCache.get(key);
+  if (hit) { ttsMemCache.delete(key); ttsMemCache.set(key, hit); } // LRU: 末尾へ
+  return hit || null;
+}
+function setTTSCache(text, voice, buffer) {
+  const key = `${voice}:${text}`;
+  if (ttsMemCache.size >= TTS_CACHE_MAX) {
+    ttsMemCache.delete(ttsMemCache.keys().next().value); // 最古を削除
+  }
+  ttsMemCache.set(key, buffer);
+}
+
+// GET /api/status
+app.get('/api/status', (_req, res) => {
+  res.json({ hasTTS: !!(process.env.OPENAI_API_KEY) });
+});
+
+// POST /api/tts — OpenAI 音声合成（インメモリキャッシュ付き）
+app.post('/api/tts', async (req, res) => {
+  const { text, voice = 'nova' } = req.body;
+  if (!text) return res.status(400).json({ error: 'テキストが必要です' });
+
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) return res.status(503).json({ error: 'TTS_NOT_AVAILABLE' });
+
+  const useVoice = VALID_TTS_VOICES.includes(voice) ? voice : 'nova';
+
+  const cached = getTTSCache(text, useVoice);
+  if (cached) {
+    res.setHeader('Content-Type', 'audio/mpeg');
+    res.setHeader('Cache-Control', 'private, max-age=86400');
+    res.setHeader('X-Cache', 'HIT');
+    return res.send(cached);
+  }
+
+  try {
+    const upstream = await fetch('https://api.openai.com/v1/audio/speech', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'tts-1',
+        input: text.slice(0, 4096),
+        voice: useVoice,
+        response_format: 'mp3',
+      }),
+    });
+    if (!upstream.ok) {
+      const err = await upstream.json().catch(() => ({}));
+      throw new Error(err.error?.message || `TTS error ${upstream.status}`);
+    }
+    const buf = Buffer.from(await upstream.arrayBuffer());
+    setTTSCache(text, useVoice, buf);
+    res.setHeader('Content-Type', 'audio/mpeg');
+    res.setHeader('Cache-Control', 'private, max-age=86400');
+    res.setHeader('X-Cache', 'MISS');
+    res.send(buf);
+  } catch (err) {
+    console.error('[tts]', err.message);
+    res.removeHeader('Content-Type');
+    res.status(500).json({ error: err.message });
+  }
 });
 
 const PORT = process.env.PORT || 3003;

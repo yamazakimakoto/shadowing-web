@@ -210,28 +210,67 @@ const el = {
 };
 
 // ==================== VOICES ====================
-let voices = [];
+// serverHasTTS = true → OpenAI TTS、false → Web Speech API フォールバック
+let serverHasTTS = false;
 
+// OpenAI TTS ブラウザ内キャッシュ（blob URL、セッション中有効）
+const ttsCache   = new Map();
+let currentAudio = null;   // 現在再生中の Audio
+let ttsAbort     = null;   // AbortController（フェッチ中断用）
+
+async function fetchTTS(text, voice) {
+  const key = `${voice}:${text}`;
+  if (ttsCache.has(key)) return ttsCache.get(key);
+  const ctrl = new AbortController();
+  ttsAbort = ctrl;
+  const res = await fetch('/api/tts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text, voice }),
+    signal: ctrl.signal,
+  });
+  if (!res.ok) { const d = await res.json().catch(() => ({})); throw new Error(d.error || 'TTS error'); }
+  const url = URL.createObjectURL(await res.blob());
+  ttsCache.set(key, url);
+  return url;
+}
+function playAudio(url, rate) {
+  return new Promise((resolve, reject) => {
+    const audio = new Audio(url);
+    audio.playbackRate = Math.max(0.5, Math.min(2.0, rate));
+    currentAudio = audio;
+    audio.addEventListener('ended', () => { currentAudio = null; resolve(); });
+    audio.addEventListener('error', () => { currentAudio = null; reject(new Error('audio error')); });
+    audio.play().catch(reject);
+  });
+}
+function getAudioDuration(url) {
+  return new Promise(resolve => {
+    const a = new Audio(url);
+    a.addEventListener('loadedmetadata', () => resolve(a.duration), { once: true });
+    a.addEventListener('error', () => resolve(3), { once: true });
+  });
+}
+function getTTSVoice() { return el.voiceSelect?.value || 'nova'; }
+
+// Web Speech API（フォールバック用）
+let voices = [];
 function loadVoices() {
   voices = speechSynthesis.getVoices();
-  const englishVoices = voices.filter(v => v.lang.startsWith('en'));
+  if (serverHasTTS) return;  // OpenAI TTS 使用中は不要
+  const eng = voices.filter(v => v.lang.startsWith('en'));
   el.voiceSelect.innerHTML = '';
-  if (englishVoices.length === 0) {
-    el.voiceSelect.innerHTML = '<option value="">デフォルト</option>';
-    return;
-  }
-  englishVoices.forEach((v, i) => {
+  if (!eng.length) { el.voiceSelect.innerHTML = '<option value="">デフォルト</option>'; return; }
+  eng.forEach((v, i) => {
     const opt = document.createElement('option');
-    opt.value = i;
-    opt.textContent = `${v.name} (${v.lang})`;
+    opt.value = i; opt.textContent = `${v.name} (${v.lang})`;
     el.voiceSelect.appendChild(opt);
   });
-  const samIdx   = englishVoices.findIndex(v => v.name === 'Samantha');
-  const moiraIdx = englishVoices.findIndex(v => v.name === 'Moira');
-  const enUSIdx  = englishVoices.findIndex(v => v.lang === 'en-US');
+  const samIdx   = eng.findIndex(v => v.name === 'Samantha');
+  const moiraIdx = eng.findIndex(v => v.name === 'Moira');
+  const enUSIdx  = eng.findIndex(v => v.lang === 'en-US');
   el.voiceSelect.value = samIdx !== -1 ? samIdx : (moiraIdx !== -1 ? moiraIdx : (enUSIdx !== -1 ? enUSIdx : 0));
 }
-
 speechSynthesis.addEventListener('voiceschanged', loadVoices);
 loadVoices();
 
@@ -241,10 +280,26 @@ loadVoices();
 })();
 
 function getSelectedVoice() {
-  const englishVoices = voices.filter(v => v.lang.startsWith('en'));
-  const idx = parseInt(el.voiceSelect.value);
-  return englishVoices[idx] || null;
+  const eng = voices.filter(v => v.lang.startsWith('en'));
+  return eng[parseInt(el.voiceSelect.value)] || null;
 }
+
+// サーバーステータス取得（TTS対応か判定）
+(async () => {
+  try {
+    const s = await fetch('/api/status').then(r => r.json());
+    serverHasTTS = s.hasTTS === true;
+  } catch { serverHasTTS = false; }
+  if (serverHasTTS) {
+    el.voiceSelect.innerHTML = `
+      <option value="nova">Nova（女性・明瞭）</option>
+      <option value="shimmer">Shimmer（女性・柔らか）</option>
+      <option value="alloy">Alloy（中性的）</option>
+      <option value="echo">Echo（男性・自然）</option>
+      <option value="fable">Fable（英国系）</option>
+      <option value="onyx">Onyx（男性・深い）</option>`;
+  }
+})();
 
 // ==================== NAVIGATION ====================
 el.navBtns.forEach(btn => {
@@ -478,12 +533,14 @@ el.speedSlider.addEventListener('input', () => {
 });
 
 el.playBtn.addEventListener('click', () => {
-  if (state.dialogueMode) {
-    if (state.isPlaying) stopSpeech(); else startSpeech();
+  if (state.isPaused) {
+    resumeSpeech();
+  } else if (state.isPlaying) {
+    if (serverHasTTS) pauseSpeech();
+    else if (state.dialogueMode) stopSpeech();
+    else { if (speechSynthesis.paused) resumeSpeech(); else pauseSpeech(); }
   } else {
-    if (speechSynthesis.paused && !state.isPlaying) resumeSpeech();
-    else if (state.isPlaying) pauseSpeech();
-    else startSpeech();
+    startSpeech();
   }
 });
 
@@ -495,101 +552,207 @@ el.repeatBtn.addEventListener('click', () => {
   el.repeatBtn.textContent = state.isRepeating ? '🔁 リピート ON' : '🔁 リピート';
 });
 
+// ── エントリポイント ────────────────────────────────────────────────────
 function startSpeech(text, onEnd) {
   if (state.isRecording) return;
   if (state.dialogueMode && !text && !onEnd) { startDialogueSpeech(); return; }
+  if (serverHasTTS) { startSpeechTTS(text, onEnd); return; }
+  startSpeechWSA(text, onEnd);
+}
 
-  speechSynthesis.cancel();
-  clearWordHighlights();
+// ── OpenAI TTS パス ──────────────────────────────────────────────────────
+function startSpeechTTS(text, onEnd) {
   const content = text || state.currentText;
   if (!content) return;
+  stopSpeech();
+  state.dialogueStopped = false;
+  const rate  = parseFloat(el.speedSlider.value);
+  const voice = getTTSVoice();
+  el.playBtn.disabled = true;
+  el.playBtn.textContent = '⏳ 読み込み中…';
+  (async () => {
+    try {
+      const url = await fetchTTS(content, voice);
+      if (state.dialogueStopped) return;
+      state.isPlaying = true;
+      el.playBtn.disabled = false;
+      el.playBtn.textContent = '⏸ 一時停止';
+      await playAudio(url, rate);
+      if (!state.dialogueStopped) {
+        state.isPlaying = false; el.playBtn.textContent = '▶ 再生';
+        if (onEnd) { onEnd(); return; }
+        if (state.isRepeating && content === state.currentText) setTimeout(startSpeech, 600);
+      }
+    } catch (err) {
+      if (err.name === 'AbortError') return;
+      console.error('[TTS]', err.message);
+      state.isPlaying = false; el.playBtn.disabled = false; el.playBtn.textContent = '▶ 再生';
+    }
+  })();
+}
 
+// ── Web Speech API パス（フォールバック）────────────────────────────────
+function startSpeechWSA(text, onEnd) {
+  const content = text || state.currentText;
+  if (!content) return;
+  speechSynthesis.cancel();
+  clearWordHighlights();
   const utt = new SpeechSynthesisUtterance(content);
   utt.rate = parseFloat(el.speedSlider.value);
   utt.lang = 'en-US';
   const voice = getSelectedVoice();
   if (voice) utt.voice = voice;
-
   utt.addEventListener('boundary', evt => {
     if (evt.name !== 'word') return;
     clearWordHighlights();
     for (const w of state.words) {
       if (evt.charIndex >= parseInt(w.dataset.start) && evt.charIndex < parseInt(w.dataset.end)) {
-        w.classList.add('active');
-        w.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        break;
+        w.classList.add('active'); w.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); break;
       }
     }
   });
   utt.addEventListener('start', () => { state.isPlaying = true; state.utterance = utt; el.playBtn.textContent = '⏸ 一時停止'; });
   utt.addEventListener('end',   () => {
-    clearWordHighlights();
-    state.isPlaying = false;
-    el.playBtn.textContent = '▶ 再生';
+    clearWordHighlights(); state.isPlaying = false; el.playBtn.textContent = '▶ 再生';
     if (onEnd) { onEnd(); return; }
     if (state.isRepeating && content === state.currentText) setTimeout(startSpeech, 600);
   });
   utt.addEventListener('error', () => { state.isPlaying = false; el.playBtn.textContent = '▶ 再生'; clearWordHighlights(); });
-  speechSynthesis.speak(utt);
+  try {
+    if (speechSynthesis.paused) speechSynthesis.resume();
+    speechSynthesis.speak(utt);
+  } catch(e) { state.isPlaying = false; el.playBtn.textContent = '▶ 再生'; }
 }
 
-function pauseSpeech()  {
-  if (speechSynthesis.speaking && !speechSynthesis.paused) {
-    speechSynthesis.pause(); state.isPlaying = false; el.playBtn.textContent = '▶ 再生';
+// ── 一時停止 / 再開 / 停止 ──────────────────────────────────────────────
+function pauseSpeech() {
+  if (serverHasTTS) {
+    if (currentAudio && !currentAudio.paused) {
+      currentAudio.pause(); state.isPlaying = false; state.isPaused = true; el.playBtn.textContent = '▶ 再生';
+    }
+  } else {
+    if (speechSynthesis.speaking && !speechSynthesis.paused) {
+      speechSynthesis.pause(); state.isPlaying = false; el.playBtn.textContent = '▶ 再生';
+    }
   }
 }
 function resumeSpeech() {
-  if (speechSynthesis.paused) {
-    speechSynthesis.resume(); state.isPlaying = true; el.playBtn.textContent = '⏸ 一時停止';
+  if (serverHasTTS) {
+    if (currentAudio && currentAudio.paused) {
+      currentAudio.play().catch(() => {});
+      state.isPlaying = true; state.isPaused = false; el.playBtn.textContent = '⏸ 一時停止';
+    }
+  } else {
+    if (speechSynthesis.paused) { speechSynthesis.resume(); state.isPlaying = true; el.playBtn.textContent = '⏸ 一時停止'; }
   }
 }
 function stopSpeech() {
   state.dialogueStopped = true;
+  if (ttsAbort)            { ttsAbort.abort(); ttsAbort = null; }
   if (state.dialogueTimer) { clearTimeout(state.dialogueTimer); state.dialogueTimer = null; }
-  clearLineHighlights();
+  if (currentAudio)        { currentAudio.pause(); currentAudio.src = ''; currentAudio = null; }
   speechSynthesis.cancel();
+  clearLineHighlights();
   state.isPlaying = false; state.isPaused = false;
-  el.playBtn.textContent = '▶ 再生';
+  el.playBtn.disabled = false; el.playBtn.textContent = '▶ 再生';
   clearWordHighlights();
 }
 function clearWordHighlights() { state.words.forEach(w => w.classList.remove('active')); }
 
 // ==================== DIALOGUE PLAYBACK ENGINE ====================
-async function startDialogueSpeech() {
+function startDialogueSpeech() {
   if (state.isRecording || !state.dialogueSegs.length) return;
-  speechSynthesis.cancel();
-  clearWordHighlights(); clearLineHighlights();
-  state.dialogueStopped = false; state.isPlaying = true;
-  el.playBtn.textContent = '■ 停止';
-
+  stopSpeech();
+  state.dialogueStopped = false;
   const rate = parseFloat(el.speedSlider.value);
-  const voice = getSelectedVoice();
-  const segs = state.dialogueSegs, silent = state.dialogueSilentRole, fullPlay = state.dialogueFullPlay;
+  const segs = state.dialogueSegs;
 
-  try {
-    for (let i = 0; i < segs.length; i++) {
-      if (state.dialogueStopped) break;
-      const seg = segs[i];
-      if (!seg.text.trim()) continue;
-      highlightLine(i);
-      if (!fullPlay && seg.role === silent) await dialogueSilence(seg.text, rate);
-      else await speakSegment(seg, voice, rate);
-      clearLineHighlights();
-      if (state.dialogueStopped) break;
-    }
-  } finally {
-    state.isPlaying = false; el.playBtn.textContent = '▶ 再生';
-    clearWordHighlights(); clearLineHighlights();
-    if (state.isRepeating && !state.dialogueStopped) setTimeout(startDialogueSpeech, 800);
+  if (serverHasTTS) {
+    // ── OpenAI TTS ダイアログ ──────────────────────────────────────────
+    const voice = getTTSVoice();
+    (async () => {
+      el.playBtn.disabled = true; el.playBtn.textContent = '⏳ 読み込み中…';
+      const urls = {};
+      try {
+        await Promise.all(segs.map(async (seg, i) => {
+          if (!seg.text.trim()) return;
+          urls[i] = await fetchTTS(seg.text, voice);
+        }));
+      } catch (err) {
+        if (err.name !== 'AbortError') console.error('[TTS dialogue]', err.message);
+        state.isPlaying = false; el.playBtn.disabled = false; el.playBtn.textContent = '▶ 再生';
+        return;
+      }
+      if (state.dialogueStopped) return;
+      state.isPlaying = true; el.playBtn.disabled = false; el.playBtn.textContent = '⏸ 一時停止';
+
+      if (state.dialogueFullPlay) {
+        for (let i = 0; i < segs.length; i++) {
+          if (state.dialogueStopped) break;
+          if (!segs[i].text.trim() || !urls[i]) continue;
+          highlightLine(i);
+          await playAudio(urls[i], rate).catch(() => {});
+          clearLineHighlights();
+        }
+      } else {
+        const silent = state.dialogueSilentRole;
+        for (let i = 0; i < segs.length; i++) {
+          if (state.dialogueStopped) break;
+          if (!segs[i].text.trim()) continue;
+          highlightLine(i);
+          if (segs[i].role === silent) {
+            const dur = urls[i] ? await getAudioDuration(urls[i]) : 2;
+            await new Promise(r => { state.dialogueTimer = setTimeout(r, (dur / rate) * 1000); });
+          } else {
+            await playAudio(urls[i], rate).catch(() => {});
+          }
+          clearLineHighlights();
+        }
+      }
+      if (!state.dialogueStopped) {
+        state.isPlaying = false; el.playBtn.textContent = '▶ 再生';
+        if (state.isRepeating) setTimeout(startDialogueSpeech, 800);
+      }
+    })();
+    return;
   }
+
+  // ── Web Speech API ダイアログ（フォールバック）────────────────────────
+  clearWordHighlights(); clearLineHighlights();
+  state.isPlaying = true;
+  el.playBtn.textContent = '■ 停止';
+  const voice = getSelectedVoice();
+  const silent = state.dialogueSilentRole, fullPlay = state.dialogueFullPlay;
+
+  (async () => {
+    try {
+      for (let i = 0; i < segs.length; i++) {
+        if (state.dialogueStopped) break;
+        const seg = segs[i];
+        if (!seg.text.trim()) continue;
+        highlightLine(i);
+        if (!fullPlay && seg.role === silent) await dialogueSilenceWSA(seg.text, rate);
+        else await speakSegmentWSA(seg, voice, rate);
+        clearLineHighlights();
+        if (state.dialogueStopped) break;
+      }
+    } finally {
+      state.isPlaying = false; el.playBtn.textContent = '▶ 再生';
+      clearWordHighlights(); clearLineHighlights();
+      if (state.isRepeating && !state.dialogueStopped) setTimeout(startDialogueSpeech, 800);
+    }
+  })();
 }
 
-function speakSegment(seg, voice, rate) {
+function speakSegmentWSA(seg, voice, rate) {
   return new Promise(resolve => {
     const utt = new SpeechSynthesisUtterance(seg.text);
     utt.rate = rate; utt.lang = 'en-US';
     if (voice) utt.voice = voice;
     state.utterance = utt;
+    const words = seg.text.trim().split(/\s+/).filter(Boolean).length || 1;
+    const tid = setTimeout(() => { clearWordHighlights(); resolve(); },
+      Math.max(8000, (words / (Math.max(0.5, rate) * 120)) * 60000 + 3000));
     utt.addEventListener('boundary', evt => {
       if (evt.name !== 'word') return;
       const gi = evt.charIndex + seg.textOffset;
@@ -600,13 +763,14 @@ function speakSegment(seg, voice, rate) {
         }
       }
     });
-    utt.addEventListener('end',   () => { clearWordHighlights(); resolve(); });
-    utt.addEventListener('error', () => { clearWordHighlights(); resolve(); });
+    utt.addEventListener('end',   () => { clearTimeout(tid); clearWordHighlights(); resolve(); });
+    utt.addEventListener('error', () => { clearTimeout(tid); clearWordHighlights(); resolve(); });
+    if (speechSynthesis.paused) speechSynthesis.resume();
     speechSynthesis.speak(utt);
   });
 }
 
-function dialogueSilence(text, rate) {
+function dialogueSilenceWSA(text, rate) {
   const words = text.trim().split(/\s+/).filter(Boolean).length || 1;
   const durationMs = Math.max(1200, (words / (140 * rate)) * 60_000 + 700);
   return new Promise(resolve => {
@@ -1051,32 +1215,59 @@ function openSavedPreview(entry) {
   el.reviewModal.classList.remove('hidden');
 
   const reviewWords = Array.from(el.reviewText.querySelectorAll('.word'));
-  el.reviewPlayBtn.onclick = () => {
-    speechSynthesis.cancel();
-    const utt = new SpeechSynthesisUtterance(entry.text);
-    utt.rate = parseFloat(el.speedSlider.value); utt.lang = 'en-US';
-    const voice = getSelectedVoice();
-    if (voice) utt.voice = voice;
-    utt.addEventListener('boundary', evt => {
-      if (evt.name !== 'word') return;
-      reviewWords.forEach(w => w.classList.remove('active'));
-      for (const w of reviewWords) {
-        if (evt.charIndex >= parseInt(w.dataset.start) && evt.charIndex < parseInt(w.dataset.end)) {
-          w.classList.add('active'); break;
-        }
+  el.reviewPlayBtn.onclick = async () => {
+    if (serverHasTTS) {
+      try {
+        const url = await fetchTTS(entry.text, getTTSVoice());
+        if (currentAudio) { currentAudio.pause(); currentAudio.src = ''; }
+        const audio = new Audio(url);
+        audio.playbackRate = parseFloat(el.speedSlider.value);
+        currentAudio = audio;
+        audio.addEventListener('ended', () => { currentAudio = null; });
+        await audio.play();
+      } catch (err) {
+        if (err.name !== 'AbortError') console.error('[review TTS]', err.message);
       }
-    });
-    utt.addEventListener('end', () => reviewWords.forEach(w => w.classList.remove('active')));
-    speechSynthesis.speak(utt);
+    } else {
+      speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(entry.text);
+      utt.rate = parseFloat(el.speedSlider.value); utt.lang = 'en-US';
+      const voice = getSelectedVoice();
+      if (voice) utt.voice = voice;
+      utt.addEventListener('boundary', evt => {
+        if (evt.name !== 'word') return;
+        reviewWords.forEach(w => w.classList.remove('active'));
+        for (const w of reviewWords) {
+          if (evt.charIndex >= parseInt(w.dataset.start) && evt.charIndex < parseInt(w.dataset.end)) {
+            w.classList.add('active'); break;
+          }
+        }
+      });
+      utt.addEventListener('end', () => reviewWords.forEach(w => w.classList.remove('active')));
+      speechSynthesis.speak(utt);
+    }
   };
-  el.reviewPracticeBtn.onclick = () => { speechSynthesis.cancel(); el.reviewModal.classList.add('hidden'); loadSavedText(entry); };
+  el.reviewPracticeBtn.onclick = () => {
+    if (currentAudio) { currentAudio.pause(); currentAudio.src = ''; currentAudio = null; }
+    speechSynthesis.cancel();
+    el.reviewModal.classList.add('hidden');
+    loadSavedText(entry);
+  };
 }
 
 el.closeBtns.forEach(btn => {
-  btn.addEventListener('click', () => { el.reviewModal.classList.add('hidden'); speechSynthesis.cancel(); });
+  btn.addEventListener('click', () => {
+    el.reviewModal.classList.add('hidden');
+    if (currentAudio) { currentAudio.pause(); currentAudio.src = ''; currentAudio = null; }
+    speechSynthesis.cancel();
+  });
 });
 el.reviewModal.addEventListener('click', e => {
-  if (e.target === el.reviewModal) { el.reviewModal.classList.add('hidden'); speechSynthesis.cancel(); }
+  if (e.target === el.reviewModal) {
+    el.reviewModal.classList.add('hidden');
+    if (currentAudio) { currentAudio.pause(); currentAudio.src = ''; currentAudio = null; }
+    speechSynthesis.cancel();
+  }
 });
 
 // ==================== PACK MANAGER ====================
