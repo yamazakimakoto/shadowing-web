@@ -832,10 +832,14 @@ function _showRecordedAudio(blob) {
   el.audioArea.classList.remove('hidden');
 }
 
-// 録音完了後: 表示 → Whisper採点
+// 採点機能フラグ: false の間は録音のみ動作（Whisper API呼出なし＝コストゼロ）
+// 課金プラン整備後に true に戻すと採点が復活する
+const SCORING_ENABLED = false;
+
+// 録音完了後: 表示 → (有効なら) Whisper採点
 async function _finishRecording(blob) {
   _showRecordedAudio(blob);
-  await scoreWithWhisper(blob);
+  if (SCORING_ENABLED) await scoreWithWhisper(blob);
 }
 
 async function scoreWithWhisper(blob) {
