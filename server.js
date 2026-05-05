@@ -105,7 +105,9 @@ function requireAdmin(req, res, next) {
 
 // ── Express ──
 const app = express();
-app.use(express.json());
+// Whisper採点用に大きなbase64 WAV/webmを受け取る必要があるため上限を引き上げる
+// iOS WAVは約88KB/秒・60秒で約7MB、base64化で約9MB
+app.use(express.json({ limit: '20mb' }));
 app.use(express.static(join(__dirname, 'public')));
 
 // ───────────────────────────────────────────────

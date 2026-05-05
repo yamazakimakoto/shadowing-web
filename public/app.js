@@ -868,14 +868,19 @@ async function scoreWithWhisper(blob) {
     state.lastTranscript = transcript;
     showScore(score);
   } catch (err) {
-    console.warn('[scoreWithWhisper]', err.message);
+    console.warn('[scoreWithWhisper]', err.message, 'blob size=', blob.size, 'type=', blob.type);
     // Whisper失敗時: lastTranscript (SpeechRecognition) でフォールバック採点
     const fallback = calcScore(state.currentText, state.lastTranscript);
     if (fallback !== null) {
       state.lastScore = fallback;
       showScore(fallback);
     } else {
-      el.scoreArea.classList.add('hidden');
+      // フォールバックも不可 → エラーメッセージを表示
+      el.scoreNum.textContent = '?';
+      el.scoreMsg.textContent = '採点失敗: ' + (err.message || '通信エラー') + '（再録音してください）';
+      setRingProgress(0);
+      el.scoreRing.classList.remove('excellent', 'good');
+      el.scoreRing.classList.add('poor');
     }
   }
 }
