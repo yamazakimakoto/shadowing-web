@@ -175,6 +175,28 @@ node tools/admin.mjs revoke SHAD-XXXX-XXXX-XXXX
 
 ---
 
+## 採点機能の状態（重要）
+
+採点機能（OpenAI Whisper）は **現在UI上は非表示**（暫定停止中）です。コストがユーザー単位で大きく変動するため、課金プランを整備した上で再リリース予定。
+
+### サーバー側の状態
+
+- `/api/score` エンドポイント: **稼働中**（呼び出されれば動く）
+- Whisper API への接続: **正常**
+
+### 再有効化の手順（将来）
+
+`public/index.html` 内の以下の1行を編集するだけで復活します:
+
+```html
+<!-- 暫定停止: 採点機能（Whisper API）は別途課金方式を検討中 -->
+<section class="card" style="display:none">  ← この style="display:none" を削除
+```
+
+`server.js` / `app.js` 側のロジックは無変更（コミット履歴で復元可能）。
+
+---
+
 ## OpenAI APIコスト管理
 
 ### 料金目安
