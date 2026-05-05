@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
+import { getCached, setCached } from './tts-cache.js';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
@@ -467,31 +468,14 @@ app.get('/api/pack/:packId', (req, res) => {
   res.json(packData);
 });
 
-// ── TTS インメモリキャッシュ（最大300件・LRU風） ─────────────────────────────
-const ttsMemCache = new Map();
-const TTS_CACHE_MAX = 300;
 const VALID_TTS_VOICES = ['alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer'];
-
-function getTTSCache(text, voice) {
-  const key = `${voice}:${text}`;
-  const hit = ttsMemCache.get(key);
-  if (hit) { ttsMemCache.delete(key); ttsMemCache.set(key, hit); } // LRU: 末尾へ
-  return hit || null;
-}
-function setTTSCache(text, voice, buffer) {
-  const key = `${voice}:${text}`;
-  if (ttsMemCache.size >= TTS_CACHE_MAX) {
-    ttsMemCache.delete(ttsMemCache.keys().next().value); // 最古を削除
-  }
-  ttsMemCache.set(key, buffer);
-}
 
 // GET /api/status
 app.get('/api/status', (_req, res) => {
   res.json({ hasTTS: !!(process.env.OPENAI_API_KEY) });
 });
 
-// POST /api/tts — OpenAI 音声合成（インメモリキャッシュ付き）
+// POST /api/tts — OpenAI 音声合成（ディスクキャッシュ付き）
 app.post('/api/tts', async (req, res) => {
   const { text, voice = 'nova' } = req.body;
   if (!text) return res.status(400).json({ error: 'テキストが必要です' });
@@ -501,7 +485,8 @@ app.post('/api/tts', async (req, res) => {
 
   const useVoice = VALID_TTS_VOICES.includes(voice) ? voice : 'nova';
 
-  const cached = getTTSCache(text, useVoice);
+  // ① ディスクキャッシュ確認
+  const cached = getCached(text, useVoice);
   if (cached) {
     res.setHeader('Content-Type', 'audio/mpeg');
     res.setHeader('Cache-Control', 'private, max-age=86400');
@@ -509,6 +494,7 @@ app.post('/api/tts', async (req, res) => {
     return res.send(cached);
   }
 
+  // ② OpenAI TTS API 呼び出し
   try {
     const upstream = await fetch('https://api.openai.com/v1/audio/speech', {
       method: 'POST',
@@ -528,7 +514,10 @@ app.post('/api/tts', async (req, res) => {
       throw new Error(err.error?.message || `TTS error ${upstream.status}`);
     }
     const buf = Buffer.from(await upstream.arrayBuffer());
-    setTTSCache(text, useVoice, buf);
+
+    // ③ ディスクに保存（非同期・失敗しても処理継続）
+    setCached(text, useVoice, buf);
+
     res.setHeader('Content-Type', 'audio/mpeg');
     res.setHeader('Cache-Control', 'private, max-age=86400');
     res.setHeader('X-Cache', 'MISS');
