@@ -27,7 +27,8 @@ Express サーバー（server.js）
         ├── .jwt_secret     JWT署名シークレット
         └── packs/          パックJSONデータ
               ↕ HTTP
-OpenAI TTS API（外部）
+OpenAI TTS API（音声合成）
+OpenAI Whisper API（採点・音声認識）
 ```
 
 ---
@@ -113,6 +114,7 @@ ADMIN_PASSWORD=your_password
 |---------|------|------|------|
 | GET | `/api/status` | なし | TTS対応状況確認 `{"hasTTS": true}` |
 | POST | `/api/tts` | なし | OpenAI TTS音声生成（キャッシュ付き） |
+| POST | `/api/score` | なし | OpenAI Whisper転写→単語一致度採点 |
 | POST | `/api/activate` | なし（レート制限あり） | ベースライセンス認証→JWT発行 |
 | POST | `/api/verify` | なし | JWT検証・lastSeen更新 |
 | POST | `/api/pack/activate` | Bearer JWT（base） | パックライセンス認証→パックJWT発行 |
@@ -158,6 +160,55 @@ ADMIN_PASSWORD=your_password
 ### フォールバック
 
 `OPENAI_API_KEY` 未設定 → `/api/status` で `hasTTS: false` → Web Speech API（OS標準音声）を使用
+
+---
+
+## 採点（Whisper）仕様
+
+### 処理フロー
+
+```
+クライアント: 録音停止
+  → ① Blob → base64 エンコード
+  → ② POST /api/score { audio, mimeType, reference }
+サーバー
+  → ③ Buffer.from(audio, 'base64') でデコード
+  → ④ FormData (file + model=whisper-1 + language=en) で OpenAI Whisper呼出
+  → ⑤ 転写テキスト取得
+  → ⑥ calcScoreServer(reference, transcript) で単語一致度計算
+  → ⑦ { score, transcript } 返却
+クライアント
+  → ⑧ showScore(score) でリングUI更新
+  → ⑨ Whisper失敗時は SpeechRecognition の lastTranscript でフォールバック採点
+```
+
+### スコア計算ロジック
+
+```javascript
+// 正規化: 小文字化・記号除去・トークン化
+const norm = s => s.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim().split(/\s+/);
+
+// 単語頻度カウントで一致数集計（リファレンスの単語を消費）
+const cnt = {};
+refWords.forEach(w => { cnt[w] = (cnt[w] || 0) + 1; });
+let matched = 0;
+hypWords.forEach(w => { if (cnt[w] > 0) { matched++; cnt[w]--; } });
+
+// スコア = 一致単語数 / リファレンス語数 × 100
+return Math.round((matched / refWords.length) * 100);
+```
+
+### コスト
+
+OpenAI Whisper-1: **$0.006 / 分**（約¥1 / 録音1回）
+
+採点はキャッシュなし（毎回API呼出）。1ユーザー1日10回練習で約¥10/日。
+
+### クライアント実装ポイント
+
+- 録音Blob形式: iOS=`audio/wav`（Web Audio API + PCM→WAV）、PC/Android=`audio/webm` or `audio/mp4`
+- `FileReader.readAsDataURL` で base64 化（`data:...;base64,` プレフィックスを除去）
+- 採点中は `スコア=…` `メッセージ=採点中...` を表示
 
 ---
 
