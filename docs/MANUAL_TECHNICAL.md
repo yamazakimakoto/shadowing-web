@@ -114,7 +114,7 @@ ADMIN_PASSWORD=your_password
 |---------|------|------|------|
 | GET | `/api/status` | なし | TTS対応状況確認 `{"hasTTS": true}` |
 | POST | `/api/tts` | なし | OpenAI TTS音声生成（キャッシュ付き） |
-| POST | `/api/score` | なし | OpenAI Whisper転写→単語一致度採点 |
+| POST | `/api/score` | なし | OpenAI Whisper転写→単語一致度採点（**現在クライアントから呼出停止中**） |
 | POST | `/api/activate` | なし（レート制限あり） | ベースライセンス認証→JWT発行 |
 | POST | `/api/verify` | なし | JWT検証・lastSeen更新 |
 | POST | `/api/pack/activate` | Bearer JWT（base） | パックライセンス認証→パックJWT発行 |
@@ -164,6 +164,12 @@ ADMIN_PASSWORD=your_password
 ---
 
 ## 採点（Whisper）仕様
+
+> **⚠️ 現在のステータス: 採点機能はクライアント側で停止中（録音は稼働）**
+>
+> `public/app.js` の `SCORING_ENABLED = false` により、`/api/score` への呼出はスキップされる。`_finishRecording()` は `_showRecordedAudio()` のみ実行し、Whisper API は呼ばれない（コストゼロ）。
+>
+> サーバー側の `/api/score` エンドポイントは稼働しており、フラグを `true` に戻すだけで全ブラウザ（iOS含む）で採点が復活する。再有効化前提でコード・本仕様は維持。
 
 ### 処理フロー
 
