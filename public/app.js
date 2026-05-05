@@ -832,6 +832,54 @@ function _showRecordedAudio(blob) {
   el.audioArea.classList.remove('hidden');
 }
 
+// 録音完了後: 表示 → Whisper採点
+async function _finishRecording(blob) {
+  _showRecordedAudio(blob);
+  await scoreWithWhisper(blob);
+}
+
+async function scoreWithWhisper(blob) {
+  if (!blob || !state.currentText) return;
+  // スコアエリアにローディング表示
+  el.scoreNum.textContent   = '…';
+  el.scoreMsg.textContent   = '採点中...';
+  el.scoreArea.classList.remove('hidden');
+  setRingProgress(0);
+
+  try {
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload  = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+    const mimeType = blob.type || 'audio/webm';
+    const resp = await fetch('/api/score', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ audio: base64, mimeType, reference: state.currentText }),
+    });
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({}));
+      throw new Error(err.error || `HTTP ${resp.status}`);
+    }
+    const { score, transcript } = await resp.json();
+    state.lastScore      = score;
+    state.lastTranscript = transcript;
+    showScore(score);
+  } catch (err) {
+    console.warn('[scoreWithWhisper]', err.message);
+    // Whisper失敗時: lastTranscript (SpeechRecognition) でフォールバック採点
+    const fallback = calcScore(state.currentText, state.lastTranscript);
+    if (fallback !== null) {
+      state.lastScore = fallback;
+      showScore(fallback);
+    } else {
+      el.scoreArea.classList.add('hidden');
+    }
+  }
+}
+
 async function startRecording() {
   if (!state.currentText) return;
   stopSpeech();
@@ -889,7 +937,7 @@ async function startRecording() {
         stream.getTracks().forEach(t => t.stop());
         if (!bufs.length) return;
         const wavBuf = _pcmToWAV(bufs, ctx.sampleRate);
-        _showRecordedAudio(new Blob([wavBuf], { type: 'audio/wav' }));
+        _finishRecording(new Blob([wavBuf], { type: 'audio/wav' }));
       };
     } catch (e) {
       stream.getTracks().forEach(t => t.stop());
@@ -928,13 +976,13 @@ async function startRecording() {
   }
 
   const chunks = [];
-  let audioShown = false;
-  function tryShowAudio() {
-    if (audioShown || !chunks.length) return;
-    audioShown = true;
+  let recFinished = false;
+  function onRecDone() {
+    if (recFinished || !chunks.length) return;
+    recFinished = true;
     let mime = mr.mimeType || 'audio/webm';
     if (mime === 'video/mp4') mime = 'audio/mp4';
-    _showRecordedAudio(new Blob(chunks, { type: mime }));
+    _finishRecording(new Blob(chunks, { type: mime }));
   }
 
   state.mediaRecorder = mr;
@@ -943,13 +991,13 @@ async function startRecording() {
   mr.addEventListener('dataavailable', e => {
     if (e.data && e.data.size > 0) {
       chunks.push(e.data);
-      if (mr.state === 'inactive') tryShowAudio();
+      if (mr.state === 'inactive') onRecDone();
     }
   });
   mr.addEventListener('stop', () => {
     stream.getTracks().forEach(t => t.stop());
-    tryShowAudio();
-    setTimeout(tryShowAudio, 400);
+    onRecDone();
+    setTimeout(onRecDone, 400);
   });
   mr.addEventListener('error', () => {
     stream.getTracks().forEach(t => t.stop());
@@ -1012,10 +1060,7 @@ function stopRecording() {
   if (state._iosStop) {
     const fn = state._iosStop;
     state._iosStop = null;
-    fn();
-    const score = calcScore(state.currentText, state.lastTranscript);
-    state.lastScore = score;
-    if (score !== null) showScore(score);
+    fn(); // → _finishRecording が非同期で採点する
     return;
   }
 
@@ -1023,12 +1068,8 @@ function stopRecording() {
   const mr = state.mediaRecorder;
   state.mediaRecorder = null;
   if (mr && mr.state !== 'inactive') {
-    try { mr.stop(); } catch {}
+    try { mr.stop(); } catch {} // → onRecDone → _finishRecording が非同期で採点する
   }
-
-  const score = calcScore(state.currentText, state.lastTranscript);
-  state.lastScore = score;
-  if (score !== null) showScore(score);
 }
 
 // ==================== SCORING ====================
