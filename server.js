@@ -377,18 +377,33 @@ app.post('/api/activate', (req, res) => {
   const max   = lic.maxActivations || 5;
   const token = signToken({ kh, did: deviceId, prod: 'base' });
 
+  // ★ HttpOnly Cookieにも保存（iOS Safari の localStorage クリア対策）
+  // 1年保持、Secure（HTTPS必須）、SameSite=Lax
+  res.setHeader('Set-Cookie',
+    `shadowing_auth=${token}; Max-Age=31536000; Path=/; HttpOnly; Secure; SameSite=Lax`);
+
   res.json({ token, product: 'base', activationsUsed: used, activationsLeft: max - used });
 });
 
+// 簡易Cookieパーサ（cookie-parser依存を増やさない）
+function getCookie(req, name) {
+  const header = req.headers.cookie;
+  if (!header) return null;
+  const target = header.split(';').map(c => c.trim()).find(c => c.startsWith(name + '='));
+  return target ? decodeURIComponent(target.slice(name.length + 1)) : null;
+}
+
 // POST /api/verify  — JWT 検証（起動時・オンライン確認用）
 app.post('/api/verify', (req, res) => {
-  const { token, deviceId } = req.body || {};
+  // body のtokenが空ならCookieから取得（localStorage クリア対策）
+  const token = (req.body?.token) || getCookie(req, 'shadowing_auth');
   if (!token) return res.status(400).json({ error: 'トークンが必要です' });
 
   const payload = verifyJwt(token);
   if (!payload) return res.status(401).json({ error: 'トークンが無効または期限切れです' });
-  if (deviceId && payload.did !== deviceId)
-    return res.status(401).json({ error: 'デバイスが一致しません' });
+
+  // ★ deviceId 厳格チェックは削除（JWT署名で十分。localStorageクリアでdeviceIdが
+  // 変わっても、JWT内の did が活性化レコードと一致していれば有効とみなす）
 
   const db  = loadDB();
   const lic = db.licenses[payload.kh];
@@ -401,7 +416,20 @@ app.post('/api/verify', (req, res) => {
 
   const used = Object.keys(lic.activations).length;
   const max  = lic.maxActivations || 5;
-  res.json({ valid: true, product: payload.prod, activationsUsed: used, activationsLeft: max - used });
+
+  // Cookieも更新（最終アクセスを延長）& クライアントにtokenを返却
+  // → localStorageが消えていてもCookie経由で復元可能
+  res.setHeader('Set-Cookie',
+    `shadowing_auth=${token}; Max-Age=31536000; Path=/; HttpOnly; Secure; SameSite=Lax`);
+
+  res.json({
+    valid: true,
+    token,                                   // 新規追加: localStorageに復元用
+    deviceId: payload.did,                   // 新規追加: localStorageに復元用
+    product: payload.prod,
+    activationsUsed: used,
+    activationsLeft: max - used
+  });
 });
 
 // POST /api/pack/activate  — 追加パック認証

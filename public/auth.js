@@ -38,9 +38,10 @@
   async function activateLicense(key) {
     const deviceId = getDeviceId();
     const res  = await fetch('/api/activate', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ key: key.trim().toUpperCase(), deviceId })
+      method:      'POST',
+      credentials: 'same-origin',  // Cookie受信
+      headers:     { 'Content-Type': 'application/json' },
+      body:        JSON.stringify({ key: key.trim().toUpperCase(), deviceId })
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || '認証に失敗しました');
@@ -49,33 +50,47 @@
   }
 
   // ── トークン検証（起動時）──
+  // localStorage が消えていても、サーバー側 HttpOnly Cookie に JWT が残っていれば
+  // 自動復元する（iOS Safari の ITP / 「すべてのCookieをブロック」対策）
   async function verifyToken() {
-    const token = localStorage.getItem(AUTH_TOKEN_KEY);
-    if (!token) return null;
-    if (isExpiredLocally(token)) {
+    const localToken = localStorage.getItem(AUTH_TOKEN_KEY);
+
+    // 期限切れの明白なトークンはローカルでスキップ
+    if (localToken && isExpiredLocally(localToken)) {
       localStorage.removeItem(AUTH_TOKEN_KEY);
-      return null;
     }
+
     try {
+      // tokenがlocalにあれば送る、なくてもCookie経由で復元できる
+      const tokenForBody = localStorage.getItem(AUTH_TOKEN_KEY);
       const res = await fetch('/api/verify', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({ token, deviceId: getDeviceId() })
+        method:      'POST',
+        credentials: 'same-origin',  // Cookie送信
+        headers:     { 'Content-Type': 'application/json' },
+        body:        JSON.stringify({ token: tokenForBody || null })
       });
       if (!res.ok) {
-        // サーバーエラー時はオフライン動作（JWT が期限内なら許可）
-        if (!navigator.onLine) {
-          const p = parseJwtLocally(token);
+        // サーバーエラー時はオフライン動作（localTokenが期限内なら許可）
+        if (localToken && !isExpiredLocally(localToken)) {
+          const p = parseJwtLocally(localToken);
           return p ? { valid: true, product: p.prod, offline: true } : null;
         }
-        localStorage.removeItem(AUTH_TOKEN_KEY);
+        // トークンを即削除しない（一時的な401のリトライ余地を残す）
         return null;
       }
-      return await res.json();
+      const data = await res.json();
+      // サーバーから返されたtoken/deviceIdをlocalStorageに復元保存
+      // → 次回はCookie復元なしで起動できる
+      if (data.token)    localStorage.setItem(AUTH_TOKEN_KEY, data.token);
+      if (data.deviceId) localStorage.setItem(DEVICE_ID_KEY, data.deviceId);
+      return data;
     } catch {
-      // ネットワーク不通 → オフライン動作
-      const p = parseJwtLocally(token);
-      return p ? { valid: true, product: p.prod, offline: true } : null;
+      // ネットワーク不通 → オフライン動作（localTokenが期限内なら許可）
+      if (localToken && !isExpiredLocally(localToken)) {
+        const p = parseJwtLocally(localToken);
+        return p ? { valid: true, product: p.prod, offline: true } : null;
+      }
+      return null;
     }
   }
 
