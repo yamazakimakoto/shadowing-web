@@ -234,22 +234,48 @@ async function fetchTTS(text, voice) {
   ttsCache.set(key, url);
   return url;
 }
+// ★ 単一の共有Audioインスタンス
+//   iOS Safari は新規 Audio 生成のたびに user gesture 権限が
+//   失われるため、ダイアログ再生で2文目以降が play() 拒否される。
+//   同一インスタンスの src を入れ替えれば権限が継続する。
+let _sharedAudio = null;
+function _getSharedAudio() {
+  if (!_sharedAudio) {
+    _sharedAudio = new Audio();
+    _sharedAudio.preload = 'auto';
+  }
+  return _sharedAudio;
+}
+
 function playAudio(url, rate) {
   return new Promise((resolve, reject) => {
-    const audio = new Audio(url);
+    const audio = _getSharedAudio();
+    audio.src = url;
     audio.playbackRate = Math.max(0.5, Math.min(2.0, rate));
     currentAudio = audio;
-    audio.addEventListener('ended', () => { currentAudio = null; resolve(); });
-    audio.addEventListener('error', () => { currentAudio = null; reject(new Error('audio error')); });
-    audio.play().catch(reject);
+
+    const cleanup = () => {
+      audio.removeEventListener('ended', onEnded);
+      audio.removeEventListener('error', onError);
+    };
+    const onEnded = () => { cleanup(); resolve(); };
+    const onError = () => { cleanup(); reject(new Error('audio error')); };
+    audio.addEventListener('ended', onEnded, { once: true });
+    audio.addEventListener('error', onError, { once: true });
+
+    const p = audio.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(err => { cleanup(); reject(err); });
+    }
   });
 }
-function getAudioDuration(url) {
-  return new Promise(resolve => {
-    const a = new Audio(url);
-    a.addEventListener('loadedmetadata', () => resolve(a.duration), { once: true });
-    a.addEventListener('error', () => resolve(3), { once: true });
-  });
+
+// ロード前から取得できるよう単語数ベースで概算（iOSでloadedmetadataが
+// 保留される事例があるため、別Audioインスタンスを作らない方針に変更）
+function estimateDurationMs(text, rate) {
+  const words = (text || '').trim().split(/\s+/).filter(Boolean).length || 1;
+  // 平均英語音声 ~150 wpm を基準に rate で割る + バッファ700ms
+  return Math.max(1200, (words / (150 * rate)) * 60_000 + 700);
 }
 function getTTSVoice() { return el.voiceSelect?.value || 'nova'; }
 
@@ -691,7 +717,13 @@ function startDialogueSpeech() {
           if (state.dialogueStopped) break;
           if (!segs[i].text.trim() || !urls[i]) continue;
           highlightLine(i);
-          await playAudio(urls[i], rate).catch(() => {});
+          try {
+            await playAudio(urls[i], rate);
+          } catch (err) {
+            console.warn('[dialogue] audio play failed at line', i, err.message);
+            // エラー時は推定時間ぶん待ってから次へ（即スキップを防ぐ）
+            await new Promise(r => { state.dialogueTimer = setTimeout(r, estimateDurationMs(segs[i].text, rate)); });
+          }
           clearLineHighlights();
         }
       } else {
@@ -701,10 +733,17 @@ function startDialogueSpeech() {
           if (!segs[i].text.trim()) continue;
           highlightLine(i);
           if (segs[i].role === silent) {
-            const dur = urls[i] ? await getAudioDuration(urls[i]) : 2;
-            await new Promise(r => { state.dialogueTimer = setTimeout(r, (dur / rate) * 1000); });
+            // 自分のパート: 単語数ベースで無音待機（iOSで loadedmetadata が
+            // 保留される事例を回避するため getAudioDuration は使わない）
+            const ms = estimateDurationMs(segs[i].text, rate);
+            await new Promise(r => { state.dialogueTimer = setTimeout(r, ms); });
           } else {
-            await playAudio(urls[i], rate).catch(() => {});
+            try {
+              await playAudio(urls[i], rate);
+            } catch (err) {
+              console.warn('[dialogue] audio play failed at line', i, err.message);
+              await new Promise(r => { state.dialogueTimer = setTimeout(r, estimateDurationMs(segs[i].text, rate)); });
+            }
           }
           clearLineHighlights();
         }
