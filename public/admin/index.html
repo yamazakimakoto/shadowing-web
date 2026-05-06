@@ -359,7 +359,15 @@
         </p>
         <div class="form-row">
           <label class="form-label">バックアップファイル（licenses-backup-*.json）</label>
-          <input type="file" id="restore-file" accept=".json" class="form-input" style="padding:8px;">
+          <!-- ラベルベースのUIに変更（iOS Safari等で input type=file 直接が無反応な事例があるため） -->
+          <label for="restore-file" class="btn" style="display:inline-block;cursor:pointer;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:10px 16px;">
+            📁 ファイルを選択
+          </label>
+          <span id="restore-filename" style="margin-left:12px;color:var(--text2);font-size:0.85rem;">未選択</span>
+          <input type="file" id="restore-file"
+                 accept="application/json,.json,text/plain"
+                 style="display:none;"
+                 onchange="document.getElementById('restore-filename').textContent = this.files[0] ? this.files[0].name : '未選択';">
         </div>
         <button class="btn btn-warning" onclick="restoreBackup()">🔄 リストア実行</button>
         <div id="restore-msg" class="hidden" style="margin-top:12px;"></div>
@@ -1046,6 +1054,8 @@ async function restoreBackup() {
     msgEl.innerHTML = `✓ リストア完了 — 追加: <strong>${data.added}</strong> 件 ／ スキップ: <strong>${data.skipped}</strong> 件 ／ 合計: <strong>${data.after}</strong> 件`;
     msgEl.classList.remove('hidden');
     fileInput.value = '';
+    const fnEl = document.getElementById('restore-filename');
+    if (fnEl) fnEl.textContent = '未選択';
   } catch (e) {
     msgEl.className = 'msg-box msg-error';
     msgEl.textContent = 'エラー: ' + e.message;
