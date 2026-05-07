@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync, copyFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync, copyFileSync, renameSync, statSync, unlinkSync } from 'fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -48,13 +48,82 @@ if (existsSync(SEC_FILE)) {
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || null;
 
 // ── DB helpers（JSON ファイルベース）──
+//
+// データ消失バグの根本対策:
+// 旧コード: writeFileSync は非アトミック → SIGTERM中に書き込みが切れて
+//   壊れた JSON が残る → 次回 loadDB の JSON.parse 失敗 → catch で空 DB →
+//   次の saveDB で空が永続化されて全消失。
+// 新コード:
+//   1. saveDB をアトミックに（.tmp に書いて rename）
+//   2. parse 失敗時は静かに空にせず、.bak から自動復元を試みる
+//   3. 起動時に世代バックアップ（5世代）を残す
+const DB_BAK_DIR = join(DATA_DIR, 'backups');
+if (!existsSync(DB_BAK_DIR)) mkdirSync(DB_BAK_DIR, { recursive: true });
+
+function readJsonSafe(path) {
+  try {
+    const txt = readFileSync(path, 'utf8');
+    if (!txt.trim()) return null;
+    return JSON.parse(txt);
+  } catch { return null; }
+}
+
+function listBackups() {
+  if (!existsSync(DB_BAK_DIR)) return [];
+  return readdirSync(DB_BAK_DIR)
+    .filter(f => f.startsWith('licenses-') && f.endsWith('.json'))
+    .map(f => ({ name: f, path: join(DB_BAK_DIR, f), mtime: statSync(join(DB_BAK_DIR, f)).mtimeMs }))
+    .sort((a, b) => b.mtime - a.mtime);  // 新しい順
+}
+
 function loadDB() {
-  try { return JSON.parse(readFileSync(DB_FILE, 'utf8')); }
-  catch { return { licenses: {} }; }
+  // ① 現行ファイルを読む
+  let data = readJsonSafe(DB_FILE);
+  if (data && data.licenses && typeof data.licenses === 'object') return data;
+
+  // ② 壊れている or 空 → バックアップから復元を試みる
+  console.error(`[loadDB] DB読込失敗: ${DB_FILE} が読めません。バックアップから復元します。`);
+  for (const b of listBackups()) {
+    const bak = readJsonSafe(b.path);
+    if (bak && bak.licenses && Object.keys(bak.licenses).length > 0) {
+      console.error(`[loadDB] 復元成功: ${b.name}（ライセンス${Object.keys(bak.licenses).length}件）`);
+      // 即座に現行ファイルへ書き戻す（次回起動が空にならないように）
+      try { writeFileSync(DB_FILE, JSON.stringify(bak, null, 2)); } catch {}
+      return bak;
+    }
+  }
+
+  // ③ どこにも有効なデータがない → 空 DB（初回起動時のみ正常）
+  console.error('[loadDB] バックアップも見つかりません。空のDBで起動します。');
+  return { licenses: {} };
 }
+
 function saveDB(db) {
-  writeFileSync(DB_FILE, JSON.stringify(db, null, 2));
+  // アトミック書き込み: 一時ファイルに書いて rename
+  const tmp = DB_FILE + '.tmp';
+  writeFileSync(tmp, JSON.stringify(db, null, 2));
+  renameSync(tmp, DB_FILE);  // POSIX の rename はアトミック
 }
+
+// 起動時バックアップ（最大5世代保持）
+function createStartupBackup() {
+  const data = readJsonSafe(DB_FILE);
+  if (!data || !data.licenses || Object.keys(data.licenses).length === 0) return;
+  const ts   = new Date().toISOString().replace(/[:.]/g, '-');
+  const name = `licenses-${ts}.json`;
+  try {
+    writeFileSync(join(DB_BAK_DIR, name), JSON.stringify(data, null, 2));
+    // 5世代を超えたら古いものを削除
+    const backups = listBackups();
+    for (const old of backups.slice(5)) {
+      try { unlinkSync(old.path); } catch {}
+    }
+    console.log(`✓ 起動時バックアップ: ${name}（保持${Math.min(backups.length + 1, 5)}世代）`);
+  } catch (e) {
+    console.warn('バックアップ作成失敗:', e.message);
+  }
+}
+createStartupBackup();
 function hashKey(key) {
   return crypto.createHash('sha256').update(key.trim().toUpperCase()).digest('hex');
 }
@@ -609,6 +678,14 @@ function calcScoreServer(reference, transcript) {
 
 const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
+  // 起動時に DB の状態を確認・表示（消失検知用）
+  const db = loadDB();
+  const licCount  = Object.keys(db.licenses || {}).length;
+  const actCount  = Object.values(db.licenses || {}).reduce(
+    (n, l) => n + Object.keys(l.activations || {}).length, 0);
+  console.log(`\n📦 DB状態: ライセンス${licCount}件 / 認証済端末${actCount}台`);
+  console.log(`   DB_FILE: ${DB_FILE}`);
+  console.log(`   バックアップ: ${listBackups().length}世代`);
   console.log(`\n🎤 英会話シャドウイング Web App`);
   console.log(`   http://localhost:${PORT}`);
   console.log(`   管理画面: http://localhost:${PORT}/admin`);
