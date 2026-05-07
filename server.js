@@ -9,7 +9,15 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync, copyFi
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const DATA_DIR           = process.env.DATA_DIR || join(__dirname, 'data');
+// DATA_DIR の決定:
+// 1. 環境変数で明示指定されていればそれを使う
+// 2. /data が存在すれば（Render Persistent Disk）それを使う
+// 3. それ以外（ローカル開発）は ./data
+// ★ 過去バグ: 環境変数が未設定だと __dirname/data に落ちて、Render コンテナの
+//   揮発性ファイルシステムにデータを保存してしまっていた。デプロイごとに全消失。
+const DATA_DIR = process.env.DATA_DIR
+  || (existsSync('/data') ? '/data' : join(__dirname, 'data'));
+console.log(`[init] DATA_DIR = ${DATA_DIR}`);
 const PACKS_DIR          = join(DATA_DIR, 'packs');
 const BUNDLED_PACKS_DIR  = join(__dirname, 'packs');
 const DB_FILE            = join(DATA_DIR, 'licenses.json');
@@ -34,14 +42,22 @@ if (existsSync(BUNDLED_PACKS_DIR)) {
   }
 }
 
-// JWT シークレット（初回起動時に自動生成・保存）
-let JWT_SECRET;
-if (existsSync(SEC_FILE)) {
+// JWT シークレット決定優先度:
+// 1. 環境変数 JWT_SECRET（最優先・Render env で固定値を入れたい場合）
+// 2. SEC_FILE（DATA_DIR配下に永続化されたシークレット）
+// 3. ランダム生成して SEC_FILE に保存（初回のみ・以後は再利用）
+// ★ 過去バグ: SEC_FILE が揮発性パスにあったため、起動ごとに新シークレットが
+//   生成され、既存の全 JWT が無効化されていた。これがスマホ毎回認証の主因。
+let JWT_SECRET = process.env.JWT_SECRET;
+if (JWT_SECRET) {
+  console.log('✓ JWTシークレットを環境変数から読込');
+} else if (existsSync(SEC_FILE)) {
   JWT_SECRET = readFileSync(SEC_FILE, 'utf8').trim();
+  console.log('✓ JWTシークレットをファイルから読込');
 } else {
   JWT_SECRET = crypto.randomBytes(48).toString('base64');
   writeFileSync(SEC_FILE, JWT_SECRET, { mode: 0o600 });
-  console.log('✓ JWTシークレットを生成しました');
+  console.log('✓ JWTシークレットを生成・保存しました（次回以降は再利用）');
 }
 
 // ── 管理者パスワード ──
