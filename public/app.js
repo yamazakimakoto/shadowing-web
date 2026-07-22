@@ -145,6 +145,8 @@ const state = {
   lastTranscript:    '',
   lastScore:         null,
   savedTexts:        JSON.parse(localStorage.getItem('shadowing_saved_model') || '[]'),
+  currentChecks:     [false, false, false], // 学習進捗チェック（保存エントリの属性）
+  currentSavedEntryId: null,                // 現在練習中の保存エントリID（チェック即時保存先）
   reviewUtterance:   null,
   selectedTextId:    null,
   selectedTextTitle: '',
@@ -423,6 +425,10 @@ el.saveManualBtn.addEventListener('click', () => {
 // ==================== SET / RENDER TEXT ====================
 function setCurrentText(text) {
   state.currentText = text;
+  // 進捗チェックをリセット（保存エントリから読み込む場合は呼出側が直後に復元する）
+  state.currentChecks = [false, false, false];
+  state.currentSavedEntryId = null;
+  if (typeof syncCheckUI === 'function') syncCheckUI();
   if (!text) {
     el.textDisplay.innerHTML = '<p class="placeholder-text">上でテキストを選択してください</p>';
     setControlsEnabled(false);
@@ -1221,33 +1227,72 @@ function renderVocabCards(items) {
 // ==================== SAVE TEXT ====================
 el.saveTextBtn.addEventListener('click', saveCurrentText);
 
+function persistSavedTexts() {
+  localStorage.setItem('shadowing_saved_model', JSON.stringify(state.savedTexts));
+}
+
 function saveCurrentText() {
   if (!state.currentText) return;
   const theme = state.selectedTextTitle || '手動入力';
-  const entry = { id: Date.now(), textId: state.selectedTextId, text: state.currentText, theme, date: new Date().toISOString() };
+  const entry = {
+    id: Date.now(), textId: state.selectedTextId, text: state.currentText, theme,
+    date: new Date().toISOString(),
+    checks: state.currentChecks.slice(), // 進捗チェックを属性として保存
+  };
   state.savedTexts.unshift(entry);
   if (state.savedTexts.length > 50) state.savedTexts = state.savedTexts.slice(0, 50);
-  localStorage.setItem('shadowing_saved_model', JSON.stringify(state.savedTexts));
+  persistSavedTexts();
+  state.currentSavedEntryId = entry.id; // 以後のチェック変更を即時反映
   el.saveTextBtn.textContent = '✓ 保存済み';
   el.saveTextBtn.disabled = true;
   setTimeout(() => { el.saveTextBtn.textContent = '📌 テキストを保存'; el.saveTextBtn.disabled = false; }, 2200);
 }
+
+// ==================== 学習進捗チェック ====================
+const _checkBoxes = [document.getElementById('check-1'), document.getElementById('check-2'), document.getElementById('check-3')];
+
+function syncCheckUI() {
+  _checkBoxes.forEach((cb, i) => { if (cb) cb.checked = !!state.currentChecks[i]; });
+}
+
+_checkBoxes.forEach((cb, i) => {
+  if (!cb) return;
+  cb.addEventListener('change', () => {
+    state.currentChecks[i] = cb.checked;
+    // 保存済みエントリの練習中なら localStorage に即時反映
+    if (state.currentSavedEntryId) {
+      const entry = state.savedTexts.find(s => s.id === state.currentSavedEntryId);
+      if (entry) { entry.checks = state.currentChecks.slice(); persistSavedTexts(); }
+    }
+  });
+});
 
 function renderSavedTexts() {
   if (!state.savedTexts.length) {
     el.savedList.innerHTML = '<p class="placeholder-text">保存されたテキストはありません</p>';
     return;
   }
-  el.savedList.innerHTML = state.savedTexts.map(item => {
+  el.savedList.innerHTML = state.savedTexts.map((item, idx) => {
     const d = new Date(item.date);
     const dateStr = d.toLocaleDateString('ja-JP') + ' ' + d.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
     const preview = item.text.slice(0, 120) + (item.text.length > 120 ? '…' : '');
+    const checks  = Array.isArray(item.checks) ? item.checks : [false, false, false];
+    const checksHtml = checks.map((c, ci) =>
+      `<button class="list-check${c ? ' checked' : ''}" data-id="${item.id}" data-ci="${ci}" title="進捗チェック${ci + 1}">${ci + 1}</button>`
+    ).join('');
     return `
       <div class="history-item saved-item" data-id="${item.id}">
         <div class="hist-row">
-          <div>
-            <div class="hist-theme">📌 ${escapeHtml(item.theme)}</div>
-            <div class="hist-date">${dateStr}</div>
+          <div style="display:flex;gap:8px;align-items:flex-start">
+            <div class="saved-order-btns">
+              <button class="btn-order" data-id="${item.id}" data-dir="-1" ${idx === 0 ? 'disabled' : ''} title="上へ">▲</button>
+              <button class="btn-order" data-id="${item.id}" data-dir="1" ${idx === state.savedTexts.length - 1 ? 'disabled' : ''} title="下へ">▼</button>
+            </div>
+            <div>
+              <div class="hist-theme">📌 ${escapeHtml(item.theme)}</div>
+              <div class="hist-date">${dateStr}</div>
+              <div class="list-checks">${checksHtml}</div>
+            </div>
           </div>
           <div class="hist-row-right">
             <button class="btn-delete-saved" data-id="${item.id}" title="このテキストを削除">🗑 削除</button>
@@ -1263,7 +1308,7 @@ function renderSavedTexts() {
       e.stopPropagation();
       if (!confirm('このテキストを削除しますか？')) return;
       state.savedTexts = state.savedTexts.filter(s => s.id !== parseInt(btn.dataset.id));
-      localStorage.setItem('shadowing_saved_model', JSON.stringify(state.savedTexts));
+      persistSavedTexts();
       renderSavedTexts();
     });
   });
@@ -1272,6 +1317,39 @@ function renderSavedTexts() {
       e.stopPropagation();
       const entry = state.savedTexts.find(s => s.id === parseInt(btn.dataset.id));
       if (entry) loadSavedText(entry);
+    });
+  });
+  // 進捗チェックのトグル（一覧から直接）
+  el.savedList.querySelectorAll('.list-check').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const entry = state.savedTexts.find(s => s.id === parseInt(btn.dataset.id));
+      if (!entry) return;
+      const ci = parseInt(btn.dataset.ci);
+      const checks = Array.isArray(entry.checks) ? entry.checks.slice() : [false, false, false];
+      checks[ci] = !checks[ci];
+      entry.checks = checks;
+      persistSavedTexts();
+      btn.classList.toggle('checked', checks[ci]);
+      // 練習中の文書と同じなら練習画面のチェックも同期
+      if (state.currentSavedEntryId === entry.id) {
+        state.currentChecks = checks.slice();
+        syncCheckUI();
+      }
+    });
+  });
+  // 並べ替え（▲▼）
+  el.savedList.querySelectorAll('.btn-order').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const id  = parseInt(btn.dataset.id);
+      const dir = parseInt(btn.dataset.dir);
+      const idx = state.savedTexts.findIndex(s => s.id === id);
+      const to  = idx + dir;
+      if (idx < 0 || to < 0 || to >= state.savedTexts.length) return;
+      [state.savedTexts[idx], state.savedTexts[to]] = [state.savedTexts[to], state.savedTexts[idx]];
+      persistSavedTexts();
+      renderSavedTexts();
     });
   });
   el.savedList.querySelectorAll('.saved-item').forEach(node => {
@@ -1298,6 +1376,10 @@ function loadSavedText(entry) {
   state.selectedTextId    = entry.textId ?? null;
   state.selectedTextTitle = entry.theme;
   setCurrentText(entry.text);
+  // 進捗チェックを復元（setCurrentText がリセットした後に）
+  state.currentSavedEntryId = entry.id;
+  state.currentChecks = Array.isArray(entry.checks) ? entry.checks.map(Boolean) : [false, false, false];
+  syncCheckUI();
 }
 
 function openSavedPreview(entry) {
